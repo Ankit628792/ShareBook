@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <title>Sorting</title>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            font-family: 'Poppins', sans-serif;
+            padding: 100px 0;
+        }
+
+        button {
+            border: none;
+            border-radius: 3px;
+            padding: 10px 20px;
+            color: #fff;
+            background: #e91e63;
+            margin-top: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        p {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        p span {
+            color: #666;
+            letter-spacing: 1px;
+        }
+
+        #demo {
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="arr">Click the button to sort the array in ascending order.</p>
+
+    <button onclick="myFunction()">Sort Array</button>
+
+    <p id="demo"></p>
+
+    <script>
+        var points = [40, 100, 1, 5, 25, 10];
+        document.getElementById("arr").innerHTML += `<br /><span>Array before sort : ${points}</span>`;
+
+        function myFunction() {
+            points.sort(function (a, b) { return a - b });
+            document.getElementById("demo").innerHTML = `Array after sort : ${points}`;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    *{
+        @apply transition-all
+    }
+    .button{
+        @apply border-2 font-bold tracking-widest border-blue-500 text-blue-500 bg-white hover:bg-blue-500 hover:text-white px-6 py-2
+    }
+}

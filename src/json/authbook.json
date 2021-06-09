@@ -1,0 +1,186 @@
+{
+    "highlightedAuthors": [
+      {
+        "id": "1000004",
+        "name": "Dan Brown",
+        "biography": "Dan Brown is een Amerikaanse schrijver van thrillers. Tot Brown besloot zich volledig op het schrijven te storten, doceerde hij Engels aan de Philips Exeter Academy. Zijn interesse in het breken van geheimzinnige codes en fascinatie voor de werkwijze van inlichtingendiensten leidde tot het schrijven...",
+        "image": "http://s.s-bol.com/imgbase0/PARTYIMAGE/FC/1/5/6/6/0/1566097.gif",
+        "books": [
+          {
+            "ISBN": 9780552159722,
+            "title": "Deception point",
+            "author": "Dan Brown",
+            "price": {
+              "currency": "EUR",
+              "value": 9.99,
+              "displayValue": "9.99"
+            }
+          },
+          {
+            "ISBN": 9789024529445,
+            "title": "De delta deceptie",
+            "author": "Dan Brown",
+            "price": {
+              "currency": "EUR",
+              "value": 14.95,
+              "displayValue": "14.95"
+            }
+          },
+          {
+            "ISBN": 9789024561858,
+            "title": "Inferno",
+            "author": "Dan Brown",
+            "price": {
+              "currency": "EUR",
+              "value": 17.49,
+              "displayValue": "17.49"
+            }
+          }
+        ]
+      },
+      {
+        "id": "1000005",
+        "name": "Sophie Kinsella",
+        "biography": "Sophie Kinsella ex-financieel journaliste en schrijfster van de Shopaholic-reeks. Sophie Kinsella woont in Surrey, Engeland samen met haar man en vier zoons. Ze heeft twee zussen en vindt het (meestal) heerlijk om met hen te gaan winkelen. Met haar bestsellers Hou je mond!, Shopaholic!, Shopaholic! ...",
+        "image": "http://s.s-bol.com/imgbase0/PARTYIMAGE/FC/6/6/9/1/1/66911.gif",
+        "books": [
+          {
+            "ISBN": 9789044309904,
+            "title": "Hou je mond!",
+            "author": "Sophie Kinsella",
+            "price": {
+              "currency": "EUR",
+              "value": 10,
+              "displayValue": "10.00"
+            }
+          },
+          {
+            "ISBN": 9789044339482,
+            "title": "De Tennisparty",
+            "author": "Sophie Kinsella",
+            "price": {
+              "currency": "EUR",
+              "value": 18.5,
+              "displayValue": "18.50"
+            }
+          },
+          {
+            "ISBN": 9789044339338,
+            "title": "Mag ik je nummer even?",
+            "author": "Sophie Kinsella",
+            "price": {
+              "currency": "EUR",
+              "value": 10,
+              "displayValue": "10.00"
+            }
+          }
+        ]
+      },
+      {
+        "id": "1000006",
+        "name": "Maeve Binchy",
+        "biography": "Maeve Binchy was born on 28 May 1940 in Dublin and raised in Dalkey. The eldest child of a lawyer and a nurse, Maeve received her education at the Holy Child Convent in nearby Killiney. From there she went on to earn herself a BA (Bachelor of Arts Degree) in History from University College Dublin. I...",
+        "image": "http://s.s-bol.com/imgbase0//imagebase/regular/FC/5/3/4/5/305435.jpg",
+        "books": [
+          {
+            "ISBN": 9789000307975,
+            "title": "Vrienden voor het leven",
+            "author": "Maeve Binchy",
+            "price": {
+              "currency": "EUR",
+              "value": 10,
+              "displayValue": "10.00"
+            }
+          },
+          {
+            "ISBN": 9781409117933,
+            "title": "A Week in Winter",
+            "author": "Maeve Binchy",
+            "price": {
+              "currency": "EUR",
+              "value": 11.99,
+              "displayValue": "11.99"
+            }
+          },
+          {
+            "ISBN": 9789000316090,
+            "title": "Hotel aan zee",
+            "author": "Maeve Binchy",
+            "price": {
+              "currency": "EUR",
+              "value": 14.99,
+              "displayValue": "14.99"
+            }
+          }
+        ]
+      }
+    ],
+    "highlightedBooks": [
+      {
+        "ISBN": 9789460680755,
+        "title": "Last Minute",
+        "author": "Linda van Rijn",
+        "summary": "Op de lastminute-vakantie in Hurghada loopt Susan haar ex-vriend tegen het lijf. Liever had ze hem nooit meer gezien... Vijf jaar zijn Susan Waterberg en haar man Hugo getrouwd en gelukkig in Almere. Die mijlpaal wil Susan niet onopgemerkt voorbij laten gaan. Ze regelt haar schoonouders als oppas vo...",
+        "image": "http://s.s-bol.com/imgbase0/imagebase/large/FC/2/5/6/7/1001004011817652.jpg",
+        "price": {
+          "currency": "EUR",
+          "value": 4.99,
+          "displayValue": "4.99"
+        }
+      },
+      {
+        "ISBN": 9789023464143,
+        "title": "Duizend schitterende zonnen",
+        "author": "Khaled Hosseini",
+        "summary": "De ongeschoolde Mariam is vijftien wanneer ze wordt uitgehuwelijkt aan de dertig jaar oudere schoenverkoper Rasheed in Kabul. Jaren later moet zij de beeldschone en slimme Laila naast zich dulden, die door Rasheed na een raketaanval uit het puin is gered. Rasheed neemt Laila in huis in de hoop dat z...",
+        "image": "http://s.s-bol.com/imgbase0/imagebase/large/FC/7/3/5/1/1001004010981537.jpg",
+        "price": {
+          "currency": "EUR",
+          "value": 16.99,
+          "displayValue": "16.99"
+        }
+      },
+      {
+        "ISBN": 9781408842423,
+        "title": "And the Mountains Echoed",
+        "author": "Khaled Hosseini",
+        "summary": "And the Mountains Echoed is a deeply moving story about how we love, how we take care of one another and how the choices we make resonate through generations. With profound wisdom, depth, insight and compassion 'and moving from Kabul, to Paris, to San Francisco, to the Greek island of Tinos' Hossein...",
+        "image": "http://s.s-bol.com/imgbase0/imagebase/large/FC/0/6/0/3/9200000010223060.jpg",
+        "price": {
+          "currency": "EUR",
+          "value": 8.99,
+          "displayValue": "8.99"
+        }
+      }
+    ],
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://bookstore.apiary.io:80"
+      },
+      {
+        "rel": "viewBooks",
+        "href": "http://bookstore.apiary.io:80/books"
+      },
+      {
+        "rel": "viewBookDetails",
+        "href": "http://bookstore.apiary.io:80/books/{isbn}"
+      },
+      {
+        "rel": "viewAuthors",
+        "href": "http://bookstore.apiary.io:80/authors"
+      },
+      {
+        "rel": "viewAuthorDetails",
+        "href": "http://bookstore.apiary.io:80/authors/{id}"
+      },
+      {
+        "rel": "findAuthorDetails",
+        "href": "http://bookstore.apiary.io:80/authors{?name}"
+      },
+      {
+        "rel": "placeOrder",
+        "href": "http://bookstore.apiary.io:80/orders"
+      }
+    ]
+  }
