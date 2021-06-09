@@ -13,7 +13,7 @@ function Header() {
             <h1 className="my-4 text-3xl md:text-5xl font-bold leading-tight">Want to <span className="text-blue-500">Share</span> or <span className="text-blue-500">Get</span> a book ?</h1>
             <p className="pr-5 mb-5 text-lg text-gray-700">We provide a large varities of book to share and get from others
             without any cost. This is a free plateform to meet your needs. Explore our services with a
-                                    seemless and interactive experience ...</p>
+                                    seemless and interactive experience.</p>
 
             <button className="mx-auto lg:mx-0 rounded my-6 py-3 px-6 font-bold tracking-wide text-white transition duration-200 shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none">Get A Book</button>
 

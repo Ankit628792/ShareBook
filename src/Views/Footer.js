@@ -5,7 +5,7 @@ function Footer() {
         
     <div className="w-full h-auto p-10 py-5 flex items-center justify-center bg-black">
     <div className="md:w-3/4 w-full px-4 text-white flex flex-col">
-        <div className="w-full text-6xl font-bold">
+        <div className="w-full text-2xl md:text-5xl font-bold">
             <h1 className="w-full">How can we help you? <br />
             Get in touch.</h1>
         </div>
@@ -14,7 +14,7 @@ function Footer() {
                 an issue, just contact us. We are always here to help you.</p>
             <div className="w-44 pt-6 md:pt-0">
             <a
-          href="/"
+          href="/contactus"
           class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
         >
           Contact Us
