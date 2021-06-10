@@ -27,7 +27,7 @@ function Navbar() {
                     <span class='hamburger-inner'> <span class='hamburger-icon shadow-lg fixed'></span> </span>
                     <ul>
                         <li onClick={handleCheckedSate}> <NavLink to="/">Home</NavLink></li>
-                        <li onClick={handleCheckedSate}> <NavLink to="/allbooks">All Books</NavLink></li>
+                        <li onClick={handleCheckedSate}> <NavLink to="/allbooks">Books Rack</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink to="/about">About</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink to="/contactus">Contact</NavLink></li>
                         {/* <li onClick={handleCheckedSate}> <NavLink to="/user">User</NavLink></li> */}

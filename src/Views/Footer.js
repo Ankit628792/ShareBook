@@ -24,10 +24,10 @@ function Footer() {
         <div className="flex flex-col">
             <div className="flex mt-10 mb-6 flex-row justify-between items-center">
                 <h1 className="text-3xl">ShareBook</h1>
-                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase">About</a>
-                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase">Services</a>
-                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase">Why us</a>
-                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase">Contact</a>
+                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/myaccount">My Account</a>
+                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/allbooks">Book Rack</a>
+                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/about">About us</a>
+                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/contactus">Contact</a>
                 <div className="flex flex-row space-x-8 items-center justify-between">
                     <a href="">
                         <svg width="20" height="20" viewBox="0 0 6 12" fill="none"

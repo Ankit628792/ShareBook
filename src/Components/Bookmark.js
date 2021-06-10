@@ -61,7 +61,7 @@ const bookmarks = 0;
               Bookmarks, and check them out anytime you wish.
             </p>
             <div className="buttons">
-              <NavLink to="/">
+              <NavLink to="/allbooks">
                 <button className="button">Go to All Books</button>
               </NavLink>
             </div>
