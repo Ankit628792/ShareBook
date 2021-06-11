@@ -277,7 +277,7 @@ function ChatPage() {
                                     </div>
                                 </div>
 
-                                <button href="/chats" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" onClick={chatPeople}>
+                                <button href="/chats" className="bg-gray-800 p-2 mr-4 rounded-full md:hidden text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" onClick={chatPeople}>
                                 <ChatRoundedIcon />
                             </button>
 

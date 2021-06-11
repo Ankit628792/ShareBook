@@ -13,9 +13,10 @@ import './assets/style.css'
 import BookSingle from './Components/BookSingle';
 import Contact from "./Views/Contact";
 import AllBooks from "./Views/AllBooks";
-import Log from "./Views/Log";
 import MyAccount from "./Views/MyAccount";
 import ChatPage from "./Components/ChatPage";
+import Signin from "./Components/Signin";
+import Signup from "./Components/Signup";
 
 
 function App() {
@@ -47,8 +48,12 @@ function App() {
                 <BookmarkPage />
               </Route>
 
-              <Route path="/log">
-                <Log type="signup" />
+              <Route path="/signup">
+                <Signup />
+              </Route>
+
+              <Route path="/signin">
+                <Signin />
               </Route>
 
               <Route path="/myaccount">
@@ -77,10 +82,7 @@ function App() {
             </Switch>
           </AnimateSharedLayout>
         </AnimatePresence>
-      <div
-        className="bg-black"
-        style={{ marginTop: "auto", height: "3rem" }}
-      ></div>
+      
       <Footer />
     </>
   );

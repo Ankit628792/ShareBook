@@ -32,7 +32,7 @@ function Navbar() {
                         <li onClick={handleCheckedSate}> <NavLink to="/about">About</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink to="/contactus">Contact</NavLink></li>
                         {/* <li onClick={handleCheckedSate}> <NavLink to="/user">User</NavLink></li> */}
-                        <li onClick={handleCheckedSate}> <NavLink to="/log">SignUp</NavLink></li>
+                        <li onClick={handleCheckedSate}> <NavLink to="/signup">SignUp</NavLink></li>
 
                     </ul>
                 </label>

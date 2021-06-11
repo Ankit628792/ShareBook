@@ -73,7 +73,7 @@ const Signin = () => {
                             }} type="submit" value="Sign in" />
                         </div>
                         <div className="inputBx">
-                            <p>Don't have an account? <NavLink className="signupnav" to="signup">Sign up</NavLink></p>
+                            <p>Don't have an account? <NavLink className="signupnav" to="/signup">Sign up</NavLink></p>
                         </div>
 
                     </form>

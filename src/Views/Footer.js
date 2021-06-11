@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     return (
         
-    <div className="footer w-full h-auto p-10 py-5 flex items-center justify-center bg-black">
+    <div className="footer w-full h-auto p-3 sm:py-10 sm:px-7 pt-20 py-5 flex items-center justify-center bg-black">
     <div className="md:w-3/4 w-full px-4 text-white flex flex-col">
         <div className="w-full text-2xl md:text-5xl font-bold">
             <h1 className="w-full">How can we help you? <br />
@@ -24,11 +24,11 @@ function Footer() {
         <div className="flex flex-col">
             <div className="flex mt-10 mb-6 flex-row justify-between items-center">
                 <h1 className="text-3xl">ShareBook</h1>
-                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/myaccount">My Account</a>
-                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/allbooks">Book Rack</a>
-                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/about">About us</a>
-                <a className="hidden md:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/contactus">Contact</a>
-                <div className="flex flex-row space-x-8 items-center justify-between">
+                <a className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/myaccount">My Account</a>
+                <a className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/allbooks">Book Rack</a>
+                <a className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/about">About us</a>
+                <a className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" href="/contactus">Contact</a>
+                <div className="flex flex-row space-x-6 items-center justify-between">
                     <a href="">
                         <svg width="20" height="20" viewBox="0 0 6 12" fill="none"
                             xmlns="http://www.w3.org/2000/svg">

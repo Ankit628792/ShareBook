@@ -5,13 +5,13 @@ function Header() {
 {/* head1 */}
       <div className="pt-12 md:pt-16 md:pb-10">
         <div className="container px-8 sm:px-5 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-          <div className="w-full lg:w-1/2 py-6 text-center p-0 md:p-5 lg:p-10">
+          <div className="w-full mb-6 lg:w-1/2 py-6 text-center p-0 md:p-5 lg:p-10">
             <img className="w-full md:w-full z-50" src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" />
           </div>
           <div className="flex flex-col max-w-lg lg:w-1/2 justify-center items-start">
-            <p className="inline-block mb-2 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full">For Whom plateform is this?</p>
-            <h1 className="my-4 text-3xl md:text-5xl font-bold leading-tight">Want to <span className="text-blue-500">Share</span> or <span className="text-blue-500">Get</span> a book ?</h1>
-            <p className="pr-5 mb-5 text-lg text-gray-700">We provide a large varities of book to share and get from others
+            <p className="inline-block text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full">For Whom plateform is this?</p>
+            <h1 className="my-2 text-3xl md:text-5xl font-bold leading-tight">Want to <span className="text-blue-500">Share</span> or <span className="text-blue-500">Get</span> a book ?</h1>
+            <p className="pr-5 mb-4 text-lg text-gray-700">We provide a large varities of book to share and get from others
             without any cost. This is a free plateform to meet your needs. Explore our services with a
                                     seemless and interactive experience.</p>
 
@@ -25,8 +25,8 @@ function Header() {
 
 
       {/* head2 */}
-      <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
-        <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
+      <div className="relative flex flex-col py-16 lg:pt-0 lg:flex-col lg:pb-0">
+        <div className="mb-8 inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
           <svg
             className="absolute left-0 hidden h-full text-white transform -translate-x-1/2 lg:block"
             viewBox="0 0 100 100"
@@ -42,11 +42,11 @@ function Header() {
           />
         </div>
         <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
-          <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-            <p className="inline-block mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full">
+          <div className="lg:my-40 lg:max-w-lg lg:pr-5">
+            <p className="inline-block text-xs mt-4 font-semibold tracking-wider text-teal-900 uppercase rounded-full">
               What we offer ?
           </p>
-            <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
+            <h2 className="my-2 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
               Don't Buy, Just&nbsp;
             <br className="hidden md:block" />
               <span className="inline-block text-blue-400">
@@ -54,9 +54,9 @@ function Header() {
             </span>, 
             <span className="inline-block text-blue-400">
                 &nbsp;Read
-            </span> &
+            </span> &&nbsp;
             <span className="inline-block text-blue-400">
-                &nbsp;Share
+                Share
             </span>
             </h2>
             <p className="pr-5 mb-5 text-lg text-gray-700">
@@ -83,7 +83,7 @@ function Header() {
 
 
       {/* head3 */}
-      <div className="relative flex flex-col-reverse px-4 py-16 mx-auto lg:block lg:flex-col lg:py-32 xl:py-48 md:px-8 sm:max-w-xl md:max-w-full">
+      <div className="relative flex flex-col px-4 py-16 mx-auto lg:block lg:flex-col lg:py-32 xl:py-48 md:px-8 sm:max-w-xl md:max-w-full">
         <div className="z-0 flex justify-center h-full -mx-4 overflow-hidden lg:pt-24 lg:pb-16 lg:pr-8 xl:pr-0 lg:w-1/2 lg:absolute lg:justify-end lg:bottom-0 lg:left-0 lg:items-center">
           <img
             src="https://kitwind.io/assets/kometa/laptop.png"
@@ -95,11 +95,11 @@ function Header() {
           <div className="mb-16 lg:pr-5 lg:max-w-lg lg:mb-0">
             <div className="max-w-xl mb-6">
               <div>
-                <p className="inline-block mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                <p className="inline-block text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
                   Trusted plateform
               </p>
               </div>
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
+              <h2 className="max-w-lg my-3 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
                 Why Choose Us ?
             </h2>
               <p className="text-gray-700 text-lg">
@@ -149,16 +149,16 @@ function Header() {
 
 
       {/* head4 */}
-      <div className="relative flex flex-col py-16 lg:pt-0 lg:flex-col lg:pb-0">
+      <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0">
         <div className="flex flex-col items-start w-full max-w-xl px-4 mx-auto lg:px-8 lg:max-w-screen-xl">
-          <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
+          <div className="lg:my-40 lg:max-w-lg lg:pr-5">
             <div className="max-w-xl mb-6">
               <div>
-                <p className="inline-block py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                <p className="inline-block text-xs mt-4 font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
                 What you get ?
               </p>
               </div>
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
+              <h2 className="max-w-lg my-3 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
                 How This Plateform &nbsp;
               <br className="hidden md:block" />
               is beneficial for you ?
@@ -179,7 +179,7 @@ function Header() {
               
           </div>
         </div>
-        <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
+        <div className="mb-8 inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
           <img
             className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full"
             src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
@@ -195,8 +195,8 @@ function Header() {
 
       {/* head5 */}
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
-          <div className="flex items-center justify-center lg:w-1/2">
+        <div className="flex flex-col items-center justify-between w-full lg:flex-row">
+          <div className="flex items-center justify-center lg:w-1/2 mb-4">
             <div className="w-2/5">
               <img className="object-cover" src="https://kitwind.io/assets/kometa/one-girl-phone.png" alt="" />
             </div>
@@ -207,9 +207,9 @@ function Header() {
           <div className="lg:max-w-lg lg:pr-5">
             <div className="max-w-xl mb-6">
               <div>
-                <p className="inline-block mb-4 text-xs font-semibold tracking-wider uppercase bg-teal-accent-400 text-teal-900 rounded-full">Responsive Web Design</p>
+                <p className="inline-block mt-4 text-xs font-semibold tracking-wider uppercase bg-teal-accent-400 text-teal-900 rounded-full">Responsive Web Design</p>
               </div>
-              <h2 className="font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none max-w-lg mb-6">
+              <h2 className="font-sans my-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none max-w-lg">
                 Everything you&nbsp;
               <br className="hidden md:block" />
               can imagine{' '}
@@ -234,7 +234,7 @@ function Header() {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center md:max-w-lg mx-auto">
-            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-teal-accent-400">
+            <div className="flex items-center justify-center w-16 h-16 rounded-full bg-teal-accent-400">
               <svg className="text-teal-900 w-7 h-7" viewBox="0 0 24 24">
                 <polyline
                   fill="none"
@@ -278,7 +278,7 @@ function Header() {
               </svg>
             </div>
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
+              <h2 className="max-w-lg my-3 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
               Secured and Featured&nbsp;
               <br className="hidden md:block" />
               <span className="inline-block text-blue-400">Chat System</span>
@@ -334,11 +334,11 @@ function Header() {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-            <p className="inline-block mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+            <p className="inline-block text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
               Security Layers
           </p>
           </div>
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg my-3 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
             <span className="relative inline-block">
               <svg
                 viewBox="0 0 52 24"
@@ -512,11 +512,11 @@ function Header() {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-            <p className="inline-block mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+            <p className="inline-block text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
               How To Use Application ?
           </p>
           </div>
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg my-2 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
             <span className="relative inline-block">
               <svg
                 viewBox="0 0 52 24"
@@ -544,7 +544,7 @@ function Header() {
             </span>{' '}
           Somewhere
         </h2>
-          <p className="text-base text-gray-700 md:text-lg">
+          <p className="text-base mt-4 text-gray-700 md:text-lg">
           If you don't get how to use this application, we have added the procedure in more details in our blogs.
         </p>
         </div>

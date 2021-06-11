@@ -33,7 +33,7 @@ function DropDown({ className, items, defaultItem }) {
                             <NavLink to="/bookmarks" className="block px-4 py-2 text-sm text-gray-700 cursor-pointer">Bookmark</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/log" className="block px-4 py-2 text-sm text-gray-700 cursor-pointer">Sign Out</NavLink>
+                            <NavLink to="/signin" className="block px-4 py-2 text-sm text-gray-700 cursor-pointer">Sign Out</NavLink>
                         </li>
                     </>
                 </motion.ul>
