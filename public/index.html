@@ -9,7 +9,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/ms-icon-310x310.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo310.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -24,10 +24,6 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="applie-mobile-web-app-capable" content="yes">
-    <meta name="applie-mobile-web-app-status-bar-style" content="yes">
-    <meta name="applie-mobile-web-app-title" content="yes">
     <link rel="stylesheet" href="addtohomescreen.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -50,26 +46,8 @@
     -->
     <script type="text/javascript" src="addtohomescreen.js"></script>
     <script>
-      if(
-        (('standalone' in window.navigator) && !window.navigator.standalone) //ios
-        ||
-        (!window.matchMedia('(display-mode: standalone)').matches)  //android
-      ){
-        addToHomeScreen();
-      }
       addToHomeScreen();
     </script>
 
-<script>
-  if ('serviceWorker' in navigator) {
-     console.log("Will the service worker register?");
-     navigator.serviceWorker.register('service-worker.js')
-       .then(function(reg){
-         console.log("Yes, it did.");
-      }).catch(function(err) {
-         console.log("No it didn't. This happened:", err)
-     });
-  }
- </script>
   </body>
 </html>
