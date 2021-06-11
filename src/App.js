@@ -15,6 +15,7 @@ import Contact from "./Views/Contact";
 import AllBooks from "./Views/AllBooks";
 import Log from "./Views/Log";
 import MyAccount from "./Views/MyAccount";
+import ChatPage from "./Components/ChatPage";
 
 
 function App() {
@@ -67,6 +68,9 @@ function App() {
               </Route>
               <Route exact path="/allbooks">
                 <AllBooks />
+              </Route>
+              <Route exact path="/chats">
+                <ChatPage />
               </Route>
 
 

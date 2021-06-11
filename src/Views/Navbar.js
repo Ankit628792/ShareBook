@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import DropDown from "../Components/DropDown";
+import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
 
 const redirects = [
     'My Account',
@@ -42,8 +43,8 @@ function Navbar() {
                 <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between h-16">
 
-                        <div className="flex-shrink-0 flex items-center">
-                            <img className="hidden md:block h-8 w-auto mx-auto ml-auto" src="/icons/ms-icon-310x310.png" alt="Workflow" /> <h1 className="font-bold pl-3 text-2xl">ShareBook</h1>
+                        <div className="flex-shrink-0 hidden md:block flex items-center">
+                            <img className="h-8 w-auto mx-auto ml-auto" src="/icons/ms-icon-310x310.png" alt="Workflow" /> <h1 className="font-bold pl-3 text-2xl">ShareBook</h1>
                         </div>
                         <div className="flex-1 flex items-center justify-center sm:items-stretch">
                             <div className="hidden nav md:block sm:ml-6">
@@ -60,9 +61,12 @@ function Navbar() {
                         </div>
 
                         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                            <button className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                            <a href="/chats" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                                <ChatRoundedIcon />
+                            </a>
+                            <a href="/bookmarks" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                 <LocalMallIcon />
-                            </button>
+                            </a>
                             <DropDown
                                 className="header__langDropDown"
                                 items={redirects}

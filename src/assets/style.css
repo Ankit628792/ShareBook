@@ -20,6 +20,12 @@ color: #7292A6 !important;
 .btn-bg{
     background-color: #1380F9;
 }
+.chats p{
+    color: rgb(0, 32, 30) !important;
+}
+.chats .user-text{
+    color: #fff !important;
+}
 @media(max-width: 900px) {
     .nav {
         display: none;
@@ -169,4 +175,47 @@ color: #7292A6 !important;
     .hamburger-menu {
         display: none;
     }
+  }
+
+  /* can be configured in tailwind.config.js */
+  .group:hover .group-hover\:block {
+    display: block;
+  }
+  .hover\:w-64:hover {
+    width: 45%;
+    }
+  
+  /* NO NEED THIS CSS - just for custom scrollbar which can also be configured in tailwind.config.js*/
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 2px;
+  }
+  ::-webkit-scrollbar-button {
+    width: 0px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2d3748;
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background: #000000;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgb(143, 143, 143);
+    border: 0px none #ffffff;
+    border-radius: 50px;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: #999999;
+  }
+  ::-webkit-scrollbar-track:active {
+    background: #999999;
+  }
+  ::-webkit-scrollbar-corner {
+    background: transparent;
   }
