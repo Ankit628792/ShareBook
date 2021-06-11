@@ -10,7 +10,7 @@ function ContactForm() {
             animate="in"
             exit="out"
             variants={pageZoom}
-            transition={pageTransition} className="relative">
+            transition={pageTransition} className="relative contactform">
         <img src="https://images.pexels.com/photos/3228766/pexels-photo-3228766.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" className="absolute inset-0 object-cover w-full h-full" alt="" />
         <div className="relative bg-opacity-75 bg-blue-500">
           <svg className="absolute inset-x-0 bottom-0 text-white" viewBox="0 0 1160 160">
@@ -22,9 +22,9 @@ function ContactForm() {
           <div className="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="flex flex-col items-center justify-between xl:flex-row">
               <div className="w-full text-center max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
-                <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
+                <h1 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
                  Is there any query and want to contribute to the plateform ?
-          </h2>
+          </h1>
                 <p className="max-w-xl mb-4 text-base font-medium text-gray-200 md:text-lg">
                 Just message us, we'll reach you within 24 hours. <br /> We are always here to help you. 
           </p>
@@ -72,7 +72,7 @@ function ContactForm() {
                    
                       <button
                         type="submit"
-                        className="inline-flex items-center justify-center w-full h-12 px-6 my-4 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                        className="inline-flex items-center justify-center w-full h-12 px-6 my-4 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn-bg hover:bg-blue-700 focus:shadow-outline focus:outline-none"
                       >
                         Send
                 </button>

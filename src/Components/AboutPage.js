@@ -153,7 +153,7 @@ function AboutPage() {
             </div>
             <div className="max-w-xl mb-6">
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                To Make a Positive Change in the Livings.
+                To Make a <span>Positive Change</span> in the Livings.
               </h2>
               <p className="text-base text-gray-700 md:text-lg">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -203,7 +203,7 @@ function AboutPage() {
               <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
               Have read the book?&nbsp;
               <br className="hidden md:block" />
-              Now Share it.
+              Now <span>Share it</span>.
               </h2>
               <p className="text-base text-gray-700 md:text-lg">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -284,7 +284,7 @@ function AboutPage() {
              Insterest in the Book
       </p>
             <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-              Share Your Interest With Others
+              Share Your <span>Interest</span> With Others
             </h2>
             <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
@@ -292,7 +292,7 @@ function AboutPage() {
             <div className="flex items-center">
               <a
                 href="/"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn-bg hover:bg-blue-700 focus:shadow-outline focus:outline-none"
               >
                 Get started
         </a>

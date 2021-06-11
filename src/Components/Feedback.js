@@ -12,11 +12,11 @@ function Feedback() {
 				animate="in"
 				exit="out"
 				variants={pageZoom}
-				transition={pageTransition} className="bg-black text-white py-10">
+				transition={pageTransition} className="feedback bg-black text-white py-10">
 				<div className="container mx-auto flex flex-col md:flex-row my-6 md:my-24">
 					<div className="flex flex-col w-full lg:w-1/3 pl-12 py-12">
 						<p className="text-yellow-300 text-lg uppercase tracking-loose">REVIEW</p>
-						<p className="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">Leave us a feedback!</p>
+						<h1 className="text-3xl md:text-5xl my-4 leading-relaxed md:leading-snug">Leave us a feedback!</h1>
 						<p className="text-sm md:text-base leading-snug text-gray-50 text-opacity-100">
 							Provide your valuable feedback and something to us ...<br />
 					We love to read your responses.

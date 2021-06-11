@@ -15,7 +15,7 @@ function Header() {
             without any cost. This is a free plateform to meet your needs. Explore our services with a
                                     seemless and interactive experience.</p>
 
-            <a href="/allbooks" className="mx-auto lg:mx-0 rounded my-6 py-3 px-6 font-bold tracking-wide text-white transition duration-200 shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none">Get A Book</a>
+            <a href="/allbooks" className="mx-auto lg:mx-0 rounded my-6 py-3 px-6 font-bold tracking-wide text-white transition duration-200 shadow-md hover:bg-blue-700 focus:shadow-outline btn-bg focus:outline-none">Get A Book</a>
 
           </div>
 
@@ -65,7 +65,7 @@ function Header() {
             <div className="flex items-center">
               <a
                 href="/myaccount"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md hover:bg-blue-700 focus:shadow-outline btn-bg focus:outline-none"
               >
                 Share A Book
             </a>
@@ -172,7 +172,7 @@ function Header() {
             </div>
             <a
                 href="/allbooks"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md hover:bg-blue-700 focus:shadow-outline btn-bg focus:outline-none"
               >
                 Explore 
             </a>

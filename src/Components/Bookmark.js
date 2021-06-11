@@ -62,8 +62,12 @@ const bookmarks = 0;
             </p>
             <div className="buttons">
               <NavLink to="/allbooks">
-                <button className="button">Go to All Books</button>
-              </NavLink>
+              <a
+                href="/allbooks"
+                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn-bg hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+              >
+                Go To Book Rack
+        </a>              </NavLink>
             </div>
           </div>
         </div>

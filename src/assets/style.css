@@ -2,6 +2,24 @@
     font-family: 'Inter', sans-serif;
 }
 
+h1,h2,h3,h4,h5,h6{
+    color: #39464d !important;
+}
+span{
+color: #1380F9 !important;
+}
+p{
+color: #7292A6 !important;
+}
+.footer h1, .feedback h1,.contactform h1{
+ color: #fff !important;
+}
+.footer p,.feedback p ,.contactform p{
+    color: #eee !important;
+}
+.btn-bg{
+    background-color: #1380F9;
+}
 @media(max-width: 900px) {
     .nav {
         display: none;

@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     return (
         
-    <div className="w-full h-auto p-10 py-5 flex items-center justify-center bg-black">
+    <div className="footer w-full h-auto p-10 py-5 flex items-center justify-center bg-black">
     <div className="md:w-3/4 w-full px-4 text-white flex flex-col">
         <div className="w-full text-2xl md:text-5xl font-bold">
             <h1 className="w-full">How can we help you? <br />

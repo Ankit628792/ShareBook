@@ -43,7 +43,7 @@ function Navbar() {
                     <div className="relative flex items-center justify-between h-16">
 
                         <div className="flex-shrink-0 flex items-center">
-                            <img className="hidden md:block h-8 w-auto mx-auto ml-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow" />
+                            <img className="hidden md:block h-8 w-auto mx-auto ml-auto" src="/icons/ms-icon-310x310.png" alt="Workflow" /> <h1 className="font-bold pl-3 text-2xl">ShareBook</h1>
                         </div>
                         <div className="flex-1 flex items-center justify-center sm:items-stretch">
                             <div className="hidden nav md:block sm:ml-6">
