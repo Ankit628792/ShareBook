@@ -14,14 +14,14 @@ function ChatPage() {
             <div className="chats shadow-lg max-w-6xl mx-auto flex antialiased rounded text-gray-200 bg-gray-50 overflow-hidden" style={{ height: '90vh' }}>
                 <div className="flex-1 flex flex-col">
                     <main className="flex-grow flex flex-row min-h-0 relative ">
-                        <section className={`absolute md:relative top-0 left-0 flex flex-col flex-none overflow-auto ${showPeople ? 'w-full' : 'w-0'} group lg:max-w-sm md:w-2/5 transition-all duration-300 ease-in-out bg-gray-100`} style={{zIndex: 30}}>
-                            <div className="header p-4 flex flex-row items-center flex-none justify-between">
+                        <section className={`absolute md:relative top-0 left-0 right-0 bottom-0 h-auto flex flex-col flex-none overflow-auto ${showPeople ? 'w-full' : 'w-0'} group lg:max-w-sm md:w-2/5 transition-all duration-300 ease-in-out bg-gray-100`} style={{zIndex: 30}}>
+                            <div className="header px-4 py-2 flex flex-row items-center flex-none justify-between">
                                 <div className="w-16 h-16 mx-2 items-center relative flex flex-shrink-0">
                                     <img className="rounded-full w-full h-full object-cover" alt="logo"
                                         src="/icons/ms-icon-310x310.png" />
                                 <h1 className="text-2xl mx-3 font-bold hidden sm:block">Chats</h1>
                                 </div>
-                                <button href="/chats" className="md:hidden bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out" onClick={chatPeople}>
+                                <button href="/chats" className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out" onClick={chatPeople}>
                                 <KeyboardBackspaceIcon />
                             </button>
                             </div>

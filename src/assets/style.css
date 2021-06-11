@@ -45,7 +45,7 @@ color: #7292A6 !important;
         position: fixed;
         left: -15px;
         top: -15px;
-        z-index: 100;
+        z-index: 500;
         width: 85px;
         height: 85px;
         background: #ffffff;
@@ -134,7 +134,7 @@ color: #7292A6 !important;
     }
   
     .hamburger-menu label ul {
-        z-index: 200;
+        z-index: 600;
         position: fixed;
         top: 50%;
         left: 50%;
@@ -150,13 +150,13 @@ color: #7292A6 !important;
     }
   
     .hamburger-menu label ul li {
-        z-index: 200;
+        z-index: 600;
         display: block;
         text-align: center;
     }
   
     .hamburger-menu label a {
-        z-index: 200;
+        z-index: 600;
         font-size: 24px;
         font-weight: bold;
         margin-bottom: 22px;
