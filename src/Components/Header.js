@@ -15,7 +15,7 @@ function Header() {
             without any cost. This is a free plateform to meet your needs. Explore our services with a
                                     seemless and interactive experience.</p>
 
-            <button className="mx-auto lg:mx-0 rounded my-6 py-3 px-6 font-bold tracking-wide text-white transition duration-200 shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none">Get A Book</button>
+            <a href="/allbooks" className="mx-auto lg:mx-0 rounded my-6 py-3 px-6 font-bold tracking-wide text-white transition duration-200 shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none">Get A Book</a>
 
           </div>
 
@@ -64,7 +64,7 @@ function Header() {
           </p>
             <div className="flex items-center">
               <a
-                href="/"
+                href="/myaccount"
                 className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
               >
                 Share A Book
@@ -171,7 +171,7 @@ function Header() {
             </p>
             </div>
             <a
-                href="/"
+                href="/allbooks"
                 className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-400 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
               >
                 Explore 
@@ -289,7 +289,7 @@ function Header() {
             </div>
             <div>
               <a
-                href="/"
+                href="https://openbase.com/js/bcrypt/documentation" target="_blank"
                 aria-label=""
                 className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
@@ -392,7 +392,7 @@ function Header() {
               From and To Front-End, your data is passed in the encryted format which can't be access to you and others.
           </p>
             <a
-              href="/"
+              href="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
@@ -444,7 +444,7 @@ function Header() {
               Your data passed and request on this layer is again analysed to get the authenticated user. This layer again encrypt your details to add a plus point in the data security. 
           </p>
             <a
-              href="/"
+              href="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
@@ -496,7 +496,7 @@ function Header() {
               The database is completely secured and no body can access that. It is unreachable to anyone. And it has no direct access to the application that makes it more secure.
           </p>
             <a
-              href="/"
+              href="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
