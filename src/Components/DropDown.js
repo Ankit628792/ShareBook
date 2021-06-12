@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import KeyboardArrowDownRoundedIcon from "@material-ui/icons/KeyboardArrowDownRounded";
 import "./DropDown.css";
 import { motion } from "framer-motion";
@@ -8,15 +8,22 @@ function DropDown({ className, items, defaultItem }) {
     const [selected, setSelected] = useState(defaultItem);
     const [dropDown, setDropDown] = useState(false);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setDropDown(false)
+        }, 3000);
+        return () => clearTimeout(timer);
+      }, [dropDown]);
+
     return (
         <>
-            <button type="button" role="tab" className="flex text-sm rounded-full focus:outline-none focus:border-none focus:shadow-sm items-center" onClick={(e) => {
+            <button type="button" role="tab" className="flex text-sm rounded-full focus:outline-none focus:border-none items-center" onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 setDropDown((dropDown) => !dropDown);
             }}>
                 <img role="tab" className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
-                {selected} <KeyboardArrowDownRoundedIcon className={dropDown ? "dropDown__icon dropDownOpen" : "dropDown__icon" } />
+                 <KeyboardArrowDownRoundedIcon className={dropDown ? "dropDown__icon dropDownOpen" : "dropDown__icon" } />
             </button>
             {dropDown && (
                 <motion.ul

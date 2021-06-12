@@ -15,7 +15,7 @@ function UserInfo() {
                 <div className="px-4 py-0 sm:py-4 sm:px-6 relative flex items-center justify-between">
                     <div>
                         <h3 className="text-lg leading-6 font-medium text-gray-900">Applicant Information</h3>
-                        <p className="my-1 max-w-2xl text-sm text-gray-500">Personal details and application.</p>
+                        <p className="my-1 max-w-2xl text-sm text-gray-500">uid{new Date().getTime().toString()}</p>
                         <VerifiedUserIcon className="text-green-500" />
                     </div>
                     <div className="h-24 w-24 sm:w-28 sm:h-28 rounded-full bg-red-400">
@@ -26,51 +26,52 @@ function UserInfo() {
                     <dl>
                         <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-sm font-medium text-gray-500">Full name</dt>
-                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Margot Foster</dd>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Example Name</dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt className="text-sm font-medium text-gray-500">Application for</dt>
-                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Backend Developer</dd>
+                            <dt className="text-sm font-medium text-gray-500">Contact Number</dt>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">9845465466</dd>
+                        </div>
+                        <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                            <dt className="text-sm font-medium text-gray-500">City Location</dt>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">Dwarka City</dd>
                         </div>
                         <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-sm font-medium text-gray-500">Email address</dt>
-                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">margotfoster@example.com</dd>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">exaple@email.com</dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt className="text-sm font-medium text-gray-500">Salary expectation</dt>
-                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">$120,000</dd>
+                            <dt className="text-sm font-medium text-gray-500">Password</dt>
+                            <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">......</dd>
                         </div>
                         <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-sm font-medium text-gray-500">About</dt>
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-                                qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
-                                pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
-                                </dd>
+                                We are ShareBook an intiative that is started for the purpose to share the book people to people without any cost by the nearby people to you.
+                                No need to buy or sell a book. Share it with others. Share your source of knowledge, Interest with others.
+                                Our Platform offer the option that the book is shared to you without searching it to the store.                            </dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt className="text-sm font-medium text-gray-500">Attachments</dt>
+                            <dt className="text-sm font-medium text-gray-500">Shared Books</dt>
                             <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                 <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
                                     <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                                         <div className="w-0 flex-1 flex items-center">
-                                            {/* <PaperClipIcon className="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" /> */}
-                                            <span className="ml-2 flex-1 w-0 truncate">resume_back_end_developer.pdf</span>
+                                            <span className="ml-2 flex-1 w-0 truncate">Book Name </span>
                                         </div>
                                         <div className="ml-4 flex-shrink-0">
                                             <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                                Download
+                                                Sharing
                                             </a>
                                         </div>
                                     </li>
                                     <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
                                         <div className="w-0 flex-1 flex items-center">
-                                            {/* <PaperClipIcon className="flex-shrink-0 h-5 w-5 text-gray-400" aria-hidden="true" /> */}
-                                            <span className="ml-2 flex-1 w-0 truncate">coverletter_back_end_developer.pdf</span>
+                                            <span className="ml-2 flex-1 w-0 truncate">Book Name </span>
                                         </div>
                                         <div className="ml-4 flex-shrink-0">
-                                            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                                Download
+                                            <a href="#" className="font-medium text-green-600 hover:text-green-500">
+                                                Shared
                                             </a>
                                         </div>
                                     </li>

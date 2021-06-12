@@ -36,8 +36,6 @@ color: #7292A6 !important;
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
         overflow: hidden;
     }
   
@@ -50,11 +48,11 @@ color: #7292A6 !important;
         height: 85px;
         background: #ffffff;
         border-radius: 50% 50% 50% 50%;
-        -webkit-transition: all 0.5s ease-out;
-        -moz-transition: all 0.5s ease-out;
-        -ms-transition: all 0.5s ease-out;
-        -o-transition: all 0.5s ease-out;
-        transition: all 0.5s ease-out;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
         box-shadow: 0 0 10px 10px rgba(59, 130, 246, 0.1);
         cursor: pointer;
         display: flex;
@@ -142,11 +140,11 @@ color: #7292A6 !important;
         transform: translate(-50%, -50%);
         opacity: 0;
         visibility: hidden;
-        -webkit-transition: all 0.8s ease-in-out;
-        -moz-transition: all 0.8s ease-in-out;
-        -ms-transition: all 0.8s ease-in-out;
-        -o-transition: all 0.8s ease-in-out;
-        transition: all 0.8s ease-in-out;
+        -webkit-transition: all 0.6s ease-in-out;
+        -moz-transition: all 0.6s ease-in-out;
+        -ms-transition: all 0.6s ease-in-out;
+        -o-transition: all 0.6s ease-in-out;
+        transition: all 0.6s ease-in-out;
     }
   
     .hamburger-menu label ul li {
@@ -166,7 +164,7 @@ color: #7292A6 !important;
     }
   
     .hamburger-menu label a:hover {
-        color: rgb(59, 130, 246);
+        color: #1380F9;
     }
   }
   

@@ -60,13 +60,11 @@ function Bookmarks() {
               Something's catching your eye? Add your favorite items to
               Bookmarks, and check them out anytime you wish.
             </p>
-            <div className="buttons">
               <NavLink to="/allbooks"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn-bg hover:bg-blue-700 focus:shadow-outline focus:outline-none"
+                className="inline-flex items-center justify-center h-12 px-6 mr-6 z-10 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn-bg hover:bg-blue-700 cursor-pointer focus:shadow-outline focus:outline-none"
               >
                 Go To Book Rack
               </NavLink>
-            </div>
           </div>
         </div>
       )}

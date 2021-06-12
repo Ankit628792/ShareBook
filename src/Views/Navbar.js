@@ -51,7 +51,7 @@ function Navbar() {
                                 <div className="flex space-x-4">
                                     <NavLink to="/" className="text-gray-900 hover:text-blue-600 px-4 py-2 rounded-md text-lg font-medium">Home</NavLink>
 
-                                    <NavLink to="/allbooks" className="text-gray-900 hover:text-blue-600 px-4 py-2 rounded-md text-lg font-medium">All Books</NavLink>
+                                    <NavLink to="/allbooks" className="text-gray-900 hover:text-blue-600 px-4 py-2 rounded-md text-lg font-medium">Books Rack</NavLink>
 
                                     <NavLink to="/about" className="text-gray-900 hover:text-blue-600 px-4 py-2 rounded-md text-lg font-medium">About</NavLink>
 

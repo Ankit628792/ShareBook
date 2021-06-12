@@ -30,7 +30,7 @@ function BookSingle() {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
 
-
+  const summaryList = bookDetails.summary.split(".");
 
 
   return (
@@ -56,7 +56,15 @@ function BookSingle() {
                 <h1 className="font-bold uppercase text-2xl">{bookDetails.title}</h1>
                 <h2 className="capitalize font-bold my-3">Author : <span className="font-medium text-gray-700">{bookDetails.author}</span> </h2>
                 <h1 className="font-semibold">Summary :</h1>
-                <p className="text-sm">{bookDetails.summary}</p>
+                <ul>
+                  {
+                    summaryList.map((list) => ( !list == '' &&
+                  <li className="list-disc list-item">
+                    <p className="text-sm">{list}</p>
+                  </li>
+                    ))
+                  }
+                </ul>
               </div>
               <div>
                 <div className="inline-block align-bottom mr-5">
@@ -64,7 +72,7 @@ function BookSingle() {
                   <span className="font-bold text-5xl leading-none align-baseline">{bookDetails.price.displayValue}</span>
                 </div>
                 <div className="inline-block align-bottom">
-                  <button className="bg-blue-500 opacity-75 hover:opacity-100 text-white hover:bg-blue-700 rounded-full px-10 py-2 font-semibold"> Chat Now</button>
+                  <button className="bg-gray-800 text-white hover:bg-gray-900 rounded-full px-10 py-2 font-semibold"> Chat Now</button>
                 </div>
               </div>
             </div>
