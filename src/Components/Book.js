@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
 import { motion } from "framer-motion";
 import { useHistory } from 'react-router';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 
 function Book({ id, author, title, image, summary, price }) {
 
     const history = useHistory();
+    const [isBookmarked, setIsBookmarked] = useState(false);
 
     const onBookClick = () => {
         history.push(`/book/${id}`) ;
@@ -55,24 +54,7 @@ function Book({ id, author, title, image, summary, price }) {
                                 {summary && summary.slice(0, 80)}....
                             </p>
 
-                            <div className="flex p-4 pb-2 border-t border-gray-200 "></div>
-                            <div className="flex text-sm items-center justify-evenly">
-                                
-                                <motion.button
-                                whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
-                                whileTap={{ scale: 0.95 , transition:{duration: 0.1}}}
-                                className="px-4 py-3 mr-1 text-white focus:outline-none btn-bg"
-                                type="button">
-                                <BookmarkBorderIcon className="mr-1" />Bookmark
-                                </motion.button>
-                                <motion.button
-                                whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
-                                whileTap={{ scale: 0.95 , transition:{duration: 0.1}}}
-                                className="bg-gray-900 px-4 py-3 shadow-md hover:shadow-lg text-white rounded-full focus:outline-none hover:bg-gray-800"
-                                type="button">
-                               <ChatBubbleOutlineIcon className="mr-1" />Chat Now
-                                </motion.button>
-                            </div>
+                            <div className="flex pb-3 border-t border-gray-200 "></div>
                         </div>
                     </div>
                 </div>

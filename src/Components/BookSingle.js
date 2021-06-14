@@ -4,18 +4,23 @@ import { useParams } from "react-router";
 import books from '../json/books'
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from "../util";
+import BookmarkRoundedIcon from "@material-ui/icons/BookmarkRounded";
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 function BookSingle() {
 
 
-  // const addToBookmarks = (item) => {
-  //   dispatch({
-  //     type: "ADD_TO_BOOKMARKS",
-  //     item: {
-  //       ...productDetails,
-  //       id: id,
-  //     },
-  //   });
-  // };
+  const addToBookmarks = () => {
+    isBookmarked ? setIsBookmarked(false) : setIsBookmarked(true)
+
+    // dispatch({
+    //   type: "ADD_TO_BOOKMARKS",
+    //   item: {
+    //     ...productDetails,
+    //     id: id,
+    //   },
+    // });
+  };
+
 
   const { id } = useParams();
   const bookList = books.books;
@@ -58,27 +63,39 @@ function BookSingle() {
                 <h1 className="font-semibold h-text">Summary :</h1>
                 <ul>
                   {
-                    summaryList.map((list) => ( !list == '' &&
-                  <li className="list-disc list-item">
-                    <p className="text-sm p-text">{list}</p>
-                  </li>
+                    summaryList.map((list) => (!list == '' &&
+                      <li className="list-disc list-item">
+                        <p className="text-sm p-text">{list}</p>
+                      </li>
                     ))
                   }
                 </ul>
               </div>
               <div>
-                <div className="flex items-center">
-                <div className="inline-block mr-5">
-                  <span className="text-xl leading-none mx-1">EUR</span>
-                  <span className="font-bold text-3xl leading-none">{bookDetails.price.displayValue}</span>
+                <div className="flex text-sm flex-row items-center justify-evenly">
+                  <a href="/chats"><motion.button
+                    whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                    whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                    className="bg-gray-900 px-4 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
+                    type="button">
+                    <ChatBubbleOutlineIcon className="mr-1" />Chat Now
+                  </motion.button>
+                  </a>
+                  <motion.button
+                    whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                    whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                    className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
+                    type="button" onClick={addToBookmarks}>
+                     <BookmarkRoundedIcon
+                  style={{
+                    fill: isBookmarked ? "#fff" : "transparent",
+                    stroke: "#fff",
+                    strokeWidth: 2,
+                  }}
+                  className="mr-1"
+                />{isBookmarked ? `Bookmarked` : `Bookmark`}
+                  </motion.button>
                 </div>
-                <motion.button
-              whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
-              whileTap={{ scale: 0.95 , transition:{duration: 0.1}}}
-              className="mb-2 md:mb-0 bg-gray-900 px-6 py-3 shadow-md hover:shadow-lg tracking-wider text-white rounded-full hover:bg-gray-800 focus:outline-none"
-              type="button">Chat Now
-            </motion.button>
-                  </div>
               </div>
             </div>
           </div>

@@ -39,7 +39,7 @@ function Navbar() {
             </div>
             {/* <!-- hamburger menu --> */}
 
-            <nav className="">
+            <nav className="navbar">
                 <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between h-16">
 
@@ -49,13 +49,13 @@ function Navbar() {
                         <div className="flex-1 flex items-center justify-center sm:items-stretch">
                             <div className="hidden nav md:block sm:ml-6">
                                 <div className="flex space-x-4">
-                                    <NavLink to="/" className="text-gray-900 hover:text-blue-600 px-4 py-2 rounded-md text-lg font-medium">Home</NavLink>
+                                    <NavLink to="/" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">Home</NavLink>
 
-                                    <NavLink to="/allbooks" className="text-gray-900 hover:text-blue-600 px-4 py-2 rounded-md text-lg font-medium">Books Rack</NavLink>
+                                    <NavLink to="/allbooks" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">Books Rack</NavLink>
 
-                                    <NavLink to="/about" className="text-gray-900 hover:text-blue-600 px-4 py-2 rounded-md text-lg font-medium">About</NavLink>
+                                    <NavLink to="/about" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">About</NavLink>
 
-                                    <NavLink to="/contactus" className="text-gray-900 hover:text-blue-600 px-4 py-2 rounded-md text-lg font-medium">Contact</NavLink>
+                                    <NavLink to="/contactus" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">Contact</NavLink>
                                 </div>
                             </div>
                         </div>
