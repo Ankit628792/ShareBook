@@ -13,11 +13,11 @@ function AboutPage() {
             transition={pageTransition} className="about px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-            <p className="inline-block text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+            <p className="inline-block text-xs font-semibold p-text tracking-wider uppercase">
               Who we are ?
           </p>
           </div>
-          <h2 className="max-w-lg my-3 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg my-3 font-sans text-3xl font-bold leading-none tracking-tight h-text sm:text-4xl md:mx-auto">
             <span className="relative inline-block">
               <svg
                 viewBox="0 0 52 24"
@@ -45,7 +45,7 @@ function AboutPage() {
             </span>{' '}
           Are ShareBook
         </h2>
-          <p className="text-base text-gray-700 md:text-lg">
+          <p className="text-base p-text md:text-lg">
             an intiative that is started for the purpose to share the book people to people without any cost by the nearby people to you.
         </p>
         </div>
@@ -69,29 +69,29 @@ function AboutPage() {
           </div>
           <div className="flex flex-col justify-center">
             <div className="pb-4 mb-4 border-b">
-              <h6 className="mb-2 font-semibold leading-5">
+              <h6 className="mb-2 font-semibold h-text leading-5 capitalize">
                 Free Plateform
             </h6>
-              <p className="text-sm text-gray-900">
+              <p className="text-sm p-text">
                 Sportacus andrew weatherall goose Refined gentlemen super mario
                 des lynam alpha trion zap rowsdower, omar sharif old.
             </p>
             </div>
             <div className="pb-4 mb-4 border-b">
-              <h6 className="mb-2 font-semibold leading-5 capitalize">
+              <h6 className="mb-2 font-semibold leading-5 h-text capitalize">
                 Available share Book Near By
             </h6>
-              <p className="text-sm text-gray-900">
+              <p className="text-sm p-text">
                 Chase ball of string eat plants, meow, and throw up because I ate
                 plants going to catch the red dot today going to catch the red dot
                 today. I could pee on this if I had the energy.
             </p>
             </div>
             <div>
-              <h6 className="mb-2 font-semibold leading-5 capitalize">
+              <h6 className="mb-2 font-semibold leading-5 h-text capitalize">
                 Meet with the new people
             </h6>
-              <p className="text-sm text-gray-900">
+              <p className="text-sm p-text">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                 quae doloremque laudantium.
@@ -100,16 +100,11 @@ function AboutPage() {
           </div>
         </div>
       </motion.div>
-      <motion.div
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageZoom}
-            transition={pageTransition} className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center lg:max-w-lg">
-            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-teal-accent-400">
-              <svg className="text-teal-900 w-7 h-7" viewBox="0 0 24 24">
+            <div className="flex items-center justify-center w-16 h-16">
+              <svg className="w-7 h-7" viewBox="0 0 24 24">
                 <polyline
                   fill="none"
                   stroke="currentColor"
@@ -152,10 +147,10 @@ function AboutPage() {
               </svg>
             </div>
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-3 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                To Make a <span>Positive Change</span> in the Livings.
+              <h2 className="max-w-lg mb-3 font-sans text-3xl font-bold tracking-tight h-text sm:text-4xl sm:leading-none">
+                To Make a <span className="s-text">Positive Change</span> in the Livings.
               </h2>
-              <p className="text-base text-gray-700 md:text-lg">
+              <p className="text-base p-text md:text-lg">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                 quae. explicabo.
@@ -187,7 +182,7 @@ function AboutPage() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-12 row-gap-8 lg:grid-cols-2">
@@ -200,12 +195,12 @@ function AboutPage() {
           </div>
           <div className="flex flex-col justify-center">
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-3 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              <h2 className="max-w-lg mb-3 font-sans text-3xl font-bold tracking-tight h-text sm:text-4xl sm:leading-none">
               Have read the book?&nbsp;
               <br className="hidden md:block" />
-              Now <span>Share it</span>.
+              Now <span className="s-text">Share it</span>.
               </h2>
-              <p className="text-base text-gray-700 md:text-lg">
+              <p className="text-base p-text md:text-lg">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
                 quae. explicabo.
@@ -213,9 +208,9 @@ function AboutPage() {
             </div>
             <div className="grid gap-8 row-gap-8 sm:grid-cols-2">
               <div>
-                <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
+                <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-100">
                   <svg
-                    className="w-10 h-10 text-deep-purple-accent-400"
+                    className="w-10 h-10"
                     stroke="currentColor"
                     viewBox="0 0 52 52"
                   >
@@ -228,18 +223,18 @@ function AboutPage() {
                     />
                   </svg>
                 </div>
-                <h6 className="mb-2 font-semibold leading-5">
+                <h6 className="mb-2 font-semibold leading-5 h-text">
                   I'll be sure to note that in my log
               </h6>
-                <p className="text-sm text-gray-900">
+                <p className="text-sm p-text">
                   Dingy I'm tellin' you rhubaahb Bangah Jo-Jeezly got in a gaum
                   Powrtland stove up dooryahd
               </p>
               </div>
               <div>
-                <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
+                <div className="flex items-center justify-center w-12 h-12 mb-4 bg-indigo-100 rounded-full">
                   <svg
-                    className="w-10 h-10 text-deep-purple-accent-400"
+                    className="w-10 h-10"
                     stroke="currentColor"
                     viewBox="0 0 52 52"
                   >
@@ -252,10 +247,10 @@ function AboutPage() {
                     />
                   </svg>
                 </div>
-                <h6 className="mb-2 font-semibold leading-5">
+                <h6 className="mb-2 font-semibold h-text leading-5">
                   Iterative approaches to corporate strategy
               </h6>
-                <p className="text-sm text-gray-900">
+                <p className="text-sm p-text">
                   A slice of heaven. O for awesome, this chocka full cuzzie is as
                   rip-off as a cracker.
               </p>
@@ -280,23 +275,20 @@ function AboutPage() {
         </div>
         <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
           <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-            <p className="inline-block mt-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-             Insterest in the Book
-      </p>
-            <h2 className="my-2 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-              Share Your <span>Interest</span> With Others
+            <p className="inline-block mt-4 text-xs font-semibold tracking-wider p-text uppercase">
+             Insterest in the Book</p>
+            <h2 className="my-2 font-sans text-3xl font-bold tracking-tight h-text sm:text-4xl sm:leading-none">
+              Share Your <span className="s-text">Interest</span> With Others
             </h2>
-            <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
+            <p className="pr-5 mb-5 text-base p-text md:text-lg">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
       </p>
             <div className="flex items-center">
-              <a
-                href="/"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn-bg hover:bg-blue-700 focus:shadow-outline focus:outline-none"
-              >
-                Get started
-        </a>
-              <a href="/" aria-label="" className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700">Learn more</a>
+            <a href="/allbooks"><motion.button
+              whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
+              whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
+            >Get Started</motion.button></a>
+              <a href="/" aria-label="" className="inline-flex items-center font-semibold text-gray-800 ml-4">Learn more</a>
             </div>
           </div>
         </div>

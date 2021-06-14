@@ -1,22 +1,24 @@
 import React from 'react'
+import {motion} from 'framer-motion'
 function Header() {
   return (
     <>
-{/* head1 */}
+      {/* head1 */}
       <div className="pt-12 md:pt-16 md:pb-10">
         <div className="container px-8 sm:px-5 mx-auto flex flex-wrap flex-col md:flex-row items-center">
           <div className="w-full mb-6 lg:w-1/2 py-6 text-center p-0 md:p-5 lg:p-10">
             <img className="w-full md:w-full z-50" src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" />
           </div>
           <div className="flex flex-col max-w-lg lg:w-1/2 justify-center items-start">
-            <p className="inline-block text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full">For Whom plateform is this?</p>
-            <h1 className="my-2 text-3xl md:text-5xl font-bold leading-tight">Want to <span className="text-blue-500">Share</span> or <span className="text-blue-500">Get</span> a book ?</h1>
-            <p className="pr-5 mb-4 text-lg text-gray-700">We provide a large varities of book to share and get from others
-            without any cost. This is a free plateform to meet your needs. Explore our services with a
-                                    seemless and interactive experience.</p>
-
-            <a href="/allbooks" className="mx-auto lg:mx-0 rounded my-6 py-3 px-6 font-bold tracking-wide text-white transition duration-200 shadow-md hover:bg-blue-700 focus:shadow-outline btn-bg focus:outline-none">Get A Book</a>
-
+            <p className="inline-block text-xs font-semibold tracking-wider p-text uppercase rounded-full">For Whom plateform is this?</p>
+            <h1 className="my-2 text-3xl md:text-5xl font-bold leading-tight h-text">Want to <span className="s-text">Share</span> or <span className="s-text">Get</span> a book ?</h1>
+            <p className="pr-5 mb-4 text-lg p-text">We provide a large varities of book to share and get from others
+              without any cost. This is a free plateform to meet your needs. Explore our services with a
+              seemless and interactive experience.</p>
+              <a href="/allbooks"><motion.button
+              whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
+              whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
+            >Get A Book</motion.button></a>
           </div>
 
         </div>
@@ -43,39 +45,37 @@ function Header() {
         </div>
         <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
           <div className="lg:my-40 lg:max-w-lg lg:pr-5">
-            <p className="inline-block text-xs mt-4 font-semibold tracking-wider text-teal-900 uppercase rounded-full">
+            <p className="inline-block text-xs mt-4 font-semibold tracking-wider p-text uppercase rounded-full">
               What we offer ?
-          </p>
-            <h2 className="my-2 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
+            </p>
+            <h2 className="my-2 font-sans text-3xl font-bold tracking-tight h-text sm:text-4xl lg:text-5xl sm:leading-none">
               Don't Buy, Just&nbsp;
-            <br className="hidden md:block" />
+              <br className="hidden md:block" />
               <span className="inline-block text-blue-400">
                 Get
-            </span>, 
-            <span className="inline-block text-blue-400">
+              </span>,
+              <span className="inline-block text-blue-400">
                 &nbsp;Read
-            </span> &&nbsp;
-            <span className="inline-block text-blue-400">
+              </span> &&nbsp;
+              <span className="inline-block text-blue-400">
                 Share
-            </span>
+              </span>
             </h2>
-            <p className="pr-5 mb-5 text-lg text-gray-700">
+            <p className="pr-5 mb-5 text-lg p-text">
               No need to buy or sell a book. Share it with others. Share your source of knowledge, Interest with others.
-          </p>
+            </p>
             <div className="flex items-center">
-              <a
-                href="/myaccount"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md hover:bg-blue-700 focus:shadow-outline btn-bg focus:outline-none"
-              >
-                Share A Book
-            </a>
+            <a href="/myaccount"><motion.button
+              whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
+              whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
+            >Share A Book</motion.button></a>
               <a
                 href="/about"
                 aria-label=""
-                className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
+                className="inline-flex items-center ml-4 font-semibold text-gray-800"
               >
                 Learn more
-            </a>
+              </a>
             </div>
           </div>
         </div>
@@ -95,19 +95,19 @@ function Header() {
           <div className="mb-16 lg:pr-5 lg:max-w-lg lg:mb-0">
             <div className="max-w-xl mb-6">
               <div>
-                <p className="inline-block text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+                <p className="inline-block text-xs font-semibold tracking-wider p-text uppercase rounded-full bg-teal-accent-400">
                   Trusted plateform
-              </p>
+                </p>
               </div>
-              <h2 className="max-w-lg my-3 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
+              <h2 className="max-w-lg my-3 font-sans text-3xl font-bold tracking-tight h-text sm:text-4xl lg:text-5xl sm:leading-none">
                 Why Choose Us ?
-            </h2>
-              <p className="text-gray-700 text-lg">
+              </h2>
+              <p className="p-text text-lg">
                 With us, you will quickly get the book you want. With our
                 network of all known book contributors, it is possible
-                        for us to meet the people's need. <br />
-                        Our Platform offer the option that the book is shared to you without searching it to the store.
-            </p>
+                for us to meet the people's need. <br />
+                Our Platform offer the option that the book is shared to you without searching it to the store.
+              </p>
               <div className="grid gap-4 mt-8 sm:grid-cols-2">
                 <div className="flex items-center capitalize space-x-6 text-gray-800">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -154,29 +154,27 @@ function Header() {
           <div className="lg:my-40 lg:max-w-lg lg:pr-5">
             <div className="max-w-xl mb-6">
               <div>
-                <p className="inline-block text-xs mt-4 font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
-                What you get ?
-              </p>
+                <p className="inline-block text-xs mt-4 font-semibold tracking-wider p-text uppercase rounded-full bg-teal-accent-400">
+                  What you get ?
+                </p>
               </div>
-              <h2 className="max-w-lg my-3 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
+              <h2 className="max-w-lg my-3 font-sans text-3xl font-bold tracking-tight h-text sm:text-4xl lg:text-5xl sm:leading-none">
                 How This Plateform &nbsp;
-              <br className="hidden md:block" />
-              is beneficial for you ?
+                <br className="hidden md:block" />
+                is beneficial for you ?
                 <span className="inline-block text-deep-purple-accent-400">
-                 
-              </span>
+
+                </span>
               </h2>
-              <p className="text-gray-700 text-lg">
-                Whichever book you want, just search it here and contact them. You don't need to buy, just share. Share your book interest with others. You can also contribute to the <span className="text-blue-600">ShareBook</span> initiative.
-            </p>
+              <p className="p-text text-lg">
+                Whichever book you want, just search it here and contact them. You don't need to buy, just share. Share your book interest with others. You can also contribute to the <span className="s-text">ShareBook</span> initiative.
+              </p>
             </div>
-            <a
-                href="/allbooks"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md hover:bg-blue-700 focus:shadow-outline btn-bg focus:outline-none"
-              >
-                Explore 
-            </a>
-              
+            <a href="/allbooks"><motion.button
+              whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
+              whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
+            >Explore</motion.button></a>
+
           </div>
         </div>
         <div className="mb-8 inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
@@ -207,15 +205,15 @@ function Header() {
           <div className="lg:max-w-lg lg:pr-5">
             <div className="max-w-xl mb-6">
               <div>
-                <p className="inline-block mt-4 text-xs font-semibold tracking-wider uppercase bg-teal-accent-400 text-teal-900 rounded-full">Responsive Web Design</p>
+                <p className="inline-block mt-4 text-xs font-semibold tracking-wider uppercase bg-teal-accent-400 p-text rounded-full">Responsive Web Design</p>
               </div>
-              <h2 className="font-sans my-3 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none max-w-lg">
+              <h2 className="font-sans my-3 text-3xl font-bold tracking-tight h-text sm:text-4xl lg:text-5xl sm:leading-none max-w-lg">
                 Everything you&nbsp;
-              <br className="hidden md:block" />
-              can imagine{' '}
+                <br className="hidden md:block" />
+                can imagine{' '}
                 <span className="inline-block text-blue-400">is Real</span>
               </h2>
-              <p className="text-gray-700 text-lg">We leverage the concept of mobile-first design. Through our work, we focus on designing an experience that works across different screen sizes.</p>
+              <p className="p-text text-lg">We leverage the concept of mobile-first design. Through our work, we focus on designing an experience that works across different screen sizes.</p>
             </div>
             <div className="flex items-center space-x-3">
               <a href="/" className="w-32 transition duration-300 hover:shadow-lg">
@@ -235,7 +233,7 @@ function Header() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center md:max-w-lg mx-auto">
             <div className="flex items-center justify-center w-16 h-16 rounded-full bg-teal-accent-400">
-              <svg className="text-teal-900 w-7 h-7" viewBox="0 0 24 24">
+              <svg className="p-text w-7 h-7" viewBox="0 0 24 24">
                 <polyline
                   fill="none"
                   stroke="currentColor"
@@ -278,14 +276,14 @@ function Header() {
               </svg>
             </div>
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg my-3 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl sm:leading-none">
-              Secured and Featured&nbsp;
-              <br className="hidden md:block" />
-              <span className="inline-block text-blue-400">Chat System</span>
+              <h2 className="max-w-lg my-3 font-sans text-3xl font-bold tracking-tight h-text sm:text-4xl lg:text-5xl sm:leading-none">
+                Secured and Featured&nbsp;
+                <br className="hidden md:block" />
+                <span className="inline-block text-blue-400">Chat System</span>
               </h2>
-              <p className="text-gray-700 text-lg">
-               To get contact with the Book owner, we have added a secured chat support. This chat support also contain different functionality for a secured system to handle unappropriate user.
-            </p>
+              <p className="p-text text-lg">
+                To get contact with the Book owner, we have added a secured chat support. This chat support also contain different functionality for a secured system to handle unappropriate user.
+              </p>
             </div>
             <div>
               <a
@@ -294,7 +292,7 @@ function Header() {
                 className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
                 Learn more
-              <svg
+                <svg
                   className="inline-block w-3 ml-2"
                   fill="currentColor"
                   viewBox="0 0 12 12"
@@ -334,11 +332,11 @@ function Header() {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-            <p className="inline-block text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+            <p className="inline-block text-xs font-semibold tracking-wider p-text uppercase rounded-full bg-teal-accent-400">
               Security Layers
-          </p>
+            </p>
           </div>
-          <h2 className="max-w-lg my-3 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg my-3 font-sans text-3xl font-bold leading-none tracking-tight h-text sm:text-4xl md:mx-auto">
             <span className="relative inline-block">
               <svg
                 viewBox="0 0 52 24"
@@ -364,11 +362,11 @@ function Header() {
               </svg>
               <span className="relative">The</span>
             </span>{' '}
-          Security and Trust
-        </h2>
-          <p className="text-gray-700 text-lg">
+            Security and Trust
+          </h2>
+          <p className="p-text text-lg">
             We provide a completely secured experience to you by securing your every details and data by Three Layer Tier
-        </p>
+          </p>
         </div>
         <div className="grid gap-8 row-gap-0 lg:grid-cols-3">
           <div className="relative text-center">
@@ -388,19 +386,19 @@ function Header() {
               </svg>
             </div>
             <h6 className="mb-2 text-2xl font-extrabold">On Front-End</h6>
-            <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
+            <p className="max-w-md mb-3 text-sm h-text sm:mx-auto">
               From and To Front-End, your data is passed in the encryted format which can't be access to you and others.
-          </p>
+            </p>
             <a
               href="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more
-          </a>
+            </a>
             <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
               <svg
-                className="w-8 text-gray-700 transform rotate-90 lg:rotate-0"
+                className="w-8 p-text transform rotate-90 lg:rotate-0"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
@@ -440,19 +438,19 @@ function Header() {
               </svg>
             </div>
             <h6 className="mb-2 text-2xl font-extrabold">On Server</h6>
-            <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
-              Your data passed and request on this layer is again analysed to get the authenticated user. This layer again encrypt your details to add a plus point in the data security. 
-          </p>
+            <p className="max-w-md mb-3 text-sm h-text sm:mx-auto">
+              Your data passed and request on this layer is again analysed to get the authenticated user. This layer again encrypt your details to add a plus point in the data security.
+            </p>
             <a
               href="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more
-          </a>
+            </a>
             <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
               <svg
-                className="w-8 text-gray-700 transform rotate-90 lg:rotate-0"
+                className="w-8 p-text transform rotate-90 lg:rotate-0"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
@@ -492,16 +490,16 @@ function Header() {
               </svg>
             </div>
             <h6 className="mb-2 text-2xl font-extrabold">Database</h6>
-            <p className="max-w-md mb-3 text-sm text-gray-900 sm:mx-auto">
+            <p className="max-w-md mb-3 text-sm h-text sm:mx-auto">
               The database is completely secured and no body can access that. It is unreachable to anyone. And it has no direct access to the application that makes it more secure.
-          </p>
+            </p>
             <a
               href="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more
-          </a>
+            </a>
           </div>
         </div>
       </div>
@@ -512,11 +510,11 @@ function Header() {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-            <p className="inline-block text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+            <p className="inline-block text-xs font-semibold tracking-wider p-text uppercase rounded-full bg-teal-accent-400">
               How To Use Application ?
-          </p>
+            </p>
           </div>
-          <h2 className="max-w-lg my-2 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg my-2 font-sans text-3xl font-bold leading-none tracking-tight h-text sm:text-4xl md:mx-auto">
             <span className="relative inline-block">
               <svg
                 viewBox="0 0 52 24"
@@ -542,11 +540,11 @@ function Header() {
               </svg>
               <span className="relative">Stuck</span>
             </span>{' '}
-          Somewhere
-        </h2>
-          <p className="text-base mt-4 text-gray-700 md:text-lg">
-          If you don't get how to use this application, we have added the procedure in more details in our blogs.
-        </p>
+            Somewhere
+          </h2>
+          <p className="text-base mt-4 p-text md:text-lg">
+            If you don't get how to use this application, we have added the procedure in more details in our blogs.
+          </p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
@@ -560,29 +558,28 @@ function Header() {
               <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
                 <a
                   href="/"
-                  className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
                 >
                   Book
-              </a>
-                <span className="text-gray-600">— 28 Dec 2020</span>
+                </a>
+                <span className="s-text">— 28 Dec 2020</span>
               </p>
               <a
                 href="/"
-                className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
+                className="inline-block mb-3 text-2xl font-bold leading-5"
               >
                 How to share a book ?
-            </a>
-              <p className="mb-2 text-gray-700">
+              </a>
+              <p className="mb-2 p-text">
                 Sed ut perspiciatis unde omnis iste natus error sit sed quia
                 consequuntur magni voluptatem doloremque.
-            </p>
+              </p>
               <a
                 href="/"
                 aria-label=""
-                className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="inline-flex items-center font-semibold"
               >
                 Learn more
-            </a>
+              </a>
             </div>
           </div>
           <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm hover:shadow-lg">
@@ -595,29 +592,28 @@ function Header() {
               <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
                 <a
                   href="/"
-                  className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
                 >
                   Book
-              </a>
-                <span className="text-gray-600">— 28 Dec 2020</span>
+                </a>
+                <span className="s-text">— 28 Dec 2020</span>
               </p>
               <a
                 href="/"
-                className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
+                className="inline-block mb-3 text-2xl font-bold leading-5"
               >
                 How to get a book ?
-            </a>
-              <p className="mb-2 text-gray-700">
+              </a>
+              <p className="mb-2 p-text">
                 Sed ut perspiciatis unde omnis iste natus error sit sed quia
                 consequuntur magni voluptatem doloremque.
-            </p>
+              </p>
               <a
                 href="/"
                 aria-label=""
-                className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="inline-flex items-center font-semibold"
               >
                 Learn more
-            </a>
+              </a>
             </div>
           </div>
           <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm hover:shadow-lg">
@@ -630,29 +626,28 @@ function Header() {
               <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
                 <a
                   href="/"
-                  className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
                 >
                   contact us
-              </a>
-                <span className="text-gray-600">— 28 Dec 2020</span>
+                </a>
+                <span className="s-text">— 28 Dec 2020</span>
               </p>
               <a
                 href="/"
-                className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
+                className="inline-block mb-3 text-2xl font-bold leading-5"
               >
-               How to reach us ?
-            </a>
-              <p className="mb-2 text-gray-700">
+                How to reach us ?
+              </a>
+              <p className="mb-2 p-text">
                 Sed ut perspiciatis unde omnis iste natus error sit sed quia
                 consequuntur magni voluptatem doloremque.
-            </p>
+              </p>
               <a
                 href="/"
                 aria-label=""
-                className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+                className="inline-flex items-center font-semibold"
               >
                 Learn more
-            </a>
+              </a>
             </div>
           </div>
         </div>

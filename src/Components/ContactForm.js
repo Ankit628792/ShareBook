@@ -37,10 +37,10 @@ function ContactForm() {
             </h3>
                   <form>
                     <div className="mb-1 sm:mb-2">
-                      <label for="firstName" className="inline-block mb-1 font-medium">First name</label>
+                      <label for="firstName" className="inline-block mb-1 font-medium">First Name</label>
                       <input
                         placeholder="John"
-                        required=""
+                        required
                         type="text"
                         className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         id="firstName"
@@ -48,35 +48,33 @@ function ContactForm() {
                       />
                     </div>
                     <div className="mb-1 sm:mb-2">
-                      <label for="lastName" className="inline-block mb-1 font-medium">Last name</label>
-                      <input
-                        placeholder="Doe"
-                        required=""
-                        type="text"
-                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                        id="lastName"
-                        name="lastName"
-                      />
-                    </div>
-                    <div className="mb-1 sm:mb-2">
                       <label for="email" className="inline-block mb-1 font-medium">E-mail</label>
                       <input
                         placeholder="john.doe@example.org"
-                        required=""
-                        type="text"
+                        required
+                        type="email"
                         className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                         id="email"
                         name="email"
                       />
                     </div>
+                    <div className="mb-1 sm:mb-2">
+                      <label for="message" className="inline-block mb-1 font-medium">Your Message</label>
+                      <textarea
+                        placeholder="Type Your Message Here ..."
+                        required
+                        type="text"
+                        className="flex-grow w-full resize-none py-2 h-24 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                        id="lastName"
+                        name="lastName"
+                      />
+                    </div>
                    
-                      <button
-                        type="submit"
-                        className="inline-flex items-center justify-center w-full h-12 px-6 my-4 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn-bg hover:bg-blue-700 focus:shadow-outline focus:outline-none"
-                      >
-                        Send
-                </button>
-                    <p className="text-xs text-gray-600 sm:text-sm">
+                   <motion.button type="submit"
+              whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
+              whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto mb-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
+            >Send Message</motion.button>
+                    <p className="text-xs p-text sm:text-sm">
                        Thanks for contacting us. We respect your privacy.
               </p>
                   </form>
@@ -91,11 +89,11 @@ function ContactForm() {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
           <div>
-            <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">
+            <p className="inline-block text-sm uppercase font-semibold tracking-wider p-text">
               Contact Us
           </p>
           </div>
-          <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+          <h2 className="max-w-lg my-3 font-sans text-3xl font-bold leading-none tracking-tight h-text sm:text-4xl md:mx-auto">
             <span className="relative inline-block">
               <svg
                 viewBox="0 0 52 24"
@@ -123,7 +121,7 @@ function ContactForm() {
             </span>{' '}
           Contact Guide
         </h2>
-          <p className="text-base text-gray-700 md:text-lg">
+          <p className="text-base p-text md:text-lg">
             To get any type of clearification. You got an issue at any stage that is unable to resolve by you. To give an appreciation to us.
         </p>
         </div>
@@ -147,26 +145,26 @@ function ContactForm() {
           </div>
           <div className="flex flex-col justify-center">
             <div className="pb-4 mb-4 border-b">
-              <h6 className="mb-2 font-semibold leading-5 capitalize">
+              <h6 className="mb-2 font-semibold h-text leading-5 capitalize">
               To get any type of clearification
             </h6>
-              <p className="text-sm text-gray-900">
+              <p className="text-sm p-text">
                 All the details are provided on this platform. If you still want to know more about, be free to contact us. 
             </p>
             </div>
             <div className="pb-4 mb-4 border-b">
-              <h6 className="mb-2 font-semibold leading-5">
+              <h6 className="mb-2 font-semibold h-text leading-5">
                 More Security Information
             </h6>
-              <p className="text-sm text-gray-900">
+              <p className="text-sm p-text">
                 Our plateform is much secure, if you have still doubt and worried about anything, we are always here for you..
             </p>
             </div>
             <div>
-              <h6 className="mb-2 font-semibold leading-5">
+              <h6 className="mb-2 font-semibold h-text leading-5">
                 Appreciate Our Work
             </h6>
-              <p className="text-sm text-gray-900">
+              <p className="text-sm p-text">
                 To provide a good feedback, Appreciate our work, We thanks for your response in advance. Provide a effective and beneficial service to the world is our first priority.
             </p>
             </div>
@@ -175,15 +173,10 @@ function ContactForm() {
       </div>
 
 
-      <motion.div
-            initial="initial"
-            animate="in"
-            exit="out"
-            variants={pageZoom}
-            transition={pageTransition} className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col justify-center xl:pr-0 lg:max-w-lg">
-            <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-teal-accent-400">
+            <div className="flex items-center justify-center w-16 h-16">
               <svg className="text-teal-900 w-7 h-7" viewBox="0 0 24 24">
                 <polyline
                   fill="none"
@@ -227,15 +220,15 @@ function ContactForm() {
               </svg>
             </div>
             <div className="max-w-xl mb-6">
-              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+              <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight h-text capitalize sm:text-4xl sm:leading-none">
                 Let us handle&nbsp;
               <br className="hidden md:block" />
               your next&nbsp;
-                <span className="inline-block text-deep-purple-accent-400">
+                <span className="inline-block s-text">
                   move
               </span>
               </h2>
-              <p className="text-base text-gray-700 md:text-lg">
+              <p className="text-base p-text md:text-lg">
                 Our platform is open to contribute, after your authorization you can get the access to the code to improve the user experience and if you are non-coder, you can contribute via sharing your ideas.
             </p>
             </div>
@@ -264,7 +257,7 @@ function ContactForm() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </>
   )
 }

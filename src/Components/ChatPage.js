@@ -19,7 +19,7 @@ function ChatPage() {
                                 <div className="w-16 h-16 mx-2 items-center relative flex flex-shrink-0">
                                     <img className="rounded-full w-full h-full object-cover" alt="logo"
                                         src="/icons/ms-icon-310x310.png" />
-                                <h1 className="text-2xl mx-3 font-bold hidden sm:block">Chats</h1>
+                                <h1 className="text-2xl mx-3 font-bold hidden sm:block h-text">Chats</h1>
                                 </div>
                                 <button href="/chats" className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out" onClick={chatPeople}>
                                 <KeyboardBackspaceIcon />
@@ -138,7 +138,7 @@ function ChatPage() {
                                     <div className="flex-auto min-w-0 ml-4 mr-6 block">
                                         <div className="flex items-center justify-between text-sm">
                                             <div className="min-w-0">
-                                                <h1>Angelina </h1>
+                                                <h1 className="h-text">Angelina </h1>
                                                 <p className="truncate">Ok, see you at the subway in a bit.</p>
                                             </div>
                                             <p className="ml-2 whitespace-no-wrap">Just now</p>
@@ -158,7 +158,7 @@ function ChatPage() {
                                     <div className="flex-auto min-w-0 ml-4 mr-6 block">
                                         <div className="flex items-center justify-between text-sm">
                                             <div className="min-w-0">
-                                                <h1 className="font">Tony Stark</h1>
+                                                <h1 className="h-text">Tony Stark</h1>
                                                 <p className="truncate">Hey, Are you there?</p>
                                             </div>
                                             <p className="ml-2 whitespace-no-wrap">10min</p>
@@ -176,7 +176,7 @@ function ChatPage() {
                                     <div className="flex-auto min-w-0 ml-4 mr-6 block">
                                         <div className="flex items-center justify-between text-sm text-gray-600">
                                             <div className="min-w-0">
-                                                <h1>Scarlett Johansson</h1>
+                                                <h1 className="h-text">Scarlett Johansson</h1>
                                                 <p className="truncate">You sent a photo.</p>
                                             </div>
                                             <p className="ml-2 whitespace-no-wrap">1h</p>
@@ -193,7 +193,7 @@ function ChatPage() {
                                     <div className="flex-auto min-w-0 ml-4 mr-6 block">
                                         <div className="flex items-center justify-between text-sm text-gray-600">
                                             <div className="min-w-0">
-                                                <h1>John Snow</h1>
+                                                <h1 className="h-text">John Snow</h1>
                                                 <p className="truncate">You missed a call John.
                                                 </p>
                                             </div>
@@ -211,7 +211,7 @@ function ChatPage() {
                                     <div className="flex-auto min-w-0 ml-4 mr-6 block">
                                         <div className="flex items-center justify-between text-sm text-gray-600">
                                             <div className="min-w-0">
-                                                <h1>Emma Watson</h1>
+                                                <h1 className="h-text">Emma Watson</h1>
                                                 <p className="truncate">You sent a video.
                                                 </p>
                                             </div>
@@ -233,7 +233,7 @@ function ChatPage() {
                                     <div className="flex-auto min-w-0 ml-4 mr-6 block">
                                         <div className="flex items-center justify-between text-sm text-gray-600">
                                             <div className="min-w-0">
-                                                <h1>Captain</h1>
+                                                <h1 className="h-text">Captain</h1>
                                                 <p className="truncate">Ah, it was an awesome..
                                                 </p>
                                             </div>
@@ -251,7 +251,7 @@ function ChatPage() {
                                     <div className="flex-auto min-w-0 ml-4 mr-6 block">
                                         <div className="flex items-center justify-between text-sm text-gray-600">
                                             <div className="min-w-0">
-                                                <h1>Bruce Lee</h1>
+                                                <h1 className="h-text">Bruce Lee</h1>
                                                 <p className="truncate">You are great.
                                                 </p>
                                             </div>

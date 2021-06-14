@@ -53,27 +53,32 @@ function BookSingle() {
             </div>
             <div className="w-full md:w-1/2 px-10 md:px-5">
               <div className="mb-10">
-                <h1 className="font-bold uppercase text-2xl">{bookDetails.title}</h1>
-                <h2 className="capitalize font-bold my-3">Author : <span className="font-medium text-gray-700">{bookDetails.author}</span> </h2>
-                <h1 className="font-semibold">Summary :</h1>
+                <h1 className="font-bold uppercase text-2xl h-text">{bookDetails.title}</h1>
+                <h2 className="capitalize font-bold my-3">Author : <span className="font-medium p-text">{bookDetails.author}</span> </h2>
+                <h1 className="font-semibold h-text">Summary :</h1>
                 <ul>
                   {
                     summaryList.map((list) => ( !list == '' &&
                   <li className="list-disc list-item">
-                    <p className="text-sm">{list}</p>
+                    <p className="text-sm p-text">{list}</p>
                   </li>
                     ))
                   }
                 </ul>
               </div>
               <div>
-                <div className="inline-block align-bottom mr-5">
-                  <span className="text-2xl leading-none align-baseline">$</span>
-                  <span className="font-bold text-5xl leading-none align-baseline">{bookDetails.price.displayValue}</span>
+                <div className="flex items-center">
+                <div className="inline-block mr-5">
+                  <span className="text-xl leading-none mx-1">EUR</span>
+                  <span className="font-bold text-3xl leading-none">{bookDetails.price.displayValue}</span>
                 </div>
-                <div className="inline-block align-bottom">
-                  <button className="bg-gray-800 text-white hover:bg-gray-900 rounded-full px-10 py-2 font-semibold"> Chat Now</button>
-                </div>
+                <motion.button
+              whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
+              whileTap={{ scale: 0.95 , transition:{duration: 0.1}}}
+              className="mb-2 md:mb-0 bg-gray-900 px-6 py-3 shadow-md hover:shadow-lg tracking-wider text-white rounded-full hover:bg-gray-800 focus:outline-none"
+              type="button">Chat Now
+            </motion.button>
+                  </div>
               </div>
             </div>
           </div>

@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { motion } from "framer-motion";
 import { useHistory } from 'react-router';
+import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 
 function Book({ id, author, title, image, summary, price }) {
 
@@ -23,7 +25,7 @@ function Book({ id, author, title, image, summary, price }) {
                         delay: 0.5
                     }
                 },
-            }} className="flex flex-col max-w-xs lg:max-w-md mx-auto my-7" onClick={onBookClick}>
+            }} className="book flex flex-col max-w-xs lg:max-w-md mx-auto my-7" onClick={onBookClick}>
                 <div className="bg-white shadow-md rounded-3xl p-4 hover:shadow-xl cursor-pointer">
                     <div className="flex flex-col lg:flex lg:flex-row items-center">
                         <motion.div layoutId={id} className="h-26 w-40 lg:h-48 lg:w-48  lg:mb-0 mb-3">
@@ -32,10 +34,10 @@ function Book({ id, author, title, image, summary, price }) {
                         </motion.div>
                         <div className="flex-auto ml-3 justify-evenly py-2 pl-2">
                             <div className="flex flex-wrap ">
-                                <div className="w-full flex-none text-xs text-blue-700 font-medium ">
+                                <div className="w-full flex-none text-xs s-text font-medium ">
                                     {author}
                                 </div>
-                                <h2 className="flex-auto text-xl font-medium">{title}</h2>
+                                <h2 className="flex-auto text-xl font-medium h-text">{title}</h2>
                             </div>
                             <div className="flex-1 inline-flex items-center text-sm py-2 text-gray-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none"
@@ -49,18 +51,27 @@ function Book({ id, author, title, image, summary, price }) {
                                 <p>India</p>
                             </div>
 
-                            <p className="pb-3 max-w-sm">
+                            <p className="pb-3 max-w-sm p-text">
                                 {summary && summary.slice(0, 80)}....
                             </p>
 
                             <div className="flex p-4 pb-2 border-t border-gray-200 "></div>
-                            <div className="flex space-x-3 text-sm font-medium">
-                                <div className="flex-auto flex space-x-3">
-            
-                                </div>
-                                <button
-                                    className="mb-2 md:mb-0 bg-gray-900 px-5 py-2 shadow-md hover:shadow-lg tracking-wider text-white rounded-full hover:bg-gray-800"
-                                    type="button" aria-label="like">Chat Now</button>
+                            <div className="flex text-sm items-center justify-evenly">
+                                
+                                <motion.button
+                                whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
+                                whileTap={{ scale: 0.95 , transition:{duration: 0.1}}}
+                                className="px-4 py-3 mr-1 text-white focus:outline-none btn-bg"
+                                type="button">
+                                <BookmarkBorderIcon className="mr-1" />Bookmark
+                                </motion.button>
+                                <motion.button
+                                whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
+                                whileTap={{ scale: 0.95 , transition:{duration: 0.1}}}
+                                className="bg-gray-900 px-4 py-3 shadow-md hover:shadow-lg text-white rounded-full focus:outline-none hover:bg-gray-800"
+                                type="button">
+                               <ChatBubbleOutlineIcon className="mr-1" />Chat Now
+                                </motion.button>
                             </div>
                         </div>
                     </div>

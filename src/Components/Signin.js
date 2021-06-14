@@ -36,14 +36,14 @@ const Signin = () => {
             <div className="contentBx">
                 <motion.div initial="hidden" animate="visible" variants={{
                     hidden: {
-                        scale: 2,
+                        scale: 0.5,
                         opacity: 0
                     },
                     visible: {
                         scale: 1,
                         opacity: 1,
                         transition: {
-                            delay: 0
+                            delay: 0.5
                         }
                     },
                 }} className="formBx">

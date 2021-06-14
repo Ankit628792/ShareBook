@@ -1,24 +1,46 @@
 *{
     font-family: 'Inter', sans-serif;
 }
-
+/* 
 h1,h2,h3,h4,h5,h6{
     color: #39464d !important;
+} */
+.h-text{
+  color: #39464d;
 }
-span{
+.p-text{
+  color: #7292A6
+}
+.s-text{
+  color: #1EA5FC;
+}
+/* span{
 color: #1380F9 !important;
 }
 p{
 color: #7292A6 !important;
-}
-.footer h1, .feedback h1,.contactform h1{
- color: #fff !important;
-}
-.footer p,.feedback p ,.contactform p{
-    color: #eee !important;
-}
+} */
+
 .btn-bg{
-    background-color: #1380F9;
+  background: linear-gradient(
+    45deg
+    , #1380F9 40%, #1EA5FC);
+        box-shadow: 0 0.5rem 1rem #1ea5fc45;
+      border-radius: 40px;
+}
+
+.btn{
+  padding: 0.75rem 1.5rem;
+    border: none;
+    background: linear-gradient(
+45deg
+, #1EA5FC 40%, #1380F9);
+    box-shadow: 0 10px 20px #1ea5fc45;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.025em;
+    font-size: 16px;
+    border-radius: 40px;
 }
 .chats p{
     color: rgb(0, 32, 30) !important;
@@ -217,3 +239,4 @@ color: #7292A6 !important;
   ::-webkit-scrollbar-corner {
     background: transparent;
   }
+

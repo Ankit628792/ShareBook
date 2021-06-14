@@ -2,10 +2,10 @@ import React from 'react'
 import books from '../json/books'
 import Book from '../Components/Book'
 import { motion } from 'framer-motion'
-import { pageSlide, pageZoom, pageTransition } from '../util'
+import { pageSlide, pageZoom, pageTransition, shuffleArray } from '../util'
 
 function AllBooks() {
-    const bookList = books.books;
+    const bookList = shuffleArray(books.books)
     return (
         <motion.div
             initial="initial"

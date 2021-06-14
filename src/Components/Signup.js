@@ -33,12 +33,36 @@ const Signup = () => {
     return (
 
         <section className="signin">
-            <motion.div className="imgBx">
+            <motion.div initial="hidden" animate="visible" variants={{
+                hidden: {
+                    scale: 0.5,
+                    opacity: 0
+                },
+                visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                        delay: 0
+                    }
+                },
+            }} className="imgBx">
                 <img src="https://images.unsplash.com/photo-1573580296036-ef22f9cf31e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="" />
             </motion.div>
 
             <div className="contentBx">
-                <motion.div className="formBx">
+            <motion.div initial="hidden" animate="visible" variants={{
+                    hidden: {
+                        scale: 0.5,
+                        opacity: 0
+                    },
+                    visible: {
+                        scale: 1,
+                        opacity: 1,
+                        transition: {
+                            delay: 0.5
+                        }
+                    },
+                }} className="formBx">
                     <h2>Sign Up</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="inputBx">
@@ -69,12 +93,9 @@ const Signup = () => {
                         </div>
 
                         <div className="inputBx">
-                            <motion.input whileTap={{
-                                scale: 0.9,
-                                transition: {
-                                    duration: 0
-                                }
-                            }} type="submit" value="Sign Up" title="Signup" />
+                            <motion.input whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                                whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                                type="submit" value="Sign Up" title="Signup" />
                         </div>
                         <div className="inputBx">
                             <p>Already have an account? <NavLink className="signupnav" to="/signin">Sign In</NavLink></p>

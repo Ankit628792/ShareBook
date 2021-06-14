@@ -42,7 +42,7 @@ function Bookmarks() {
       exit="out"
       variants={pageZoom}
       transition={pageTransition} className="bookmarks">
-      <h4>Bookmarks</h4>
+      <h4 className="h-text">Bookmarks</h4>
       {bookmarks.length > 0 ? (
         <div className="products">
           {bookmarks.map((product) => (
@@ -55,16 +55,15 @@ function Bookmarks() {
             <img src={emptyBookmarks} className="cart__empty" />
           </div>
           <div className="cart__checkout">
-            <h4>It's empty here.</h4>
-            <p style={{ marginBottom: "3rem" }}>
+            <h4 className="h-text text-xl font-medium my-2">It's empty here.</h4>
+            <p className="p-text mb-2">
               Something's catching your eye? Add your favorite items to
               Bookmarks, and check them out anytime you wish.
             </p>
-              <NavLink to="/allbooks"
-                className="inline-flex items-center justify-center h-12 px-6 mr-6 z-10 font-medium tracking-wide text-white transition duration-200 rounded shadow-md btn-bg hover:bg-blue-700 cursor-pointer focus:shadow-outline focus:outline-none"
-              >
-                Go To Book Rack
-              </NavLink>
+            <a href="/allbooks"><motion.button
+              whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
+              whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
+            >Go To Books Rack</motion.button></a>
           </div>
         </div>
       )}
