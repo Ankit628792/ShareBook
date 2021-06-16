@@ -29,7 +29,7 @@ function Book({ id, author, title, image, summary }) {
         dispatch(removeFromBookmark(id))
     }
 
-    const bookmarks = JSON.parse(localStorage.getItem('bookmark')) || 0 ;
+    const bookmarks = JSON.parse(localStorage.getItem('bookmark'))
 
     useEffect(() => {
         const bIndex = bookmarks.findIndex((book) => book.id == id);

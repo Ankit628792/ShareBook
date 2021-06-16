@@ -8,9 +8,12 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import { useDispatch, useSelector } from "react-redux";
 import { addToBookmark, removeFromBookmark } from "../actions";
 
+import Loader from './Loader'
 
 function BookSingle() {
-  const bookmarks = JSON.parse(localStorage.getItem('bookmark')) || 0 ;
+
+  const [isLoading, setisLoading] = useState(true)
+  const bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
   const dispatch = useDispatch();
 
   const { id } = useParams();
@@ -31,6 +34,8 @@ function BookSingle() {
     }
   })
 
+  isLoading(false)
+
   const addToBookmarks = () => {
     setIsBookmarked(true);
     dispatch(addToBookmark(bookDetails, ...summaryList))
@@ -43,6 +48,8 @@ function BookSingle() {
 
   return (
     <>
+    {
+      isLoading ? <Loader /> :
       <motion.div
         initial="initial"
         animate="in"
@@ -103,7 +110,9 @@ function BookSingle() {
           </div>
         </div>
       </motion.div>
+}
     </>
+
 
   );
 }
