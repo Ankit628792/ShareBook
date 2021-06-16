@@ -6,35 +6,22 @@ import { pageTransition, pageZoom } from "../util";
 import BookmarkRoundedIcon from "@material-ui/icons/BookmarkRounded";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import { useDispatch, useSelector } from "react-redux";
-import { addToBookmark, removeFromBookmark } from "../actions";
-
-import Loader from './Loader'
+import { addToBookmark, removeFromBookmark, restoreBookmark } from "../actions";
 
 function BookSingle() {
-
-  const [isLoading, setisLoading] = useState(true)
-  const bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
   const dispatch = useDispatch();
+
+  const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
+  console.log(bookmarks)
 
   const { id } = useParams();
 
   const bookDetails = JSON.parse(localStorage.getItem('singlebook'))
 
 
-  const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(bookmarks.isBookmarked);
 
   const summaryList = bookDetails.summary.slice(0, 1000).split(".");
-
-  useEffect(() => {
-    const bIndex = bookmarks.findIndex((book) => book.id == id);
-    if (bIndex >= 0) {
-      setIsBookmarked(true);
-    } else {
-      setIsBookmarked(false);
-    }
-  })
-
-  isLoading(false)
 
   const addToBookmarks = () => {
     setIsBookmarked(true);
@@ -46,10 +33,17 @@ function BookSingle() {
     dispatch(removeFromBookmark(id))
   }
 
+  useEffect(() => {
+        const bIndex = bookmarks.findIndex((book) => book.id == id);
+        if (bIndex >= 0) {
+            setIsBookmarked(true);
+        } else {
+            setIsBookmarked(false);
+        }
+    }, [bookmarks, id])
+
   return (
     <>
-    {
-      isLoading ? <Loader /> :
       <motion.div
         initial="initial"
         animate="in"
@@ -110,7 +104,6 @@ function BookSingle() {
           </div>
         </div>
       </motion.div>
-}
     </>
 
 

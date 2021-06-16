@@ -2,7 +2,7 @@
 export const addToBookmark = (bookData) => {
     return {
         type: 'ADD_TO_BOOKMARK',
-        bookData
+        bookData,
     }
 }
 export const removeFromBookmark = (id) => {
@@ -20,5 +20,10 @@ export const setUser = (user) => {
     return {
         type: 'SET_USER',
         user
+    }
+}
+export const restoreBookmark = () => {
+    return {
+        type: 'RESTORE_BOOKMARK',
     }
 }

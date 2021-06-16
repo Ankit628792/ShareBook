@@ -1,19 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import books from '../json/books'
 import Book from '../Components/Book'
 import { motion } from 'framer-motion'
 import { pageSlide, pageZoom, pageTransition, shuffleArray } from '../util'
-import Loader from '../Components/Loader'
 
 function AllBooks() {
-    const [isLoading, setisLoading] = useState(true)
     const bookList = shuffleArray(books.books)
-    isLoading(false);
     return (
         <>
-        {
-            isLoading ? <Loader />
-        :
     <motion.div
         initial="initial"
         animate="in"
@@ -31,7 +25,6 @@ function AllBooks() {
 
         </div>
     </motion.div>
-        }
         </>
     )
 }

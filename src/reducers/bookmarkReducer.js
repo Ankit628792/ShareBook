@@ -8,8 +8,7 @@ const bookmarkReducer = (state = initialState, action) => {
             let addBookmark = [...state.bookmark, action.bookData]
             localStorage.setItem('bookmark', JSON.stringify(addBookmark))
             return {
-                ...state,
-                bookmark: addBookmark,
+                bookmark: addBookmark
             }
 
         case 'REMOVE_FROM_BOOKMARK':
@@ -30,7 +29,11 @@ const bookmarkReducer = (state = initialState, action) => {
                 ...state,
                 bookmark: []
             }
-
+        
+        case 'RESTORE_BOOKMARK' :
+            return {
+                ...state
+            }
 
         default:
             return state

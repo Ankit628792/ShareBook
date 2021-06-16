@@ -4,11 +4,12 @@ import { motion } from 'framer-motion'
 import emptyBookmarks from "../assets/emptyBookmarks.svg";
 import Book from "./Book";
 import { pageTransition, pageZoom } from "../util";
+import { useSelector } from "react-redux";
 
 function Bookmarks() {
-  // const bookmarks = useSelector((state) => (console.log(state),state.bookmarkReducer.bookmark))
+
+  // const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
   const bookmarks = JSON.parse(localStorage.getItem('bookmark'))
-  console.log(bookmarks)
 
   return (
     <motion.div
