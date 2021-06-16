@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion";
 import { useHistory } from 'react-router';
+import { pageTransition, pageZoom } from '../util';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { addToBookmark, removeFromBookmark } from '../actions';
 // import BookmarkRoundedIcon from '@material-ui/icons/BookmarkRounded';
@@ -11,10 +12,10 @@ function Book({ id, author, title, image, summary }) {
     // const dispatch = useDispatch();
     const history = useHistory();
     // const [isBookmarked, setIsBookmarked] = useState(false);
-    let isBookmarked = false ;
+    let isBookmarked = false;
     const onBookClick = () => {
         history.push(`/book/${id}`);
-        const singleBook = { id, author, title, image, summary, isBookmarked}
+        const singleBook = { id, author, title, image, summary, isBookmarked }
         // console.log(singleBook)
         localStorage.setItem('singlebook', JSON.stringify(singleBook))
     }
@@ -53,7 +54,13 @@ function Book({ id, author, title, image, summary }) {
         }} className="book flex flex-col max-w-xs lg:max-w-md mx-auto my-7">
             <div className="bg-white shadow-md rounded-3xl p-4 hover:shadow-xl cursor-pointer">
                 <div className="flex flex-col lg:flex lg:flex-row items-center">
-                    <motion.div layoutId={id} className="h-26 w-40 lg:h-48 lg:w-48  lg:mb-0 mb-3" onClick={onBookClick}>
+                    <motion.div
+                        initial="initial"
+                        animate="in"
+                        exit="out"
+                        variants={pageZoom}
+                        transition={pageTransition}
+                        layoutId={id} className="h-26 w-40 lg:h-48 lg:w-48  lg:mb-0 mb-3" onClick={onBookClick}>
                         <img src={image}
                             alt="Just a flower" className=" w-full h-48 object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48 rounded-2xl" />
                     </motion.div>
@@ -80,10 +87,10 @@ function Book({ id, author, title, image, summary }) {
                             <p className="pb-3 max-w-sm p-text">
                                 {summary && summary.slice(0, 80)}....
                             </p>
-                            </div>
+                        </div>
 
-                            <div className="flex pb-3 border-t border-gray-200 "></div>
-                            {/* <div className="flex items-center justify-end">
+                        <div className="flex pb-3 border-t border-gray-200 "></div>
+                        {/* <div className="flex items-center justify-end">
 
                                 <motion.button
                                     whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
@@ -100,12 +107,12 @@ function Book({ id, author, title, image, summary }) {
                                     />{isBookmarked ? `Bookmarked` : `Bookmark`}
                                 </motion.button>
                             </div> */}
-                        </div>
                     </div>
                 </div>
+            </div>
         </motion.div>
 
-            )
+    )
 }
 
-            export default Book
+export default Book

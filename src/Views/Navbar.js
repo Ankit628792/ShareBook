@@ -27,7 +27,7 @@ function Navbar() {
             {/* <!-- hamburger menu --> */}
             <div className="hamburger-menu">
                 <label>
-                    <input type='checkbox' defaultChecked={checkedSate} onClick={handleCheckedSate} />
+                    <input type='checkbox' checked={checkedSate} onClick={handleCheckedSate} />
                     <span className='hamburger-inner'> <span className='hamburger-icon shadow-lg fixed'></span> </span>
                     <ul>
                         <li onClick={handleCheckedSate}> <NavLink to="/">Home</NavLink></li>

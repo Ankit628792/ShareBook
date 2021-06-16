@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 function Bookmarks() {
 
   const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
-  // const bookmarks = JSON.parse(localStorage.getItem('bookmark'))
+  const localBookmarks = JSON.parse(localStorage.getItem('bookmark'))
 
   return (
     <motion.div
@@ -22,9 +22,15 @@ function Bookmarks() {
       <h4 className="h-text">Bookmarks</h4>
       {(bookmarks && bookmarks.length > 0 ) ? (
         <div className="flex flex-wrap pb-10">
-          {bookmarks.map((book) => (
+          {
+            bookmarks ? bookmarks.map((book) => (
               <Book key={book.id} id={book.id} author={book.author} title={book.title} image={book.image} summary={book.summary} />
-          ))}
+              ))
+              :
+              localBookmarks.map((book) => {
+                <Book key={book.id} id={book.id} author={book.author} title={book.title} image={book.image} summary={book.summary} />
+              })
+          }
         </div>
       ) : (
         <div className="cart__inner bookmark__inner">
