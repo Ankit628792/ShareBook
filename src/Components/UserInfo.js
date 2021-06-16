@@ -2,6 +2,7 @@ import React from 'react'
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from '../util';
+import { NavLink } from 'react-router-dom';
 
 function UserInfo() {
     return (
@@ -60,9 +61,9 @@ function UserInfo() {
                                             <span className="ml-2 flex-1 w-0 truncate">Book Name </span>
                                         </div>
                                         <div className="ml-4 flex-shrink-0">
-                                            <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                            <NavLink href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                                                 Sharing
-                                            </a>
+                                            </NavLink>
                                         </div>
                                     </li>
                                     <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
@@ -70,9 +71,9 @@ function UserInfo() {
                                             <span className="ml-2 flex-1 w-0 truncate">Book Name </span>
                                         </div>
                                         <div className="ml-4 flex-shrink-0">
-                                            <a href="#" className="font-medium text-green-600 hover:text-green-500">
+                                            <NavLink href="#" className="font-medium text-green-600 hover:text-green-500">
                                                 Shared
-                                            </a>
+                                            </NavLink>
                                         </div>
                                     </li>
                                 </ul>

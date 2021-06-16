@@ -25,10 +25,10 @@ function Navbar() {
         <>
 
             {/* <!-- hamburger menu --> */}
-            <div class="hamburger-menu">
+            <div className="hamburger-menu">
                 <label>
-                    <input type='checkbox' checked={checkedSate} onClick={handleCheckedSate} />
-                    <span class='hamburger-inner'> <span class='hamburger-icon shadow-lg fixed'></span> </span>
+                    <input type='checkbox' defaultChecked={checkedSate} onClick={handleCheckedSate} />
+                    <span className='hamburger-inner'> <span className='hamburger-icon shadow-lg fixed'></span> </span>
                     <ul>
                         <li onClick={handleCheckedSate}> <NavLink to="/">Home</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink to="/allbooks">Books Rack</NavLink></li>
@@ -69,15 +69,15 @@ function Navbar() {
                         </div>
 
                         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                            <a href="/bookmarks" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                            <NavLink to="/bookmarks" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                 <LocalMallIcon />
-                            </a>
+                            </NavLink>
                             {
                                 state.user ? 
                                 <>
-                                <a href="/chats" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                                <NavLink to="/chats" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                     <ChatRoundedIcon />
-                                </a>
+                                </NavLink>
                                 <DropDown
                                     className="header__langDropDown"
                                     items={redirects}

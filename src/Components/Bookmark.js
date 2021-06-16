@@ -5,11 +5,12 @@ import emptyBookmarks from "../assets/emptyBookmarks.svg";
 import Book from "./Book";
 import { pageTransition, pageZoom } from "../util";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 function Bookmarks() {
 
-  // const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
-  const bookmarks = JSON.parse(localStorage.getItem('bookmark'))
+  const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
+  // const bookmarks = JSON.parse(localStorage.getItem('bookmark'))
 
   return (
     <motion.div
@@ -36,10 +37,10 @@ function Bookmarks() {
               Something's catching your eye? Add your favorite items to
               Bookmarks, and check them out anytime you wish.
             </p>
-            <a href="/allbooks"><motion.button
+            <NavLink to="/allbooks"><motion.button
               whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
               whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
-            >Go To Books Rack</motion.button></a>
+            >Go To Books Rack</motion.button></NavLink>
           </div>
         </div>
       )}

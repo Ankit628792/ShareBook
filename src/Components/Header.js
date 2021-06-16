@@ -1,5 +1,6 @@
 import React from 'react'
 import {motion} from 'framer-motion'
+import { NavLink } from 'react-router-dom'
 function Header() {
   return (
     <>
@@ -15,10 +16,10 @@ function Header() {
             <p className="pr-5 mb-4 text-lg p-text">We provide a large varities of book to share and get from others
               without any cost. This is a free plateform to meet your needs. Explore our services with a
               seemless and interactive experience.</p>
-              <a href="/allbooks"><motion.button
+              <NavLink to="/allbooks"><motion.button
               whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
               whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
-            >Get A Book</motion.button></a>
+            >Get A Book</motion.button></NavLink>
           </div>
 
         </div>
@@ -65,17 +66,17 @@ function Header() {
               No need to buy or sell a book. Share it with others. Share your source of knowledge, Interest with others.
             </p>
             <div className="flex items-center">
-            <a href="/myaccount"><motion.button
+            <NavLink to="/myaccount"><motion.button
               whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
               whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
-            >Share A Book</motion.button></a>
-              <a
-                href="/about"
+            >Share A Book</motion.button></NavLink>
+              <NavLink
+                to="/about"
                 aria-label=""
                 className="inline-flex items-center ml-4 font-semibold text-gray-800"
               >
                 Learn more
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -112,7 +113,7 @@ function Header() {
                 <div className="flex items-center capitalize space-x-6 text-gray-800">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" className="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                       d="M5 13l4 4L19 7"></path>
                   </svg>
                   <h4>Fast Interactive Experience</h4>
@@ -120,7 +121,7 @@ function Header() {
                 <div className="flex items-center capitalize space-x-6 text-gray-800">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" className="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                       d="M5 13l4 4L19 7"></path>
                   </svg>
                   <h4>Secure Process</h4>
@@ -128,7 +129,7 @@ function Header() {
                 <div className="flex items-center capitalize space-x-6 text-gray-800">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" className="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                       d="M5 13l4 4L19 7"></path>
                   </svg>
                   <h4>No involvement of transaction</h4>
@@ -136,7 +137,7 @@ function Header() {
                 <div className="flex items-center capitalize space-x-6 text-gray-800">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" className="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                       d="M5 13l4 4L19 7"></path>
                   </svg>
                   <h4>Show your Kindness</h4>
@@ -170,10 +171,10 @@ function Header() {
                 Whichever book you want, just search it here and contact them. You don't need to buy, just share. Share your book interest with others. You can also contribute to the <span className="s-text">ShareBook</span> initiative.
               </p>
             </div>
-            <a href="/allbooks"><motion.button
+            <NavLink to="/allbooks"><motion.button
               whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
               whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
-            >Explore</motion.button></a>
+            >Explore</motion.button></NavLink>
 
           </div>
         </div>
@@ -216,12 +217,12 @@ function Header() {
               <p className="p-text text-lg">We leverage the concept of mobile-first design. Through our work, we focus on designing an experience that works across different screen sizes.</p>
             </div>
             <div className="flex items-center space-x-3">
-              <a href="/" className="w-32 transition duration-300 hover:shadow-lg">
+              <NavLink to="/" className="w-32 transition duration-300 hover:shadow-lg">
                 <img src="https://kitwind.io/assets/kometa/app-store.png" className="object-cover object-top w-full h-auto mx-auto" alt="" />
-              </a>
-              <a href="/" className="w-32 transition duration-300 hover:shadow-lg">
+              </NavLink>
+              <NavLink to="/" className="w-32 transition duration-300 hover:shadow-lg">
                 <img src="https://kitwind.io/assets/kometa/google-play.png" className="object-cover object-top w-full h-auto mx-auto" alt="" />
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -286,8 +287,8 @@ function Header() {
               </p>
             </div>
             <div>
-              <a
-                href="https://openbase.com/js/bcrypt/documentation" target="_blank"
+              <NavLink
+                to="https://openbase.com/js/bcrypt/documentation" target="_blank"
                 aria-label=""
                 className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
@@ -299,7 +300,7 @@ function Header() {
                 >
                   <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
                 </svg>
-              </a>
+              </NavLink>
             </div>
           </div>
           <div className="flex items-center justify-center -mx-4 lg:pl-8">
@@ -389,13 +390,13 @@ function Header() {
             <p className="max-w-md mb-3 text-sm h-text sm:mx-auto">
               From and To Front-End, your data is passed in the encryted format which can't be access to you and others.
             </p>
-            <a
-              href="https://openbase.com/js/bcrypt/documentation" target="_blank"
+            <NavLink
+              to="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more
-            </a>
+            </NavLink>
             <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
               <svg
                 className="w-8 p-text transform rotate-90 lg:rotate-0"
@@ -441,13 +442,13 @@ function Header() {
             <p className="max-w-md mb-3 text-sm h-text sm:mx-auto">
               Your data passed and request on this layer is again analysed to get the authenticated user. This layer again encrypt your details to add a plus point in the data security.
             </p>
-            <a
-              href="https://openbase.com/js/bcrypt/documentation" target="_blank"
+            <NavLink
+              to="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more
-            </a>
+            </NavLink>
             <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
               <svg
                 className="w-8 p-text transform rotate-90 lg:rotate-0"
@@ -493,13 +494,13 @@ function Header() {
             <p className="max-w-md mb-3 text-sm h-text sm:mx-auto">
               The database is completely secured and no body can access that. It is unreachable to anyone. And it has no direct access to the application that makes it more secure.
             </p>
-            <a
-              href="https://openbase.com/js/bcrypt/documentation" target="_blank"
+            <NavLink
+              to="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>
@@ -556,30 +557,30 @@ function Header() {
             />
             <div className="p-5 border border-t-0">
               <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                <a
-                  href="/"
+                <NavLink
+                  to="/"
                 >
                   Book
-                </a>
+                </NavLink>
                 <span className="s-text">— 28 Dec 2020</span>
               </p>
-              <a
-                href="/"
+              <NavLink
+                to="/"
                 className="inline-block mb-3 text-2xl font-bold leading-5"
               >
                 How to share a book ?
-              </a>
+              </NavLink>
               <p className="mb-2 p-text">
                 Sed ut perspiciatis unde omnis iste natus error sit sed quia
                 consequuntur magni voluptatem doloremque.
               </p>
-              <a
-                href="/"
+              <NavLink
+                to="/"
                 aria-label=""
                 className="inline-flex items-center font-semibold"
               >
                 Learn more
-              </a>
+              </NavLink>
             </div>
           </div>
           <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm hover:shadow-lg">
@@ -590,30 +591,30 @@ function Header() {
             />
             <div className="p-5 border border-t-0">
               <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                <a
-                  href="/"
+                <NavLink
+                  to="/"
                 >
                   Book
-                </a>
+                </NavLink>
                 <span className="s-text">— 28 Dec 2020</span>
               </p>
-              <a
-                href="/"
+              <NavLink
+                to="/"
                 className="inline-block mb-3 text-2xl font-bold leading-5"
               >
                 How to get a book ?
-              </a>
+              </NavLink>
               <p className="mb-2 p-text">
                 Sed ut perspiciatis unde omnis iste natus error sit sed quia
                 consequuntur magni voluptatem doloremque.
               </p>
-              <a
-                href="/"
+              <NavLink
+                to="/"
                 aria-label=""
                 className="inline-flex items-center font-semibold"
               >
                 Learn more
-              </a>
+              </NavLink>
             </div>
           </div>
           <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm hover:shadow-lg">
@@ -624,30 +625,30 @@ function Header() {
             />
             <div className="p-5 border border-t-0">
               <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                <a
-                  href="/"
+                <NavLink
+                  to="/"
                 >
                   contact us
-                </a>
+                </NavLink>
                 <span className="s-text">— 28 Dec 2020</span>
               </p>
-              <a
-                href="/"
+              <NavLink
+                to="/"
                 className="inline-block mb-3 text-2xl font-bold leading-5"
               >
                 How to reach us ?
-              </a>
+              </NavLink>
               <p className="mb-2 p-text">
                 Sed ut perspiciatis unde omnis iste natus error sit sed quia
                 consequuntur magni voluptatem doloremque.
               </p>
-              <a
-                href="/"
+              <NavLink
+                to="/"
                 aria-label=""
                 className="inline-flex items-center font-semibold"
               >
                 Learn more
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>

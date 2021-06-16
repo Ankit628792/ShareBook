@@ -366,9 +366,9 @@ function ChatPage() {
                                             
                                         </div>
                                         <div class="flex items-center flex-row-reverse group">
-                                            <a class="block w-64 h-64 relative flex flex-shrink-0 max-w-xs lg:max-w-md" href="#">
+                                            <div class="block w-64 h-64 relative flex flex-shrink-0 max-w-xs lg:max-w-md" href="#">
                                                 <img class="absolute shadow-md w-full h-full rounded-l-lg object-cover" src="https://unsplash.com/photos/8--kuxbxuKU/download?force=true&w=640" alt="hiking" />
-                                            </a>
+                                            </div>
                                             
                                         </div>
                                         <div class="flex items-center flex-row-reverse group">

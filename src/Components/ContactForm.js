@@ -37,7 +37,7 @@ function ContactForm() {
             </h3>
                   <form>
                     <div className="mb-1 sm:mb-2">
-                      <label for="firstName" className="inline-block mb-1 font-medium">First Name</label>
+                      <label htmlFor="firstName" className="inline-block mb-1 font-medium">First Name</label>
                       <input
                         placeholder="John"
                         required
@@ -48,7 +48,7 @@ function ContactForm() {
                       />
                     </div>
                     <div className="mb-1 sm:mb-2">
-                      <label for="email" className="inline-block mb-1 font-medium">E-mail</label>
+                      <label htmlFor="email" className="inline-block mb-1 font-medium">E-mail</label>
                       <input
                         placeholder="john.doe@example.org"
                         required
@@ -59,7 +59,7 @@ function ContactForm() {
                       />
                     </div>
                     <div className="mb-1 sm:mb-2">
-                      <label for="message" className="inline-block mb-1 font-medium">Your Message</label>
+                      <label htmlFor="message" className="inline-block mb-1 font-medium">Your Message</label>
                       <textarea
                         placeholder="Type Your Message Here ..."
                         required

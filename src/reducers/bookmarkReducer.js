@@ -6,6 +6,7 @@ const bookmarkReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TO_BOOKMARK':
             let addBookmark = [...state.bookmark, action.bookData]
+            console.log(action)
             localStorage.setItem('bookmark', JSON.stringify(addBookmark))
             return {
                 bookmark: addBookmark

@@ -7,24 +7,25 @@ import BookmarkRoundedIcon from "@material-ui/icons/BookmarkRounded";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import { useDispatch, useSelector } from "react-redux";
 import { addToBookmark, removeFromBookmark, restoreBookmark } from "../actions";
+import { NavLink } from "react-router-dom";
 
 function BookSingle() {
   const dispatch = useDispatch();
 
   const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
-  console.log(bookmarks)
 
   const { id } = useParams();
 
   const bookDetails = JSON.parse(localStorage.getItem('singlebook'))
 
 
-  const [isBookmarked, setIsBookmarked] = useState(bookmarks.isBookmarked);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   const summaryList = bookDetails.summary.slice(0, 1000).split(".");
 
   const addToBookmarks = () => {
     setIsBookmarked(true);
+    bookDetails.isBookmarked = true
     dispatch(addToBookmark(bookDetails, ...summaryList))
   };
 
@@ -76,14 +77,14 @@ function BookSingle() {
               </div>
               <div>
                 <div className="flex text-sm flex-row items-center justify-evenly">
-                  <a href="/chats"><motion.button
+                  <NavLink to="/chats"><motion.button
                     whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                     whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                     className="bg-gray-900 px-4 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
                     type="button">
                     <ChatBubbleOutlineIcon className="mr-1" />Chat Now
                   </motion.button>
-                  </a>
+                  </NavLink>
                   <motion.button
                     whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                     whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
