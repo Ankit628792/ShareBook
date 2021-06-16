@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./Bookmark.css";
 import { motion } from 'framer-motion'
 import emptyBookmarks from "../assets/emptyBookmarks.svg";
@@ -6,6 +6,8 @@ import Book from "./Book";
 import { pageTransition, pageZoom } from "../util";
 
 function Bookmarks() {
+
+  const [isLoading, setisLoading] = useState(false)
   // const bookmarks = useSelector((state) => (console.log(state),state.bookmarkReducer.bookmark))
   const bookmarks = JSON.parse(localStorage.getItem('bookmark'))
   console.log(bookmarks)

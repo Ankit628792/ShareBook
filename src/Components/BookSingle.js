@@ -10,7 +10,7 @@ import { addToBookmark, removeFromBookmark } from "../actions";
 
 
 function BookSingle() {
-  const bookmarks = JSON.parse(localStorage.getItem('bookmark'))
+  const bookmarks = JSON.parse(localStorage.getItem('bookmark')) || 0 ;
   const dispatch = useDispatch();
 
   const { id } = useParams();
