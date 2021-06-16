@@ -1,10 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import postData from '../requests/postData'
 import { motion } from 'framer-motion'
+import { useDispatch } from 'react-redux'
+import { setUser } from '../actions'
+
 
 const Signin = () => {
+
+    const dispatch = useDispatch();
 
     const history = useHistory()
 
@@ -16,13 +21,11 @@ const Signin = () => {
     const onSubmit = (data) => {
         setData(data);
 
-        setInterval(() => {
-            reset()
-        }, 1000);
 
         const status = postData(data, '/signin')
         status.then((status) => {
             if (status === 200) {
+                dispatch(setUser())
                 history.push('/')
             }
         })

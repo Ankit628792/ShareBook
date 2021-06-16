@@ -97,11 +97,6 @@ export const initialState = {
           user: action.user,
         };
   
-      case "SET_FUSE":
-        return {
-          ...state,
-          fuse: action.fuse,
-        };
   
       case "SET_CATEGORY":
         return {

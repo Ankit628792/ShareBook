@@ -1,38 +1,66 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from "framer-motion";
 import { useHistory } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { addToBookmark, removeFromBookmark } from '../actions';
+import BookmarkRoundedIcon from '@material-ui/icons/BookmarkRounded';
 
-function Book({ id, author, title, image, summary, price }) {
+function Book({ id, author, title, image, summary }) {
+
+    const dispatch = useDispatch()
 
     const history = useHistory();
     const [isBookmarked, setIsBookmarked] = useState(false);
 
     const onBookClick = () => {
-        history.push(`/book/${id}`) ;
-        const singleBook = { id, author, title, image, summary, price }
+        history.push(`/book/${id}`);
+        const singleBook = { id, author, title, image, summary }
         // console.log(singleBook)
         localStorage.setItem('singlebook', JSON.stringify(singleBook))
-    } 
+    }
+    const bookDetails = { id, author, title, summary, image }
+    const addToBookmarks = () => {
+        setIsBookmarked(true);
+        dispatch(addToBookmark(bookDetails))
+    };
+
+    const removeFromBookmarks = () => {
+        setIsBookmarked(false)
+        dispatch(removeFromBookmark(id))
+    }
+
+    const bookmarks = JSON.parse(localStorage.getItem('bookmark'))
+
+    useEffect(() => {
+        const bIndex = bookmarks.findIndex((book) => book.id == id);
+        if (bIndex >= 0) {
+            setIsBookmarked(true);
+        } else {
+            setIsBookmarked(false);
+        }
+    }, [bookmarks, id])
+
     return (
-            <motion.div initial="hidden" animate="visible" variants={{
-                hidden: {
-                    scale: 0,
-                },
-                visible: {
-                    scale: 1,
-                    transition: {
-                        delay: 0.5
-                    }
-                },
-            }} className="book flex flex-col max-w-xs lg:max-w-md mx-auto my-7" onClick={onBookClick}>
-                <div className="bg-white shadow-md rounded-3xl p-4 hover:shadow-xl cursor-pointer">
-                    <div className="flex flex-col lg:flex lg:flex-row items-center">
-                        <motion.div layoutId={id} className="h-26 w-40 lg:h-48 lg:w-48  lg:mb-0 mb-3">
-                            <img src={image}
-                                alt="Just a flower" className=" w-full h-48 object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48 rounded-2xl" />
-                        </motion.div>
-                        <div className="flex-auto ml-3 justify-evenly py-2 pl-2">
-                            <div className="flex flex-wrap ">
+        <motion.div initial="hidden" animate="visible" variants={{
+            hidden: {
+                scale: 0,
+            },
+            visible: {
+                scale: 1,
+                transition: {
+                    delay: 0.5
+                }
+            },
+        }} className="book flex flex-col max-w-xs lg:max-w-md mx-auto my-7">
+            <div className="bg-white shadow-md rounded-3xl p-4 hover:shadow-xl cursor-pointer">
+                <div className="flex flex-col lg:flex lg:flex-row items-center">
+                    <motion.div layoutId={id} className="h-26 w-40 lg:h-48 lg:w-48  lg:mb-0 mb-3" onClick={onBookClick}>
+                        <img src={image}
+                            alt="Just a flower" className=" w-full h-48 object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48 rounded-2xl" />
+                    </motion.div>
+                    <div className="flex-auto ml-3 justify-evenly py-2 pl-2">
+                        <div onClick={onBookClick}>
+                            <div className="flex flex-wrap">
                                 <div className="w-full flex-none text-xs s-text font-medium ">
                                     {author}
                                 </div>
@@ -53,14 +81,32 @@ function Book({ id, author, title, image, summary, price }) {
                             <p className="pb-3 max-w-sm p-text">
                                 {summary && summary.slice(0, 80)}....
                             </p>
+                            </div>
 
                             <div className="flex pb-3 border-t border-gray-200 "></div>
+                            <div className="flex items-center justify-end">
+
+                                <motion.button
+                                    whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                                    whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                                    className="px-4 py-3 flex items-center text-white focus:outline-none btn-bg"
+                                    type="button" onClick={isBookmarked ? (removeFromBookmarks) : (addToBookmarks)}>
+                                    <BookmarkRoundedIcon
+                                        style={{
+                                            fill: isBookmarked ? "#fff" : "transparent",
+                                            stroke: "#fff",
+                                            strokeWidth: 2,
+                                        }}
+                                        className="mr-1"
+                                    />{isBookmarked ? `Bookmarked` : `Bookmark`}
+                                </motion.button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </motion.div>
-    
-    )
+        </motion.div>
+
+            )
 }
 
-export default Book
+            export default Book

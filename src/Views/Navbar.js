@@ -17,6 +17,9 @@ function Navbar() {
     const handleCheckedSate = () => {
         checkedSate ? setCheckedSate(false) : setCheckedSate(true)
     }
+    const state = {
+        user: true
+    }
 
     return (
         <>
@@ -32,7 +35,12 @@ function Navbar() {
                         <li onClick={handleCheckedSate}> <NavLink to="/about">About</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink to="/contactus">Contact</NavLink></li>
                         {/* <li onClick={handleCheckedSate}> <NavLink to="/user">User</NavLink></li> */}
-                        <li onClick={handleCheckedSate}> <NavLink to="/signup">SignUp</NavLink></li>
+                        {
+                            state.user ? 
+                            <li onClick={handleCheckedSate}> <NavLink to="/signout">Signout</NavLink></li>
+                            :
+                            <li onClick={handleCheckedSate}> <NavLink to="/signup">SignUp</NavLink></li>
+                        }
 
                     </ul>
                 </label>
@@ -61,17 +69,27 @@ function Navbar() {
                         </div>
 
                         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                            <a href="/chats" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                                <ChatRoundedIcon />
-                            </a>
                             <a href="/bookmarks" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                 <LocalMallIcon />
                             </a>
-                            <DropDown
-                                className="header__langDropDown"
-                                items={redirects}
-                            />
-                        </div>
+                            {
+                                state.user ? 
+                                <>
+                                <a href="/chats" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                                    <ChatRoundedIcon />
+                                </a>
+                                <DropDown
+                                    className="header__langDropDown"
+                                    items={redirects}
+                                />
+                                </>
+                                :
+                                <button type="button" role="tab" className="flex text-sm rounded-full focus:outline-none focus:border-none items-center">
+                                    <img role="tab" className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                </button>
+
+                            }
+                            </div>
                     </div>
                 </div>
 

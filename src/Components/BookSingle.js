@@ -1,45 +1,47 @@
 import React, { useEffect, useState } from "react";
 import "./BookSingle.css";
 import { useParams } from "react-router";
-import books from '../json/books'
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from "../util";
 import BookmarkRoundedIcon from "@material-ui/icons/BookmarkRounded";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import { useDispatch, useSelector } from "react-redux";
+import { addToBookmark, removeFromBookmark } from "../actions";
+
+
 function BookSingle() {
-
-
-  const addToBookmarks = () => {
-    isBookmarked ? setIsBookmarked(false) : setIsBookmarked(true)
-
-    // dispatch({
-    //   type: "ADD_TO_BOOKMARKS",
-    //   item: {
-    //     ...productDetails,
-    //     id: id,
-    //   },
-    // });
-  };
-
+  const bookmarks = JSON.parse(localStorage.getItem('bookmark'))
+  const dispatch = useDispatch();
 
   const { id } = useParams();
-  const bookList = books.books;
 
   const bookDetails = JSON.parse(localStorage.getItem('singlebook'))
 
-  // const index = bookList.findIndex((book) => book.ISBN == id)
-  // console.log(index)
-
-  // const bookDetails = bookList[index]
 
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [isAdded, setIsAdded] = useState(false);
 
-  const summaryList = bookDetails.summary.split(".");
+  const summaryList = bookDetails.summary.slice(0, 1000).split(".");
 
+  useEffect(() => {
+    const bIndex = bookmarks.findIndex((book) => book.id == id);
+    if (bIndex >= 0) {
+      setIsBookmarked(true);
+    } else {
+      setIsBookmarked(false);
+    }
+  })
+
+  const addToBookmarks = () => {
+    setIsBookmarked(true);
+    dispatch(addToBookmark(bookDetails, ...summaryList))
+  };
+
+  const removeFromBookmarks = () => {
+    setIsBookmarked(false)
+    dispatch(removeFromBookmark(id))
+  }
 
   return (
-    (id == bookDetails.id) &&
     <>
       <motion.div
         initial="initial"
@@ -63,8 +65,8 @@ function BookSingle() {
                 <h1 className="font-semibold h-text">Summary :</h1>
                 <ul>
                   {
-                    summaryList.map((list) => (!list == '' &&
-                      <li className="list-disc list-item">
+                    summaryList.map((list, i) => (!list == '' &&
+                      <li key={i} className="list-disc list-item">
                         <p className="text-sm p-text">{list}</p>
                       </li>
                     ))
@@ -85,15 +87,15 @@ function BookSingle() {
                     whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                     whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                     className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
-                    type="button" onClick={addToBookmarks}>
-                     <BookmarkRoundedIcon
-                  style={{
-                    fill: isBookmarked ? "#fff" : "transparent",
-                    stroke: "#fff",
-                    strokeWidth: 2,
-                  }}
-                  className="mr-1"
-                />{isBookmarked ? `Bookmarked` : `Bookmark`}
+                    type="button" onClick={isBookmarked ? (removeFromBookmarks) : (addToBookmarks)}>
+                    <BookmarkRoundedIcon
+                      style={{
+                        fill: isBookmarked ? "#fff" : "transparent",
+                        stroke: "#fff",
+                        strokeWidth: 2,
+                      }}
+                      className="mr-1"
+                    />{isBookmarked ? `Bookmarked` : `Bookmark`}
                   </motion.button>
                 </div>
               </div>

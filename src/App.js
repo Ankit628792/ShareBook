@@ -1,5 +1,4 @@
-
-import React, { useEffect } from "react";
+import React from 'react'
 import Navbar from "./Views/Navbar";
 import Footer from "./Views/Footer";
 import Home from "./Views/Home";
@@ -18,7 +17,6 @@ import ChatPage from "./Components/ChatPage";
 import Signin from "./Components/Signin";
 import Signup from "./Components/Signup";
 
-
 function App() {
 
   const location = useLocation();
@@ -33,57 +31,57 @@ function App() {
   //         });
   //       }
   //     }, []);
-
+  
   return (
     <>
-      <AnimatePresence exitBeforeEnter>
-        <AnimateSharedLayout>
-          <Navbar />
-          <Switch location={location} key={location.pathname}>
-            <Route path="/book/:id">
-              <BookSingle />
-            </Route>
+        <AnimatePresence exitBeforeEnter>
+          <AnimateSharedLayout>
+            <Navbar />
+            <Switch location={location} key={location.pathname}>
+              <Route path="/book/:id">
+                <BookSingle />
+              </Route>
 
-            <Route path="/bookmarks">
-              <BookmarkPage />
-            </Route>
+              <Route path="/bookmarks">
+                <BookmarkPage />
+              </Route>
 
-            <Route path="/signup">
-              <Signup />
-            </Route>
+              <Route path="/signup">
+                <Signup />
+              </Route>
 
-            <Route path="/signin">
-              <Signin />
-            </Route>
+              <Route path="/signin">
+                <Signin />
+              </Route>
 
-            <Route path="/myaccount">
-              <MyAccount type="myaccount" />
-            </Route>
+              <Route path="/myaccount">
+                <MyAccount type="myaccount" />
+              </Route>
 
-            <Route exact path="/">
-              <Home />
-            </Route>
+              <Route exact path="/">
+                <Home />
+              </Route>
 
-            <Route exact path="/about">
-              <About />
-            </Route>
+              <Route exact path="/about">
+                <About />
+              </Route>
 
-            <Route exact path="/contactus">
-              <Contact />
-            </Route>
-            <Route exact path="/allbooks">
-              <AllBooks />
-            </Route>
-            <Route exact path="/chats">
-              <ChatPage />
-            </Route>
+              <Route exact path="/contactus">
+                <Contact />
+              </Route>
+              <Route exact path="/allbooks">
+                <AllBooks />
+              </Route>
+              <Route exact path="/chats">
+                <ChatPage />
+              </Route>
 
 
-          </Switch>
-        </AnimateSharedLayout>
-      </AnimatePresence>
+            </Switch>
+          </AnimateSharedLayout>
+        </AnimatePresence>
 
-      <Footer />
+        <Footer />
     </>
   );
 }
