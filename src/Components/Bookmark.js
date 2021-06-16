@@ -18,7 +18,7 @@ function Bookmarks() {
       variants={pageZoom}
       transition={pageTransition} className="bookmarks">
       <h4 className="h-text">Bookmarks</h4>
-      {bookmarks.length > 0 ? (
+      {(bookmarks.length > 0 && bookmarks) ? (
         <div className="flex flex-wrap pb-10">
           {bookmarks.map((book) => (
               <Book key={book.id} id={book.id} author={book.author} title={book.title} image={book.image} summary={book.summary} />
