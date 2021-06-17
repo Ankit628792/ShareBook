@@ -61,7 +61,7 @@ function UserInfo() {
                                             <span className="ml-2 flex-1 w-0 truncate">Book Name </span>
                                         </div>
                                         <div className="ml-4 flex-shrink-0">
-                                            <NavLink href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                                            <NavLink to="#" className="font-medium text-indigo-600 hover:text-indigo-500">
                                                 Sharing
                                             </NavLink>
                                         </div>
@@ -71,7 +71,7 @@ function UserInfo() {
                                             <span className="ml-2 flex-1 w-0 truncate">Book Name </span>
                                         </div>
                                         <div className="ml-4 flex-shrink-0">
-                                            <NavLink href="#" className="font-medium text-green-600 hover:text-green-500">
+                                            <NavLink to="#" className="font-medium text-green-600 hover:text-green-500">
                                                 Shared
                                             </NavLink>
                                         </div>
