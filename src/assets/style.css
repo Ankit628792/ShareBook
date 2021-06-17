@@ -10,10 +10,10 @@ h1,h2,h3,h4,h5,h6{
   .all_book .book{
     max-width: 10rem;
   }
-  .book .imgBx{
+  .all_book .book .imgBx{
     height: 100px !important;
   }
-  .book .imgBx img{
+  .all_book .book .imgBx img{
     object-fit: fill;
   }
   
