@@ -6,11 +6,17 @@ import Book from "./Book";
 import { pageTransition, pageZoom } from "../util";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 function Bookmarks() {
 
-  const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
-  const localBookmarks = JSON.parse(localStorage.getItem('bookmark'))
+  const bookmark = useSelector((state) => state.bookmarkReducer.bookmark)
+
+  const [bookmarks, setBookmarks] = useState(bookmark)
+
+  useEffect(() => {
+    setBookmarks = JSON.parse(localStorage.getItem('bookmark'))
+  }, [])
 
   return (
     <motion.div
@@ -20,17 +26,12 @@ function Bookmarks() {
       variants={pageZoom}
       transition={pageTransition} className="bookmarks">
       <h4 className="h-text">Bookmarks</h4>
-      {((bookmarks && bookmarks.length > 0 )  || (localBookmarks && localBookmarks.length > 0 )) ? (
+      {bookmarks && bookmarks.length > 0  ? (
         <div className="flex flex-wrap pb-10">
-          {
-            (bookmarks && bookmarks.length > 0 ) ? bookmarks.map((book) => (
+          {bookmarks.map((book) => (
               <Book key={book.id} id={book.id} author={book.author} title={book.title} image={book.image} summary={book.summary} />
-              ))
-              :
-              localBookmarks.map((book) => {
-                <Book key={book.id} id={book.id} author={book.author} title={book.title} image={book.image} summary={book.summary} />
-              })
-          }
+          ))
+        }
         </div>
       ) : (
         <div className="cart__inner bookmark__inner">
