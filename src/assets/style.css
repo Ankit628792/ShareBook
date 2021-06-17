@@ -7,7 +7,7 @@ h1,h2,h3,h4,h5,h6{
 } */
 
 @media(max-width: 768px){
-  .all_book .book{
+  /* .all_book .book{
     max-width: 10rem;
   }
   .all_book .book .imgBx{
@@ -15,8 +15,7 @@ h1,h2,h3,h4,h5,h6{
   }
   .all_book .book .imgBx img{
     object-fit: fill;
-  }
-  
+  } */
 }
 .book img{
   max-width: 100%;
