@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import "./Bookmark.css";
 import { motion } from 'framer-motion'
 import emptyBookmarks from "../assets/emptyBookmarks.svg";
@@ -6,7 +6,6 @@ import Book from "./Book";
 import { pageTransition, pageZoom } from "../util";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 
 function Bookmarks() {
 
