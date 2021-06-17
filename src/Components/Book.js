@@ -59,7 +59,6 @@ function Book({ id, author, title, image, summary }) {
                         animate="in"
                         exit="out"
                         variants={pageZoom}
-                        transition={pageTransition}
                         layoutId={id} className="h-26 w-40 lg:h-48 lg:w-48  lg:mb-0 mb-3" onClick={onBookClick}>
                         <img src={image}
                             alt="Just a flower" className=" w-full h-48 object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48 rounded-2xl" />

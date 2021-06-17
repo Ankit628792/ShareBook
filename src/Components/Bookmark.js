@@ -20,10 +20,10 @@ function Bookmarks() {
       variants={pageZoom}
       transition={pageTransition} className="bookmarks">
       <h4 className="h-text">Bookmarks</h4>
-      {(bookmarks && bookmarks.length > 0 ) ? (
+      {((bookmarks && bookmarks.length > 0 )  || (localBookmarks && localBookmarks.length > 0 )) ? (
         <div className="flex flex-wrap pb-10">
           {
-            bookmarks ? bookmarks.map((book) => (
+            (bookmarks && bookmarks.length > 0 ) ? bookmarks.map((book) => (
               <Book key={book.id} id={book.id} author={book.author} title={book.title} image={book.image} summary={book.summary} />
               ))
               :

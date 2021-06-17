@@ -37,7 +37,7 @@ function Navbar() {
                         {/* <li onClick={handleCheckedSate}> <NavLink to="/user">User</NavLink></li> */}
                         {
                             state.user ? 
-                            <li onClick={handleCheckedSate}> <NavLink to="/signout">Signout</NavLink></li>
+                            <li onClick={handleCheckedSate}> <NavLink to="/signin">Signout</NavLink></li>
                             :
                             <li onClick={handleCheckedSate}> <NavLink to="/signup">SignUp</NavLink></li>
                         }

@@ -38,24 +38,24 @@ function App() {
           <AnimateSharedLayout>
             <Navbar />
             <Switch location={location} key={location.pathname}>
-              <Route path="/book/:id">
+              <Route exact path="/book/:id">
                 <BookSingle />
               </Route>
 
-              <Route path="/bookmarks">
+              <Route exact path="/bookmarks">
                 <BookmarkPage />
               </Route>
 
-              <Route path="/signup">
+              <Route exact path="/signup">
                 <Signup />
               </Route>
 
-              <Route path="/signin">
+              <Route exact path="/signin">
                 <Signin />
               </Route>
 
-              <Route path="/myaccount">
-                <MyAccount type="myaccount" />
+              <Route exact path="/myaccount">
+                <MyAccount />
               </Route>
 
               <Route exact path="/">
