@@ -22,8 +22,9 @@ export const setUser = (user) => {
         user
     }
 }
-export const restoreBookmark = () => {
+export const restoreBookmark = (localBookmarks) => {
     return {
         type: 'RESTORE_BOOKMARK',
+        localBookmarks
     }
 }

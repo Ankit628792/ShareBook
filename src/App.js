@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Navbar from "./Views/Navbar";
 import Footer from "./Views/Footer";
 import Home from "./Views/Home";
@@ -16,21 +16,22 @@ import MyAccount from "./Views/MyAccount";
 import ChatPage from "./Components/ChatPage";
 import Signin from "./Components/Signin";
 import Signup from "./Components/Signup";
+import { useDispatch } from 'react-redux';
+import { restoreBookmark } from './actions';
 
 function App() {
 
   const location = useLocation();
-  // useEffect(() => {
-  //       const localBookmarks = localStorage.getItem("bookmarks");
-  //       console.log(localBookmarks)
 
-  //       if (localBookmarks) {
-  //         dispatch({
-  //           type: "RESTORE_BOOKMARKS",
-  //           bookmarks: JSON.parse(localBookmarks),
-  //         });
-  //       }
-  //     }, []);
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+        const localBookmarks = JSON.parse(localStorage.getItem("bookmark"));
+        console.log(localBookmarks)
+        if (localBookmarks) {
+          dispatch(restoreBookmark(localBookmarks));
+        }
+      }, []);
   
   return (
     <>

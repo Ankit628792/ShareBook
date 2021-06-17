@@ -1,3 +1,5 @@
+import { restoreBookmark } from "../actions";
+
 export const initialState = {
     bookmark: [],
   };
@@ -6,7 +8,6 @@ const bookmarkReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_TO_BOOKMARK':
             let addBookmark = [...state.bookmark, action.bookData]
-            console.log(action)
             localStorage.setItem('bookmark', JSON.stringify(addBookmark))
             return {
                 bookmark: addBookmark
@@ -32,8 +33,10 @@ const bookmarkReducer = (state = initialState, action) => {
             }
         
         case 'RESTORE_BOOKMARK' :
+            const restoreBookmarks = action.localBookmarks ;
+            console.log(restoreBookmarks)
             return {
-                ...state
+                bookmark: restoreBookmarks
             }
 
         default:

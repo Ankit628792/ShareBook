@@ -9,16 +9,7 @@ import { NavLink } from "react-router-dom";
 
 function Bookmarks() {
 
-  const bookmark = useSelector((state) => state.bookmarkReducer.bookmark)
-
-  const [bookmarks, setBookmarks] = useState({})
-
-  useEffect(() => {
-    const localBookmark = JSON.parse(localStorage.getItem('bookmark'))
-    if(localBookmark && localBookmark.length >0){
-      setBookmarks(localBookmark, ...bookmark)
-    }
-  }, [])
+  const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
 
   return (
     <motion.div

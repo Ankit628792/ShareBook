@@ -41,7 +41,7 @@ function BookSingle() {
         } else {
             setIsBookmarked(false);
         }
-    }, [bookmarks, id])
+    }, [])
 
   return (
     <>
