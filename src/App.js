@@ -18,7 +18,7 @@ import Signin from "./Components/Signin";
 import Signup from "./Components/Signup";
 import { useDispatch } from 'react-redux';
 import { restoreBookmark } from './actions';
-import AddToHomeScreen from 'react-add-to-homescreen';
+import AddToHomeScreen from '@ideasio/add-to-homescreen-react';
 
 function App() {
 
