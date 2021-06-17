@@ -18,6 +18,7 @@ import Signin from "./Components/Signin";
 import Signup from "./Components/Signup";
 import { useDispatch } from 'react-redux';
 import { restoreBookmark } from './actions';
+import AddToHomeScreen from 'react-add-to-homescreen';
 
 function App() {
 
@@ -83,6 +84,7 @@ function App() {
         </AnimatePresence>
 
         <Footer />
+        <AddToHomeScreen />
     </>
   );
 }
