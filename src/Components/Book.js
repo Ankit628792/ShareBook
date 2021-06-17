@@ -51,17 +51,16 @@ function Book({ id, author, title, image, summary }) {
                     delay: 0.5
                 }
             },
-        }} className="book flex flex-col max-w-xs lg:max-w-md mx-auto my-7">
-            <div className="bg-white shadow-md rounded-3xl p-4 hover:shadow-xl cursor-pointer">
+        }} className="book max-w-xs lg:max-w-xs bg-white shadow-md rounded-3xl my-7 mx-auto p-4 hover:shadow-xl cursor-pointer">
                 <div className="flex flex-col lg:flex lg:flex-row items-center">
                     <motion.div
                         initial="initial"
                         animate="in"
                         exit="out"
                         variants={pageZoom}
-                        layoutId={id} className="h-26 w-40 lg:h-48 lg:w-48  lg:mb-0 mb-3" onClick={onBookClick}>
+                        layoutId={id} className="h-26 w-40 lg:w-48  lg:mb-0 mb-3" onClick={onBookClick}>
                         <img src={image}
-                            alt="Just a flower" className=" w-full h-48 object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48 rounded-2xl" />
+                            alt="Just a flower" className="w-full h-48 object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48 rounded-2xl" />
                     </motion.div>
                     <div className="flex-auto ml-3 justify-evenly py-2 pl-2">
                         <div onClick={onBookClick}>
@@ -69,7 +68,7 @@ function Book({ id, author, title, image, summary }) {
                                 <div className="w-full flex-none text-xs s-text font-medium ">
                                     {author}
                                 </div>
-                                <h2 className="flex-auto text-xl font-medium h-text">{title}</h2>
+                                <h2 className="flex-auto text-xl font-medium h-text line-clamp-1">{title}</h2>
                             </div>
                             <div className="flex-1 inline-flex items-center text-sm py-2 text-gray-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none"
@@ -83,12 +82,12 @@ function Book({ id, author, title, image, summary }) {
                                 <p>India</p>
                             </div>
 
-                            <p className="pb-3 max-w-sm p-text">
-                                {summary && summary.slice(0, 80)}....
+                            <p className="max-w-sm p-text line-clamp">
+                               {summary}
                             </p>
                         </div>
 
-                        <div className="flex pb-3 border-t border-gray-200 "></div>
+                        <div className="flex mt-3 border-t border-gray-200 "></div>
                         {/* <div className="flex items-center justify-end">
 
                                 <motion.button
@@ -108,7 +107,6 @@ function Book({ id, author, title, image, summary }) {
                             </div> */}
                     </div>
                 </div>
-            </div>
         </motion.div>
 
     )

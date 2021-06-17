@@ -25,7 +25,7 @@ function Footer() {
                     <div className="flex mt-10 mb-6 flex-row justify-between items-center">
                         <h1 className="text-3xl">ShareBook</h1>
                         <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/myaccount">My Account</NavLink>
-                        <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/allbooks">Book Rack</NavLink>
+                        <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/allbooks">Book Shelf</NavLink>
                         <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/about">About us</NavLink>
                         <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/contactus">Contact</NavLink>
                         <div className="flex flex-row space-x-6 items-center justify-between">

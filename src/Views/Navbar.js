@@ -31,7 +31,7 @@ function Navbar() {
                     <span className='hamburger-inner'> <span className='hamburger-icon shadow-lg fixed'></span> </span>
                     <ul>
                         <li onClick={handleCheckedSate}> <NavLink to="/">Home</NavLink></li>
-                        <li onClick={handleCheckedSate}> <NavLink to="/allbooks">Books Rack</NavLink></li>
+                        <li onClick={handleCheckedSate}> <NavLink to="/allbooks">Books Shelf</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink to="/about">About</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink to="/contactus">Contact</NavLink></li>
                         {/* <li onClick={handleCheckedSate}> <NavLink to="/user">User</NavLink></li> */}
@@ -59,7 +59,7 @@ function Navbar() {
                                 <div className="flex space-x-4">
                                     <NavLink to="/" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">Home</NavLink>
 
-                                    <NavLink to="/allbooks" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">Books Rack</NavLink>
+                                    <NavLink to="/allbooks" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">Books Shelf</NavLink>
 
                                     <NavLink to="/about" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">About</NavLink>
 

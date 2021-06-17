@@ -15,7 +15,7 @@ function AllBooks() {
         variants={pageZoom}
         transition={pageTransition}
     >
-        <h1 className="text-center py-5 mt-5 text-xl bg-pink-200 font-semibold">Available Books in the Book Rack</h1>
+        <h1 className="text-center py-5 mt-5 text-xl bg-blue-200 font-semibold">Available Books in the Book Shelf</h1>
         <div className="w-full max-w-full flex flex-wrap py-12 bg-gray-100 xl:px-10">
             {
                 bookList.map((book) => (

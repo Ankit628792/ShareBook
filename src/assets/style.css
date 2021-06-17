@@ -7,11 +7,26 @@ h1,h2,h3,h4,h5,h6{
 } */
 
 @media(max-width: 768px){
-  .book img{
-    max-width: 100%;
-    height: auto !important;
+  .book{
+    max-width: 16rem;
   }
   
+}
+.book img{
+  max-width: 100%;
+  height: auto !important;
+}
+.line-clamp{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-1{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .navbar div .text-lg:hover{
