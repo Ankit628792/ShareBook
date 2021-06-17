@@ -15,7 +15,10 @@ function Bookmarks() {
   const [bookmarks, setBookmarks] = useState(bookmark)
 
   useEffect(() => {
-    setBookmarks = JSON.parse(localStorage.getItem('bookmark'))
+    const localBookmark = JSON.parse(localStorage.getItem('bookmark'))
+    if(localBookmark && localBookmark.length >0){
+      setBookmarks(localBookmark)
+    }
   }, [])
 
   return (
