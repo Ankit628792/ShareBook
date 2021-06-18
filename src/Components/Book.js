@@ -82,7 +82,7 @@ function Book({ id, author, title, image, summary }) {
                                 <h6>India</h6>
                             </div>
 
-                            <p className="max-w-sm p-text line-clamp">
+                            <p className="max-w-sm p-text line-clamp-3">
                                {summary}
                             </p>
                         </div>
