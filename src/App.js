@@ -77,7 +77,6 @@ function App() {
                 <ChatPage />
               </Route>
 
-
             </Switch>
           </AnimateSharedLayout>
         </AnimatePresence>
