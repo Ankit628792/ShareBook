@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import DropDown from "../Components/DropDown";
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
+import Avatar from '@material-ui/core/Avatar';
 
 const redirects = [
     'My Account',
@@ -51,7 +52,7 @@ function Navbar() {
                 <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between h-16">
 
-                        <div className="flex-shrink-0 hidden md:block flex items-center">
+                        <div className="flex-shrink-0 hidden lg:block flex items-center">
                             <img className="h-8 w-auto mx-auto ml-auto" src="/icons/ms-icon-310x310.png" alt="Workflow" /> <h1 className="font-bold pl-3 text-2xl">ShareBook</h1>
                         </div>
                         <div className="flex-1 flex items-center justify-center sm:items-stretch">
@@ -85,7 +86,8 @@ function Navbar() {
                                 </>
                                 :
                                 <button type="button" role="tab" className="flex text-sm rounded-full focus:outline-none focus:border-none items-center">
-                                    <img role="tab" className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                                    <Avatar>A</Avatar>
+                                    {/* <img role="tab" className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" /> */}
                                 </button>
 
                             }

@@ -51,24 +51,24 @@ function Book({ id, author, title, image, summary }) {
                     delay: 0.5
                 }
             },
-        }} className="book max-w-xs lg:max-w-xs bg-white shadow-md rounded-3xl my-7 mx-auto p-4 hover:shadow-xl cursor-pointer">
-                <div className="flex flex-col lg:flex lg:flex-row items-center">
+        }} className="book bg-white max-w-xs shadow-md mx-auto rounded-3xl p-4 hover:shadow-xl cursor-pointer flex items-center justify-center">
+                <div className="flex flex-col md:flex-row items-center">
                     <motion.div
                         initial="initial"
                         animate="in"
                         exit="out"
                         variants={pageZoom}
-                        layoutId={id} className="imgBx h-26 w-40 lg:w-48  lg:mb-0 mb-3" onClick={onBookClick}>
+                        layoutId={id} className="imgBx rounded-sm flex items-center justify-center p-2 lg:mb-0 mb-3" onClick={onBookClick}>
                         <img src={image}
-                            alt="Just a flower" className="w-full h-48 object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48 rounded-2xl" />
+                            alt="Just a flower" className="w-full rounded-md h-full object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48" />
                     </motion.div>
-                    <div className="flex-auto ml-3 justify-evenly py-2 pl-2">
+                    <div className="p-2">
                         <div onClick={onBookClick}>
                             <div className="flex flex-wrap">
                                 <div className="w-full flex-none text-xs s-text font-medium ">
                                     {author}
                                 </div>
-                                <h2 className="flex-auto text-xl font-medium h-text line-clamp-1">{title}</h2>
+                                <h2 className="flex-auto text-sm md:text-xl font-medium h-text line-clamp-1">{title}</h2>
                             </div>
                             <div className="flex-1 inline-flex items-center text-sm py-2 text-gray-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none"
@@ -79,10 +79,10 @@ function Book({ id, author, title, image, summary }) {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
-                                <p>India</p>
+                                <h6>India</h6>
                             </div>
 
-                            <p className="max-w-sm p-text line-clamp">
+                            <p className="max-w-sm p-text line-clamp hidden sm:block">
                                {summary}
                             </p>
                         </div>
