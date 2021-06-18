@@ -14,7 +14,7 @@ function ChatPage() {
             <div className="chats shadow-lg max-w-6xl mx-auto flex antialiased rounded text-gray-200 bg-gray-50 border border-gray-200 overflow-hidden" style={{ height: '90vh' }}>
                 <div className="flex-1 flex flex-col">
                     <main className="flex-grow flex flex-row min-h-0 relative">
-                        <section className={`absolute md:relative top-0 left-0 right-0 bottom-0 h-auto flex flex-col flex-none overflow-auto ${showPeople ? 'w-full' : 'w-0'} group lg:max-w-sm md:w-2/5 transition-all duration-300 ease-in-out`} style={{zIndex: 30}}>
+                        <section className={`absolute md:relative top-0 left-0 right-0 bottom-0 h-auto flex flex-col flex-none bg-gray-50 overflow-auto ${showPeople ? 'w-full' : 'w-0'} group lg:max-w-sm md:w-2/5 transition-all duration-300 ease-in-out`} style={{zIndex: 30}}>
                             <div className="header px-4 py-2 flex flex-row items-center flex-none justify-between">
                                 <div className="w-16 h-16 mx-2 items-center relative flex flex-shrink-0">
                                     <img className="rounded-full w-full h-full object-cover" alt="logo"
