@@ -20,11 +20,9 @@ const Signin = () => {
     // onSubmit handle event 
     const onSubmit = (data) => {
         setData(data);
-
-
-        const status = postData(data, '/signin')
-        status.then((status) => {
-            if (status === 200) {
+        const res = postData(data, '/signin')
+        res.then((res) => {
+            if (res.status === 200) {
                 dispatch(setUser())
                 history.push('/')
             }

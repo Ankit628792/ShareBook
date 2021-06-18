@@ -15,15 +15,15 @@ const Signup = () => {
     const onSubmit = (data, e) => {
         setData(data);
         if (data.password === data.cpassword) {
-
+            
             setInterval(() => {
                 reset()
             }, 1000);
 
             console.log('registering user ...')
-            const status = postData(data, '/signup')
-            status.then((status) => {
-                if (status === 201) {
+            const res = postData(data, '/signup')
+            res.then((res) => {
+                if (res.status === 201) {
                     history.push('/signin')
                 }
             })

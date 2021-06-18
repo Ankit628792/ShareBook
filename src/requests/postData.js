@@ -11,7 +11,7 @@ const postData = async (sendData, request) => {
             body: JSON.stringify(sendData)
         });
 
-        return res.status;
+        return res;
     }
     catch (error) {
         console.log(error)

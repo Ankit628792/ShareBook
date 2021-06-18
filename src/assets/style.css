@@ -1,51 +1,5 @@
 *{
-    font-family: 'Inter', sans-serif;
-}
-/* 
-h1,h2,h3,h4,h5,h6{
-    color: #39464d !important;
-} */
-
-@media(max-width: 768px){
-  .all_book .book .imgBx{
-    width: 110px;
-    height: 150px !important;
-  }
-  .all_book .book .imgBx img{
-    object-fit: fill;
-    height: 100% !important;
-    width: 100%;
-  }
-  .all_book .book p{
-    display: none;
-  }
-}
-.book img{
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.line-clamp-1{
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.line-clamp-2{
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.line-clamp-3{
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.navbar div .text-lg:hover{
-  color: #1EA5FC;
+  font-family: 'Inter', sans-serif;
 }
 
 .h-text{
@@ -57,7 +11,6 @@ h1,h2,h3,h4,h5,h6{
 .s-text{
   color: #1EA5FC;
 }
-
 
 .btn-bg{
   background: linear-gradient(
@@ -81,13 +34,63 @@ h1,h2,h3,h4,h5,h6{
     border-radius: 40px;
 }
 
-
 .chats p{
     color: rgb(0, 32, 30) !important;
 }
+
 .chats .user-text{
     color: #fff !important;
 }
+
+.line-clamp-1{
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-2{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media(max-width: 768px){
+  .bookmarks .book .imgBx img{
+    max-height: 200px;
+    width: 150px;
+    object-fit: fill;
+  }
+  .all_book .book .imgBx{
+    width: 110px;
+    height: 150px !important;
+  }
+  .all_book .book .imgBx img{
+    object-fit: fill;
+    height: 100% !important;
+    width: 100%;
+  }
+  .all_book .book p{
+    display: none;
+  }
+}
+.book img{
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navbar and hamburger menu  */
+.navbar div .text-lg:hover{
+  color: #1EA5FC;
+}
+
 @media(max-width: 1024px) {
     .nav {
         display: none;
@@ -230,16 +233,16 @@ h1,h2,h3,h4,h5,h6{
     }
   }
   
-  
   @media(min-width: 1024px) {
     .hamburger-menu {
         display: none;
     }
   }
-
-
-  /*signup box  */
   
+/* Navbar and hamburger menu End */
+
+
+  /*signup and signin box  */
 
 .signin{
   position: relative;
@@ -415,6 +418,8 @@ h1,h2,h3,h4,h5,h6{
       margin: 10px;
   }
 }
+/*signup and signin box end */
+
 
   /* can be configured in tailwind.config.js */
   .group:hover .group-hover\:block {
@@ -424,7 +429,7 @@ h1,h2,h3,h4,h5,h6{
     width: 45%;
     }
   
-  /* NO NEED THIS CSS - just for custom scrollbar which can also be configured in tailwind.config.js*/
+  /* just for custom scrollbar which can also be configured in tailwind.config.js*/
   ::-webkit-scrollbar {
     width: 5px;
     height: 2px;

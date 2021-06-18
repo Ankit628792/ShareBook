@@ -20,7 +20,7 @@ function Bookmarks() {
       transition={pageTransition} className="bookmarks">
       <h4 className="h-text">Bookmarks</h4>
       {bookmarks && bookmarks.length > 0  ? (
-        <div className="grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 pt-6 pb-10 px-6">
+        <div className="grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pt-6 pb-10 px-6">
           {bookmarks.map((book) => (
               <Book key={book.id} id={book.id} author={book.author} title={book.title} image={book.image} summary={book.summary} />
           ))
