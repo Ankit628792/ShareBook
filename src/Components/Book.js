@@ -68,7 +68,7 @@ function Book({ id, author, title, image, summary }) {
                                 <div className="w-full flex-none text-xs s-text font-medium ">
                                     {author}
                                 </div>
-                                <h2 className="flex-auto text-lg md:text-xl font-medium h-text">{title}</h2>
+                                <h2 className="flex-auto text-lg md:text-xl font-medium h-text line-clamp-2">{title}</h2>
                             </div>
                             <div className="flex-1 inline-flex items-center text-sm py-1 sm text-gray-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none"
