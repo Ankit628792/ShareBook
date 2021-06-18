@@ -68,10 +68,10 @@ function Book({ id, author, title, image, summary }) {
                                 <div className="w-full flex-none text-xs s-text font-medium ">
                                     {author}
                                 </div>
-                                <h2 className="flex-auto text-lg md:text-xl font-medium h-text line-clamp-1">{title}</h2>
+                                <h2 className="flex-auto text-lg md:text-xl font-medium h-text">{title}</h2>
                             </div>
-                            <div className="flex-1 inline-flex items-center text-sm py-2 text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none"
+                            <div className="flex-1 inline-flex items-center text-sm py-1 sm text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                         d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
@@ -82,7 +82,7 @@ function Book({ id, author, title, image, summary }) {
                                 <h6>India</h6>
                             </div>
 
-                            <p className="max-w-sm p-text line-clamp hidden sm:block">
+                            <p className="max-w-sm p-text line-clamp">
                                {summary}
                             </p>
                         </div>
