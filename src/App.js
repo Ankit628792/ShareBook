@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import Navbar from "./Views/Navbar";
 import Footer from "./Views/Footer";
 import Home from "./Views/Home";
@@ -16,72 +16,92 @@ import MyAccount from "./Views/MyAccount";
 import ChatPage from "./Components/ChatPage";
 import Signin from "./Components/Signin";
 import Signup from "./Components/Signup";
+import Signout from "./Components/Signout";
 import { useDispatch } from 'react-redux';
-import { restoreBookmark } from './actions';
+import { restoreBookmark, setUser } from './actions';
+import { getData } from './requests/requestData';
 
 function App() {
 
   const location = useLocation();
 
   const dispatch = useDispatch()
-  
+
+  const getUser = async () => {
+    try {
+      const { user, response } = await getData('/userAuthentication');
+      if(user){
+        dispatch(setUser(user))
+      }
+      else if (response.status !== 200) {
+        console.log('unable to get user')
+      }
+    } catch (error) {
+      console.log('user not verified')
+    }
+  }
+
   useEffect(() => {
-        const localBookmarks = JSON.parse(localStorage.getItem("bookmark"));
-        console.log(localBookmarks)
-        if (localBookmarks) {
-          dispatch(restoreBookmark(localBookmarks));
-        }
-      }, []);
-  
+    getUser()
+    const localBookmarks = JSON.parse(localStorage.getItem("bookmark"));
+    if (localBookmarks) {
+      dispatch(restoreBookmark(localBookmarks));
+    }
+  }, []);
+
   return (
     <>
-        <AnimatePresence exitBeforeEnter>
-          <AnimateSharedLayout>
-            <Navbar />
-            <Switch location={location} key={location.pathname}>
-              <Route exact path="/book/:id">
-                <BookSingle />
-              </Route>
+      <AnimatePresence exitBeforeEnter>
+        <AnimateSharedLayout>
+          <Navbar />
+          <Switch location={location} key={location.pathname}>
+            <Route exact path="/book/:id">
+              <BookSingle />
+            </Route>
 
-              <Route exact path="/bookmarks">
-                <BookmarkPage />
-              </Route>
+            <Route exact path="/bookmarks">
+              <BookmarkPage />
+            </Route>
 
-              <Route exact path="/signup">
-                <Signup />
-              </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
 
-              <Route exact path="/signin">
-                <Signin />
-              </Route>
+            <Route exact path="/signin">
+              <Signin />
+            </Route>
 
-              <Route exact path="/myaccount">
-                <MyAccount />
-              </Route>
+            <Route exact path="/signout">
+              <Signout />
+            </Route>
 
-              <Route exact path="/">
-                <Home />
-              </Route>
+            <Route exact path="/myaccount">
+              <MyAccount />
+            </Route>
 
-              <Route exact path="/about">
-                <About />
-              </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
 
-              <Route exact path="/contactus">
-                <Contact />
-              </Route>
-              <Route exact path="/allbooks">
-                <AllBooks />
-              </Route>
-              <Route exact path="/chats">
-                <ChatPage />
-              </Route>
+            <Route exact path="/about">
+              <About />
+            </Route>
 
-            </Switch>
-          </AnimateSharedLayout>
-        </AnimatePresence>
+            <Route exact path="/contactus">
+              <Contact />
+            </Route>
+            <Route exact path="/allbooks">
+              <AllBooks />
+            </Route>
+            <Route exact path="/chats">
+              <ChatPage />
+            </Route>
 
-        <Footer />
+          </Switch>
+        </AnimateSharedLayout>
+      </AnimatePresence>
+
+      <Footer />
     </>
   );
 }

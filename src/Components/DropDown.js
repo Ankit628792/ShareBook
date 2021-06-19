@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import KeyboardArrowDownRoundedIcon from "@material-ui/icons/KeyboardArrowDownRounded";
 import "./DropDown.css";
+import Avatar from '@material-ui/core/Avatar';
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 
-function DropDown({ className, items, defaultItem }) {
-    const [selected, setSelected] = useState(defaultItem);
+function DropDown({item, userName}) {
+    
     const [dropDown, setDropDown] = useState(false);
 
     useEffect(() => {
@@ -22,7 +23,7 @@ function DropDown({ className, items, defaultItem }) {
                 e.stopPropagation();
                 setDropDown((dropDown) => !dropDown);
             }}>
-                <img role="tab" className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
+                <Avatar className="btn-bg">{userName}</Avatar>
                  <KeyboardArrowDownRoundedIcon className={dropDown ? "dropDown__icon dropDownOpen" : "dropDown__icon" } />
             </button>
             {dropDown && (
@@ -33,15 +34,13 @@ function DropDown({ className, items, defaultItem }) {
                     exit={{ opacity: 0, y: "-10%" }}
                 >
                     <>
-                        <li>
-                            <NavLink to="/myaccount" className="block px-4 py-2 text-sm h-text cursor-pointer">My Profile</NavLink>
+                    {
+                        item.map((item) => (
+                             <li key={item.id}>
+                            <NavLink to={item.redirect} className="block px-4 py-2 text-sm h-text cursor-pointer">{item.navText}</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/bookmarks" className="block px-4 py-2 text-sm h-text cursor-pointer">Bookmark</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/signin" className="block px-4 py-2 text-sm h-text cursor-pointer">Sign Out</NavLink>
-                        </li>
+                        ))
+                    }
                     </>
                 </motion.ul>
             )}

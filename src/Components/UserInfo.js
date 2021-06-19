@@ -2,9 +2,17 @@ import React from 'react'
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from '../util';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function UserInfo() {
+
+   const userSession =  useSelector((state) => state.userReducer.userSession);
+   const history = useHistory();
+
+   if(!userSession){
+       history.push('/signin')
+   }
     return (
         <motion.div
             initial="initial"
@@ -16,7 +24,7 @@ function UserInfo() {
                 <div className="px-4 py-0 sm:py-4 sm:px-6 relative flex items-center justify-between">
                     <div>
                         <h3 className="text-lg leading-6 font-medium h-text">Applicant Information</h3>
-                        <p className="my-1 max-w-2xl p-text">#{new Date().getTime().toString()}</p>
+                        <p className="my-1 max-w-2xl p-text">#{userSession.userId}</p>
                         <p className="p-text inline-block">Verified User <VerifiedUserIcon className="text-green-500" /> </p>
                     </div>
                     <div className="h-24 w-24 sm:w-28 sm:h-28 rounded-full">
@@ -27,7 +35,7 @@ function UserInfo() {
                     <dl>
                         <div className="px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">Full name</dt>
-                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">Example Name</dd>
+                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">{userSession.fullname}</dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">Contact Number</dt>
@@ -39,7 +47,7 @@ function UserInfo() {
                         </div>
                         <div className="px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">Email address</dt>
-                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">exaple@email.com</dd>
+                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">{userSession.email}</dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">Password</dt>

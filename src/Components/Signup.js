@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { useForm } from "react-hook-form";
-import postData from '../requests/postData'
+import { postData } from '../requests/requestData'
 import { motion } from "framer-motion"
 
 const Signup = () => {
@@ -15,11 +15,7 @@ const Signup = () => {
     const onSubmit = (data, e) => {
         setData(data);
         if (data.password === data.cpassword) {
-            
-            setInterval(() => {
-                reset()
-            }, 1000);
-
+            reset()
             console.log('registering user ...')
             const res = postData(data, '/signup')
             res.then((res) => {
@@ -50,7 +46,7 @@ const Signup = () => {
             </motion.div>
 
             <div className="contentBx">
-            <motion.div initial="hidden" animate="visible" variants={{
+                <motion.div initial="hidden" animate="visible" variants={{
                     hidden: {
                         scale: 0.5,
                         opacity: 0
@@ -67,14 +63,19 @@ const Signup = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="inputBx">
                             <span>Full Name</span>
-                            <input type="text" {...register("fullname", { required: 'Please enter your first name' })} />
+                            <input type="text" {...register("fullname", { required: 'Please enter your name' })} />
                             {errors.fullname && <p className="text-red-500">{errors.fullname.message}</p>}
                         </div>
                         <div className="inputBx">
                             <span>Email id</span>
                             <input type="email" {...register("email", {
-                                required: true
+                                required: true,
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                    message: "Invalid email address"
+                                }
                             })} />
+                            {errors.email && <p className="text-red-500">{errors.email.message}</p>}
                         </div>
                         <div className="inputBx">
                             <span>Password</span>

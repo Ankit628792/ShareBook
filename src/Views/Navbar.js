@@ -3,28 +3,48 @@ import { NavLink } from 'react-router-dom'
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import DropDown from "../Components/DropDown";
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
-import Avatar from '@material-ui/core/Avatar';
+import { useSelector } from 'react-redux';
 
-const redirects = [
-    'My Account',
-    'BookMarks',
-    'Sign Out'
+const userLinks = [{
+    id: 0,
+    redirect: '/myaccount',
+    navText: 'My Account'
+},
+{
+    id: 1,
+    redirect: '/bookmarks',
+    navText: 'Bookmarks'
+},
+{
+    id: 2,
+    redirect: '/signout',
+    navText: 'Signout'
+},
 ];
+const nonUserLinks = [{
+    id: 0,
+    redirect: '/signup',
+    navText: 'Signup'
+},
+{
+    id: 1,
+    redirect: '/signin',
+    navText: 'Signin'
+},
+]
 
 function Navbar() {
+
+    const userSession = useSelector((state) => state.userReducer.userSession)
 
     const [checkedSate, setCheckedSate] = useState(false)
 
     const handleCheckedSate = () => {
         checkedSate ? setCheckedSate(false) : setCheckedSate(true)
     }
-    const state = {
-        user: true
-    }
 
     return (
         <>
-
             {/* <!-- hamburger menu --> */}
             <div className="hamburger-menu">
                 <label>
@@ -37,8 +57,8 @@ function Navbar() {
                         <li onClick={handleCheckedSate}> <NavLink to="/contactus">Contact</NavLink></li>
                         {/* <li onClick={handleCheckedSate}> <NavLink to="/user">User</NavLink></li> */}
                         {
-                            state.user ? 
-                            <li onClick={handleCheckedSate}> <NavLink to="/signin">Signout</NavLink></li>
+                            userSession ? 
+                            <li onClick={handleCheckedSate}> <NavLink to="/signout">Signout</NavLink></li>
                             :
                             <li onClick={handleCheckedSate}> <NavLink to="/signup">SignUp</NavLink></li>
                         }
@@ -52,8 +72,8 @@ function Navbar() {
                 <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                     <div className="relative flex items-center justify-between h-16">
 
-                        <div className="flex-shrink-0 hidden lg:block flex items-center">
-                            <img className="h-8 w-auto mx-auto ml-auto" src="/icons/ms-icon-310x310.png" alt="Workflow" /> <h1 className="font-bold pl-3 text-2xl">ShareBook</h1>
+                        <div className="flex-shrink-0 hidden lg:flex items-center justify-center">
+                            <img className="h-10 w-auto mx-auto ml-auto inline-block" src="/icons/ms-icon-310x310.png" alt="ShareBook" /> <h1 className="font-bold pl-3 text-3xl inline-block">ShareBook</h1>
                         </div>
                         <div className="flex-1 flex items-center justify-center sm:items-stretch">
                             <div className="hidden nav md:block sm:ml-6">
@@ -70,25 +90,26 @@ function Navbar() {
                         </div>
 
                         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                            <NavLink to="/bookmarks" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                            <NavLink to="/bookmarks" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 shadow-lg focus:ring-white">
                                 <LocalMallIcon />
                             </NavLink>
                             {
-                                state.user ? 
+                                userSession ? 
                                 <>
-                                <NavLink to="/chats" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                                <NavLink to="/chats" className="bg-gray-800 p-2 mr-4 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 shadow-lg focus:ring-white">
                                     <ChatRoundedIcon />
                                 </NavLink>
                                 <DropDown
                                     className="header__langDropDown"
-                                    items={redirects}
+                                    item={userLinks}
+                                    userName={userSession.fullname[0]}
                                 />
                                 </>
                                 :
-                                <button type="button" role="tab" className="flex text-sm rounded-full focus:outline-none focus:border-none items-center">
-                                    <Avatar>A</Avatar>
-                                    {/* <img role="tab" className="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" /> */}
-                                </button>
+                                <DropDown
+                                    className="header__langDropDown"
+                                    item={nonUserLinks}
+                                />
 
                             }
                             </div>

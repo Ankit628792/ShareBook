@@ -1,6 +1,9 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 import { NavLink } from 'react-router-dom'
+import appStore from "../assets/app-store.svg";
+import googlePlay from "../assets/google-play.svg";
+
 function Header() {
   return (
     <>
@@ -218,10 +221,10 @@ function Header() {
             </div>
             <div className="flex items-center space-x-3">
               <NavLink to="/" className="w-32 transition duration-300 hover:shadow-lg">
-                <img src="https://kitwind.io/assets/kometa/app-store.png" className="object-cover object-top w-full h-auto mx-auto" alt="" />
+                <img src={appStore} className="object-cover object-top w-full h-auto mx-auto" alt="" />
               </NavLink>
               <NavLink to="/" className="w-32 transition duration-300 hover:shadow-lg">
-                <img src="https://kitwind.io/assets/kometa/google-play.png" className="object-cover object-top w-full h-auto mx-auto" alt="" />
+                <img src={googlePlay} className="object-cover object-top w-full h-auto mx-auto" alt="" />
               </NavLink>
             </div>
           </div>

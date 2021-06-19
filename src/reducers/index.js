@@ -1,11 +1,11 @@
 
 import { combineReducers } from "redux";
 import bookmarkReducer from "./bookmarkReducer";
-import setUser from "./setUser";
+import userReducer from "./userReducer";
 
 const rootReducer = combineReducers({
     bookmarkReducer,
-    setUser
+    userReducer
 })
 
 export default rootReducer

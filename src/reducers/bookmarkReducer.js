@@ -1,4 +1,3 @@
-import { restoreBookmark } from "../actions";
 
 export const initialState = {
     bookmark: [],
@@ -27,6 +26,7 @@ const bookmarkReducer = (state = initialState, action) => {
             }
 
         case 'REMOVE_ALL_BOOKMARK':
+            localStorage.setItem('bookmark', null)
             return {
                 ...state,
                 bookmark: []
@@ -34,7 +34,6 @@ const bookmarkReducer = (state = initialState, action) => {
         
         case 'RESTORE_BOOKMARK' :
             const restoreBookmarks = action.localBookmarks ;
-            console.log(restoreBookmarks)
             return {
                 bookmark: restoreBookmarks
             }

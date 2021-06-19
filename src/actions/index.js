@@ -16,15 +16,26 @@ export const removeAllBookmark = () => {
         type: 'REMOVE_ALL_BOOKMARK'
     }
 }
-export const setUser = (user) => {
-    return {
-        type: 'SET_USER',
-        user
-    }
-}
 export const restoreBookmark = (localBookmarks) => {
     return {
         type: 'RESTORE_BOOKMARK',
         localBookmarks
+    }
+}
+export const setUser = (user) => {
+    return {
+        type: 'SET_USER',
+        user: user
+    }
+}
+export const removeUser = () => {
+    return {
+        type: 'REMOVE_USER',
+    }
+}
+export const restoreUser = (localUser) => {
+    return {
+        type: 'RESTORE_USER',
+        localUser
     }
 }
