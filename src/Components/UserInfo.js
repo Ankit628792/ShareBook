@@ -34,8 +34,8 @@ function UserInfo() {
                 <div className="border-t border-gray-200">
                     <dl>
                         <div className="px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
-                            <dt className="text-base font-medium h-text">Full name</dt>
-                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">{userSession.fullname}</dd>
+                            <dt className="text-base font-medium h-text">User name</dt>
+                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">{userSession.username}</dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">Contact Number</dt>

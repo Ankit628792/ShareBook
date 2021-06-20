@@ -12,8 +12,8 @@ const userLinks = [{
 },
 {
     id: 1,
-    redirect: '/bookmarks',
-    navText: 'Bookmarks'
+    redirect: '/mybook',
+    navText: 'My Books'
 },
 {
     id: 2,
@@ -35,7 +35,10 @@ const nonUserLinks = [{
 
 function Navbar() {
 
-    const userSession = useSelector((state) => state.userReducer.userSession)
+    // const userSession = useSelector((state) => state.userReducer.userSession)
+    const userSession = {
+        username: 'Ankit'
+    }
 
     const [checkedSate, setCheckedSate] = useState(false)
 
@@ -102,7 +105,7 @@ function Navbar() {
                                 <DropDown
                                     className="header__langDropDown"
                                     item={userLinks}
-                                    userName={userSession.fullname[0]}
+                                    userName={userSession.username[0]}
                                 />
                                 </>
                                 :

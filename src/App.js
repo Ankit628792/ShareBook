@@ -20,6 +20,7 @@ import Signout from "./Components/Signout";
 import { useDispatch } from 'react-redux';
 import { restoreBookmark, setUser } from './actions';
 import { getData } from './requests/requestData';
+import BookPage from './Views/BookPage';
 
 function App() {
 
@@ -79,6 +80,10 @@ function App() {
               <MyAccount />
             </Route>
 
+            <Route exact path="/mybook">
+              <BookPage />
+            </Route>
+
             <Route exact path="/">
               <Home />
             </Route>
@@ -90,9 +95,11 @@ function App() {
             <Route exact path="/contactus">
               <Contact />
             </Route>
+
             <Route exact path="/allbooks">
               <AllBooks />
             </Route>
+
             <Route exact path="/chats">
               <ChatPage />
             </Route>

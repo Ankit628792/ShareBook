@@ -15,13 +15,18 @@ const Signup = () => {
     const onSubmit = (data, e) => {
         setData(data);
         if (data.password === data.cpassword) {
-            reset()
             console.log('registering user ...')
             const res = postData(data, '/signup')
             res.then((res) => {
                 if (res.status === 201) {
                     history.push('/signin')
                 }
+                if (res.status === 422) {
+                    window.alert('User Already Exist')
+                }else{
+                    window.alert('Sign in error')
+                }
+                
             })
         }
     };
@@ -63,8 +68,8 @@ const Signup = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="inputBx">
                             <span>Full Name</span>
-                            <input type="text" {...register("fullname", { required: 'Please enter your name' })} />
-                            {errors.fullname && <p className="text-red-500">{errors.fullname.message}</p>}
+                            <input type="text" {...register("username", { required: 'Please enter your name' })} />
+                            {errors.username && <p className="text-red-500">{errors.username.message}</p>}
                         </div>
                         <div className="inputBx">
                             <span>Email id</span>
