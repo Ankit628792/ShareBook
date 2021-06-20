@@ -26,7 +26,6 @@ function BookPage() {
                 console.log(e);
             })
         }, [])
-        console.log(books)
 
         return (
             <>

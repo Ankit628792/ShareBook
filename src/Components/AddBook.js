@@ -22,6 +22,7 @@ function AddBook({ setisAddBook }) {
         setData(data);
         console.log('registering user ...')
         const bookData = { userId, username, location, ...data }
+        console.log(bookData)
         const res = postData(bookData, '/addbook')
         res.then((res) => {
             if (res.status === 201) {
@@ -54,15 +55,14 @@ function AddBook({ setisAddBook }) {
                             </motion.button>
 
                         </div>
-                        <div className="mb-3">
+                        <div className="">
                             <div className="max-w-xs max-h-80 rounded-lg border overflow-hidden">
                                 <img className="w-full h-full object-contain" src="https://images.unsplash.com/photo-1560792523-9b3e98060a4d?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Avatar Upload" />
                             </div>
                             <div className="rounded-full h-10 cursor-pointer bg-green-400 flex items-center justify-center relative hover:bg-green-500 my-3 w-48 border border-1">
                                 <h1 className="font-semibold text-base text-white cursor-pointer">Upload Image</h1>
-                                <input type="file" className="opacity-0 absolute cursor-pointer" accept="accept" {...register("image", { required: 'Please upload book image' })} />
+                                <input type="file" className="opacity-0 absolute cursor-pointer" {...register("image", { required: 'Please upload book image' })} />
                             </div>
-                            {errors.bookname && <p className="text-red-500">{errors.bookname.message}</p>}
                         </div>
                         <div className="md:flex md:flex-row md:space-x-4 w-full">
                             <div className="mb-4 md:space-y-2 w-full">

@@ -1,18 +1,11 @@
 import React from 'react'
-import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import { motion } from 'framer-motion'
-import { pageTransition, pageZoom } from '../util';
-import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-function UserInfo() {
+function UpdateUser() {
 
-   const userSession =  useSelector((state) => state.userReducer.userSession);
-   const history = useHistory();
+    const handleUser = (e) => {
+        e.preventDefault();
 
-   if(!userSession){
-       history.push('/signin')
-   }
+    }
     return (
         <motion.div
             initial="initial"
@@ -35,30 +28,39 @@ function UserInfo() {
                     <dl>
                         <div className="px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">User name</dt>
-                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">{userSession.username}</dd>
+                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
+                                <input type="text" className="bg-white" onChange={handleUser} />
+                            </dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">Contact Number</dt>
-                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2"><input type="text" className="bg-white" value="8786786786" disabled /></dd>
+                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
+                                <input type="tel" className="bg-white" onChange={handleUser} />
+                            </dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">City Location</dt>
-                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">Dwarka City</dd>
+                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
+                                <input type="text" className="bg-white" onChange={handleUser} />
+                            </dd>
                         </div>
                         <div className="px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">Email address</dt>
-                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">{userSession.email}</dd>
+                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
+                                <input type="email" className="bg-white" onChange={handleUser} />
+                            </dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">Password</dt>
-                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">......</dd>
+                            <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
+                                <input type="password" className="bg-white" onChange={handleUser} />
+                            </dd>
                         </div>
                         <div className="px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">About</dt>
                             <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
-                                We are ShareBook an intiative that is started for the purpose to share the book people to people without any cost by the nearby people to you.
-                                No need to buy or sell a book. Share it with others. Share your source of knowledge, Interest with others.
-                                Our Platform offer the option that the book is shared to you without searching it to the store.                            </dd>
+                                <textarea className="resize-none" placeholder="Describe yourself here..." onChange={handleUser}></textarea>
+                            </dd>
                         </div>
                         <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt className="text-base font-medium h-text">Shared Books</dt>
@@ -94,4 +96,4 @@ function UserInfo() {
     )
 }
 
-export default UserInfo
+export default UpdateUser
