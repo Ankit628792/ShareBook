@@ -35,10 +35,10 @@ const nonUserLinks = [{
 
 function Navbar() {
 
-    // const userSession = useSelector((state) => state.userReducer.userSession)
-    const userSession = {
-        username: 'Ankit'
-    }
+    const userSession = useSelector((state) => state.userReducer.userSession)
+    // const userSession = {
+    //     username: 'Ankit'
+    // }
 
     const [checkedSate, setCheckedSate] = useState(false)
 
