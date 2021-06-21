@@ -21,15 +21,26 @@ function AddBook({ setisAddBook }) {
     const onSubmit = (data, e) => {
         setData(data);
         console.log('registering user ...')
-        const bookData = { userId, username, location, ...data }
-        console.log(bookData)
-        const res = postData(bookData, '/addbook')
-        res.then((res) => {
-            if (res.status === 201) {
-                history.push('/mybook')
-                setisAddBook(false)
-            }
-        })
+
+        let fileReader = new FileReader(); 
+        fileReader.readAsDataURL(data.image[0]); 
+        fileReader.onload = function() {
+            data.image = fileReader.result
+            const bookData = { userId, username, location, ...data }
+            console.log(bookData)
+            const res = postData(bookData, '/addbook')
+            res.then((res) => {
+                if (res.status === 201) {
+                    history.push('/mybook')
+                    setisAddBook(false)
+                }
+            })
+        }; 
+        fileReader.onerror = function() {
+          alert(fileReader.error);
+        }; 
+
+        
     };
 
     return (
@@ -61,14 +72,14 @@ function AddBook({ setisAddBook }) {
                             </div>
                             <div className="rounded-full h-10 cursor-pointer bg-green-400 flex items-center justify-center relative hover:bg-green-500 my-3 w-48 border border-1">
                                 <h1 className="font-semibold text-base text-white cursor-pointer">Upload Image</h1>
-                                <input type="file" className="opacity-0 absolute cursor-pointer" {...register("image", { required: 'Please upload book image' })} />
+                                <input type="file" accept="image/*" className="opacity-0 absolute cursor-pointer" {...register("image", { required: 'Please upload book image' })} />
                             </div>
                         </div>
                         <div className="md:flex md:flex-row md:space-x-4 w-full">
                             <div className="mb-4 md:space-y-2 w-full">
                                 <label className="font-semibold text-gray-600">Book Name</label>
                                 <input placeholder="Book Name" className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4 mt-2 focus:outline-none focus:border-gray-400"
-                                    type="text" {...register("bookname", { required: 'Please enter book name' })} />
+                                    type="text" value={data.bookname} {...register("bookname", { required: 'Please enter book name' })} />
                                 {errors.bookname && <p className="text-red-500">{errors.bookname.message}</p>}
                             </div>
                             <div className="mb-4 md:space-y-2 w-full text-sm">

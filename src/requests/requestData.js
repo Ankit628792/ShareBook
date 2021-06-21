@@ -16,6 +16,23 @@ export const postData = async (sendData, request) => {
     }
 }
 
+// data posting to server 
+export const patchData = async (sendData, request) => {
+    try {
+        const res = await fetch(request, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(sendData)
+        });
+        return res;
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
 export const getData = async (request) => {
     try {
         const response = await fetch(request, {

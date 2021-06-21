@@ -28,6 +28,8 @@ function App() {
 
   const dispatch = useDispatch()
 
+ 
+
   const getUser = async () => {
     try {
       const { user, response } = await getData('/userAuthentication');
@@ -48,7 +50,7 @@ function App() {
     if (localBookmarks) {
       dispatch(restoreBookmark(localBookmarks));
     }
-  }, []);
+  },[]);
 
   return (
     <>

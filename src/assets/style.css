@@ -464,3 +464,17 @@
     background: transparent;
   }
 
+  .about input, .about textarea{
+    width: 100%;
+    padding: 5px 0;
+    background: white;
+  }
+  .about input:focus, .about textarea:focus{
+    border-bottom: 1px solid #777;
+  }
+  @media(min-width:768px){
+  .about form{
+    min-width: 640px;
+  }
+
+}

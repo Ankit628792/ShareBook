@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import books from '../json/books'
-import Book from '../Components/Book'
 import Header from '../Components/Header'
 import { motion } from 'framer-motion'
 import { pageSlide, pageZoom, pageTransition } from '../util'

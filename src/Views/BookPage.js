@@ -10,12 +10,13 @@ import { useSelector } from 'react-redux';
 
 function BookPage() {
     const userSession = useSelector((state) => state.userReducer.userSession);
+    
     const [isAddBook, setisAddBook] = useState(false)
 
     const Books = () => {
 
         const [books, setbooks] = useState({})
-        
+
         useEffect(() => {
             fetch(`/getmybook:${userSession.userId}`)
             .then((response => response.json()))
@@ -25,7 +26,7 @@ function BookPage() {
             .catch((e) => {
                 console.log(e);
             })
-        }, [])
+        },[])
 
         return (
             <>
