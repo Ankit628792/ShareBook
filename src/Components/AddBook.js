@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from "../util";
 import { useForm } from "react-hook-form";
 import { postData } from '../requests/requestData'
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import dummyImg from '../assets/dummy.png'
 
 function AddBook({ setisAddBook }) {
 
@@ -16,6 +17,22 @@ function AddBook({ setisAddBook }) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });
 
     const [data, setData] = useState({});
+
+    const [image, setImage] = useState();
+    const [preview, setPreview] = useState();
+    const fileInputRef = useRef();
+
+    useEffect(() => {
+        if (image) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setPreview(reader.result)
+            }
+            reader.readAsDataURL(image)
+        } else {
+            setPreview(null)
+        }
+    }, [image])
 
     // onSubmit handle event 
     const onSubmit = (data, e) => {
@@ -66,14 +83,28 @@ function AddBook({ setisAddBook }) {
                             </motion.button>
 
                         </div>
-                        <div className="">
-                            <div className="max-w-xs max-h-80 rounded-lg border overflow-hidden">
-                                <img className="w-full h-full object-contain" src="https://images.unsplash.com/photo-1560792523-9b3e98060a4d?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Avatar Upload" />
-                            </div>
-                            <div className="rounded-full h-10 cursor-pointer bg-green-400 flex items-center justify-center relative hover:bg-green-500 my-3 w-48 border border-1">
-                                <h1 className="font-semibold text-base text-white cursor-pointer">Upload Image</h1>
-                                <input type="file" accept="image/*" className="opacity-0 absolute cursor-pointer" {...register("image", { required: 'Please upload book image' })} />
-                            </div>
+                        <div className="mb-5">
+                            <div className="max-w-xs max-h-80 rounded-lg cursor-pointer border overflow-hidden">
+                            {
+                            preview ?
+                                <img className="w-full h-full object-cover rounded-lg" src={preview} alt="" onClick={() => setImage(null)} />
+                                :
+                                (
+                                    <img src={dummyImg} className="w-full h-full object-cover rounded-lg" onClick={(e) => {
+                                        e.preventDefault();
+                                        fileInputRef.current.click();
+                                    }} alt="" />
+                                )
+                        }
+                        <input type="file" className="hidden" ref={fileInputRef} accept="image/*" onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file && file.type.substring(0, 5) === 'image') {
+                                setImage(file)
+                            } else {
+                                setImage(null)
+                            }
+                        }} />              
+                                      </div>
                         </div>
                         <div className="md:flex md:flex-row md:space-x-4 w-full">
                             <div className="mb-4 md:space-y-2 w-full">

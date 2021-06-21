@@ -1,17 +1,34 @@
-import React, { useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from '../util';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { patchData } from '../requests/requestData';
+import dummyImg from '../assets/dummy.png'
 
 function UpdateUser() {
 
     const userSession = useSelector((state) => state.userReducer.userSession);
     const [isEdit, setisEdit] = useState(false)
-    const { username, email, password, location, about, phone , _id} = userSession;
+    const { username, email, password, location, about, phone, _id } = userSession;
     const [data, setData] = useState({ username, email, password, location, about, phone, _id });
+
+    const [image, setImage] = useState();
+    const [preview, setPreview] = useState();
+    const fileInputRef = useRef();
+
+    useEffect(() => {
+        if (image) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setPreview(reader.result)
+            }
+            reader.readAsDataURL(image)
+        } else {
+            setPreview(null)
+        }
+    }, [image])
 
     const handleUser = (e) => {
         e.preventDefault();
@@ -27,10 +44,10 @@ function UpdateUser() {
                 console.log('update success')
                 setisEdit(false)
             }
-            else{
+            else {
                 console.log('Updation error')
             }
-            
+
         })
     }
 
@@ -48,8 +65,26 @@ function UpdateUser() {
                         <p className="my-1 max-w-2xl p-text">#{userSession.userId}</p>
                         <p className="p-text inline-block">Verified User <VerifiedUserIcon className="text-green-500" /> </p>
                     </div>
-                    <div className="h-24 w-24 sm:w-28 sm:h-28 rounded-full">
-                        <img className="w-full h-full object-cover rounded-full" src="https://images.unsplash.com/photo-1622796476782-35e5163bbd6f?ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2MHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" />
+                    <div className="h-24 w-24 sm:w-28 sm:h-28 rounded-full cursor-pointer">
+                        {
+                            preview ?
+                                <img className="w-full h-full object-cover rounded-full" src={preview} alt="" onClick={() => setImage(null)} />
+                                :
+                                (
+                                    <img src={dummyImg} className="w-full h-full object-cover rounded-full" onClick={(e) => {
+                                        e.preventDefault();
+                                        fileInputRef.current.click();
+                                    }} alt="" />
+                                )
+                        }
+                        <input type="file" className="hidden" ref={fileInputRef} accept="image/*" onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file && file.type.substring(0, 5) === 'image') {
+                                setImage(file)
+                            } else {
+                                setImage(null)
+                            }
+                        }} />
                     </div>
                 </div>
                 <form onSubmit={handleSubmit}>
@@ -120,28 +155,28 @@ function UpdateUser() {
                             </div>
                         </dl>
                     </div>
-                        </form>
-                    <div className="flex items-center justify-end">
-                        {
-                            isEdit ?
-                                <>
-                                    <motion.button
-                                        whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                                        whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                                        className="px-6 mx-2 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
-                                        type="submit" onClick={handleSubmit}>
-                                        Save
-                                    </motion.button>
-                                    <motion.button
-                                        whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                                        whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                                        className="bg-gray-900 mx-2 px-5 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
-                                        type="button" onClick={() => { setisEdit(false) }}>
-                                        Cancel
-                                    </motion.button>
-                                </>
-                                :
+                </form>
+                <div className="flex items-center justify-end">
+                    {
+                        isEdit ?
+                            <>
                                 <motion.button
+                                    whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                                    whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                                    className="px-6 mx-2 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
+                                    type="submit" onClick={handleSubmit}>
+                                    Save
+                                </motion.button>
+                                <motion.button
+                                    whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                                    whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                                    className="bg-gray-900 mx-2 px-5 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
+                                    type="button" onClick={() => { setisEdit(false) }}>
+                                    Cancel
+                                </motion.button>
+                            </>
+                            :
+                            <motion.button
                                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                                 className="btn-bg mx-2 px-6 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
@@ -149,8 +184,8 @@ function UpdateUser() {
                                 Edit
                             </motion.button>
 
-                        }
-                    </div>
+                    }
+                </div>
             </div>
         </motion.div>
     )

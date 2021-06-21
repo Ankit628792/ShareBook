@@ -1,16 +1,14 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { pageSlide, pageZoom, pageTransition } from '../util'
 import Book from '../Components/Book'
 import emptyBookmarks from "../assets/emptyBookmarks.svg";
 import AddBook from '../Components/AddBook';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 function BookPage() {
     const userSession = useSelector((state) => state.userReducer.userSession);
-    
+
     const [isAddBook, setisAddBook] = useState(false)
 
     const Books = () => {
@@ -19,14 +17,14 @@ function BookPage() {
 
         useEffect(() => {
             fetch(`/getmybook:${userSession.userId}`)
-            .then((response => response.json()))
-            .then((bookResponse) => {
-                setbooks(bookResponse)
-            })
-            .catch((e) => {
-                console.log(e);
-            })
-        },[])
+                .then((response => response.json()))
+                .then((bookResponse) => {
+                    setbooks(bookResponse)
+                })
+                .catch((e) => {
+                    console.log(e);
+                })
+        }, [])
 
         return (
             <>

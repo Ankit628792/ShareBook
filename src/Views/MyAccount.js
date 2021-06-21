@@ -14,8 +14,8 @@ function MyAccount() {
                 variants={pageZoom}
                 transition={pageTransition}
             >
-                <UserInfo />
-                {/* <UpdateUser /> */}
+                {/* <UserInfo /> */}
+                <UpdateUser />
             </motion.div>
         </>
     )
