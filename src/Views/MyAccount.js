@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import UserInfo from '../Components/UserInfo'
-import UpdateUser from '../Components/UpdateUser'
 import { pageSlide, pageZoom, pageTransition } from '../util'
 
 function MyAccount() {
@@ -14,8 +13,7 @@ function MyAccount() {
                 variants={pageZoom}
                 transition={pageTransition}
             >
-                {/* <UserInfo /> */}
-                <UpdateUser />
+                <UserInfo />
             </motion.div>
         </>
     )

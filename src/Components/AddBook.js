@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from "../util";
 import { useForm } from "react-hook-form";
-import { postData } from '../requests/requestData'
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import dummyImg from '../assets/dummy.png'
+import bookDummy from '../assets/bookDummy.png'
+import axios from 'axios';
 
 function AddBook({ setisAddBook }) {
 
@@ -39,25 +39,23 @@ function AddBook({ setisAddBook }) {
         setData(data);
         console.log('registering user ...')
 
-        let fileReader = new FileReader(); 
-        fileReader.readAsDataURL(data.image[0]); 
-        fileReader.onload = function() {
-            data.image = fileReader.result
-            const bookData = { userId, username, location, ...data }
-            console.log(bookData)
-            const res = postData(bookData, '/addbook')
-            res.then((res) => {
+        const bookDetail = new FormData();
+        bookDetail.append('image', image);
+        bookDetail.append('userId', userId)
+        bookDetail.append('username', username)
+        bookDetail.append('location', location)
+        bookDetail.append('bookname', data.bookname)
+        bookDetail.append('category', data.category)
+        bookDetail.append('condition', data.condition)
+        bookDetail.append('description', data.description)
+
+        axios.post('/addbook', bookDetail)
+            .then((res) => {
                 if (res.status === 201) {
                     history.push('/mybook')
                     setisAddBook(false)
                 }
-            })
-        }; 
-        fileReader.onerror = function() {
-          alert(fileReader.error);
-        }; 
-
-        
+            });
     };
 
     return (
@@ -85,26 +83,26 @@ function AddBook({ setisAddBook }) {
                         </div>
                         <div className="mb-5">
                             <div className="max-w-xs max-h-80 rounded-lg cursor-pointer border overflow-hidden">
-                            {
-                            preview ?
-                                <img className="w-full h-full object-cover rounded-lg" src={preview} alt="" onClick={() => setImage(null)} />
-                                :
-                                (
-                                    <img src={dummyImg} className="w-full h-full object-cover rounded-lg" onClick={(e) => {
-                                        e.preventDefault();
-                                        fileInputRef.current.click();
-                                    }} alt="" />
-                                )
-                        }
-                        <input type="file" className="hidden" ref={fileInputRef} accept="image/*" onChange={(e) => {
-                            const file = e.target.files[0];
-                            if (file && file.type.substring(0, 5) === 'image') {
-                                setImage(file)
-                            } else {
-                                setImage(null)
-                            }
-                        }} />              
-                                      </div>
+                                {
+                                    preview ?
+                                        <img className="w-full h-full object-cover rounded-lg" src={preview} alt="" onClick={() => setImage(null)} />
+                                        :
+                                        (
+                                            <img src={bookDummy} className="w-full h-full object-cover rounded-lg" onClick={(e) => {
+                                                e.preventDefault();
+                                                fileInputRef.current.click();
+                                            }} alt="" />
+                                        )
+                                }
+                                <input type="file" className="hidden" ref={fileInputRef} accept="image/*" onChange={(e) => {
+                                    const file = e.target.files[0];
+                                    if (file && file.type.substring(0, 5) === 'image') {
+                                        setImage(file)
+                                    } else {
+                                        setImage(null)
+                                    }
+                                }} />
+                            </div>
                         </div>
                         <div className="md:flex md:flex-row md:space-x-4 w-full">
                             <div className="mb-4 md:space-y-2 w-full">
