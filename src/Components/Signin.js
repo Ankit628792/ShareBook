@@ -18,7 +18,7 @@ const Signin = () => {
 
     const getUser = async () => {
         try {
-            const { user, response } = await getData('/userAuthentication');
+            const { user, response } = await getData(`${process.env.REACT_APP_BASEURL}/userAuthentication`);
             dispatch(setUser(user))
             if (response.status !== 200) {
                 console.log('unable to get user')
@@ -30,7 +30,7 @@ const Signin = () => {
     // onSubmit handle event 
     const onSubmit = (data) => {
         setData(data);
-        const res = postData(data, '/signin')
+        const res = postData(data, `${process.env.REACT_APP_BASEURL}/signin`)
         res.then((res) => {
             const { status, error } = res;
             switch (status) {

@@ -78,31 +78,35 @@ function BookSingle() {
                 </ul>
               </div>
               <div>
-                <div className="flex text-sm flex-row items-center justify-evenly">
-                  <NavLink to="/chats">
-                    <motion.button
-                      whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                      whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                      className="bg-gray-900 px-4 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
-                      type="button">
-                      <ChatBubbleOutlineIcon className="mr-1" />Chat Now
-                    </motion.button>
-                  </NavLink>
-                  <motion.button
-                    whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                    whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                    className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
-                    type="button" onClick={isBookmarked ? (removeFromBookmarks) : (addToBookmarks)}>
-                    <BookmarkRoundedIcon
-                      style={{
-                        fill: isBookmarked ? "#fff" : "transparent",
-                        stroke: "#fff",
-                        strokeWidth: 2,
-                      }}
-                      className="mr-1"
-                    />{isBookmarked ? `Bookmarked` : `Bookmark`}
-                  </motion.button>
-                </div>
+                {
+                  bookDetails.mybook ? '' :
+
+                    <div className="flex text-sm flex-row items-center justify-evenly">
+                      <NavLink to="/chats">
+                        <motion.button
+                          whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                          whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                          className="bg-gray-900 px-4 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
+                          type="button">
+                          <ChatBubbleOutlineIcon className="mr-1" />Chat Now
+                        </motion.button>
+                      </NavLink>
+                      <motion.button
+                        whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                        whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                        className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
+                        type="button" onClick={isBookmarked ? (removeFromBookmarks) : (addToBookmarks)}>
+                        <BookmarkRoundedIcon
+                          style={{
+                            fill: isBookmarked ? "#fff" : "transparent",
+                            stroke: "#fff",
+                            strokeWidth: 2,
+                          }}
+                          className="mr-1"
+                        />{isBookmarked ? `Bookmarked` : `Bookmark`}
+                      </motion.button>
+                    </div>
+                }
               </div>
             </div>
           </div>

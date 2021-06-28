@@ -11,7 +11,7 @@ function BookPage() {
     const userSession = useSelector((state) => state.userReducer.userSession);
 
     const history = useHistory()
-    if(!userSession){
+    if (!userSession) {
         history.push('/signin')
     }
 
@@ -22,7 +22,7 @@ function BookPage() {
         const [books, setbooks] = useState({})
 
         useEffect(() => {
-            fetch(`/getmybook:${userSession.userId}`)
+            fetch(`${process.env.REACT_APP_BASEURL}/getmybook:${userSession.userId}`)
                 .then((response => response.json()))
                 .then((bookResponse) => {
                     setbooks(bookResponse)
@@ -45,7 +45,7 @@ function BookPage() {
                 {books && books.length > 0 ? (
                     <div className="grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pt-6 pb-10 px-6">
                         {books.map((book) => (
-                            <Book key={book.bookId} id={book.bookId} author={book.author} title={book.bookname} image={book.image_url} summary={book.description} />
+                            <Book key={book.bookId} id={book.bookId} author={book.author} title={book.bookname} image={book.image_url} summary={book.description} mybook={true} />
                         ))
                         }
                     </div>

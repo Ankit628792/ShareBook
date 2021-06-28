@@ -16,7 +16,7 @@ function ContactForm() {
   const onSubmit = (data, e) => {
     setData(data);
     console.log('sending message ...')
-    const res = postData(data, '/comments');
+    const res = postData(data, `${process.env.REACT_APP_BASEURL}/comments`);
     res.then((res) => {
       if (res.status === 201) {
         reset()

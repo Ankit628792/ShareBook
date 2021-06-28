@@ -32,7 +32,7 @@ function App() {
 
   const getUser = async () => {
     try {
-      const { user, response } = await getData('/userAuthentication');
+      const { user, response } = await getData(`${process.env.REACT_APP_BASEURL}/userAuthentication`);
       if(user){
         dispatch(setUser(user))
       }

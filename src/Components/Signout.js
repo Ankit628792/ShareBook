@@ -11,7 +11,7 @@ function Signout() {
     const history = useHistory();
 
     useEffect(() => {
-        fetch('/signout', {
+        fetch(`${process.env.REACT_APP_BASEURL}/signout`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',

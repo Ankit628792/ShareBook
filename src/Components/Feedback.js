@@ -13,7 +13,7 @@ function Feedback() {
 	const onSubmit = (data, e) => {
 		setData(data);
 		console.log('sending feedback ...')
-		const res = postData(data, '/feedback');
+		const res = postData(data, `${process.env.REACT_APP_BASEURL}/feedback`);
 		res.then((res) => {
 			if (res.status === 201) {
 				reset()

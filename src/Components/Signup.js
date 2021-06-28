@@ -16,11 +16,12 @@ const Signup = () => {
         setData(data);
         if (data.password === data.cpassword) {
             console.log('registering user ...')
-            const res = postData(data, '/signup')
+            const res = postData(data, `${process.env.REACT_APP_BASEURL}/signup`)
             res.then((res) => {
                 const {status, error} = res ;
                 switch (status) {
                     case 201:
+                        reset()
                         history.push('/signin')
                         break;
                     case 400:

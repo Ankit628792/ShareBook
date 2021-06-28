@@ -9,7 +9,7 @@ function AllBooks() {
     const [userBooks, setuserBooks] = useState({})
 
     useEffect(() => {
-        fetch(`/getbooks`)
+        fetch(`${process.env.REACT_APP_BASEURL}/getbooks`)
             .then((response => response.json()))
             .then((bookResponse) => {
                 const bookList = shuffleArray(bookResponse)
