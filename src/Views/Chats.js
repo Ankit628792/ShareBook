@@ -13,7 +13,9 @@ function Chats() {
                 variants={pageZoom}
                 transition={pageTransition}
             >
-            <ChatPage />
+                <h1 className="text-center py-3 mt-5 text-lg bg-blue-200 font-semibold">Under Development</h1>
+
+                <ChatPage />
             </motion.div>
         </>
     )

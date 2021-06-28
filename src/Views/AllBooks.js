@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import books from '../json/books'
 import Book from '../Components/Book'
 import { motion } from 'framer-motion'
@@ -6,6 +6,19 @@ import { pageSlide, pageZoom, pageTransition, shuffleArray } from '../util'
 
 function AllBooks() {
     const bookList = shuffleArray(books.books)
+    const [userBooks, setuserBooks] = useState({})
+
+    useEffect(() => {
+        fetch(`/getbooks`)
+            .then((response => response.json()))
+            .then((bookResponse) => {
+                const bookList = shuffleArray(bookResponse)
+                setuserBooks(bookList,)
+            })
+            .catch((e) => {
+                console.log(e);
+            })
+    }, [])
     return (
         <>
     <motion.div
@@ -21,6 +34,14 @@ function AllBooks() {
                 bookList.map((book) => (
                     <Book key={book.ISBN} id={book.ISBN} author={book.author} title={book.title} image={book.image} summary={book.summary} price={book.price} />
                 ))
+            }
+            { userBooks && userBooks.length > 0 ?
+                userBooks.map((book) => (
+                    <Book key={book.bookId} id={book.bookId} location={book.location} title={book.bookname} image={book.image_url} summary={book.description} />
+                ))
+                :
+                <>
+                </>
             }
 
         </div>

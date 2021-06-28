@@ -4,18 +4,25 @@ import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from '../util';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import dummyImg from '../assets/dummy.png'
+import dummyImg from '../assets/images/dummy.png'
 import axios from 'axios';
 
 function UserInfo() {
 
     const userSession = useSelector((state) => state.userReducer.userSession);
-    const [isEdit, setisEdit] = useState(false)
     const { username, email, password, location, about, phone, _id, image_url } = userSession;
     const [data, setData] = useState({ username, email, password, location, about, phone, _id });
+    
+    const history = useHistory()
+    if(!userSession){
+        history.push('/signin')
+    }
+    
+    const [isEdit, setisEdit] = useState(false)
+    const [isLoading, setisLoading] = useState(false)
 
     const [image, setImage] = useState();
-    const [preview, setPreview] = useState();
+    const [preview, setPreview] = useState(image_url);
     const fileInputRef = useRef();
 
     useEffect(() => {
@@ -30,6 +37,7 @@ function UserInfo() {
         }
     }, [image])
 
+
     const handleUser = (e) => {
         e.preventDefault();
         const { name, value } = e.target
@@ -40,24 +48,28 @@ function UserInfo() {
     const handleSubmit = (e) => {
         e.preventDefault();
         const userData = new FormData();
-        console.log(image)
         userData.append('image', image);
         userData.append('username', data.username)
         userData.append('phone', data.phone)
         userData.append('location', data.location)
         userData.append('about', data.about)
 
+        setisLoading(true)
+
         axios.patch(`/updateuser:${_id}`, userData)
             .then((res) => {
                 if (res.status === 201) {
+                    setisLoading(false)
                     setisEdit(false)
                 } else {
                     console.log('updation error')
                 }
             });
     }
+    
 
     return (
+        <>
         <motion.div
             initial="initial"
             animate="in"
@@ -71,10 +83,10 @@ function UserInfo() {
                         <p className="my-1 max-w-2xl p-text">#{userSession.userId}</p>
                         <p className="p-text inline-block">Verified User <VerifiedUserIcon className="text-green-500" /> </p>
                     </div>
-                    <div className="h-24 w-24 sm:w-28 sm:h-28 rounded-full cursor-pointer">
+                    <div className="h-24 w-24 sm:w-28 sm:h-28 rounded-full cursor-pointer border border-1 shadow-md">
                         {
-                            preview ?
-                                <img className="w-full h-full object-cover rounded-full" src={preview ? preview : image_url} alt="" onClick={() => (fileInputRef.current.click())} />
+                            preview || image_url ?
+                                <img className="w-full h-full object-cover rounded-full" src={preview || image_url} alt="profile image" onClick={() => (fileInputRef.current.click())} />
                                 :
                                 (
                                     <img src={dummyImg} className="w-full h-full object-cover rounded-full" onClick={(e) => {
@@ -100,31 +112,31 @@ function UserInfo() {
                             <div className="px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt className="text-base font-medium h-text">User name</dt>
                                 <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
-                                    <input disabled={!isEdit} type="text" name="username" className="bg-white border-none outline-none" value={data.username} onChange={handleUser} />
+                                    <input disabled={!isEdit} type="text" name="username" className="border-none outline-none" value={data.username} onChange={handleUser} />
                                 </dd>
                             </div>
                             <div className="px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt className="text-base font-medium h-text">Email address</dt>
                                 <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
-                                    <input disabled type="email" name="email" className="bg-white border-none outline-none" value={data.email} onChange={handleUser} />
+                                    <input disabled type="email" name="email" className="border-none outline-none" value={data.email} onChange={handleUser} />
                                 </dd>
                             </div>
                             <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt className="text-base font-medium h-text">Password</dt>
                                 <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
-                                    <input disabled type="password" name="password" className="bg-white border-none outline-none" value={data.password} onChange={handleUser} />
+                                    <input disabled type="password" name="password" className="border-none outline-none" value={data.password} onChange={handleUser} />
                                 </dd>
                             </div>
                             <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt className="text-base font-medium h-text">Contact Number</dt>
                                 <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
-                                    <input disabled={!isEdit} type="number" name="phone" className="bg-white border-none outline-none" value={data.phone} onChange={handleUser} />
+                                    <input disabled={!isEdit} type="number" name="phone" className="border-none outline-none" value={data.phone} onChange={handleUser} />
                                 </dd>
                             </div>
                             <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt className="text-base font-medium h-text">City Location</dt>
                                 <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
-                                    <input disabled={!isEdit} type="text" name="location" className="bg-white border-none outline-none" value={data.location} onChange={handleUser} />
+                                    <input disabled={!isEdit} type="text" name="location" className="border-none outline-none" value={data.location} onChange={handleUser} />
                                 </dd>
                             </div>
                             <div className="px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -172,7 +184,7 @@ function UserInfo() {
                                     whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                                     className="px-6 mx-2 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
                                     type="submit" onClick={handleSubmit}>
-                                    Save
+                                    {isLoading ? 'Saving...' : 'Save'}
                                 </motion.button>
                                 <motion.button
                                     whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
@@ -195,6 +207,7 @@ function UserInfo() {
                 </div>
             </div>
         </motion.div>
+                </>
     )
 }
 

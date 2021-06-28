@@ -4,6 +4,10 @@ import { pageTransition, pageZoom } from '../util'
 import { NavLink } from 'react-router-dom'
 import Testimonials from './Testimonials'
 
+import about1 from '../assets/images/about1.jpg'
+import about2 from '../assets/images/about2.jpg'
+import about3 from '../assets/images/about3.jpg'
+
 function AboutPage() {
   return (
     <>
@@ -53,19 +57,19 @@ function AboutPage() {
         </div>
         <div className="grid max-w-screen-lg gap-8 lg:grid-cols-2 sm:mx-auto">
           <div className="grid grid-cols-2 gap-5">
-            <img
+            <img loading="lazy"
               className="object-cover w-full h-56 col-span-2 rounded shadow-lg"
-              src="https://images.pexels.com/photos/3182746/pexels-photo-3182746.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src="https://images.unsplash.com/photo-1498955472675-532cdee9d6b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=763&q=80"
               alt=""
             />
-            <img
+            <img loading="lazy"
               className="object-cover w-full h-48 rounded shadow-lg"
-              src="https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src="https://media.istockphoto.com/photos/famous-story-books-for-sale-picture-id541123100?k=6&m=541123100&s=612x612&w=0&h=H3veslL-Nhgu-qdhrzGpr9Bw4DUmHN-Epiulxf9rR68="
               alt=""
             />
-            <img
+            <img loading="lazy"
               className="object-cover w-full h-48 rounded shadow-lg"
-              src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+              src="https://media.istockphoto.com/photos/new-year-2021-creative-design-concept-with-book-shelf-picture-id1216920372?k=6&m=1216920372&s=612x612&w=0&h=yiFOBURiszzxACP7ctO7DYZsyVlAX6NLeTSLRQLYkyY="
               alt=""
             />
           </div>
@@ -164,21 +168,21 @@ function AboutPage() {
           </div>
           <div className="flex items-center justify-center -mx-4 lg:pl-8">
             <div className="flex flex-col items-end px-3">
-              <img
+              <img loading="lazy"
                 className="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56"
-                src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                src={about1}
                 alt=""
               />
-              <img
+              <img loading="lazy"
                 className="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40"
-                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                src="https://media.istockphoto.com/photos/head-with-a-bookshelf-in-front-of-black-wall-picture-id996690238?k=6&m=996690238&s=612x612&w=0&h=NI32G9vuWurxw46d0p9VcpqHGKbPs1F6XhqGPn9ULG0="
                 alt=""
               />
             </div>
             <div className="px-3">
-              <img
+              <img loading="lazy"
                 className="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
-                src="https://images.pexels.com/photos/3182739/pexels-photo-3182739.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
+                src={about3}
                 alt=""
               />
             </div>
@@ -189,7 +193,7 @@ function AboutPage() {
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-12 row-gap-8 lg:grid-cols-2">
           <div>
-            <img
+            <img loading="lazy"
               className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
               src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
               alt=""
@@ -269,9 +273,9 @@ function AboutPage() {
           <svg className="absolute left-0 hidden h-full text-white transform -translate-x-1/2 lg:block" viewBox="0 0 100 100" fill="currentColor" preserveAspectRatio="none slice">
             <path d="M50 0H100L50 100H0L50 0Z"></path>
           </svg>
-          <img
+          <img loading="lazy"
             className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            src="https://images.unsplash.com/photo-1514894780887-121968d00567?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1"
             alt=""
           />
         </div>
@@ -286,10 +290,12 @@ function AboutPage() {
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
             </p>
             <div className="flex items-center">
-              <NavLink to="/allbooks"><motion.button
+              <NavLink to="/allbooks">
+                <motion.button
                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
-              >Get Started</motion.button></NavLink>
+              >Get Started</motion.button>
+              </NavLink>
               <NavLink to="/" aria-label="" className="inline-flex items-center font-semibold text-gray-800 ml-4">Learn more</NavLink>
             </div>
           </div>

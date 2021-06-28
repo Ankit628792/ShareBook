@@ -2,10 +2,19 @@ import React , {useState} from 'react'
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import SendIcon from '@material-ui/icons/Send';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function ChatPage() {
 
-    const [showPeople, setshowPeople] = useState(false)
+    const userSession = useSelector((state) => state.userReducer.userSession);
+    
+    const history = useHistory()
+    if(!userSession){
+        history.push('/signin')
+    }
+
+    const [showPeople, setshowPeople] = useState(true)
     const chatPeople =() => {
        showPeople ? setshowPeople(false) : setshowPeople(true)
     }

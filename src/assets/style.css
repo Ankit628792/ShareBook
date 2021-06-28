@@ -19,6 +19,27 @@
         box-shadow: 0 0.5rem 1rem #1ea5fc45;
       border-radius: 40px;
 }
+.btn-bg:focus{
+  outline: none;
+  border: none;
+}
+
+.scrollToTop{
+  z-index: 300;
+  animation: bounce 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% ,100% {
+    transform: translateY(-10%);
+    animationTimingFunction: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animationTimingFunction: cubic-bezier(0, 0, 0.2, 1);
+  }
+ 
+}
 
 .btn{
   padding: 0.75rem 1.5rem;
@@ -88,6 +109,11 @@
 
 /* Navbar and hamburger menu  */
 .navbar div .text-lg:hover{
+  color: #1EA5FC;
+}
+
+.navbar .selectedNav,
+.hamburger-menu .selectedNav{
   color: #1EA5FC;
 }
 
@@ -450,15 +476,15 @@
     background: #000000;
   }
   ::-webkit-scrollbar-track {
-    background: rgb(143, 143, 143);
+    background: rgba(143, 143, 143, 0.5);
     border: 0px none #ffffff;
     border-radius: 50px;
   }
   ::-webkit-scrollbar-track:hover {
-    background: #999999;
+    background: rgba(143, 143, 143, 0.5);
   }
   ::-webkit-scrollbar-track:active {
-    background: #999999;
+    background: rgba(143, 143, 143, 0.5);
   }
   ::-webkit-scrollbar-corner {
     background: transparent;
@@ -467,6 +493,11 @@
   .about input, .about textarea{
     width: 100%;
     padding: 5px 0;
+    background: rgb(245, 245, 245);
+
+  }
+  .about input:disabled,
+  .about textarea:disabled {
     background: white;
   }
   .about input:focus, .about textarea:focus{

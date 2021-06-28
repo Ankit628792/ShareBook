@@ -6,7 +6,7 @@ import { pageTransition, pageZoom } from '../util';
 // import { addToBookmark, removeFromBookmark } from '../actions';
 // import BookmarkRoundedIcon from '@material-ui/icons/BookmarkRounded';
 
-function Book({ id, author, title, image, summary }) {
+function Book({ id, author, title, location, image, summary }) {
     // const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
 
     // const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function Book({ id, author, title, image, summary }) {
     let isBookmarked = false;
     const onBookClick = () => {
         history.push(`/book/${id}`);
-        const singleBook = { id, author, title, image, summary, isBookmarked }
+        const singleBook = { id, author,location, title, image, summary, isBookmarked }
         // console.log(singleBook)
         localStorage.setItem('singlebook', JSON.stringify(singleBook))
     }
@@ -59,7 +59,7 @@ function Book({ id, author, title, image, summary }) {
                         exit="out"
                         variants={pageZoom}
                         layoutId={id} className="imgBx rounded-sm flex items-center justify-center p-2 lg:mb-0 mb-3" onClick={onBookClick}>
-                        <img src={image}
+                        <img loading="lazy" src={image}
                             alt="Just a Book" className="w-full rounded-md h-full object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48" />
                     </motion.div>
                     <div className="p-2">
@@ -79,7 +79,7 @@ function Book({ id, author, title, image, summary }) {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                 </svg>
-                                <h6>India</h6>
+                                <h6>{location || `India`}</h6>
                             </div>
 
                             <p className="max-w-sm p-text line-clamp-3">

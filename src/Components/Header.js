@@ -3,6 +3,8 @@ import {motion} from 'framer-motion'
 import { NavLink } from 'react-router-dom'
 import appStore from "../assets/app-store.svg";
 import googlePlay from "../assets/google-play.svg";
+import headerImg from "../assets/images/headerImg.png";
+import contact3 from "../assets/images/contact3.jpg";
 
 function Header() {
   return (
@@ -11,7 +13,7 @@ function Header() {
       <div className="pt-12 md:pt-16 md:pb-10">
         <div className="container px-8 sm:px-5 mx-auto flex flex-wrap flex-col md:flex-row items-center">
           <div className="w-full mb-6 lg:w-1/2 py-6 text-center p-0 md:p-5 lg:p-10">
-            <img className="w-full md:w-full z-50" src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" />
+            <img loading="lazy" className="w-full md:w-full z-50 shadow-lg rounded-lg" src={headerImg} alt="sharebook" />
           </div>
           <div className="flex flex-col max-w-lg lg:w-1/2 justify-center items-start">
             <p className="inline-block text-xs font-semibold tracking-wider p-text uppercase rounded-full">For Whom plateform is this?</p>
@@ -41,9 +43,9 @@ function Header() {
           >
             <path d="M50 0H100L50 100H0L50 0Z" />
           </svg>
-          <img
+          <img loading="lazy"
             className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none md:h-96 lg:h-full"
-            src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            src="https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
             alt=""
           />
         </div>
@@ -89,7 +91,7 @@ function Header() {
       {/* head3 */}
       <div className="relative flex flex-col px-4 py-16 mx-auto lg:block lg:flex-col lg:py-32 xl:py-48 md:px-8 sm:max-w-xl md:max-w-full">
         <div className="z-0 flex justify-center h-full -mx-4 overflow-hidden lg:pt-24 lg:pb-16 lg:pr-8 xl:pr-0 lg:w-1/2 lg:absolute lg:justify-end lg:bottom-0 lg:left-0 lg:items-center">
-          <img
+          <img loading="lazy"
             src="https://kitwind.io/assets/kometa/laptop.png"
             className="object-cover object-right w-full h-auto lg:w-auto lg:h-full"
             alt=""
@@ -182,9 +184,9 @@ function Header() {
           </div>
         </div>
         <div className="mb-8 inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
-          <img
+          <img loading="lazy"
             className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full"
-            src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            src="https://images.unsplash.com/photo-1598618443984-28f67f043866?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
             alt=""
           />
         </div>
@@ -200,10 +202,10 @@ function Header() {
         <div className="flex flex-col items-center justify-between w-full lg:flex-row">
           <div className="flex items-center justify-center lg:w-1/2 mb-4">
             <div className="w-2/5">
-              <img className="object-cover" src="https://kitwind.io/assets/kometa/one-girl-phone.png" alt="" />
+              <img loading="lazy" className="object-cover" src="https://kitwind.io/assets/kometa/one-girl-phone.png" alt="" />
             </div>
             <div className="w-5/12 -ml-16 lg:-ml-32">
-              <img className="object-cover" src="https://kitwind.io/assets/kometa/two-girls-phone.png" alt="" />
+              <img loading="lazy" className="object-cover" src="https://kitwind.io/assets/kometa/two-girls-phone.png" alt="" />
             </div>
           </div>
           <div className="lg:max-w-lg lg:pr-5">
@@ -221,10 +223,10 @@ function Header() {
             </div>
             <div className="flex items-center space-x-3">
               <NavLink to="/" className="w-32 transition duration-300 hover:shadow-lg">
-                <img src={appStore} className="object-cover object-top w-full h-auto mx-auto" alt="" />
+                <img loading="lazy" src={appStore} className="object-cover object-top w-full h-auto mx-auto" alt="" />
               </NavLink>
               <NavLink to="/" className="w-32 transition duration-300 hover:shadow-lg">
-                <img src={googlePlay} className="object-cover object-top w-full h-auto mx-auto" alt="" />
+                <img loading="lazy" src={googlePlay} className="object-cover object-top w-full h-auto mx-auto" alt="" />
               </NavLink>
             </div>
           </div>
@@ -290,8 +292,8 @@ function Header() {
               </p>
             </div>
             <div>
-              <NavLink
-                to="https://openbase.com/js/bcrypt/documentation" target="_blank"
+              <a
+                href="https://openbase.com/js/bcrypt/documentation" target="_blank"
                 aria-label=""
                 className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
@@ -303,26 +305,26 @@ function Header() {
                 >
                   <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
                 </svg>
-              </NavLink>
+              </a>
             </div>
           </div>
           <div className="flex items-center justify-center -mx-4 lg:pl-8">
             <div className="flex flex-col items-end px-3">
-              <img
+              <img loading="lazy"
                 className="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56"
-                src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                src={contact3}
                 alt=""
               />
-              <img
+              <img loading="lazy"
                 className="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40"
-                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                src="https://media.istockphoto.com/photos/technology-word-on-blackboard-with-supportive-icons-picture-id1091157788?k=6&m=1091157788&s=612x612&w=0&h=ImVxRRehwzTZaTe10JrwVlXeikLXi81apVRllap-JA0="
                 alt=""
               />
             </div>
             <div className="px-3">
-              <img
+              <img loading="lazy"
                 className="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
-                src="https://images.pexels.com/photos/3182739/pexels-photo-3182739.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
+                src="https://media.istockphoto.com/vectors/set-of-funny-book-characters-mascots-cartoon-vector-illustration-vector-id636146260?k=6&m=636146260&s=612x612&w=0&h=coCXBzTcSwgtjSHnibXjvT94FzJdjMV6RAHt0HpaGkY="
                 alt=""
               />
             </div>
@@ -393,13 +395,13 @@ function Header() {
             <p className="max-w-md mb-3 text-sm h-text sm:mx-auto">
               From and To Front-End, your data is passed in the encryted format which can't be access to you and others.
             </p>
-            <NavLink
-              to="https://openbase.com/js/bcrypt/documentation" target="_blank"
+            <a
+              href="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more
-            </NavLink>
+            </a>
             <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
               <svg
                 className="w-8 p-text transform rotate-90 lg:rotate-0"
@@ -445,13 +447,13 @@ function Header() {
             <p className="max-w-md mb-3 text-sm h-text sm:mx-auto">
               Your data passed and request on this layer is again analysed to get the authenticated user. This layer again encrypt your details to add a plus point in the data security.
             </p>
-            <NavLink
-              to="https://openbase.com/js/bcrypt/documentation" target="_blank"
+            <a
+              href="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more
-            </NavLink>
+            </a>
             <div className="top-0 right-0 flex items-center justify-center h-24 lg:-mr-8 lg:absolute">
               <svg
                 className="w-8 p-text transform rotate-90 lg:rotate-0"
@@ -497,13 +499,13 @@ function Header() {
             <p className="max-w-md mb-3 text-sm h-text sm:mx-auto">
               The database is completely secured and no body can access that. It is unreachable to anyone. And it has no direct access to the application that makes it more secure.
             </p>
-            <NavLink
-              to="https://openbase.com/js/bcrypt/documentation" target="_blank"
+            <a
+              href="https://openbase.com/js/bcrypt/documentation" target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more
-            </NavLink>
+            </a>
           </div>
         </div>
       </div>
@@ -553,8 +555,8 @@ function Header() {
 
         <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
           <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm hover:shadow-lg">
-            <img
-              src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
+            <img loading="lazy"
+            src="https://media.istockphoto.com/photos/stack-of-books-on-table-top-in-the-library-education-back-to-school-picture-id911899130?k=6&m=911899130&s=612x612&w=0&h=8dkGja831-5qIb0WOHR9TrHLXx-whoxevQ1EuT01KuI="
               className="object-cover w-full h-64"
               alt=""
             />
@@ -587,8 +589,8 @@ function Header() {
             </div>
           </div>
           <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm hover:shadow-lg">
-            <img
-              src="https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            <img loading="lazy"
+            src="https://media.istockphoto.com/photos/young-man-reading-book-picture-id960242192?k=6&m=960242192&s=612x612&w=0&h=iPsIqv_FwySak_sW5wWsy3RTkMj1ZPmt55cFsAQsPJ0="
               className="object-cover w-full h-64"
               alt=""
             />
@@ -621,8 +623,8 @@ function Header() {
             </div>
           </div>
           <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm hover:shadow-lg">
-            <img
-              src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+            <img loading="lazy"
+            src="https://media.istockphoto.com/photos/heart-shape-in-open-school-book-pages-picture-id583707928?k=6&m=583707928&s=612x612&w=0&h=rAIb-F1Y16ZgxbUxfT7ANZbj4qmhf4n2Za1okWZETwk="
               className="object-cover w-full h-64"
               alt=""
             />
