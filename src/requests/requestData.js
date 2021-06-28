@@ -47,8 +47,8 @@ export const getData = async (request) => {
         const user = await response.json();
         return { user, response };
 
-    } catch (error) {
-        console.log(error)
+    } catch(error) {
+        console.log('Error in authenticating user')
     }
 }
 

@@ -18,15 +18,28 @@ const Signup = () => {
             console.log('registering user ...')
             const res = postData(data, '/signup')
             res.then((res) => {
-                if (res.status === 201) {
-                    history.push('/signin')
-                }
-                if (res.status === 422) {
-                    window.alert('User Already Exist')
-                }else{
-                    window.alert('Sign in error')
-                }
+                const {status, error} = res ;
+                switch (status) {
+                    case 201:
+                        history.push('/signin')
+                        break;
+                    case 400:
+                        window.alert(error)
+                        break;
+                    case 420:
+                        window.alert(error)
+                        break;
+                    case 421:
+                        window.alert(error)
+                        break;
+                    case 422:
+                        window.alert(error)
+                        break;
                 
+                    default:
+                        window.alert('Internal Server Error')
+                        break;
+                }                
             })
         }
     };

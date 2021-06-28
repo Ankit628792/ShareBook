@@ -13,6 +13,7 @@ function MyAccount() {
                 variants={pageZoom}
                 transition={pageTransition}
             >
+                
                 <UserInfo />
             </motion.div>
         </>

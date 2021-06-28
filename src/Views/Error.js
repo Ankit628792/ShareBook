@@ -1,10 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { pageSlide, pageZoom, pageTransition } from '../util'
-import Service from '../Components/Service'
-import AboutPage from '../Components/AboutPage'
+import { pageZoom, pageTransition } from '../util'
+import ErrorPage from '../Components/ErrorPage'
 
-function About() {
+function Error() {
     return (
         <motion.div
             initial="initial"
@@ -13,10 +12,9 @@ function About() {
             variants={pageZoom}
             transition={pageTransition}
         >
-           <AboutPage />
-            {/* <Service /> */}
+           <ErrorPage />
         </motion.div>
     )
 }
 
-export default About
+export default Error
