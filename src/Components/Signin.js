@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { getData, postData } from '../requests/requestData'
+import {getData, postData} from '../requests/requestData'
 import { motion } from 'framer-motion'
 import { useDispatch } from 'react-redux'
 import { setUser } from '../actions'
 
 const Signin = () => {
-
+    
     const dispatch = useDispatch()
 
     const history = useHistory()
@@ -18,39 +18,24 @@ const Signin = () => {
 
     const getUser = async () => {
         try {
-            const { user, response } = await getData('/userAuthentication');
-            dispatch(setUser(user))
-            if (response.status !== 200) {
-                console.log('unable to get user')
-            }
+          const { user, response } = await getData('/userAuthentication');
+          dispatch(setUser(user))
+          if (response.status !== 200) {
+            console.log('unable to get user')
+          }
         } catch (error) {
-            console.log('user not verified')
+          console.log('user not verified')
         }
-    }
+      }
     // onSubmit handle event 
     const onSubmit = (data) => {
         setData(data);
         const res = postData(data, '/signin')
         res.then((res) => {
-            const { status, error } = res;
-            switch (status) {
-                case 200:
-                    reset()
-                    getUser()
-                    history.push('/')
-                    break;
-                case 400:
-                    window.alert(error)
-                    break;
-                case 401:
-                    window.alert(error)
-                    break;
-                case 422:
-                    window.alert(error)
-                    break;
-                default:
-                    window.alert('Internal Server Error')
-                    break;
+            if (res.status === 200) {
+                reset()
+                getUser()
+                history.push('/')
             }
         })
     };

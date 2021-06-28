@@ -14,7 +14,7 @@ function About() {
             transition={pageTransition}
         >
            <AboutPage />
-            {/* <Service /> */}
+            <Service />
         </motion.div>
     )
 }

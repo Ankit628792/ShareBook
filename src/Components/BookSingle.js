@@ -64,8 +64,6 @@ function BookSingle() {
               <div className="mb-10">
                 <h1 className="font-bold uppercase text-2xl h-text">{bookDetails.title}</h1>
                 <h2 className="capitalize font-bold my-3">Author : <span className="font-medium p-text">{bookDetails.author}</span> </h2>
-                <h2 className="capitalize font-bold my-3 flex">Location :
-                  <span className="font-medium p-text">{bookDetails.location || `India`} </span> </h2>
                 <h1 className="font-semibold h-text">Summary :</h1>
                 <ul>
                   {

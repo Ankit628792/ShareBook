@@ -21,14 +21,14 @@ import { useDispatch } from 'react-redux';
 import { restoreBookmark, setUser } from './actions';
 import { getData } from './requests/requestData';
 import BookPage from './Views/BookPage';
-import Error from './Views/Error';
-import ScrollToTop from './Components/ScrollToTop'
 
 function App() {
 
   const location = useLocation();
 
   const dispatch = useDispatch()
+
+ 
 
   const getUser = async () => {
     try {
@@ -106,14 +106,10 @@ function App() {
               <ChatPage />
             </Route>
 
-            <Route>
-                <Error />
-            </Route>
-
           </Switch>
         </AnimateSharedLayout>
       </AnimatePresence>
-        <ScrollToTop />
+
       <Footer />
     </>
   );

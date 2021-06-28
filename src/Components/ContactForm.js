@@ -4,9 +4,6 @@ import { pageTransition, pageZoom } from '../util'
 import { useForm } from 'react-hook-form';
 import { postData } from '../requests/requestData';
 
-import contact1 from '../assets/images/contact1.jpg'
-import contact2 from '../assets/images/contact2.jpg'
-
 function ContactForm() {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });
 
@@ -32,7 +29,7 @@ function ContactForm() {
         exit="out"
         variants={pageZoom}
         transition={pageTransition} className="relative contactform">
-        <img loading="lazy" src="https://images.pexels.com/photos/3228766/pexels-photo-3228766.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" className="absolute inset-0 object-cover w-full h-full" alt="" />
+        <img src="https://images.pexels.com/photos/3228766/pexels-photo-3228766.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260" className="absolute inset-0 object-cover w-full h-full" alt="" />
         <div className="relative bg-opacity-75 bg-blue-500">
           <svg className="absolute inset-x-0 bottom-0 text-white" viewBox="0 0 1160 160">
             <path
@@ -155,19 +152,19 @@ function ContactForm() {
         </div>
         <div className="grid max-w-screen-lg gap-8 lg:grid-cols-2 sm:mx-auto">
           <div className="grid grid-cols-2 gap-5">
-            <img loading="lazy"
+            <img
               className="object-cover w-full h-56 col-span-2 rounded shadow-lg"
-              src="https://images.unsplash.com/photo-1466583985723-b74122659346?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1"
+              src="https://images.pexels.com/photos/3182746/pexels-photo-3182746.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
               alt=""
             />
-            <img loading="lazy"
+            <img
               className="object-cover w-full h-48 rounded shadow-lg"
-              src="https://kaboompics.com/cache/2/d/5/3/1/2d531241160f86412eacead145008ab91735754a.jpeg"
+              src="https://images.pexels.com/photos/3184296/pexels-photo-3184296.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
               alt=""
             />
-            <img loading="lazy"
+            <img
               className="object-cover w-full h-48 rounded shadow-lg"
-              src="https://kaboompics.com/cache/a/a/d/7/8/aad781006254ef0e4066c0257f4d3c84d0dda80a.jpeg"
+              src="https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
               alt=""
             />
           </div>
@@ -265,21 +262,21 @@ function ContactForm() {
           </div>
           <div className="flex items-center justify-center -mx-4 lg:pl-8">
             <div className="flex flex-col items-end px-3">
-              <img loading="lazy"
+              <img
                 className="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-56 w-28 sm:w-48 xl:w-56"
-                src={contact1}
+                src="https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                 alt=""
               />
-              <img loading="lazy"
+              <img
                 className="object-cover w-20 h-20 rounded shadow-lg sm:h-32 xl:h-40 sm:w-32 xl:w-40"
-                src={contact2}
+                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
                 alt=""
               />
             </div>
             <div className="px-3">
-              <img loading="lazy"
+              <img
                 className="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
-                src="https://kaboompics.com/cache/2/3/c/0/a/23c0a6a24e5a4246db38e31800b88f3ee890c2b4.jpeg"
+                src="https://images.pexels.com/photos/3182739/pexels-photo-3182739.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
                 alt=""
               />
             </div>

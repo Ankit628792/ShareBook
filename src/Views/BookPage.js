@@ -5,15 +5,9 @@ import Book from '../Components/Book'
 import emptyBookmarks from "../assets/emptyBookmarks.svg";
 import AddBook from '../Components/AddBook';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 function BookPage() {
     const userSession = useSelector((state) => state.userReducer.userSession);
-
-    const history = useHistory()
-    if(!userSession){
-        history.push('/signin')
-    }
 
     const [isAddBook, setisAddBook] = useState(false)
 
@@ -45,7 +39,7 @@ function BookPage() {
                 {books && books.length > 0 ? (
                     <div className="grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pt-6 pb-10 px-6">
                         {books.map((book) => (
-                            <Book key={book.bookId} id={book.bookId} author={book.author} title={book.bookname} image={book.image_url} summary={book.description} />
+                            <Book key={book.id} id={book.id} author={book.author} title={book.bookname} image={book.image_url} summary={book.summary} />
                         ))
                         }
                     </div>

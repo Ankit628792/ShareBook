@@ -4,7 +4,7 @@ import { pageTransition, pageZoom } from "../util";
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import bookDummy from '../assets/images/bookDummy.png'
+import bookDummy from '../assets/bookDummy.png'
 import axios from 'axios';
 
 function AddBook({ setisAddBook }) {
@@ -14,7 +14,7 @@ function AddBook({ setisAddBook }) {
 
     const history = useHistory();
 
-    const { register, handleSubmit, formState: { errors } } = useForm({ reValidateMode: 'onChange' });
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });
 
     const [data, setData] = useState({});
 
@@ -85,7 +85,7 @@ function AddBook({ setisAddBook }) {
                             <div className="max-w-xs max-h-80 rounded-lg cursor-pointer border overflow-hidden">
                                 {
                                     preview ?
-                                        <img className="w-full h-full object-contain rounded-lg" src={preview} alt="" onClick={() => setImage(null)} />
+                                        <img className="w-full h-full object-cover rounded-lg" src={preview} alt="" onClick={() => setImage(null)} />
                                         :
                                         (
                                             <img src={bookDummy} className="w-full h-full object-cover rounded-lg" onClick={(e) => {
