@@ -3,20 +3,29 @@ import { NavLink, useHistory } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { postData } from '../requests/requestData'
 import { motion } from "framer-motion"
+import { useSelector } from 'react-redux';
 
 const Signup = () => {
 
+    const userSession = useSelector((state) => state.userReducer.userSession);
+    if(userSession){
+        history.push('/')
+    }
     const history = useHistory()
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });
 
     const [data, setData] = useState({});
+
+    const [isLoading, setisLoading] = useState(false)
 
     // onSubmit handle event 
     const onSubmit = (data, e) => {
         setData(data);
         if (data.password === data.cpassword) {
             console.log('registering user ...')
+            setisLoading(true)
             const res = postData(data, `/signup`)
+            setisLoading(false)
             res.then((res) => {
                 const {status, error} = res ;
                 switch (status) {
@@ -115,7 +124,7 @@ const Signup = () => {
                         <div className="inputBx">
                             <motion.input whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                                type="submit" value="Sign Up" title="Signup" />
+                                type="submit" value={isLoading ? `Validating...` : 'Signup'} />
                         </div>
                         <div className="inputBx">
                             <p>Already have an account? <NavLink className="signupnav" to="/signin">Sign In</NavLink></p>

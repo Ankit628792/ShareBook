@@ -1,9 +1,9 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Bookmark.css";
 import { motion } from 'framer-motion'
 import emptyBookmarks from "../assets/emptyBookmarks.svg";
 import Book from "./Book";
-import { pageTransition, pageZoom } from "../util";
+import { pageTransition, container } from "../util";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -13,18 +13,18 @@ function Bookmarks() {
 
   return (
     <motion.div
-      initial="initial"
-      animate="in"
-      exit="out"
-      variants={pageZoom}
-      transition={pageTransition} className="bookmarks">
+      initial="hidden"
+      animate="visible"
+      variants={container}
+      transition={pageTransition}
+      className="bookmarks">
       <h4 className="h-text">Bookmarks</h4>
-      {bookmarks && bookmarks.length > 0  ? (
+      {bookmarks && bookmarks.length > 0 ? (
         <div className="grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pt-6 pb-10 px-6">
           {bookmarks.map((book) => (
-              <Book key={book.id} id={book.id} author={book.author} title={book.title} image={book.image} summary={book.summary} />
+            <Book key={book.id} id={book.id} author={book.author} title={book.title} image={book.image} summary={book.summary} />
           ))
-        }
+          }
         </div>
       ) : (
         <div className="cart__inner bookmark__inner">
@@ -38,8 +38,8 @@ function Bookmarks() {
               Bookmarks, and check them out anytime you wish.
             </p>
             <NavLink to="/allbooks"><motion.button
-              whileHover={{scale: 1.05, transition: { duration: 0.1 }}}
-              whileTap={{ scale: 0.95 , transition:{duration: 0.1}}} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
+              whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+              whileTap={{ scale: 0.95, transition: { duration: 0.1 } }} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
             >Go To Books Rack</motion.button></NavLink>
           </div>
         </div>

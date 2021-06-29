@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { pageSlide, pageZoom, pageTransition } from '../util'
+import { container, pageTransition } from '../util'
 import Book from '../Components/Book'
 import emptyBookmarks from "../assets/emptyBookmarks.svg";
 import AddBook from '../Components/AddBook';
@@ -69,10 +69,9 @@ function BookPage() {
     return (
         <>
             <motion.div
-                initial="initial"
-                animate="in"
-                exit="out"
-                variants={pageZoom}
+                initial="hidden"
+                animate="visible"
+                variants={container}
                 transition={pageTransition}
                 className="bookmarks">
 

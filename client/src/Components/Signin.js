@@ -3,11 +3,14 @@ import { NavLink, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { getData, postData } from '../requests/requestData'
 import { motion } from 'framer-motion'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setUser } from '../actions'
 
 const Signin = () => {
-
+    const userSession = useSelector((state) => state.userReducer.userSession);
+    if(userSession){
+        history.push('/')
+    }
     const dispatch = useDispatch()
 
     const history = useHistory()
@@ -27,10 +30,13 @@ const Signin = () => {
             console.log('user not verified')
         }
     }
+    const [isLoading, setisLoading] = useState(false)
     // onSubmit handle event 
     const onSubmit = (data) => {
         setData(data);
+        setisLoading(true)
         const res = postData(data, `/signin`)
+        setisLoading(false)
         res.then((res) => {
             const { status, error } = res;
             switch (status) {
@@ -102,7 +108,7 @@ const Signin = () => {
                                 transition: {
                                     duration: 0
                                 }
-                            }} type="submit" value="Sign in" />
+                            }} type="submit" value={isLoading ? `Validating...` : 'Signin'} />
                         </div>
                         <div className="inputBx">
                             <p>Don't have an account? <NavLink className="signupnav" to="/signup">Sign up</NavLink></p>

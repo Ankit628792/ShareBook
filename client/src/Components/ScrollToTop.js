@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 function ScrollToTop() {
     const [showScroll, setShowScroll] = useState(false)
     const checkScrollTop = () => {
-        if (!showScroll && window.pageYOffset > 400) {
+        if (!showScroll && window.pageYOffset > 1000) {
             setShowScroll(true)
-        } else if (showScroll && window.pageYOffset <= 400) {
+        } else if (showScroll && window.pageYOffset <= 1000) {
             setShowScroll(false)
         }
     };
