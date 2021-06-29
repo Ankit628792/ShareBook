@@ -29,6 +29,11 @@ function App() {
   const location = useLocation();
 
   const dispatch = useDispatch()
+  console.log('env', process.env.REACT_APP_BASEURL)
+  console.log(process.env.REACT_APP_BASEURL)
+  console.log(process.env.REACT_APP_BASEURL)
+  console.log(process.env.REACT_APP_BASEURL)
+  console.log(process.env.REACT_APP_BASEURL)
 
   const getUser = async () => {
     try {
