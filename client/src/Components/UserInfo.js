@@ -56,7 +56,7 @@ function UserInfo() {
 
         setisLoading(true)
 
-        axios.patch(`${process.env.REACT_APP_BASEURL}/updateuser:${_id}`, userData)
+        axios.patch(`/updateuser:${_id}`, userData)
             .then((res) => {
                 if (res.status === 201) {
                     setisLoading(false)

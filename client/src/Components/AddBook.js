@@ -49,7 +49,7 @@ function AddBook({ setisAddBook }) {
         bookDetail.append('condition', data.condition)
         bookDetail.append('description', data.description)
 
-        axios.post(`${process.env.REACT_APP_BASEURL}/addbook`, bookDetail)
+        axios.post(`/addbook`, bookDetail)
             .then((res) => {
                 if (res.status === 201) {
                     history.push('/mybook')

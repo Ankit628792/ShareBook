@@ -22,7 +22,7 @@ function BookPage() {
         const [books, setbooks] = useState({})
 
         useEffect(() => {
-            fetch(`${process.env.REACT_APP_BASEURL}/getmybook:${userSession.userId}`)
+            fetch(`/getmybook:${userSession.userId}`)
                 .then((response => response.json()))
                 .then((bookResponse) => {
                     setbooks(bookResponse)

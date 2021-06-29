@@ -25,6 +25,7 @@
 }
 
 .scrollToTop{
+  transition: all 0.7s ease-in-out;
   z-index: 300;
   animation: bounce 1.5s ease-in-out infinite;
 }
