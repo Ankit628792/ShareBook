@@ -36,9 +36,9 @@ const Signin = () => {
         setData(data);
         setisLoading(true)
         const res = postData(data, `/signin`)
-        setisLoading(false)
         res.then((res) => {
             const { status, error } = res;
+            setisLoading(false)
             switch (status) {
                 case 200:
                     reset()

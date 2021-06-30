@@ -41,7 +41,17 @@ function Book({ id, author, title, location, image, summary, mybook }) {
     // }, [bookmarks, id])
 
     return (
-        <motion.div initial="hidden" animate="visible" variants={item} className="book bg-white max-w-xs shadow-md mx-auto rounded-3xl p-4 hover:shadow-xl cursor-pointer flex items-center justify-center">
+        <motion.div initial="hidden" animate="visible" variants={{
+            hidden: {
+                scale: 0,
+            },
+            visible: {
+                scale: 1,
+                transition: {
+                    delay: 0.5
+                }
+            },
+        }} className="book bg-white max-w-xs shadow-md mx-auto rounded-3xl p-4 hover:shadow-xl cursor-pointer flex items-center justify-center">
             <div className="flex flex-col md:flex-row items-center">
                 <motion.div
                     initial="initial"

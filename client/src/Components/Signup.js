@@ -25,9 +25,9 @@ const Signup = () => {
             console.log('registering user ...')
             setisLoading(true)
             const res = postData(data, `/signup`)
-            setisLoading(false)
             res.then((res) => {
                 const {status, error} = res ;
+                setisLoading(false)
                 switch (status) {
                     case 201:
                         reset()
