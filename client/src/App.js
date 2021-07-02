@@ -1,28 +1,34 @@
 import React, { useEffect } from 'react'
-import Navbar from "./Views/Navbar";
-import Footer from "./Views/Footer";
-import Home from "./Views/Home";
-import About from "./Views/About";
-import BookmarkPage from "./Views/BookmarkPage";
+
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+
+import Navbar from "./Views/Navbar";
+import HomePage from "./Views/HomePage";
+import AllBooksPage from "./Views/AllBooksPage";
+import AboutPage from "./Views/AboutPage";
+import ContactPage from "./Views/ContactPage";
+import BookmarkPage from "./Views/BookmarkPage";
+import BookSingle from './Components/book/BookSingle';
+import MyAccount from "./Views/MyAccount";
+import BookPage from './Views/BookPage';
+import ChatPage from "./Views/ChatPage";
+import ErrorPage from './Views/ErrorPage';
+import Signin from "./Components/form/Signin";
+import Signup from "./Components/form/Signup";
+import Signout from "./Components/form/Signout";
+import Footer from "./Views/Footer";
+import ScrollToTop from './Components/other/ScrollToTop'
+
+
 import './assets/main.css'
 import "./App.css";
 import './assets/style.css'
-import BookSingle from './Components/BookSingle';
-import Contact from "./Views/Contact";
-import AllBooks from "./Views/AllBooks";
-import MyAccount from "./Views/MyAccount";
-import ChatPage from "./Components/ChatPage";
-import Signin from "./Components/Signin";
-import Signup from "./Components/Signup";
-import Signout from "./Components/Signout";
+
 import { useDispatch } from 'react-redux';
 import { restoreBookmark, setUser } from './actions';
 import { getData } from './requests/requestData';
-import BookPage from './Views/BookPage';
-import Error from './Views/Error';
-import ScrollToTop from './Components/ScrollToTop'
+
 
 function App() {
 
@@ -38,6 +44,9 @@ function App() {
       }
       else if (response.status !== 200) {
         console.log('unable to get user')
+      }
+      else if (response.status === 401) {
+        console.log('unauthorised user')
       }
     } catch (error) {
       console.log('user not verified')
@@ -58,12 +67,41 @@ function App() {
         <AnimateSharedLayout>
           <Navbar />
           <Switch location={location} key={location.pathname}>
-            <Route exact path="/book/:id">
-              <BookSingle />
+
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+
+            <Route exact path="/allbooks">
+              <AllBooksPage />
+            </Route>
+
+            <Route exact path="/about">
+              <AboutPage />
+            </Route>
+
+            <Route exact path="/contactus">
+              <ContactPage />
             </Route>
 
             <Route exact path="/bookmarks">
               <BookmarkPage />
+            </Route>
+
+            <Route exact path="/book/:id">
+              <BookSingle />
+            </Route>
+
+            <Route exact path="/myaccount">
+              <MyAccount />
+            </Route>
+
+            <Route exact path="/mybook">
+              <BookPage />
+            </Route>
+
+            <Route exact path="/chats">
+              <ChatPage />
             </Route>
 
             <Route exact path="/signup">
@@ -78,43 +116,20 @@ function App() {
               <Signout />
             </Route>
 
-            <Route exact path="/myaccount">
-              <MyAccount />
-            </Route>
-
-            <Route exact path="/mybook">
-              <BookPage />
-            </Route>
-
-            <Route exact path="/">
-              <Home />
-            </Route>
-
-            <Route exact path="/about">
-              <About />
-            </Route>
-
-            <Route exact path="/contactus">
-              <Contact />
-            </Route>
-
-            <Route exact path="/allbooks">
-              <AllBooks />
-            </Route>
-
-            <Route exact path="/chats">
-              <ChatPage />
-            </Route>
-
             <Route>
-                <Error />
+                <ErrorPage />
             </Route>
 
           </Switch>
         </AnimateSharedLayout>
       </AnimatePresence>
         <ScrollToTop />
-      <Footer />
+        {
+          window.location.pathname !== '/chats'
+          &&
+          <Footer />
+
+        }
     </>
   );
 }

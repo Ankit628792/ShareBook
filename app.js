@@ -1,16 +1,26 @@
 require('dotenv').config()
+const cor = require('cors');
 const express = require('express');
-const cors = require('cors');
 const app = express();
+const port = process.env.PORT || 5000
 const cookieParser = require('cookie-parser')
 app.use(express.json({limit: '10mb'}))
 app.use(cookieParser())
-app.use(cors())
+app.use(cor())
 
 require('./db/conn')
-app.use(require('./router/auth'))
+// app.use(require('./routes/auth'))
 
-const port = process.env.PORT || 5000
+const user = require('./routes/user')
+const books = require('./routes/books')
+const conversationRoute = require('./routes/conversations')
+const messageRoute = require('./routes/messages')
+
+app.use('/api/user', user)
+app.use('/api/books', books)
+app.use('/api/conversations', conversationRoute)
+app.use('/api/messages', messageRoute)
+
 
 app.get('/setcookie', function (req, res) {
       

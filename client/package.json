@@ -9,7 +9,6 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
-    "env-cmd": "^10.1.0",
     "framer-motion": "^4.1.17",
     "postcss": "^8.3.0",
     "react": "^17.0.2",
@@ -19,6 +18,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.1.0",
+    "socket.io-client": "^4.1.2",
+    "timeago.js": "^4.0.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

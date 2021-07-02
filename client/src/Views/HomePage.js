@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Home from '../Components/static/Home'
 import { motion } from 'framer-motion'
-import UserInfo from '../Components/UserInfo'
 import { pageSlide, pageZoom, pageTransition } from '../util'
+import Feedback from '../Components/Feedback'
 
-function MyAccount() {
+function HomePage() {
+
     return (
         <>
             <motion.div
                 initial="initial"
                 animate="in"
                 exit="out"
-                variants={pageZoom}
+                variants={pageSlide}
                 transition={pageTransition}
             >
-                <UserInfo />
+                <Home />
             </motion.div>
+            <Feedback />
         </>
     )
 }
 
-export default MyAccount
+export default HomePage
