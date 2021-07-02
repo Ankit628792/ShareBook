@@ -55,12 +55,9 @@ function UserInfo() {
         userData.append('location', data.location)
         userData.append('about', data.about)
 
-        setisLoading(true)
-
         axios.patch(`/updateuser:${_id}`, userData)
             .then((res) => {
                 if (res.status === 201) {
-                    setisLoading(false)
                     setisEdit(false)
                 } else {
                     console.log('updation error')
