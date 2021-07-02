@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { pageTransition, pageZoom } from '../util'
+import { pageTransition, pageZoom } from '../../util'
 import { useForm } from 'react-hook-form';
 import { postData } from '../../requests/requestData';
 
