@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
-import Navbar from "./Views/Navbar";
+import Navbar from "./Components/other/Navbar";
 import HomePage from "./Views/HomePage";
 import AllBooksPage from "./Views/AllBooksPage";
 import AboutPage from "./Views/AboutPage";
@@ -17,7 +17,7 @@ import ErrorPage from './Views/ErrorPage';
 import Signin from "./Components/form/Signin";
 import Signup from "./Components/form/Signup";
 import Signout from "./Components/form/Signout";
-import Footer from "./Views/Footer";
+import Footer from "./Components/other/Footer";
 import ScrollToTop from './Components/other/ScrollToTop'
 
 
@@ -38,7 +38,7 @@ function App() {
 
   const getUser = async () => {
     try {
-      const { user, response } = await getData(`/userAuthentication`);
+      const { user, response } = await getData(`/api/user/userAuthentication`);
       if(user){
         dispatch(setUser(user))
       }
