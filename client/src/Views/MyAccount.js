@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import UserInfo from '../Components/UserInfo'
+import UserInfo from '../Components/user/UserInfo'
 import { pageSlide, pageZoom, pageTransition } from '../util'
 
 function MyAccount() {
