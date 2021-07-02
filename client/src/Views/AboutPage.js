@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { pageSlide, pageZoom, pageTransition } from '../util'
-import Service from '../Components/Service'
 import About from '../Components/static/About'
 
 function AboutPage() {
@@ -14,7 +13,6 @@ function AboutPage() {
             transition={pageTransition}
         >
             <About />
-            {/* <Service /> */}
         </motion.div>
     )
 }
