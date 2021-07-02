@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Home from '../Components/static/Home'
 import { motion } from 'framer-motion'
 import { pageSlide, pageZoom, pageTransition } from '../util'
-import Feedback from '../Components/Feedback'
+import Feedback from '../Components/form/Feedback'
 
 function HomePage() {
 
