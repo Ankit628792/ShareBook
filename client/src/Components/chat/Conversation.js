@@ -25,7 +25,7 @@ function Conversation({ conversation, currentUser }) {
                 <Avatar className="w-16 h-16 relative flex flex-shrink-0 btn-bg" >
                     {user?.image ?
                         <img src={user?.image} className="conversationImg" alt="" />
-                        : user?.username[0]
+                        : user?.username ? user?.username[0] : ''
                     }
                 </Avatar>
 
