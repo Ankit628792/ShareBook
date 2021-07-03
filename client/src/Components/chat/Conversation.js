@@ -9,7 +9,7 @@ function Conversation({ conversation, currentUser }) {
         const friendId = conversation.members.find((m) => m !== currentUser.userId)
         const getUser = async () => {
             try {
-                const res = await axios(`/user?userId=${friendId}`)
+                const res = await axios(`/api/user/user?userId=${friendId}`)
                 setUser(res.data)
             } catch (error) {
                 console.log(error)
