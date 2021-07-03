@@ -45,7 +45,7 @@ app.get('/getcookie', function (req, res) {
 //    404	Not Found	    When a particular resource doesn’t exist or couldn’t be found.
 
 
-const io = require('socket.io')(parseInt(port) + 1, {
+const io = require('socket.io')(port, {
     cors: {
         origin: "*"
     }
