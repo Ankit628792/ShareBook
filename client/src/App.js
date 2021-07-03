@@ -26,7 +26,7 @@ import "./App.css";
 import './assets/style.css'
 
 import { useDispatch } from 'react-redux';
-import { restoreBookmark, restoreUser, setUser } from './actions';
+import { restoreBookmark, setUser } from './actions';
 import { getData } from './requests/requestData';
 
 function App() {
@@ -35,29 +35,25 @@ function App() {
 
   const dispatch = useDispatch()
 
-  // const getUser = async () => {
-  //   try {
-  //     const { user, response } = await getData(`/api/user/userAuthentication`);
-  //     if(user){
-  //       dispatch(setUser(user))
-  //     }
-  //     else if (response.status !== 200) {
-  //       console.log('unable to get user')
-  //     }
-  //     else if (response.status === 401) {
-  //       console.log('unauthorised user')
-  //     }
-  //   } catch (error) {
-  //     console.log('user not verified')
-  //   }
-  // }
+  const getUser = async () => {
+    try {
+      const { user, response } = await getData(`/api/user/userAuthentication`);
+      if(user){
+        dispatch(setUser(user))
+      }
+      else if (response.status !== 200) {
+        console.log('unable to get user')
+      }
+      else if (response.status === 401) {
+        console.log('unauthorised user')
+      }
+    } catch (error) {
+      console.log('user not verified')
+    }
+  }
 
   useEffect(() => {
-    // getUser()
-    const localUser = JSON.parse(localStorage.getItem("userSession"));
-    if (localUser) {
-      dispatch(restoreUser(localUser));
-    }
+    getUser()
 
     const localBookmarks = JSON.parse(localStorage.getItem("bookmark"));
     if (localBookmarks) {
