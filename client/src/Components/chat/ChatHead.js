@@ -9,7 +9,7 @@ const ChatHead = ({friend}) => {
                 <Avatar className="w-12 h-12 mr-4 relative flex flex-shrink-0 btn-bg">
                     {friend?.image ?
                         <img src={friend?.image} className="conversationImg" alt="" />
-                        : friend?.username[0]
+                        : friend?.username ? friend?.username[0] : ''
                     }
                 </Avatar>
                    
