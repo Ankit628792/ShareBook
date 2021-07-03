@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000
 const cookieParser = require('cookie-parser')
-app.use(express.json({limit: '10mb'}))
+app.use(express.json({ limit: '10mb' }))
 app.use(cookieParser())
 app.use(cor())
 
@@ -23,17 +23,17 @@ app.use('/api/messages', messageRoute)
 
 
 app.get('/setcookie', function (req, res) {
-      
+
     // Setting a cookie with key 'my_cookie' 
     // and value 'geeksforgeeks'
     res.cookie('my_cookie', 'geeksforgeeks');
     res.send('Cookies added');
-  })
-    
-  // Route for getting all the cookies
-  app.get('/getcookie', function (req, res) {
-      res.send(req.cookies);
-  })
+})
+
+// Route for getting all the cookies
+app.get('/getcookie', function (req, res) {
+    res.send(req.cookies);
+})
 
 //   Code	Text	        Purpose
 //    200	OK	            For successful GET and PUT requests.
@@ -45,16 +45,61 @@ app.get('/setcookie', function (req, res) {
 //    404	Not Found	    When a particular resource doesn’t exist or couldn’t be found.
 
 
-if(process.env.NODE_ENV == 'production'){
+const io = require('socket.io')(parseInt(port) + 1, {
+    cors: {
+        origin: "*"
+    }
+})
+
+let users = []
+const addUser = (userId, socketId) => {
+    !users.some((user) => user.userId === userId) &&
+        users.push({ userId, socketId })
+}
+
+const removeUser = (socketId) => {
+    users = users.filter((user) => user.socketId !== socketId)
+}
+
+const getUser = (userId) => {
+    return users.find(user => user.userId === userId)
+}
+
+// when connect 
+io.on('connection', (socket) => {
+    console.log('a user connected')
+    //take userId and socketId
+    socket.on('addUser', (userId) => {
+        addUser(userId, socket.id)
+        io.emit('getUsers', users)
+    })
+
+    //send and get message
+    socket.on('sendMessage', ({ senderId, receiverId, text }) => {
+        const user = getUser(receiverId)
+
+        io.to(user.socketId).emit('getMessage', {
+            senderId, text,
+        })
+    })
+
+    // when disconnect
+    socket.on('disconnect', () => {
+        removeUser(socket.id)
+        io.emit('getUsers', users)
+    })
+})
+
+
+if (process.env.NODE_ENV == 'production') {
     const path = require('path');
     app.use(express.static('client/build'))
-    app.get('*', (req,res) => {
+    app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
 }
 
-app.listen(port , () => {
+app.listen(port, () => {
     console.log(`Backend is running at Port ${port}`)
 })
 // mongodb+srv://Ankit628792:<password>@cluster0.tde6c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
- 

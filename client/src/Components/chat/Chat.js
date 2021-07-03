@@ -34,7 +34,9 @@ const Chat = () => {
     const [friend, setFriend] = useState([])
 
     useEffect(() => {
-        socket.current = io('ws://localhost:8900')
+        socket.current = io(`ws://mysharebook.herokuapp.com:${parseInt(process.env.PORT) + 1}`)
+        window.alert(`${parseInt(process.env.PORT) + 1}`)
+        
         socket.current.on('getMessage', (data) => {
             setArrivalMessage({
                 sender: data.senderId,
