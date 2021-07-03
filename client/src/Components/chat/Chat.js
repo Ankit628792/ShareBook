@@ -25,7 +25,6 @@ const Chat = () => {
     }
 
     const scrollRef = useRef()
-    const socket = useRef()
     const [conversations, setConversations] = useState([])
     const [currentChat, setCurrentChat] = useState(null)
     const [messages, setMessages] = useState([])

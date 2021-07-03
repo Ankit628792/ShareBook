@@ -8,10 +8,10 @@ import { useSelector } from 'react-redux';
 const Signup = () => {
 
     const userSession = useSelector((state) => state.userReducer.userSession);
+    const history = useHistory()
     if(userSession){
         history.push('/')
     }
-    const history = useHistory()
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });
 
     const [data, setData] = useState({});

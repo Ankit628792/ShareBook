@@ -8,12 +8,12 @@ import { setUser } from '../../actions'
 
 const Signin = () => {
     const userSession = useSelector((state) => state.userReducer.userSession);
+    const history = useHistory()
     if(userSession){
         history.push('/')
     }
     const dispatch = useDispatch()
 
-    const history = useHistory()
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
