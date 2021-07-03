@@ -34,7 +34,7 @@ const Chat = () => {
     const [friend, setFriend] = useState([])
 
     useEffect(() => {
-        socket.current = io('https://sharebook-chat.herokuapp.com') || io('http://sharebook-chat.herokuapp.com') ;
+        socket.current = io('http://sharebook-chat.herokuapp.com') ;
         socket.current.on('getMessage', (data) => {
             setArrivalMessage({
                 sender: data.senderId,
