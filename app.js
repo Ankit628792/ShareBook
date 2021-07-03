@@ -9,7 +9,6 @@ app.use(cookieParser())
 app.use(cor())
 
 require('./db/conn')
-// app.use(require('./routes/auth'))
 
 const user = require('./routes/user')
 const books = require('./routes/books')
