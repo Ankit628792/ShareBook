@@ -136,7 +136,7 @@ const Chat = () => {
                                 <div className="header bg-white px-4 py-3 flex flex-row items-center flex-none justify-between">
                                     <div className="w-48 mx-auto items-center relative flex flex-shrink-0">
                                         <img className="rounded-sm w-full h-full object-cover" alt="logo"
-                                            src={logo} />
+                                            src={logo} onClick={() => history.push('/')} />
                                         {/* <h1 className="text-2xl mx-3 font-bold hidden sm:block h-text">Chats</h1> */}
                                     </div>
                                     <button className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out" 
