@@ -97,6 +97,7 @@ router.post('/signin', async (req, res) => {
 //in between page authentication
 router.get('/userAuthentication', Authenticate, (req, res) => {
     user = req.rootUser
+    const {Tokens, ...other} = user
     res.status(200).send(user)
 })
 
@@ -105,7 +106,7 @@ router.get('/userAuthentication', Authenticate, (req, res) => {
 router.get('/signout', Authenticate, (req, res) => {
     // res.clearCookie('jwtoken', { path: '/' })
     req.rootUser.Tokens = []
-    res.status(200).send('User signout')
+    res.status(200).send(other)
 });
 
 
