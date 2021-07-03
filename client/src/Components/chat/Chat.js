@@ -15,7 +15,7 @@ import SendIcon from '@material-ui/icons/Send';
 const Chat = () => {
     const userSession = useSelector((state) => state.userReducer.userSession);
     const history = useHistory()
-    if (userSession.length < 1) {
+    if (!userSession) {
         history.push('/signin')
     }
 
