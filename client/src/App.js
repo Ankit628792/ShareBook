@@ -54,7 +54,6 @@ function App() {
 
   useEffect(() => {
     // getUser()
-
     const localUser = JSON.parse(localStorage.getItem("userSession"));
     if (localUser) {
       dispatch(restoreUser(localUser));

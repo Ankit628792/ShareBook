@@ -9,7 +9,7 @@ const Signup = () => {
 
     const userSession = useSelector((state) => state.userReducer.userSession);
     const history = useHistory()
-    if(userSession){
+    if(userSession.length >= 1){
         history.push('/')
     }
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });

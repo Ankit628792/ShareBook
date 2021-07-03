@@ -71,7 +71,7 @@ function Home() {
               No need to buy or sell a book. Share it with others. Share your source of knowledge, Interest with others.
             </p>
             <div className="flex items-center">
-              <NavLink to="/myaccount"><motion.button
+              <NavLink to="/mybook"><motion.button
                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
               >Share A Book</motion.button></NavLink>

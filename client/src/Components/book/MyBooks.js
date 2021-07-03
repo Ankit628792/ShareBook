@@ -11,7 +11,7 @@ function MyBooks() {
     const userSession = useSelector((state) => state.userReducer.userSession);
 
     const history = useHistory()
-    if (!userSession) {
+    if (userSession.length < 1) {
         history.push('/signin')
     }
 

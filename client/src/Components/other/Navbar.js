@@ -113,7 +113,7 @@ function Navbar() {
                                         <DropDown
                                             className="header__langDropDown"
                                             item={userLinks}
-                                            userName={userSession.username[0]}
+                                            userName={userSession?.username[0]}
                                         />
                                     </>
                                     :
