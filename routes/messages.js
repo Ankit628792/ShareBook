@@ -25,4 +25,16 @@ router.get('/:conversationId', async (req,res) => {
     }
 })
 
+//delete messages
+router.post('/delmsg:conversationId', async (req,res) => {
+    try {
+        const {conversationId} = req.params
+        const query = {conversationId : conversationId.slice(1, conversationId.length)}
+        const deleteMessages = await Message.deleteMany(query)
+        res.status(200).json(deleteMessages)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 module.exports = router
