@@ -3,8 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs')
 const path = require('path')
 const multer = require('multer')
-require('../db/conn')
-const HOST = process.env.HOST 
+const nodemailer = require('nodemailer');
+const HOST = process.env.HOST
 
 const User = require('../model/userSchema');
 const Authenticate = require('../middleware/authenticate');
@@ -26,6 +26,33 @@ router.use('/user/image', express.static('user/image'))
 // Store book image using multer end
 
 
+// Gmail account info
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
+    }
+});
+
+const sendMail = (emailId) => {
+    // Email info
+    const mailOptions = {
+        from: process.env.EMAIL,
+        to: emailId,
+        subject: 'Confirmation for ShareBook Registration',
+        text: `Thanks to register on Share Book, Let's Change the world `
+    };
+    // Send email 📧  and retrieve server response
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+}
+
 
 //signup user
 router.post('/signup', async (req, res) => {
@@ -46,6 +73,7 @@ router.post('/signup', async (req, res) => {
             const user = new User({ userId, username, email, password, cpassword });
             try {
                 const userRegister = await user.save()
+                sendMail(userRegister.email)
                 res.status(201).json({ message: "User registered successfully" });
             } catch (error) {
                 res.status(400).json({ error: 'Failed to register' })
@@ -84,7 +112,7 @@ router.post('/signin', async (req, res) => {
                 res.status(200).json({ message: 'User authenticated' });
             }
         }
-        else{
+        else {
             res.status(401).json({ error: "User doesn't exist" })
         }
     } catch (error) {
@@ -97,7 +125,7 @@ router.post('/signin', async (req, res) => {
 //in between page authentication
 router.get('/userAuthentication', Authenticate, (req, res) => {
     user = req.rootUser
-    const { cpassword, Tokens, ...other} = user._doc;
+    const { cpassword, Tokens, ...other } = user._doc;
     res.status(200).send(other)
 })
 
@@ -140,7 +168,7 @@ router.post('/feedback', async (req, res) => {
 
 //update user by id
 router.patch('/updateuser:_id', uploadUser.single('image'), async (req, res) => {
-        let image_url = `${HOST}/user/image/${req.file.filename}`;
+    let image_url = `${HOST}/user/image/${req.file.filename}`;
     const { username, phone, location, about } = req.body
     try {
         let _id = req.params._id;
@@ -154,13 +182,13 @@ router.patch('/updateuser:_id', uploadUser.single('image'), async (req, res) => 
 
 
 
-router.get('/user', async (req,res) => {
+router.get('/user', async (req, res) => {
     const userId = req.query.userId;
     const email = req.query.email;
     try {
-        const user = userId ? await User.findOne({userId: userId})
-        : await User.findOne({email: email});
-        const {password, cpassword, Tokens, ...other} = user._doc;
+        const user = userId ? await User.findOne({ userId: userId })
+            : await User.findOne({ email: email });
+        const { password, cpassword, Tokens, ...other } = user._doc;
         res.status(200).json(other)
     } catch (error) {
         res.status(400).json(error)
