@@ -97,8 +97,7 @@ router.post('/signin', async (req, res) => {
 //in between page authentication
 router.get('/userAuthentication', Authenticate, (req, res) => {
     user = req.rootUser
-    const {Tokens, ...other} = user
-    res.status(200).send(other)
+    res.status(200).send(user)
 })
 
 
