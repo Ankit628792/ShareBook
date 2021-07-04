@@ -3,7 +3,6 @@ const router = express.Router();
 const bcrypt = require('bcryptjs')
 const path = require('path')
 const multer = require('multer')
-const nodemailer = require('nodemailer');
 const HOST = process.env.HOST
 
 const User = require('../model/userSchema');
@@ -73,7 +72,7 @@ router.post('/signup', async (req, res) => {
             const user = new User({ userId, username, email, password, cpassword });
             try {
                 const userRegister = await user.save()
-                sendMail(userRegister.email)
+                // sendMail(userRegister.email)
                 res.status(201).json({ message: "User registered successfully" });
             } catch (error) {
                 res.status(400).json({ error: 'Failed to register' })

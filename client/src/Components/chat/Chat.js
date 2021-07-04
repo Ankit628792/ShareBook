@@ -201,6 +201,7 @@ const Chat = () => {
                                                         <div class="relative flex-grow mx-3">
                                                             <input class="rounded-full py-2 pl-3 pr-10 w-full border border-gray-800 focus:border-gray-700 bg-white shadow-lg focus:outline-none text-gray-500 focus:shadow-md"
                                                                 type="text"
+                                                                min="1"
                                                                 placeholder="Type a message ..."
                                                                 onChange={(e) => setNewMessage(e.target.value)}
                                                                 value={newMessage}
