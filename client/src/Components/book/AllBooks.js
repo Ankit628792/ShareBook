@@ -8,7 +8,6 @@ function AllBooks() {
     const [userBooks, setuserBooks] = useState({})
 
     useEffect(() => {
-
         fetch(`/api/books/getbooks`)
             .then((response => response.json()))
             .then((bookResponse) => {
@@ -29,7 +28,7 @@ function AllBooks() {
                 } */}
                 {userBooks && userBooks.length > 0 ?
                     userBooks.map((book) => (
-                        <Book key={book.bookId} id={book.bookId} location={book.location} title={book.bookname} image={book.image_url} summary={book.description} />
+                        <Book key={book.bookId} id={book.bookId} category={book.category} location={book.location} title={book.bookname} image={book.image_url} summary={book.description} />
                     ))
                     :
                     <>

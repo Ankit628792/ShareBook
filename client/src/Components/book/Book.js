@@ -6,7 +6,7 @@ import { pageZoom } from '../../util';
 // import { addToBookmark, removeFromBookmark } from '../actions';
 // import BookmarkRoundedIcon from '@material-ui/icons/BookmarkRounded';
 
-function Book({ id, author, title, location, image, summary, mybook }) {
+function Book({ id, title, category, location, image, summary }) {
     // const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
 
     // const dispatch = useDispatch();
@@ -65,9 +65,9 @@ function Book({ id, author, title, location, image, summary, mybook }) {
                 <div className="p-2">
                     <div onClick={onBookClick}>
                         <div className="flex flex-wrap">
-                            <div className="w-full flex-none text-xs s-text font-medium ">
-                                {author}
-                            </div>
+                            <p className="w-full flex-none text-xs s-text font-medium line-clamp-1">
+                                {category}
+                            </p>
                             <h2 className="flex-auto text-lg md:text-xl font-medium h-text line-clamp-2">{title}</h2>
                         </div>
                         <div className="flex-1 inline-flex items-center text-sm py-1 sm text-gray-600">

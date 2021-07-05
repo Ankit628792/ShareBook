@@ -40,7 +40,7 @@ router.get('/getbook:bookId', async (req, res) => {
     let bookId = req.params.bookId;
     bookId = bookId.slice(1, bookId.length);
     try {
-        const book = await Book.find({ bookId: bookId });
+        const book = await Book.findOne({ bookId: bookId });
         res.status(200).send(book)
     } catch (error) {
         res.status(400).json({ message: 'unable to get book' })
