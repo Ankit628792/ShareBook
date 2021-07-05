@@ -49,7 +49,7 @@ const Chat = () => {
         arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) && setMessages((prev) => [...prev, arrivalMessage])
     }, [arrivalMessage, currentChat])
 
-    
+
     useEffect(() => {
         socket.current.emit('addUser', userSession.userId)
         socket.current.on('getUsers', (users) => {
@@ -190,10 +190,10 @@ const Chat = () => {
 
                                             <div className="chat-body p-4 flex-1 overflow-y-scroll overflow-x-hidden z-10 ">
                                                 {messages.map((m, i) => (
-                                                    <div ref={scrollRef}>
-                                                        <Message key={i} message={m} own={m.senderId === userSession.userId} />
-                                                    </div>
+                                                    <Message key={i} message={m} own={m.senderId === userSession.userId} />
                                                 ))}
+                                                <div ref={scrollRef} className="w-10 h-1">
+                                                </div>
                                             </div>
 
                                             <div class="chat-footer flex-none z-20 bg-white">

@@ -8,11 +8,12 @@ function AllBooks() {
     const [userBooks, setuserBooks] = useState({})
 
     useEffect(() => {
+
         fetch(`/api/books/getbooks`)
             .then((response => response.json()))
             .then((bookResponse) => {
                 const bookList = shuffleArray(bookResponse)
-                setuserBooks(bookList)
+                setuserBooks(...bookList)
             })
             .catch((e) => {
                 console.log(e);
