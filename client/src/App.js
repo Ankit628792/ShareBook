@@ -28,6 +28,7 @@ import './assets/style.css'
 import { useDispatch } from 'react-redux';
 import { restoreBookmark, setUser } from './actions';
 import { getData } from './requests/requestData';
+import axios from 'axios'
 
 function App() {
 
