@@ -7,12 +7,13 @@ import BookmarkRoundedIcon from "@material-ui/icons/BookmarkRounded";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import { useDispatch, useSelector } from "react-redux";
 import { addToBookmark, removeFromBookmark } from "../../actions";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import axios from 'axios'
 
 function BookSingle() {
 
   const userSession = useSelector((state) => state.userReducer.userSession)
+  const history = useHistory()
 
   const dispatch = useDispatch();
 
@@ -64,7 +65,7 @@ function BookSingle() {
     const receiverId = bookDetails.userId
     const conv = {senderId, receiverId}
     axios.post(`/api/conversations`, conv)
-    .then(() => history.push('/chats'))
+    .then((res) => (res.status == 200 && history.push('/chats')))
     .catch((e) => console.log(e))
   }
   const checkAuth = () => {
