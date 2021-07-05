@@ -11,7 +11,6 @@ function AllBooks() {
     useEffect(() => {
         axios.get(`/api/books/allbooks`)
             .then((bookResponse)  => {
-                console.log("book", bookResponse.data)
                 const bookList = shuffleArray(bookResponse.data)
                 setuserBooks(bookList)
             })

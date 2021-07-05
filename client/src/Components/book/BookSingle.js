@@ -28,7 +28,6 @@ function BookSingle() {
       try {
         const res = await axios.get(`/api/books/getbook:${id}`)
         setbookDetails(res.data)
-        console.log(res)
       } catch (error) {
         console.log(error)
       }
@@ -60,6 +59,18 @@ function BookSingle() {
     }
   }, [])
 
+  const createConv = async () => {
+    const senderId = userSession.userId
+    const receiverId = bookDetails.userId
+    const conv = {senderId, receiverId}
+    axios.post(`/api/conversations`, conv)
+    .then(() => history.push('/chats'))
+    .catch((e) => console.log(e))
+  }
+  const checkAuth = () => {
+    userSession ? createConv() : window.alert('Please Login First ...')
+  }
+
   return (
     <>
       <motion.div
@@ -80,9 +91,9 @@ function BookSingle() {
             <div className="w-full md:w-1/2 px-10 md:px-5">
               <div className="mb-10">
                 <h1 className="font-bold uppercase text-2xl h-text">{bookDetails?.bookname}</h1>
-                <h2 className="capitalize font-bold my-3 flex">Location :
+                <h2 className="capitalize font-bold my-3 flex">Location :&nbsp;
                   <span className="font-medium p-text">{bookDetails?.location || `India`} </span> </h2>
-                <h2 className="capitalize font-bold my-3 flex">Condition :
+                <h2 className="capitalize font-bold my-3 flex">Condition :&nbsp;
                   <span className="font-medium p-text">{bookDetails?.condition || `Not Specified`} </span> </h2>
                 <h1 className="font-semibold h-text">Summary :</h1>
                 <ul>
@@ -100,15 +111,15 @@ function BookSingle() {
                   {userSession?.userId !== bookDetails?.userId &&
 
                     <div className="flex text-sm flex-row items-center justify-evenly">
-                        <NavLink to="/chats">
                           <motion.button
                             whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                             whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                             className="bg-gray-900 px-4 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
-                            type="button">
+                            type="button"
+                            onClick={checkAuth}
+                            >
                             <ChatBubbleOutlineIcon className="mr-1" />Chat Now
                           </motion.button>
-                        </NavLink>
                       <motion.button
                         whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                         whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
