@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import logo from '../../assets/images/logo1.jpeg' ;
+import logo from '../../assets/images/logo1.jpeg';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
@@ -34,7 +34,7 @@ const Chat = () => {
     const [friend, setFriend] = useState([])
 
     useEffect(() => {
-        socket.current = io() ;
+        socket.current = io();
         socket.current.on('getMessage', (data) => {
             setArrivalMessage({
                 sender: data.senderId,
@@ -49,6 +49,7 @@ const Chat = () => {
         arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) && setMessages((prev) => [...prev, arrivalMessage])
     }, [arrivalMessage, currentChat])
 
+    
     useEffect(() => {
         socket.current.emit('addUser', userSession.userId)
         socket.current.on('getUsers', (users) => {
@@ -139,8 +140,8 @@ const Chat = () => {
                                             src={logo} onClick={() => history.push('/')} />
                                         {/* <h1 className="text-2xl mx-3 font-bold hidden sm:block h-text">Chats</h1> */}
                                     </div>
-                                    <button className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out" 
-                                    onClick={chatPeople}>
+                                    <button className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out"
+                                        onClick={chatPeople}>
                                         <KeyboardBackspaceIcon />
                                     </button>
                                 </div>
@@ -166,7 +167,7 @@ const Chat = () => {
                                         conversations.map((c, i) => (
                                             <div key={i} onClick={() => (setCurrentChat(c))}>
                                                 <div key={i} onClick={chatPeople}>
-                                                <Conversation key={i} conversation={c} currentUser={userSession} />
+                                                    <Conversation key={i} conversation={c} currentUser={userSession} />
                                                 </div>
                                             </div>
                                         ))
