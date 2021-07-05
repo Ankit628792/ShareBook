@@ -73,17 +73,17 @@ function BookSingle() {
           <div className="md:flex items-center -mx-10">
             <div className="h-2/4 w-3/4 sm:w-1/2 md:w-2/5 mx-auto sm:object-cover md:h-1/4 px-10 mb-10 md:mb-0 md:px-5">
               <div className="relative">
-                <img src={bookDetails.image_url} className="w-full h-full relative z-10" alt="" />
+                <img src={bookDetails?.image_url} className="w-full h-full relative z-10" alt="" />
                 <div className="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
               </div>
             </div>
             <div className="w-full md:w-1/2 px-10 md:px-5">
               <div className="mb-10">
-                <h1 className="font-bold uppercase text-2xl h-text">{bookDetails.bookname}</h1>
+                <h1 className="font-bold uppercase text-2xl h-text">{bookDetails?.bookname}</h1>
                 <h2 className="capitalize font-bold my-3 flex">Location :
-                  <span className="font-medium p-text">{bookDetails.location || `India`} </span> </h2>
+                  <span className="font-medium p-text">{bookDetails?.location || `India`} </span> </h2>
                 <h2 className="capitalize font-bold my-3 flex">Condition :
-                  <span className="font-medium p-text">{bookDetails.condition || `Not Specified`} </span> </h2>
+                  <span className="font-medium p-text">{bookDetails?.condition || `Not Specified`} </span> </h2>
                 <h1 className="font-semibold h-text">Summary :</h1>
                 <ul>
                   {

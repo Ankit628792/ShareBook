@@ -12,8 +12,8 @@ function AllBooks() {
         axios.get(`/api/books/getbooks`)
             .then((bookResponse)  => {
                 console.log(bookResponse)
-                const bookList = shuffleArray(bookResponse)
-                setuserBooks(...bookList)
+                const bookList = shuffleArray(bookResponse.data)
+                setuserBooks(bookList)
             })
             .catch((e) => {
                 console.log(e);
