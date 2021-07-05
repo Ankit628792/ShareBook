@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react'
 import books from '../../json/books'
 import Book from './Book'
 import { shuffleArray } from '../../util'
+import axios from 'axios'
 
 function AllBooks() {
     // const bookList = shuffleArray(books.books)
     const [userBooks, setuserBooks] = useState({})
 
     useEffect(() => {
-        fetch(`/api/books/getbooks`)
-            .then((response) => response.json())
-            .then((bookResponse) => {
+        axios.get(`/api/books/getbooks`)
+            .then((bookResponse)  => {
                 console.log(bookResponse)
                 const bookList = shuffleArray(bookResponse)
                 setuserBooks(...bookList)
