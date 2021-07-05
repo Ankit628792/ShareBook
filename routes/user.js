@@ -26,16 +26,17 @@ router.use('/user/image', express.static('user/image'))
 // Store book image using multer end
 
 
-// Gmail account info
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL,
-        pass: process.env.PASSWORD
-    }
-});
 
 const sendMail = (emailId) => {
+    
+    // Gmail account info
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.EMAIL,
+            pass: process.env.PASSWORD
+        }
+    });
     // Email info
     const mailOptions = {
         from: process.env.EMAIL,
