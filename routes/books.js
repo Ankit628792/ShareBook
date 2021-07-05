@@ -35,6 +35,18 @@ router.get('/getmybook:userId', async (req, res) => {
     }
 })
 
+
+
+//all books
+router.get('/allbooks', async (req, res) => {
+    try {
+        const allbooks = await Book.find();
+        res.status(200).send(allbooks)
+    } catch (error) {
+        res.status(400).json({ message: 'unable to fetch books' })
+    }
+})
+
 //get books of user by bookId
 router.get('/getbook:bookId', async (req, res) => {
     let bookId = req.params.bookId;
@@ -68,15 +80,6 @@ router.post('/addbook', uploadBook.single('image'), (req, res) => {
 })
 
 
-//all books
-router.get('/getbooks', async (req, res) => {
-    try {
-        const allbooks = await Book.find();
-        res.status(200).send(allbooks)
-    } catch (error) {
-        res.status(400).json({ message: 'unable to fetch books' })
-    }
-})
 
 
 module.exports = router

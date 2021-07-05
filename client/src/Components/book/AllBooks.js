@@ -9,9 +9,9 @@ function AllBooks() {
     const [userBooks, setuserBooks] = useState({})
 
     useEffect(() => {
-        axios.get(`/api/books/getbooks`)
+        axios.get(`/api/books/allbooks`)
             .then((bookResponse)  => {
-                console.log(bookResponse.data)
+                console.log("book", bookResponse.data)
                 const bookList = shuffleArray(bookResponse.data)
                 setuserBooks(bookList)
             })

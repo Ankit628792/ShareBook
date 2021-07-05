@@ -34,7 +34,7 @@ function BookSingle() {
       }
     }
     getBook()
-  }, [id])
+  }, [])
 
   const [isBookmarked, setIsBookmarked] = useState(false);
 
@@ -97,7 +97,7 @@ function BookSingle() {
               </div>
               <div>
                 
-                  {userSession.userId !== bookDetails.userId &&
+                  {userSession?.userId !== bookDetails?.userId &&
 
                     <div className="flex text-sm flex-row items-center justify-evenly">
                         <NavLink to="/chats">
