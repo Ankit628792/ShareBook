@@ -8,16 +8,32 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import { useDispatch, useSelector } from "react-redux";
 import { addToBookmark, removeFromBookmark } from "../../actions";
 import { NavLink } from "react-router-dom";
+import axios from 'axios'
 
 function BookSingle() {
+
+  const userSession = useSelector((state) => state.userReducer.userSession)
+
   const dispatch = useDispatch();
 
   const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
 
   const { id } = useParams();
 
-  const bookDetails = JSON.parse(localStorage.getItem('singlebook'))
-
+  // const bookDetails = JSON.parse(localStorage.getItem('singlebook'))
+  const [bookDetails, setbookDetails] = useState(null)
+  
+  useEffect(() => {
+    const getBook = async () => {
+        try {
+            const res = await axios.get(`/api/books/getbook:${id}`)
+            setbookDetails(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    getBook()
+}, [id])
 
   const [isBookmarked, setIsBookmarked] = useState(false);
 
@@ -63,10 +79,6 @@ function BookSingle() {
             <div className="w-full md:w-1/2 px-10 md:px-5">
               <div className="mb-10">
                 <h1 className="font-bold uppercase text-2xl h-text">{bookDetails.title}</h1>
-                {
-                  bookDetails.author &&
-                  <h2 className="capitalize font-bold my-3">Author : <span className="font-medium p-text">{bookDetails.author}</span> </h2>
-                }
                 <h2 className="capitalize font-bold my-3 flex">Location :
                   <span className="font-medium p-text">{bookDetails.location || `India`} </span> </h2>
                 <h1 className="font-semibold h-text">Summary :</h1>
@@ -85,7 +97,8 @@ function BookSingle() {
                   bookDetails.mybook ? '' :
 
                     <div className="flex text-sm flex-row items-center justify-evenly">
-                      <NavLink to="/chats">
+                      {userSession &&
+                        <NavLink to="/chats">
                         <motion.button
                           whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                           whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
@@ -93,7 +106,7 @@ function BookSingle() {
                           type="button">
                           <ChatBubbleOutlineIcon className="mr-1" />Chat Now
                         </motion.button>
-                      </NavLink>
+                      </NavLink>}
                       <motion.button
                         whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                         whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}

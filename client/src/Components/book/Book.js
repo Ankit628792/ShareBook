@@ -15,9 +15,9 @@ function Book({ id, author, title, location, image, summary, mybook }) {
     let isBookmarked = false;
     const onBookClick = () => {
         history.push(`/book/${id}`);
-        const singleBook = { id, author, location, title, image, summary, isBookmarked, mybook }
+        // const singleBook = { id, author, location, title, image, summary, isBookmarked, mybook }
         // console.log(singleBook)
-        localStorage.setItem('singlebook', JSON.stringify(singleBook))
+        // localStorage.setItem('singlebook', JSON.stringify(singleBook))
     }
 
     // const bookDetails = { id, author, title, summary, image }
