@@ -37,14 +37,14 @@ function App() {
 
   const getUser = async () => {
     try {
-      const { user, response } = await getData(`/api/user/userAuthentication`);
-      if(user){
-        dispatch(setUser(user))
+      const res = await axios.get(`/api/user/userAuthentication`);
+      if(res.data){
+        dispatch(setUser(res.data))
       }
-      else if (response.status !== 200) {
+      else if (res.status !== 200) {
         console.log('unable to get user')
       }
-      else if (response.status === 401) {
+      else if (res.status === 401) {
         console.log('unauthorised user')
       }
     } catch (error) {
