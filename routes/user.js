@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs')
 const path = require('path')
 const multer = require('multer')
+const nodemailer = require('nodemailer')
 const HOST = process.env.HOST
 
 const User = require('../model/userSchema');
