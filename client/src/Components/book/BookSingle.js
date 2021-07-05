@@ -87,7 +87,7 @@ function BookSingle() {
                 <h1 className="font-semibold h-text">Summary :</h1>
                 <ul>
                   {
-                    summaryList.map((list, i) => (!list == '' &&
+                    summaryList?.map((list, i) => (!list == '' &&
                       <li key={i} className="list-disc list-item">
                         <p className="text-sm p-text">{list}</p>
                       </li>
