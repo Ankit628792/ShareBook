@@ -28,6 +28,7 @@ function BookSingle() {
       try {
         const res = await axios.get(`/api/books/getbook:${id}`)
         setbookDetails(res.data)
+        console.log(res)
       } catch (error) {
         console.log(error)
       }
