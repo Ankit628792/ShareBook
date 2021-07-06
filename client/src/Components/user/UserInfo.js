@@ -57,8 +57,8 @@ function UserInfo() {
             isLoading(true)
         axios.patch(`/updateuser:${_id}`, userData)
             .then((res) => {
-                isLoading(false)
                 if (res.status === 201) {
+                    isLoading(false)
                     setisEdit(false)
                 } else {
                     console.log('updation error')

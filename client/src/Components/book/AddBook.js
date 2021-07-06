@@ -43,7 +43,7 @@ function AddBook({ setisAddBook }) {
         bookDetail.append('image', image);
         bookDetail.append('userId', userId)
         bookDetail.append('username', username)
-        bookDetail.append('location', location)
+        bookDetail.append('location', (location || `India`))
         bookDetail.append('bookname', data.bookname)
         bookDetail.append('category', data.category)
         bookDetail.append('condition', data.condition)
