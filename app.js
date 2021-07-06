@@ -1,13 +1,13 @@
 require('dotenv').config()
-const cor = require('cors');
 const express = require('express');
 const app = express();
+const cor = require('cors');
+app.use(cor())
 const socket = require('socket.io');
 const port = process.env.PORT || 5000
 const cookieParser = require('cookie-parser')
 app.use(express.json({ limit: '10mb' }))
 app.use(cookieParser())
-app.use(cor())
 
 require('./db/conn')
 

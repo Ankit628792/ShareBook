@@ -16,11 +16,13 @@ function AddBook({ setisAddBook }) {
 
     const { register, handleSubmit, formState: { errors } } = useForm({ reValidateMode: 'onChange' });
 
-    const [data, setData] = useState({});
+    const [data, setData] = useState({ userId, username, location });
 
     const [image, setImage] = useState();
     const [preview, setPreview] = useState();
     const fileInputRef = useRef();
+
+    const [isLoading, setisLoading] = useState(false)
 
     useEffect(() => {
         if (image) {
@@ -34,29 +36,43 @@ function AddBook({ setisAddBook }) {
         }
     }, [image])
 
+    
     // onSubmit handle event 
     const onSubmit = (data, e) => {
         setData(data);
         console.log('registering user ...')
+        setisLoading(true)
+        // const bookDetail = new FormData();
+        // bookDetail.append('image', preview);
+        // bookDetail.append('userId', userId)
+        // bookDetail.append('username', username)
+        // bookDetail.append('location', (location || `India`))
+        // bookDetail.append('bookname', data.bookname)
+        // bookDetail.append('category', data.category)
+        // bookDetail.append('condition', data.condition)
+        // bookDetail.append('description', data.description)
+        // const image = {image: preview}
+        // console.log(image)
+        // data = {data, ...image}
+        // console.log(data)
 
-        const bookDetail = new FormData();
-        bookDetail.append('image', image);
-        bookDetail.append('userId', userId)
-        bookDetail.append('username', username)
-        bookDetail.append('location', (location || `India`))
-        bookDetail.append('bookname', data.bookname)
-        bookDetail.append('category', data.category)
-        bookDetail.append('condition', data.condition)
-        bookDetail.append('description', data.description)
-
-        axios.post(`/api/books/addbook`, bookDetail)
-            .then((res) => {
-                if (res.status === 201) {
-                    history.push('/mybook')
-                    setisAddBook(false)
-                }
-            });
     };
+
+    useEffect(() => {
+        const sendData = () => {
+            let newData = { ...data, userId, username, location, image }
+            newData.image = preview
+            axios.post(`/api/books/addbook`, newData)
+                .then((res) => {
+                    if (res.status === 201) {
+                        setisLoading(false)
+                        history.push('/mybook')
+                        setisAddBook(false)
+                    }
+                });
+        }
+        sendData()
+    }, [data])
 
     return (
         <>
@@ -141,7 +157,7 @@ function AddBook({ setisAddBook }) {
                                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                                 className="px-6 mx-2 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
                                 type="submit">
-                                Save
+                                {isLoading? `Saving... ` : `Save`}
                             </motion.button>
                         </div>
                     </form>

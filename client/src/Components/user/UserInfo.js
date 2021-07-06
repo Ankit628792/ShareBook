@@ -43,27 +43,37 @@ function UserInfo() {
         e.preventDefault();
         const { name, value } = e.target
         setData({ ...data, [name]: value })
-
+        
     }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const userData = new FormData();
-        userData.append('image', image);
-        userData.append('username', data.username)
-        userData.append('phone', data.phone)
-        userData.append('location', data.location)
-        userData.append('about', data.about)
-            isLoading(true)
-        axios.patch(`/updateuser:${_id}`, userData)
+    const sendData = () => {
+        let newData = { ...data, phone, username, location, image_url, about }
+        newData.image_url = preview
+        axios.patch(`/api/user/updateuser:${_id}`, newData)
             .then((res) => {
                 if (res.status === 201) {
-                    isLoading(false)
+                    setisLoading(false)
                     setisEdit(false)
-                } else {
-                    console.log('updation error')
                 }
             });
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        sendData()
+        // const userData = new FormData();
+        // userData.append('image', image);
+        // userData.append('username', data.username)
+        // userData.append('phone', data.phone)
+        // userData.append('location', data.location)
+        // userData.append('about', data.about)
+        // setisLoading(true)
+        // axios.patch(`/updateuser:${_id}`, userData)
+        //     .then((res) => {
+        //         if (res.status === 201) {
+        //             setisEdit(false)
+        //         } else {
+        //             console.log('updation error')
+        //         }
+        //     });
     }
     
 
@@ -84,8 +94,8 @@ function UserInfo() {
                     </div>
                     <div className="h-24 w-24 sm:w-28 sm:h-28 rounded-full cursor-pointer border border-1 shadow-md">
                         {
-                            preview || image_url ?
-                                <img className="w-full h-full object-cover rounded-full" src={preview || image_url} alt="profile_pic" onClick={() => (fileInputRef.current.click())} />
+                            preview ?
+                                <img className="w-full h-full object-cover rounded-full" src={preview} alt="profile_pic" onClick={() => (fileInputRef.current.click())} />
                                 :
                                 (
                                     <img src={dummyImg} className="w-full h-full object-cover rounded-full" onClick={(e) => {

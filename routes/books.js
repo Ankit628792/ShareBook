@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path')
 const multer = require('multer')
 require('../db/conn')
-const HOST = process.env.HOST 
+const HOST = process.env.HOST
 
 const Book = require('../model/userBook');
 
@@ -61,14 +61,15 @@ router.get('/getbook:bookId', async (req, res) => {
 
 
 //add a new book by user
-router.post('/addbook', uploadBook.single('image'), (req, res) => {
-    const { userId, username, location, bookname, category, condition, description } = req.body;
-    let image_url = `${HOST}/books/image/${req.file.filename}`;
+router.post('/addbook', (req, res) => {
+    console.log(req.body.bookname)
+    const { userId, username, location, bookname, image_url, category, condition, description } = req.body;
     try {
-        // const bookId = new Date().getTime().toString();
-        const bookId = `${req.file.filename.split('.')[0]}`
+        const bookId = new Date().getTime().toString();
+        // const bookId = `${req.file.filename.split('.')[0]}`
         const book = new Book({ userId, username, location, bookId, bookname, image_url, category, condition, description });
         book.save().then((data) => {
+            console.log(data)
             res.status(201).json({ message: "book registered successfully" });
         })
             .catch((e) => {
@@ -80,6 +81,14 @@ router.post('/addbook', uploadBook.single('image'), (req, res) => {
 })
 
 
+router.post('/addbookmark', (req, res) => {
+    console.log(req.body)
+})
+
+router.post('/removebookmark:bookId', (req, res) => {
+    console.log(req.body)
+    console.log(req.params)
+})
 
 
 

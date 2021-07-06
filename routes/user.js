@@ -168,9 +168,9 @@ router.post('/feedback', async (req, res) => {
 
 
 //update user by id
-router.patch('/updateuser:_id', uploadUser.single('image'), async (req, res) => {
-    let image_url = `${HOST}/user/image/${req.file.filename}`;
-    const { username, phone, location, about } = req.body
+router.patch('/updateuser:_id', async (req, res) => {
+    // let image_url = `${HOST}/user/image/${req.file.filename}`;
+    const { username, phone, location, about, image_url } = req.body
     try {
         let _id = req.params._id;
         _id = _id.slice(1, _id.length)
