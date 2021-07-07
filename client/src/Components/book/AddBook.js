@@ -60,8 +60,8 @@ function AddBook({ setisAddBook }) {
 
     useEffect(() => {
         const sendData = () => {
-            let newData = { ...data, userId, username, location, image }
-            newData.image = preview
+            let newData = { ...data, userId, username, location, image_url }
+            newData.image_url = preview
             axios.post(`/api/books/addbook`, newData)
                 .then((res) => {
                     if (res.status === 201) {

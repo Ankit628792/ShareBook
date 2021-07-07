@@ -23,7 +23,7 @@ function UserInfo() {
     const [isLoading, setisLoading] = useState(false)
 
     const [image, setImage] = useState();
-    const [preview, setPreview] = useState(image_url);
+    const [preview, setPreview] = useState(null);
     const fileInputRef = useRef();
 
     useEffect(() => {
@@ -94,8 +94,8 @@ function UserInfo() {
                     </div>
                     <div className="h-24 w-24 sm:w-28 sm:h-28 rounded-full cursor-pointer border border-1 shadow-md">
                         {
-                            preview ?
-                                <img className="w-full h-full object-cover rounded-full" src={preview} alt="profile_pic" onClick={() => (fileInputRef.current.click())} />
+                            preview || image_url ?
+                                <img className="w-full h-full object-cover rounded-full" src={preview || image_url} alt="profile_pic" onClick={() => (fileInputRef.current.click())} />
                                 :
                                 (
                                     <img src={dummyImg} className="w-full h-full object-cover rounded-full" onClick={(e) => {
