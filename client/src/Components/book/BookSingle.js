@@ -65,7 +65,8 @@ function BookSingle() {
   const createConv = async () => {
     const senderId = userSession.userId
     const receiverId = bookDetails.userId
-    const conv = {senderId, receiverId}
+    const bookname = bookDetails.bookname
+    const conv = {senderId, receiverId , bookname}
     axios.post(`/api/conversations`, conv)
     .then((res) => (res.status == 200 && history.push('/chats')))
     .catch((e) => console.log(e))

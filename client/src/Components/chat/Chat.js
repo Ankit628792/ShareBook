@@ -150,7 +150,7 @@ const Chat = () => {
                                         <div className="relative">
                                             <label>
                                                 <input className="rounded-full py-2 pr-6 pl-10 w-full bg-white focus:outline-none text-gray-900 shadow-md focus:shadow-lg transition duration-300 ease-in"
-                                                    type="text" readOnly placeholder="Search Messenger" />
+                                                    type="text" readOnly placeholder="Search Conversion" />
                                                 <span className="absolute top-0 left-0 mt-2 ml-3 inline-block">
                                                     <svg viewBox="0 0 24 24" className="w-6 h-6">
                                                         <path fill="#bbb"

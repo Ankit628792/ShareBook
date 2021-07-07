@@ -33,7 +33,7 @@ function Conversation({ conversation, currentUser }) {
                     <div className="flex items-center justify-between">
                         <div className="min-w-0">
                             <h1 className="h-text text-base font-semibold">{user?.username}</h1>
-                            {/* <p className="truncate">{lastMsg?.text}</p> */}
+                            <p className="line-clamp-1 truncate">{conversation?.bookname}</p>
                         </div>
                         {/* <p className="ml-2 whitespace-no-wrap">10min</p> */}
                     </div>

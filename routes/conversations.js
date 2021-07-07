@@ -5,7 +5,7 @@ const Conversation = require('../model/userConversation')
 
 //new conv
 router.post('/', async (req,res) => {
-    const {senderId, receiverId} = req.body
+    const {senderId, receiverId, bookname} = req.body
     const convExist = await Conversation.findOne({ $or: [ {members: [senderId, receiverId]}, {members: [receiverId, senderId]} ]});
         if (convExist) {
             return res.status(200).json({ msg: "conv exist" })
@@ -13,7 +13,8 @@ router.post('/', async (req,res) => {
         else{
 
             const newConversation = new Conversation({
-                members: [senderId, receiverId]
+                members: [senderId, receiverId],
+                bookname: bookname
             })
             try {
                 const savedConversation = await newConversation.save()
