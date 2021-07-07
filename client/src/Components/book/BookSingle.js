@@ -41,7 +41,7 @@ function BookSingle() {
   const summaryList = bookDetails?.description.slice(0, 1000).split(".");
 
   const addToBookmarks = () => {
-    // const addBookmark = {bookDetails, ...summaryList}
+    const addBookmark = {bookDetails, ...summaryList}
     // axios.post(`/api/books/addbookmark`, addBookmark)
     setIsBookmarked(true);
     dispatch(addToBookmark(addBookmark))
