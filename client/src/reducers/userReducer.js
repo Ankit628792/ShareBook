@@ -5,13 +5,13 @@ const initial = {
 const userReducer = (state = initial, action) => {
     switch (action.type) {
         case 'SET_USER':
-            // localStorage.setItem('userSession', JSON.stringify(action.user))
+            localStorage.setItem('userSession', JSON.stringify(action.user))
             return {
                 userSession: action.user
             }
 
         case 'REMOVE_USER':
-            // localStorage.setItem('userSession', null)
+            localStorage.setItem('userSession', null)
             return {
                 userSession: null
             }

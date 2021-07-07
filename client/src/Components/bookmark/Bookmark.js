@@ -21,8 +21,8 @@ function Bookmarks() {
       <h4 className="h-text">Bookmarks</h4>
       {bookmarks && bookmarks.length > 0 ? (
         <div className="grid grid-cols-1 gap-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pt-6 pb-10 px-6">
-          {bookmarks.map((book) => (
-            <Book key={book.id} id={book.id} category={book.category} title={book.bookname} location={book.location} image={book.image_url} summary={book.summaryList} />
+          {bookmarks.map((book, i) => (
+            <Book key={i} id={book.bookId} category={book.category} title={book.bookname} location={book.location} image={book.image_url} summary={book.description} />
           ))
           }
         </div>

@@ -147,7 +147,7 @@ function AddBook({ setisAddBook }) {
                             <textarea className="w-full resize-none h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-3 px-4 mt-2 focus:outline-none focus:border-gray-400"
                                 placeholder="Enter your Book Information / Description" {...register("description", { required: 'Please enter book description' })} ></textarea>
                             {errors.description && <p className="text-red-500">{errors.description.message}</p>}
-                            <p className="text-sm text-gray-400 text-left my-3">You inserted 0 characters</p>
+                            {/* <p className="text-sm text-gray-400 text-left my-3">You inserted 0 characters</p> */}
                             <p className="text-sm text-red-400 text-left my-3">Maximum length 1000 characters</p>
                         </div>
                         <div className="flex items-center justify-end">

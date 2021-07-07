@@ -25,7 +25,7 @@ export const restoreBookmark = (localBookmarks) => {
 export const setUser = (user) => {
     return {
         type: 'SET_USER',
-        user: user
+        user
     }
 }
 export const removeUser = () => {

@@ -35,16 +35,16 @@ function BookSingle() {
     }
     getBook()
   }, [])
-
+  
   const [isBookmarked, setIsBookmarked] = useState(false);
-
-  const summaryList = bookDetails?.description.slice(0, 1000).split(".");
+  
+  // const summaryList = bookDetails?.description.slice(0, 1000).split(".");
 
   const addToBookmarks = () => {
-    const addBookmark = {bookDetails, ...summaryList}
+    // const addBookmark = {bookDetails}
     // axios.post(`/api/books/addbookmark`, addBookmark)
     setIsBookmarked(true);
-    dispatch(addToBookmark(addBookmark))
+    dispatch(addToBookmark(bookDetails))
   };
 
   const removeFromBookmarks = () => {
@@ -54,7 +54,7 @@ function BookSingle() {
   }
 
   useEffect(() => {
-    const bIndex = bookmarks.findIndex((book) => book.id == id);
+    const bIndex = bookmarks.findIndex((book) => book.bookId == id);
     if (bIndex >= 0) {
       setIsBookmarked(true);
     } else {
@@ -101,7 +101,7 @@ function BookSingle() {
                 <h1 className="font-semibold h-text">Summary :</h1>
                 <ul>
                   {
-                    summaryList?.map((list, i) => (!list == '' &&
+                    bookDetails?.description.slice(0, 1000).split(".").map((list, i) => (!list == '' &&
                       <li key={i} className="list-disc list-item">
                         <p className="text-sm p-text">{list}</p>
                       </li>

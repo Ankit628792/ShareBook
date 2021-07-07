@@ -9,8 +9,9 @@ import axios from 'axios';
 
 function UserInfo() {
 
-    const userSession = useSelector((state) => state.userReducer.userSession);
-    
+    // const userSession = useSelector((state) => state.userReducer.userSession);
+    const userSession = JSON.parse(localStorage.getItem("userSession"));
+
     const history = useHistory()
     if(!userSession){
         history.push('/signin')
@@ -58,6 +59,7 @@ function UserInfo() {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        setisLoading(true)
         sendData()
         // const userData = new FormData();
         // userData.append('image', image);

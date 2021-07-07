@@ -13,7 +13,7 @@ const bookmarkReducer = (state = initialState, action) => {
             }
 
         case 'REMOVE_FROM_BOOKMARK':
-            const index = state.bookmark.findIndex((book) => book.id == action.id)
+            const index = state.bookmark.findIndex((book) => book.bookId == action.id)
             let removeBookmark = [...state.bookmark];            
             if (index >= 0) {
                 removeBookmark.splice(index, 1)

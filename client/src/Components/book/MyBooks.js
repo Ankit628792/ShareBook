@@ -8,7 +8,8 @@ import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function MyBooks() {
-    const userSession = useSelector((state) => state.userReducer.userSession);
+    // const userSession = useSelector((state) => state.userReducer.userSession);
+    const userSession = JSON.parse(localStorage.getItem("userSession"));
 
     const history = useHistory()
     if (userSession.length < 1) {
