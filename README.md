@@ -1,2 +1,2 @@
 # ShareBook - MERN App
-Open to Collaboration
+Open for Collaboration
