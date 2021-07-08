@@ -4,23 +4,10 @@ import Book from './Book'
 import { shuffleArray } from '../../util'
 import axios from 'axios'
 
-const emptyState = () => {
-    return (
-        <div className="w-full">
-
-            <h4 className="h-text text-5xl font-medium my-2">It's empty here.</h4>
-            <p className="p-text mb-2">
-                No Search Matching Book Found !
-            </p>
-        </div>
-    )
-}
-
 function AllBooks() {
     // const bookList = shuffleArray(books.books)
     const [userBooks, setuserBooks] = useState({})
     const [result, setResult] = useState('')
-    const [found, setFound] = useState(true)
 
     useEffect(() => {
         axios.get(`/api/books/allbooks`)
@@ -35,8 +22,9 @@ function AllBooks() {
 
     const filterBook = (e) => {
         e.preventDefault();
-        setResult(e.target.value)
+        setResult(e.target.value.toLowerCase())
     }
+
     return (
         <>
             <div className="w-full bg-gray-100 py-4 flex items-center">
