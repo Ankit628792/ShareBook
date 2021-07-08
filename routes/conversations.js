@@ -40,7 +40,7 @@ router.get('/:userId', async (req,res) => {
 
 
 //delete conversation
-router.post('/delconversation:_id', async (req,res) => {
+router.delete('/delconversation:_id', async (req,res) => {
     try {
         const {_id} = req.params
         const query = {_id : _id.slice(1, _id.length)}
