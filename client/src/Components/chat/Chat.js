@@ -10,10 +10,6 @@ import Conversation from './Conversation';
 import ChatHead from './ChatHead';
 import Message from './Message';
 import SendIcon from '@material-ui/icons/Send';
-import DeleteIcon from '@material-ui/icons/Delete';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { motion } from 'framer-motion'
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
 
@@ -105,7 +101,7 @@ const Chat = () => {
             text: newMessage
         })
         try {
-            const res = await axios.post('/api/messages/sendmessage', message)
+            const res = await axios.post('/api/messages', message)
             setMessages([...messages, res.data])
 
             setNewMessage('')
