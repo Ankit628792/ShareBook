@@ -14,8 +14,8 @@ import SendIcon from '@material-ui/icons/Send';
 
 
 const Chat = () => {
-    const userSession = useSelector((state) => state.userReducer.userSession);
-    // const userSession = JSON.parse(localStorage.getItem("userSession"));
+    // const userSession = useSelector((state) => state.userReducer.userSession);
+    const userSession = JSON.parse(localStorage.getItem("userSession"));
 
     const history = useHistory()
     if (!userSession) {
@@ -94,7 +94,7 @@ const Chat = () => {
             text: newMessage,
             conversationId: currentChat._id
         }
-        const receiverId = currentChat?.members.find(member => member !== userSession.userId)
+        const receiverId = await currentChat?.members.find(member => member !== userSession.userId)
         socket.current.emit('sendMessage', {
             senderId: userSession.userId,
             receiverId,
@@ -103,7 +103,6 @@ const Chat = () => {
         try {
             const res = await axios.post('/api/messages', message)
             setMessages([...messages, res.data])
-
             setNewMessage('')
         } catch (error) {
             console.log(error)
