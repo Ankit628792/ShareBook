@@ -105,7 +105,7 @@ const Chat = () => {
             text: newMessage
         })
         try {
-            const res = await axios.post('/api/messages', message)
+            const res = await axios.post('/api/messages/sendmessage', message)
             setMessages([...messages, res.data])
 
             setNewMessage('')
