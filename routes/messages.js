@@ -26,7 +26,7 @@ router.get('/:conversationId', async (req,res) => {
 })
 
 //delete messages
-router.post('/delmsg:conversationId', async (req,res) => {
+router.delete('/delmsg:conversationId', async (req,res) => {
     try {
         const {conversationId} = req.params
         const query = {conversationId : conversationId.slice(1, conversationId.length)}
