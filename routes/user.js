@@ -185,10 +185,10 @@ router.patch('/updateuser:_id', async (req, res) => {
 
 router.get('/user', async (req, res) => {
     const userId = req.query.userId;
-    const email = req.query.email;
+    // const email = req.query.email;
     try {
-        const user = userId ? await User.findOne({ userId: userId })
-            : await User.findOne({ email: email });
+        const user = await User.findOne({ userId: userId })
+            // : await User.findOne({ email: email });
         const { password, cpassword, Tokens, ...other } = user._doc;
         res.status(200).json(other)
     } catch (error) {
