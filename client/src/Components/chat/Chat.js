@@ -13,6 +13,7 @@ import SendIcon from '@material-ui/icons/Send';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import { motion } from 'framer-motion'
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
 
@@ -139,8 +140,8 @@ const Chat = () => {
         //     <Conversation />
         // ))
         axios.all([
-            axios.delete(`delconversation:${conversation?._id}`),
-            axios.delete(`delmsg:${conversation?._id}`)])
+            axios.delete(`delconversation:${currentChat?.conversationId}`),
+            axios.delete(`delmsg:${currentChat?.conversationId}`)])
             .then(axios.spread(() => (
                 <Conversation />
             )));

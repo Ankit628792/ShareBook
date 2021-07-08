@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Avatar } from '@material-ui/core'
 import axios from 'axios'
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+
 function Conversation({ conversation, currentUser }) {
     
     const [user, setUser] = useState()
