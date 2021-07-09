@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect, useRef } from 'react'
-import logo from '../../assets/images/logo1.jpeg';
+import logo from '../../assets/images/logo1.jpeg' ;
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
@@ -10,6 +11,7 @@ import Conversation from './Conversation';
 import ChatHead from './ChatHead';
 import Message from './Message';
 import SendIcon from '@material-ui/icons/Send';
+
 
 const Chat = () => {
     // const userSession = useSelector((state) => state.userReducer.userSession);
@@ -35,7 +37,7 @@ const Chat = () => {
     const [friend, setFriend] = useState([])
 
     useEffect(() => {
-        socket.current = io();
+        socket.current = io() 
         socket.current.on('getMessage', (data) => {
             setArrivalMessage({
                 sender: data.senderId,
@@ -49,7 +51,6 @@ const Chat = () => {
     useEffect(() => {
         arrivalMessage && currentChat?.members.includes(arrivalMessage.sender) && setMessages((prev) => [...prev, arrivalMessage])
     }, [arrivalMessage, currentChat])
-
 
     useEffect(() => {
         socket.current.emit('addUser', userSession.userId)
@@ -95,12 +96,13 @@ const Chat = () => {
         const receiverId = await currentChat?.members.find(member => member !== userSession.userId)
         socket.current.emit('sendMessage', {
             senderId: userSession.userId,
-            receiverId,
+            receiverId: receiverId,
             text: newMessage
         })
         try {
             const res = await axios.post('/api/messages', message)
-            setMessages([...messages, message])
+            setMessages([...messages, res.data])
+
             setNewMessage('')
         } catch (error) {
             console.log(error)
@@ -109,8 +111,8 @@ const Chat = () => {
 
 
     useEffect(() => {
+        const friendId = currentChat?.members.find((m) => m !== userSession.userId)
         const getUser = async () => {
-            const friendId = await currentChat?.members.find((m) => m != userSession.userId)
             try {
                 const res = await axios.get(`/api/user/user?userId=${friendId}`)
                 setFriend(res.data)
@@ -140,17 +142,17 @@ const Chat = () => {
                                             src={logo} onClick={() => history.push('/')} />
                                         {/* <h1 className="text-2xl mx-3 font-bold hidden sm:block h-text">Chats</h1> */}
                                     </div>
-                                    <button className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out"
-                                        onClick={chatPeople}>
+                                    <button className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out" 
+                                    onClick={chatPeople}>
                                         <KeyboardBackspaceIcon />
                                     </button>
                                 </div>
                                 <div className="search-box p-4 flex-none">
-                                    <form>
+                                    <form onsubmit="">
                                         <div className="relative">
                                             <label>
                                                 <input className="rounded-full py-2 pr-6 pl-10 w-full bg-white focus:outline-none text-gray-900 shadow-md focus:shadow-lg transition duration-300 ease-in"
-                                                    type="text" readOnly placeholder="Search Conversion" />
+                                                    type="text" readOnly placeholder="Search Messenger" />
                                                 <span className="absolute top-0 left-0 mt-2 ml-3 inline-block">
                                                     <svg viewBox="0 0 24 24" className="w-6 h-6">
                                                         <path fill="#bbb"
@@ -167,7 +169,7 @@ const Chat = () => {
                                         conversations.map((c, i) => (
                                             <div key={i} onClick={() => (setCurrentChat(c))}>
                                                 <div key={i} onClick={chatPeople}>
-                                                    <Conversation key={i} conversation={c} currentUser={userSession} />
+                                                <Conversation key={i} conversation={c} currentUser={userSession} />
                                                 </div>
                                             </div>
                                         ))
@@ -175,6 +177,7 @@ const Chat = () => {
                                 </div>
 
                             </section>
+
                             <section className="flex flex-col flex-auto border-l border-gray-400 z-20">
                                 {
                                     currentChat ?
@@ -191,9 +194,8 @@ const Chat = () => {
                                             <div className="chat-body p-4 flex-1 overflow-y-scroll overflow-x-hidden z-10 ">
                                                 {messages.map((m, i) => (
                                                     <Message key={i} message={m} own={m.senderId === userSession.userId} />
-                                                ))}
-                                                <div ref={scrollRef} className="w-10 h-1">
-                                                </div>
+                                                    ))}
+                                                    <div ref={scrollRef} className="w-6 h-1"></div>
                                             </div>
 
                                             <div class="chat-footer flex-none z-20 bg-white">
@@ -202,7 +204,6 @@ const Chat = () => {
                                                         <div class="relative flex-grow mx-3">
                                                             <input class="rounded-full py-2 pl-3 pr-10 w-full border border-gray-800 focus:border-gray-700 bg-white shadow-lg focus:outline-none text-gray-500 focus:shadow-md"
                                                                 type="text"
-                                                                min="1"
                                                                 placeholder="Type a message ..."
                                                                 onChange={(e) => setNewMessage(e.target.value)}
                                                                 value={newMessage}

@@ -175,7 +175,8 @@ router.patch('/updateuser:_id', async (req, res) => {
         let _id = req.params._id;
         _id = _id.slice(1, _id.length)
         const updateUser = await User.findByIdAndUpdate(_id, { username, phone, location, about, image_url }, { new: true });
-        res.status(201).json({ message: 'updated successfully' });
+        const { password, cpassword, Tokens, ...other } = updateUser._doc;
+        res.status(201).send(other)
     } catch (error) {
         res.status(404).send(error);
     }

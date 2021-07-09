@@ -71,7 +71,6 @@ const getUser = (userId) => {
 io.on('connection', (socket) => {
     console.log('a user connected')
     //take userId and socketId
-	console.log(users);
     socket.on('addUser', (userId) => {
         addUser(userId, socket.id)
         io.emit('getUsers', users)

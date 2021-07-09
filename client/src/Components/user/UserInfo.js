@@ -6,6 +6,7 @@ import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import dummyImg from '../../assets/images/dummy.png'
 import axios from 'axios';
+import { setUser } from '../../actions';
 
 function UserInfo() {
 
@@ -16,6 +17,8 @@ function UserInfo() {
     if(!userSession){
         history.push('/signin')
     }
+
+    const dispatch = useDispatch()
     
     const { username, email, password, location, about, phone, _id, image_url } = userSession;
     const [data, setData] = useState({ username, email, password, location, about, phone, _id });
@@ -52,6 +55,7 @@ function UserInfo() {
         axios.patch(`/api/user/updateuser:${_id}`, newData)
             .then((res) => {
                 if (res.status === 201) {
+                    dispatch(setUser(res.data))
                     setisLoading(false)
                     setisEdit(false)
                 }
