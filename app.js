@@ -49,7 +49,7 @@ app.get('/getcookie', function (req, res) {
 const server = app.listen(port , () => {
     console.log(`Backend is running at Port ${port}`)
 })
-// mongodb+srv://Ankit628792:<password>@cluster0.tde6c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+// mongodb+srv://<username>:<password>@cluster0.tde6c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
 const io = socket(server);
 
