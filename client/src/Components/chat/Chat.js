@@ -99,9 +99,7 @@ const Chat = () => {
             text: newMessage
         })
         try {
-            console.log(message)
             const res = await axios.post('/api/messages', message)
-console.log(res)
             setMessages([...messages, res.data])
             setNewMessage('')
         } catch (error) {
@@ -112,7 +110,7 @@ console.log(res)
 
     useEffect(() => {
         const getUser = async () => {
-            const friendId = await currentChat?.members.find((m) => m !== userSession.userId)
+            const friendId = await currentChat?.members.find((m) => m != userSession.userId)
             try {
                 const res = await axios.get(`/api/user/user?userId=${friendId}`)
                 setFriend(res.data)
