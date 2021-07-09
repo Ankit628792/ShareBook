@@ -7,8 +7,8 @@ const ChatHead = ({friend}) => {
         <>
                 <div className="flex">
                 <Avatar className="w-12 h-12 mr-4 relative flex flex-shrink-0 btn-bg">
-                    {friend?.image ?
-                        <img src={friend?.image} className="conversationImg" alt="" />
+                    {friend?.image_url ?
+                        <img src={friend?.image_url} className="conversationImg" alt="" />
                         : friend?.username ? friend?.username[0] : ''
                     }
                 </Avatar>

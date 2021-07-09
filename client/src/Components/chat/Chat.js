@@ -114,7 +114,7 @@ const Chat = () => {
         const friendId = currentChat?.members.find((m) => m !== userSession.userId)
         const getUser = async () => {
             try {
-                const res = await axios(`/api/user/user?userId=${friendId}`)
+                const res = await axios.get(`/api/user/user?userId=${friendId}`)
                 setFriend(res.data)
             } catch (error) {
                 console.log(error)
