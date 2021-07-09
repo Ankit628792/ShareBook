@@ -11,8 +11,6 @@ import ChatHead from './ChatHead';
 import Message from './Message';
 import SendIcon from '@material-ui/icons/Send';
 
-
-
 const Chat = () => {
     // const userSession = useSelector((state) => state.userReducer.userSession);
     const userSession = JSON.parse(localStorage.getItem("userSession"));

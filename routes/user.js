@@ -190,7 +190,7 @@ router.get('/user', async (req, res) => {
         const user = await User.findOne({ userId: userId })
             // : await User.findOne({ email: email });
         const { password, cpassword, Tokens, ...other } = user._doc;
-        res.status(200).json(other)
+        res.status(200).send(other)
     } catch (error) {
         res.status(400).json(error)
     }
