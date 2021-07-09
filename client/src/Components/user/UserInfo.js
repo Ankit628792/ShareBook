@@ -3,7 +3,7 @@ import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from '../../util';
 import { NavLink, useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import dummyImg from '../../assets/images/dummy.png'
 import axios from 'axios';
 import { setUser } from '../../actions';
