@@ -132,7 +132,7 @@ router.get('/userAuthentication', Authenticate, (req, res) => {
 
 
 //user signout
-router.get('/signout', Authenticate, (req, res) => {
+router.get('/signout', Authenticate, async (req, res) => {
     // res.clearCookie('jwtoken', { path: '/' })
     req.rootUser.Tokens = []
     await req.rootUser.save();
