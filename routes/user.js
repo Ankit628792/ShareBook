@@ -135,6 +135,7 @@ router.get('/userAuthentication', Authenticate, (req, res) => {
 router.get('/signout', Authenticate, (req, res) => {
     // res.clearCookie('jwtoken', { path: '/' })
     req.rootUser.Tokens = []
+    await req.rootUser.save();
     res.status(200).send("Signout")
 });
 
