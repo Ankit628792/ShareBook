@@ -28,7 +28,7 @@ router.get('/getmybook:userId', async (req, res) => {
     let userId = req.params.userId;
     userId = userId.slice(1, userId.length);
     try {
-        const mybooks = await Book.find({ userId: userId });
+        const mybooks = await Book.find({ userId: userId }).sort({bookId: -1});
         res.status(200).send(mybooks)
     } catch (error) {
         res.status(400).json({ message: 'unable to fetch my books' })
@@ -40,7 +40,7 @@ router.get('/getmybook:userId', async (req, res) => {
 //all books
 router.get('/allbooks', async (req, res) => {
     try {
-        const allbooks = await Book.find();
+        const allbooks = await Book.find().sort({bookId: -1});
         res.status(200).send(allbooks)
     } catch (error) {
         res.status(400).json({ message: 'unable to fetch books' })

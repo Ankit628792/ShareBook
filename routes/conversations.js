@@ -31,7 +31,7 @@ router.get('/:userId', async (req,res) => {
     try {
         const conversation = await Conversation.find({
             members: { $in: [userId]}
-        })
+        }).sort({_id: -1})
         res.status(200).json(conversation)
     } catch (error) {
         res.status(500).json(error)
