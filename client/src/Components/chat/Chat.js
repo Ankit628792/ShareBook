@@ -99,10 +99,8 @@ const Chat = () => {
             text: newMessage
         })
         try {
-            console.log(message)
-            setMessages([...messages, message])
             const res = await axios.post('/api/messages', message)
-            console.log(res.data)
+            setMessages([...messages, message])
             setNewMessage('')
         } catch (error) {
             console.log(error)
