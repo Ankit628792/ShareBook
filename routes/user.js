@@ -28,7 +28,6 @@ router.use('/user/image', express.static('user/image'))
 
 
 const sendMail = (emailId) => {
-    
     // Gmail account info
     const transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -133,7 +132,7 @@ router.get('/userAuthentication', Authenticate, (req, res) => {
 
 //user signout
 router.get('/signout', Authenticate, async (req, res) => {
-    // res.clearCookie('jwtoken', { path: '/' })
+    res.clearCookie('jwtoken', { path: '/' })
     req.rootUser.Tokens = []
     await req.rootUser.save();
     res.status(200).send("Signout")
