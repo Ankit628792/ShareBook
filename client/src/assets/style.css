@@ -2,6 +2,13 @@
   font-family: 'Inter', sans-serif;
 }
 
+body{
+  min-height: 95vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .h-text{
   color: #39464d;
 }

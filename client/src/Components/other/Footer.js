@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 function Footer() {
     return (
 
-        <div className="footer w-full h-auto p-3 sm:py-10 sm:px-7 pt-20 py-5 flex items-center justify-center bg-black">
+        <div className="footer mt-auto w-full h-auto p-3 sm:py-10 sm:px-7 pt-20 py-5 flex items-center justify-center bg-black">
             <div className="md:w-3/4 w-full px-4 text-white flex flex-col">
                 <div className="w-full text-2xl md:text-5xl font-bold">
                     <h1 className="w-full">How can we help you? <br />
