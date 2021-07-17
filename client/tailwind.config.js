@@ -4,4 +4,12 @@ module.exports = {
         tailwindcss('./tailwind.js'),
         require('autoprefixer')
     ],
+    purge: {
+        enabled: true,
+        content: [
+            '*.html',
+            '*.js',
+            '*.jsx'
+        ]
+    }
 };

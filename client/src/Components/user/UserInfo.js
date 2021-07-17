@@ -20,8 +20,8 @@ function UserInfo() {
 
     const dispatch = useDispatch()
     
-    const { username, email, password, location, about, phone, _id, image_url } = userSession;
-    const [data, setData] = useState({ username, email, password, location, about, phone, _id });
+    const { username, email, location, about, phone, _id, image_url } = userSession;
+    const [data, setData] = useState({ username, email, location, about, phone, _id });
     
     const [isEdit, setisEdit] = useState(false)
     const [isLoading, setisLoading] = useState(false)
@@ -139,7 +139,7 @@ function UserInfo() {
                             <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
                                 <dt className="text-base font-medium h-text">Password</dt>
                                 <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
-                                    <input disabled type="password" name="password" className="border-none outline-none" value={data.password} onChange={handleUser} />
+                                    <input disabled type="password" name="password" className="border-none outline-none" value="123456789987654321" />
                                 </dd>
                             </div>
                             <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -158,33 +158,6 @@ function UserInfo() {
                                 <dt className="text-base font-medium h-text">About</dt>
                                 <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
                                     <textarea disabled={!isEdit} className="resize-none border-none outline-none" rows="5" name="about" placeholder="Describe yourself here..." value={data.about} onChange={handleUser}></textarea>
-                                </dd>
-                            </div>
-                            <div className="bg-white px-4 py-5 sm:grid border-gray-50 border sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt className="text-base font-medium h-text">Shared Books</dt>
-                                <dd className="mt-1 text-sm p-text sm:mt-0 sm:col-span-2">
-                                    <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
-                                        <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-                                            <div className="w-0 flex-1 flex items-center">
-                                                <span className="ml-2 flex-1 w-0 truncate">Book Name </span>
-                                            </div>
-                                            <div className="ml-4 flex-shrink-0">
-                                                <NavLink to="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                                                    Sharing
-                                                </NavLink>
-                                            </div>
-                                        </li>
-                                        <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-                                            <div className="w-0 flex-1 flex items-center">
-                                                <span className="ml-2 flex-1 w-0 truncate">Book Name </span>
-                                            </div>
-                                            <div className="ml-4 flex-shrink-0">
-                                                <NavLink to="#" className="font-medium text-green-600 hover:text-green-500">
-                                                    Shared
-                                                </NavLink>
-                                            </div>
-                                        </li>
-                                    </ul>
                                 </dd>
                             </div>
                         </dl>

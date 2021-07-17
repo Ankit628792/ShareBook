@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./BookSingle.css";
 import { useParams } from "react-router";
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from "../../util";
@@ -7,7 +6,7 @@ import BookmarkRoundedIcon from "@material-ui/icons/BookmarkRounded";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import { useDispatch, useSelector } from "react-redux";
 import { addToBookmark, removeFromBookmark } from "../../actions";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from 'axios'
 
 function BookSingle() {

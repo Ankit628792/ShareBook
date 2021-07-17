@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./Bookmark.css";
 import { motion } from 'framer-motion'
 import emptyBookmarks from "../../assets/emptyBookmarks.svg";
 import Book from "../book/Book";

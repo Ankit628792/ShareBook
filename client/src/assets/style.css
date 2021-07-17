@@ -510,3 +510,187 @@
   }
 
 }
+
+
+/* Bookmark Css  */
+
+
+.cart {
+  padding: 5rem 3rem 3rem 3rem;
+}
+.cart > h4 {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+}
+.cart__inner {
+  display: flex;
+}
+.cart__items {
+  flex: 0 0 50%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.cart__empty {
+  width: 100%;
+  padding: 1rem 2rem;
+}
+.cart__checkout {
+  flex: 0 0 calc(50% - 2rem);
+  background: #fff;
+  margin-left: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(26, 26, 44, 0.05);
+  align-self: flex-start;
+  padding: 2rem;
+}
+.cart__checkout .buttons {
+  margin-top: 1rem;
+}
+
+
+@media (max-width: 660px) {
+  .cart {
+    padding: 3rem 1.5rem;
+  }
+  .cart__inner {
+    flex-direction: column;
+  }
+  .cart__empty {
+    padding: 0;
+  }
+  .cart__items {
+    flex: 0 0 100%;
+    margin-bottom: 3rem;
+  }
+  .cart__checkout {
+    flex: 0 0 100%;
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+}
+
+  .bookmarks > h4 {
+      font-size: 1.5rem;
+      margin-left: 3rem;
+      margin-top: 5rem;
+    }
+    
+    .bookmark__inner {
+      padding: 3rem;
+    }
+    
+    @media (max-width: 550px) {
+      .bookmark__inner {
+        padding: 1.5rem;
+      }
+      .bookmarks > h4 {
+        margin: 3rem 1.5rem;
+      }
+    }
+
+    /* BookSingle CSS  */
+    .bookSingle {
+      padding: 5rem 3rem 3rem 3rem;
+    }
+    .bookSingle__inner {
+      display: flex;
+    }
+    .bookSingle__image {
+      flex: 0 0 calc(100% / 2.5);
+      padding-bottom: calc((100% / 2.5) * 1.33);
+      height: 0;
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0.5rem 1rem rgba(26, 26, 44, 0.05);
+      background: #fff;
+    }
+    .bookSingle img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      object-fit: contain;
+      padding: 1rem;
+    }
+    .bookSingle__details {
+      padding: 3rem;
+      padding-right: 1rem;
+      display: flex;
+      flex-flow: column nowrap;
+    }
+    .bookSingle__details .bookSingle__footer {
+      margin-top: auto;
+    }
+    .bookSingle__features {
+      margin: 0;
+      padding: 0;
+      margin: 1rem 2rem;
+      list-style-type: none;
+    }
+    .bookSingle__features li {
+      position: relative;
+      padding: 0;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .bookSingle__features li::before {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #f90;
+      border-radius: 5px;
+      box-shadow: inset -3px -3px 0 #1a1a2c;
+      z-index: 98;
+      top: 5px;
+      left: -20px;
+    }
+    .bookSingle__price {
+      display: flex;
+      align-items: baseline;
+      margin: 0.25rem;
+    }
+    .bookSingle__price + .buttons {
+      margin-top: 1.5rem;
+    }
+    .bookSingle__price h4 {
+      font-weight: 900;
+      margin: 0;
+      margin-right: 0.5rem;
+    }
+    .bookSingle__price del {
+      color: #dc143c;
+    }
+    .bookSingle__deliveryMessage {
+      color: #2e8b57;
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .bookSingle__deliveryMessage .MuiSvgIcon-root {
+      margin-right: 0.5rem;
+    }
+    .bookSingle__suggested > .books {
+      margin: 0;
+      width: calc(100% + 2rem);
+      margin-left: -1rem;
+    }
+    
+    @media (max-width: 550px) {
+      .bookSingle {
+        padding: 3rem 1.5rem;
+      }
+      .bookSingle__inner {
+        flex-flow: column;
+      }
+      .bookSingle__image {
+        flex: 0 0 100%;
+        padding-bottom: calc(100% * 1.33);
+      }
+      .bookSingle__details {
+        padding: 3rem 0;
+      }
+      .bookSingle__features {
+        margin: 1rem 0 1rem 2rem;
+      }
+    }
