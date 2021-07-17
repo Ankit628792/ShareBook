@@ -71,5 +71,5 @@ Ankit Kumar - [@ankit_628792](https://instagram.com/ankit_628792)
 
 
 # If I had more time I would change this
-Set up continous integration to run this tests and ESLint on every Pull Request
-Adding more user engagement
+* Set up continous integration to run this tests and ESLint on every Pull Request
+* Adding more user engagement
