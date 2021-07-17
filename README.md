@@ -67,7 +67,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_instagram](https://instagram.com/ankit_628792)
+Ankit Kumar - [@ankit_628792](https://instagram.com/ankit_628792)
 
 
 # If I had more time I would change this
