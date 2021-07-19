@@ -2,7 +2,7 @@
   font-family: 'Inter', sans-serif;
 }
 
-body{
+#root{
   min-height: 95vh;
   display: flex;
   justify-content: space-between;
