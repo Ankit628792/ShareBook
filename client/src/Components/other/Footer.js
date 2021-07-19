@@ -1,8 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
+
 
 function Footer() {
+    const history = useHistory();
     return (
 
         <div className="footer mt-auto w-full h-auto p-3 sm:py-10 sm:px-7 pt-20 py-5 flex items-center justify-center bg-black">
@@ -23,8 +25,8 @@ function Footer() {
                 </div>
                 <div className="flex flex-col">
                     <div className="flex mt-10 mb-6 flex-row justify-between items-center">
-                        <h1 className="text-3xl">ShareBook</h1>
-                        <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/myaccount">My Account</NavLink>
+                        <h1 className="text-3xl" onClick={() => history.push('/')}>ShareBook</h1>
+                        <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/">Home</NavLink>
                         <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/allbooks">Book Shelf</NavLink>
                         <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/about">About us</NavLink>
                         <NavLink className="hidden lg:block cursor-pointer hover:text-white text-gray-600 uppercase" to="/contactus">Contact</NavLink>
