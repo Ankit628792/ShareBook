@@ -10,9 +10,13 @@ import axios from 'axios';
 function AddBook({ setisAddBook }) {
 
     const userSession = useSelector((state) => state.userReducer.userSession);
-    const { userId, username, location } = userSession
+    const { userId, username, location } = userSession;
 
     const history = useHistory();
+    if(!location){
+        window.alert('Please complete your profile before adding any book!')
+        history.push('/myaccount')
+    }
 
     const { register, handleSubmit, formState: { errors } } = useForm({ reValidateMode: 'onChange' });
 
