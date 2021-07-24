@@ -11,6 +11,8 @@ import Conversation from './Conversation';
 import ChatHead from './ChatHead';
 import Message from './Message';
 import SendIcon from '@material-ui/icons/Send';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Chat = () => {
@@ -19,6 +21,15 @@ const Chat = () => {
 
     const history = useHistory()
     if (!userSession) {
+        toast(`Signin to Continue`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+          });
         history.push('/signin')
     }
 
@@ -132,6 +143,7 @@ const Chat = () => {
     return (
         <>
             <div className="bg-white py-0 md:py-10">
+                <ToastContainer />
                 <div className="chats shadow-lg max-w-6xl mx-auto flex antialiased rounded text-gray-200 bg-gray-50 border border-gray-200 overflow-hidden" style={{ height: `calc(100vh - 4rem)` }}>
                     <div className="flex-1 flex flex-col">
                         <main className="flex-grow flex flex-row min-h-0 relative">

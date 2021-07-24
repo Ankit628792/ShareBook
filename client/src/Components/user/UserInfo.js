@@ -7,14 +7,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import dummyImg from '../../assets/images/dummy.png'
 import axios from 'axios';
 import { setUser } from '../../actions';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function UserInfo() {
 
     // const userSession = useSelector((state) => state.userReducer.userSession);
     const userSession = JSON.parse(localStorage.getItem("userSession"));
 
+    const toastify = (text) =>  toast(`${text}`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
     const history = useHistory()
     if(!userSession){
+        toastify('Signin to Continue')
         history.push('/signin')
     }
 
@@ -29,6 +42,7 @@ function UserInfo() {
     const [image, setImage] = useState();
     const [preview, setPreview] = useState(null);
     const fileInputRef = useRef();
+
 
     useEffect(() => {
         if (image) {
@@ -55,9 +69,13 @@ function UserInfo() {
         axios.patch(`/api/user/updateuser:${_id}`, newData)
             .then((res) => {
                 if (res.status === 201) {
+                    toastify('User Info Updated')
                     dispatch(setUser(res.data))
                     setisLoading(false)
                     setisEdit(false)
+                }
+                else{
+                    toastify('Error in updating')
                 }
             });
     }
@@ -194,6 +212,7 @@ function UserInfo() {
                     }
                 </div>
             </div>
+            <ToastContainer />
         </motion.div>
                 </>
     )

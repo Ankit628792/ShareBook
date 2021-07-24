@@ -6,15 +6,27 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import bookDummy from '../../assets/images/bookDummy.png'
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function AddBook({ setisAddBook }) {
 
     const userSession = useSelector((state) => state.userReducer.userSession);
     const { userId, username, location } = userSession;
+    const toastify = (text) =>  toast(`${text}`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
 
     const history = useHistory();
     if(!location){
-        window.alert('Please complete your profile before adding any book!')
+        toastify('Please complete your profile before adding any book!')
         history.push('/myaccount')
     }
 
@@ -70,6 +82,7 @@ function AddBook({ setisAddBook }) {
             axios.post(`/api/books/addbook`, newData)
                 .then((res) => {
                     if (res.status === 201) {
+                        toastify('Book added successfully')
                         setisLoading(false)
                         history.push('/mybook')
                         setisAddBook(false)
@@ -167,6 +180,7 @@ function AddBook({ setisAddBook }) {
                         </div>
                     </form>
                 </div>
+                <ToastContainer />
             </motion.div>
 
         </>

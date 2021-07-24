@@ -5,15 +5,26 @@ import { getData, postData } from '../../requests/requestData'
 import { motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { setUser } from '../../actions'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signin = () => {
     const userSession = useSelector((state) => state.userReducer.userSession);
     const history = useHistory()
-    if(userSession){
+    if (userSession) {
         history.push('/')
     }
     const dispatch = useDispatch()
 
+const toastify = (text) =>  toast(`${text}`, {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+  });
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -42,20 +53,21 @@ const Signin = () => {
             switch (status) {
                 case 200:
                     reset()
+                    toastify('Signed in Successfull 🥳')
                     getUser()
                     history.push('/')
                     break;
                 case 400:
-                    window.alert(error)
+                    toastify(error)
                     break;
                 case 401:
-                    window.alert(error)
+                    toastify(error)
                     break;
                 case 422:
-                    window.alert(error)
+                    toastify(error)
                     break;
                 default:
-                    window.alert('Internal Server Error')
+                    toastify('Internal Server Error')
                     break;
             }
         })
@@ -146,7 +158,7 @@ const Signin = () => {
             }} className="imgBx">
                 <img src="https://images.unsplash.com/photo-1573580296036-ef22f9cf31e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80" alt="" />
             </motion.div>
-
+            <ToastContainer />
         </section>
 
     )

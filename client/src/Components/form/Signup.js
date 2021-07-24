@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { postData } from '../../requests/requestData'
 import { motion } from "framer-motion"
 import { useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signup = () => {
 
@@ -15,6 +17,16 @@ const Signup = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });
 
     const [data, setData] = useState({});
+
+    const toastify = (text) =>  toast(`${text}`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
 
     const [isLoading, setisLoading] = useState(false)
 
@@ -34,20 +46,20 @@ const Signup = () => {
                         history.push('/signin')
                         break;
                     case 400:
-                        window.alert(error)
+                        toastify(error)
                         break;
                     case 420:
-                        window.alert(error)
+                        toastify(error)
                         break;
                     case 421:
-                        window.alert(error)
+                        toastify(error)
                         break;
                     case 422:
-                        window.alert(error)
+                        toastify(error)
                         break;
                 
                     default:
-                        window.alert('Internal Server Error')
+                        toastify('Internal Server Error')
                         break;
                 }                
             })
@@ -146,6 +158,7 @@ const Signup = () => {
                     </ul> */}
                 </motion.div>
             </div>
+            <ToastContainer />
         </section>
     )
 }

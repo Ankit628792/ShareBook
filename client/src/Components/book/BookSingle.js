@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToBookmark, removeFromBookmark } from "../../actions";
 import { useHistory } from "react-router-dom";
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function BookSingle() {
 
@@ -19,6 +21,16 @@ function BookSingle() {
   const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
 
   const { id } = useParams();
+  const toastify = (text) =>  toast(`${text}`, {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+  });
+
 
   // const bookDetails = JSON.parse(localStorage.getItem('singlebook'))
   const [bookDetails, setbookDetails] = useState(null)
@@ -42,12 +54,14 @@ function BookSingle() {
   const addToBookmarks = () => {
     // const addBookmark = {bookDetails}
     // axios.post(`/api/books/addbookmark`, addBookmark)
+    toastify('Added to Bookmark')
     setIsBookmarked(true);
     dispatch(addToBookmark(bookDetails))
   };
-
+  
   const removeFromBookmarks = () => {
     // axios.post(`/api/books/removebookmark:${bookDetails.bookId}`)
+    toastify('Removed from Bookmark')
     setIsBookmarked(false)
     dispatch(removeFromBookmark(id))
   }
@@ -143,6 +157,7 @@ function BookSingle() {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </motion.div>
     </>
 

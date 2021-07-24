@@ -3,22 +3,48 @@ import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from '../../util'
 import { useForm } from 'react-hook-form';
 import { postData } from '../../requests/requestData';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });
 
   const [data, setData] = useState({});
 
+  const [isSending, setIsSending] = useState(false)
+
   // onSubmit handle event 
   const onSubmit = (data, e) => {
     setData(data);
+    setIsSending(true);
     console.log('sending message ...')
     const res = postData(data, `/api/user/comments`);
-    res.then((res) => {
-      if (res.status === 201) {
+    emailjs.send('service_sv9wgnh', 'template_f1ugzsm', data, 'user_MakiHHTPMRIhEyg9GFelr')
+      .then((response) => {
+        setIsSending(false)
+        toast('Message Sent Successfully 🤗🥳🎉', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
         reset()
-      }
-    })
+      }, (err) => {
+        setIsSending(false);
+        toast('Failed To Send Message 🥺😥🤕', {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+      });
   };
 
   return (
@@ -108,6 +134,7 @@ const ContactForm = () => {
             </div>
           </div>
         </div>
+        <ToastContainer />
       </motion.div>
     </>
   )

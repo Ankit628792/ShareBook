@@ -6,13 +6,25 @@ import emptyBookmarks from "../../assets/emptyBookmarks.svg";
 import AddBook from './AddBook';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function MyBooks() {
     // const userSession = useSelector((state) => state.userReducer.userSession);
     const userSession = JSON.parse(localStorage.getItem("userSession"));
 
     const history = useHistory()
-    if (userSession.length < 1) {
+    if (!userSession) {
+        toast(`Signin to Continue`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+          });
         history.push('/signin')
     }
 
@@ -82,7 +94,7 @@ function MyBooks() {
                         <Books />
                 }
 
-
+                <ToastContainer />
             </motion.div>
         </>
     )
