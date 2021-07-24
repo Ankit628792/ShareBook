@@ -11,10 +11,12 @@ function Feedback() {
 	const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });
 
 	const [data, setData] = useState({});
+	const [isSending, setIsSending] = useState(false)
 
 	// onSubmit handle event 
 	const onSubmit = (data, e) => {
 		setData(data);
+		setIsSending(true);
 		console.log('sending feedback ...')
 		const res = postData(data, `/api/user/feedback`);
 		emailjs.send('service_sv9wgnh', 'template_f1ugzsm', data, 'user_MakiHHTPMRIhEyg9GFelr')
@@ -105,7 +107,10 @@ function Feedback() {
 														whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
 														whileTap={{ scale: 0.95, transition: { duration: 0.1 } }} id="feedbackBtn"
 														className="bg-yellow-500 tracking-widest text-white text-center mx-auto active:bg-yellow-400 text-lg uppercase px-7 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-														type="submit" style={{ transition: `all 0.15s ease 0s` }}>Submit
+														type="submit" style={{ transition: `all 0.15s ease 0s` }}>
+															{
+																isSending ? 'Sending...' : 'Send' 
+															}
 													</motion.button>
 												</div>
 											</form>

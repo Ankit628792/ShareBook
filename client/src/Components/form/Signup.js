@@ -42,6 +42,7 @@ const Signup = () => {
                 setisLoading(false)
                 switch (status) {
                     case 201:
+                        toastify('User Registered 😀')
                         reset()
                         history.push('/signin')
                         break;
