@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from "../../util";
 import BookmarkRoundedIcon from "@material-ui/icons/BookmarkRounded";
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
+import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch, useSelector } from "react-redux";
 import { addToBookmark, removeFromBookmark } from "../../actions";
 import { useHistory } from "react-router-dom";
@@ -50,6 +51,10 @@ function BookSingle() {
   const [isBookmarked, setIsBookmarked] = useState(false);
   
   // const summaryList = bookDetails?.description.slice(0, 1000).split(".");
+
+  const deleteBook = () => {
+    axios.delete(`/api/books/deleteBook/${bookDetails?.bookId}`).then((res) => res.status==200 && history.goBack()).catch(() => toastify('Please try after sometimes'))
+  }
 
   const addToBookmarks = () => {
     // const addBookmark = {bookDetails}
@@ -125,7 +130,7 @@ function BookSingle() {
               </div>
               <div>
                 
-                  {userSession?.userId !== bookDetails?.userId &&
+                  {userSession?.userId !== bookDetails?.userId ?
 
                     <div className="flex text-sm flex-row items-center justify-evenly">
                           <motion.button
@@ -152,6 +157,16 @@ function BookSingle() {
                         />{isBookmarked ? `Bookmarked` : `Bookmark`}
                       </motion.button>
                     </div>
+                    :
+                    <motion.button
+                        whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                        whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                        className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
+                        type="button"
+                        onClick={deleteBook}
+                        >
+                        <DeleteIcon className="mr-1" />Remove
+                      </motion.button>
                 }
               </div>
             </div>

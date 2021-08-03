@@ -80,6 +80,17 @@ router.post('/addbook', (req, res) => {
     }
 })
 
+router.delete('/deleteBook/:bookId', async (req,res) => {
+    try {
+        const {bookId} = req.params
+        const query = {bookId : bookId}
+        const deleteBook = await Book.deleteOne(query);
+        res.status(200).json('Book removed successfully')
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
 
 router.post('/addbookmark', (req, res) => {
     console.log(req.body)
