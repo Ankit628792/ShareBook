@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react'
-import logo from '../../assets/images/logo1.jpeg' ;
+import logo from '../../assets/images/logo1.jpeg';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ChatRoundedIcon from '@material-ui/icons/ChatRounded';
@@ -29,7 +29,7 @@ const Chat = () => {
             pauseOnHover: false,
             draggable: true,
             progress: undefined,
-          });
+        });
         history.push('/signin')
     }
 
@@ -49,7 +49,7 @@ const Chat = () => {
     const [receiverId, setReceiverId] = useState()
 
     useEffect(() => {
-        socket.current = io() 
+        socket.current = io()
         socket.current.on('getMessage', (data) => {
             setArrivalMessage({
                 sender: data.senderId,
@@ -98,9 +98,10 @@ const Chat = () => {
         setReceiverId(currentChat?.members.find(member => member !== userSession.userId))
     }, [currentChat])
 
-const sendMessage = async (chat) => {
-    const res = await axios.post('/api/messages', chat)
-}
+    const sendMessage = async (message) => {
+        const res = await axios.post('/api/messages', message)
+        setMessages([...messages, res.data])
+    }
     const handleSubmit = async (e) => {
         e.preventDefault();
         const message = {
@@ -115,9 +116,8 @@ const sendMessage = async (chat) => {
             text: newMessage
         })
         try {
-            setMessages([...messages, message])
-            setNewMessage('')
             sendMessage(message)
+            setNewMessage('')
         } catch (error) {
             console.log(error)
         }
@@ -153,12 +153,12 @@ const sendMessage = async (chat) => {
                             <section className={`absolute md:relative top-0 left-0 right-0 bottom-0 h-auto flex flex-col flex-none bg-gray-50 overflow-auto ${showPeople ? 'w-full' : 'w-0'} group lg:max-w-sm md:w-2/5 transition-all duration-300 ease-in-out`} style={{ zIndex: 30 }}>
                                 <div className="header bg-white px-4 py-3 flex flex-row items-center flex-none justify-between">
                                     <div className="w-48 mx-auto items-center relative flex flex-shrink-0">
-                                        <img className="rounded-sm w-full h-full object-cover" alt="logo"
+                                        <img className="rounded-sm w-full h-full object-cover cursor-pointer" alt="logo"
                                             src={logo} onClick={() => history.push('/')} />
                                         {/* <h1 className="text-2xl mx-3 font-bold hidden sm:block h-text">Chats</h1> */}
                                     </div>
-                                    <button className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out" 
-                                    onClick={chatPeople}>
+                                    <button className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out"
+                                        onClick={chatPeople}>
                                         <KeyboardBackspaceIcon />
                                     </button>
                                 </div>
@@ -184,7 +184,7 @@ const sendMessage = async (chat) => {
                                         conversations.map((c, i) => (
                                             <div key={i} onClick={() => (setCurrentChat(c))}>
                                                 <div key={i} onClick={chatPeople}>
-                                                <Conversation key={i} conversation={c} currentUser={userSession} />
+                                                    <Conversation key={i} conversation={c} currentUser={userSession} />
                                                 </div>
                                             </div>
                                         ))
@@ -209,8 +209,8 @@ const sendMessage = async (chat) => {
                                             <div className="chat-body p-4 flex-1 overflow-y-scroll overflow-x-hidden z-10 ">
                                                 {messages.map((m, i) => (
                                                     <Message key={i} message={m} own={m.senderId === userSession.userId} />
-                                                    ))}
-                                                    <div ref={scrollRef} className="w-6 h-1"></div>
+                                                ))}
+                                                <div ref={scrollRef} className="w-6 h-1"></div>
                                             </div>
 
                                             <div class="chat-footer flex-none z-20 bg-white">
