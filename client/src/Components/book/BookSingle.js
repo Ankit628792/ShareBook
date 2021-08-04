@@ -53,7 +53,7 @@ function BookSingle() {
   // const summaryList = bookDetails?.description.slice(0, 1000).split(".");
 
   const deleteBook = () => {
-    axios.delete(`/api/books/deleteBook/${bookDetails?.bookId}`).then((res) => res.status==200 && history.goBack()).catch(() => toastify('Please try after sometimes'))
+    axios.delete(`/api/books/deleteBook/${bookDetails?.bookId}`).then((res) => res.status==200 && toastify('Book Removed Successfully !') && history.goBack()).catch(() => toastify('Please try after sometimes'))
   }
 
   const addToBookmarks = () => {
@@ -161,7 +161,7 @@ function BookSingle() {
                     <motion.button
                         whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                         whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                        className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
+                        className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none bg-red-600 hover:bg-red-800"
                         type="button"
                         onClick={deleteBook}
                         >

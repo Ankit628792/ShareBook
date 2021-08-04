@@ -21,7 +21,7 @@ import Footer from "./Components/other/Footer";
 import ScrollToTop from './Components/other/ScrollToTop'
 
 
-import './assets/main.css'
+// import './assets/main.css'
 import "./App.css";
 import './assets/style.css'
 
