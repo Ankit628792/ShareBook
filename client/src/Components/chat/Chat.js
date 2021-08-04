@@ -95,13 +95,12 @@ const Chat = () => {
             }
         }
         getMessages()
+    }, [currentChat])
+
+    useEffect(() => {
         setReceiverId(currentChat?.members.find(member => member !== userSession.userId))
     }, [currentChat])
 
-    const sendMessage = async (message) => {
-        const res = await axios.post('/api/messages', message)
-        setMessages([...messages, res.data])
-    }
     const handleSubmit = async (e) => {
         e.preventDefault();
         const message = {
@@ -116,7 +115,8 @@ const Chat = () => {
             text: newMessage
         })
         try {
-            sendMessage(message)
+            const res = await axios.post('/api/messages', message)
+            setMessages([...messages, res.data])
             setNewMessage('')
         } catch (error) {
             console.log(error)
