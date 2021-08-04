@@ -46,6 +46,7 @@ const Chat = () => {
     const [newMessage, setNewMessage] = useState("")
     const [arrivalMessage, setArrivalMessage] = useState(null)
     const [friend, setFriend] = useState([])
+    const [receiverId, setReceiverId] = useState()
 
     useEffect(() => {
         socket.current = io() 
@@ -94,6 +95,7 @@ const Chat = () => {
             }
         }
         getMessages()
+        setReceiverId(currentChat?.members.find(member => member !== userSession.userId))
     }, [currentChat])
 
 const sendMessage = async (chat) => {
@@ -106,7 +108,7 @@ const sendMessage = async (chat) => {
             text: newMessage,
             conversationId: currentChat._id
         }
-        const receiverId = await currentChat?.members.find(member => member !== userSession.userId)
+        // const receiverId = await currentChat?.members.find(member => member !== userSession.userId)
         socket.current.emit('sendMessage', {
             senderId: userSession.userId,
             receiverId: receiverId,
