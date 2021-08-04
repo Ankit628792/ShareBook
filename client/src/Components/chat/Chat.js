@@ -96,7 +96,9 @@ const Chat = () => {
         getMessages()
     }, [currentChat])
 
-
+const sendMessage = async (chat) => {
+    const res = await axios.post('/api/messages', chat)
+}
     const handleSubmit = async (e) => {
         e.preventDefault();
         const message = {
@@ -111,9 +113,9 @@ const Chat = () => {
             text: newMessage
         })
         try {
-            const res = await axios.post('/api/messages', message)
-            setMessages([...messages, res.data])
+            setMessages([...messages, message])
             setNewMessage('')
+            sendMessage(message)
         } catch (error) {
             console.log(error)
         }
