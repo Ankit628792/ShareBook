@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import books from '../../json/books'
 import Book from './Book'
 import { shuffleArray } from '../../util'
 import axios from 'axios'
@@ -7,7 +6,7 @@ import axios from 'axios'
 function AllBooks() {
     const [userBooks, setuserBooks] = useState({})
     const [result, setResult] = useState('')
-
+console.log(userBooks)
     useEffect(() => {
         axios.get(`/api/books/allbooks`)
             .then((bookResponse) => {

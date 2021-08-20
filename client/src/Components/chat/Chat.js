@@ -163,7 +163,7 @@ const Chat = () => {
                                     </button>
                                 </div>
                                 <div className="search-box p-4 flex-none">
-                                    <form onsubmit="">
+                                    <form>
                                         <div className="relative">
                                             <label>
                                                 <input className="rounded-full py-2 pr-6 pl-10 w-full bg-white focus:outline-none text-gray-900 shadow-md focus:shadow-lg transition duration-300 ease-in"
@@ -178,7 +178,6 @@ const Chat = () => {
                                         </div>
                                     </form>
                                 </div>
-
                                 <div className="contacts p-2 flex-1 overflow-y-scroll">
                                     {
                                         conversations.map((c, i) => (

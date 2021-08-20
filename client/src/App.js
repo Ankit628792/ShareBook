@@ -52,7 +52,6 @@ function App() {
 
   useEffect(() => {
     getUser()
-
     const localBookmarks = JSON.parse(localStorage.getItem("bookmark"));
     if (localBookmarks) {
       dispatch(restoreBookmark(localBookmarks));
