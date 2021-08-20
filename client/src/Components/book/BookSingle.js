@@ -50,22 +50,17 @@ function BookSingle() {
   
   const [isBookmarked, setIsBookmarked] = useState(false);
   
-  // const summaryList = bookDetails?.description.slice(0, 1000).split(".");
-
   const deleteBook = () => {
     axios.delete(`/api/books/deleteBook/${bookDetails?.bookId}`).then((res) => res.status==200 && toastify('Book Removed Successfully !') && history.goBack()).catch(() => toastify('Please try after sometimes'))
   }
 
   const addToBookmarks = () => {
-    // const addBookmark = {bookDetails}
-    // axios.post(`/api/books/addbookmark`, addBookmark)
     toastify('Added to Bookmark')
     setIsBookmarked(true);
     dispatch(addToBookmark(bookDetails))
   };
   
   const removeFromBookmarks = () => {
-    // axios.post(`/api/books/removebookmark:${bookDetails.bookId}`)
     toastify('Removed from Bookmark')
     setIsBookmarked(false)
     dispatch(removeFromBookmark(id))

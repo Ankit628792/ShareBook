@@ -1,50 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { motion } from "framer-motion";
 import { useHistory } from 'react-router';
 import { pageZoom } from '../../util';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { addToBookmark, removeFromBookmark } from '../actions';
-// import BookmarkRoundedIcon from '@material-ui/icons/BookmarkRounded';
 
 function Book({ id, title, category, location, image, summary }) {
-    // const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
 
-    // const dispatch = useDispatch();
     const history = useHistory();
-    // const [isBookmarked, setIsBookmarked] = useState(false);
-    let isBookmarked = false;
     const onBookClick = () => {
         history.push(`/book/${id}`);
-        // const singleBook = { id, author, location, title, image, summary, isBookmarked, mybook }
-        // console.log(singleBook)
-        // localStorage.setItem('singlebook', JSON.stringify(singleBook))
     }
 
-    // const bookDetails = { id, author, title, summary, image }
-    // const addToBookmarks = () => {
-    //     setIsBookmarked(true);
-    //     dispatch(addToBookmark(bookDetails))
-    // };
-
-    // const removeFromBookmarks = () => {
-    //     setIsBookmarked(false)
-    //     dispatch(removeFromBookmark(id))
-    // }
-
-    // useEffect(() => {
-    //     const bIndex = bookmarks.findIndex((book) => book.id == id);
-    //     if (bIndex >= 0) {
-    //         setIsBookmarked(true);
-    //     } else {
-    //         setIsBookmarked(false);
-    //     }
-    // }, [bookmarks, id])
-
     return (
-        <motion.div initial="hidden" animate="visible" variants={{
-            hidden: {
-                scale: 0,
-            },
+        <motion.div initial="hidden" animate="visible" variants={{ 
+            hidden: { scale: 0, },
             visible: {
                 scale: 1,
                 transition: {
@@ -88,23 +56,6 @@ function Book({ id, title, category, location, image, summary }) {
                     </div>
 
                     <div className="flex mt-3 border-t border-gray-200 "></div>
-                    {/* <div className="flex items-center justify-end">
-
-                                <motion.button
-                                    whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                                    whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                                    className="px-4 py-3 flex items-center text-white focus:outline-none btn-bg"
-                                    type="button" onClick={isBookmarked ? (removeFromBookmarks) : (addToBookmarks)}>
-                                    <BookmarkRoundedIcon
-                                        style={{
-                                            fill: isBookmarked ? "#fff" : "transparent",
-                                            stroke: "#fff",
-                                            strokeWidth: 2,
-                                        }}
-                                        className="mr-1"
-                                    />{isBookmarked ? `Bookmarked` : `Bookmark`}
-                                </motion.button>
-                            </div> */}
                 </div>
             </div>
         </motion.div>
