@@ -63,18 +63,23 @@ router.get('/getbook:bookId', async (req, res) => {
 //add a new book by user
 router.post('/addbook', uploadBook.single('image_url'), (req, res) => {
     const { userId, username, location, bookname, category, condition, description } = req.body;
+    console.log(req.file);
+    console.log(req.body);
     try {
         // const bookId = new Date().getTime().toString();
         const bookId = `${req.file.filename.split('.')[0]}`
         const image_url = `books/${req.file.filename}`;
+        console.log(image_url);
         const book = new Book({ userId, username, location, bookId, bookname, image_url, category, condition, description });
         book.save().then((data) => {
+            console.log(data);
             res.status(201).json({ message: "book registered successfully" });
         })
             .catch((e) => {
                 console.log(e)
             })
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: 'failed to register' })
     }
 })
