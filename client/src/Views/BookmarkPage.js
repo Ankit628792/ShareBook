@@ -1,7 +1,7 @@
 import React from "react";
 import Bookmark from "../Components/bookmark/Bookmark";
 import { motion } from "framer-motion";
-import { pageSlide, pageZoom, pageTransition } from '../util'
+import { pageZoom, pageTransition } from '../util'
 
 function BookmarkPage() {
   return (

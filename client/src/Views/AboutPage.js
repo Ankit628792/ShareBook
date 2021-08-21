@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { pageSlide, pageZoom, pageTransition } from '../util'
+import { pageZoom, pageTransition } from '../util'
 import About from '../Components/static/About'
 
 function AboutPage() {

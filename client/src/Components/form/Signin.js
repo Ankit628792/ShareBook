@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { getData, postData } from '../../requests/requestData'

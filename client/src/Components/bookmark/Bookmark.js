@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from 'framer-motion'
 import emptyBookmarks from "../../assets/emptyBookmarks.svg";
 import Book from "../book/Book";
@@ -39,7 +39,7 @@ function Bookmarks() {
             <NavLink to="/allbooks"><motion.button
               whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
               whileTap={{ scale: 0.95, transition: { duration: 0.1 } }} className="btn-bg mx-auto lg:mx-0 my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
-            >Go To Book Rack</motion.button></NavLink>
+            >Go To Book Shelf</motion.button></NavLink>
           </div>
         </div>
       )}

@@ -155,7 +155,6 @@ const Chat = () => {
                                     <div className="w-48 mx-auto items-center relative flex flex-shrink-0">
                                         <img className="rounded-sm w-full h-full object-cover cursor-pointer" alt="logo"
                                             src={logo} onClick={() => history.push('/')} />
-                                        {/* <h1 className="text-2xl mx-3 font-bold hidden sm:block h-text">Chats</h1> */}
                                     </div>
                                     <button className="md:hidden bg-gray-800 p-2 mr-6 rounded-full text-gray-50 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white transition-all duration-300 ease-in-out"
                                         onClick={chatPeople}>
@@ -180,6 +179,8 @@ const Chat = () => {
                                 </div>
                                 <div className="contacts p-2 flex-1 overflow-y-scroll">
                                     {
+                                        (conversations && conversations.length > 0)
+                                        ?
                                         conversations.map((c, i) => (
                                             <div key={i} onClick={() => (setCurrentChat(c))}>
                                                 <div key={i} onClick={chatPeople}>
@@ -187,6 +188,8 @@ const Chat = () => {
                                                 </div>
                                             </div>
                                         ))
+                                        :
+                                        <h1 className="text-base text-gray-700 text-center my-2 px-2">You're not connected with any book owner yet</h1>
                                     }
                                 </div>
 

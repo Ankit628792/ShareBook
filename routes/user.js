@@ -26,34 +26,6 @@ router.use('/user/image', express.static('user/image'))
 // Store book image using multer end
 
 
-
-const sendMail = (emailId) => {
-    // Gmail account info
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.EMAIL,
-            pass: process.env.PASSWORD
-        }
-    });
-    // Email info
-    const mailOptions = {
-        from: process.env.EMAIL,
-        to: emailId,
-        subject: 'Confirmation for ShareBook Registration',
-        text: `Thanks to register on Share Book, Let's Change the world `
-    };
-    // Send email 📧  and retrieve server response
-    transporter.sendMail(mailOptions, function (error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-    });
-}
-
-
 //signup user
 router.post('/signup', async (req, res) => {
     const { username, email, password, cpassword } = req.body;
@@ -73,7 +45,6 @@ router.post('/signup', async (req, res) => {
             const user = new User({ userId, username, email, password, cpassword });
             try {
                 const userRegister = await user.save()
-                // sendMail(userRegister.email)
                 res.status(201).json({ message: "User registered successfully" });
             } catch (error) {
                 res.status(400).json({ error: 'Failed to register' })

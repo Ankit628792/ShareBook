@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import { motion } from 'framer-motion'
 import { pageTransition, pageZoom } from '../../util';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import dummyImg from '../../assets/images/dummy.png'
 import axios from 'axios';

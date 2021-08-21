@@ -64,7 +64,6 @@ function Navbar() {
                         <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/allbooks">Books Shelf</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/about">About</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/contactus">Contact</NavLink></li>
-                        {/* <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/user">User</NavLink></li> */}
                         {
                             userSession ?
                                 <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/signout">Signout</NavLink></li>
@@ -83,7 +82,6 @@ function Navbar() {
 
                         <div className="flex-shrink-0 hidden lg:flex items-center justify-center">
                             <img className="w-auto h-16 inline-block" src={logo} alt="ShareBook" onClick={() => history.push('/')} />
-                            {/* <h1 className="font-bold pl-3 text-3xl inline-block">ShareBook</h1> */}
                         </div>
                         <div className="flex-1 flex items-center justify-center sm:items-stretch">
                             <div className="hidden nav md:block sm:ml-6">
