@@ -71,6 +71,8 @@ app.get('/getcookie', function (req, res) {
 
 const server = app.listen(port , () => {
     console.log(`Backend is running at Port ${port}`)
+    console.log(_getAllFilesFromFolder('./client'));
+
 })
 // mongodb+srv://<username>:<password>@cluster0.tde6c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
