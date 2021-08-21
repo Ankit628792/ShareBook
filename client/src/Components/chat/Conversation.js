@@ -24,7 +24,7 @@ function Conversation({ conversation, currentUser }) {
         <>
 
             <div className="flex justify-between items-center p-3 my-2 cursor-pointer bg-white shadow-sm hover:shadow-lg rounded-lg relative">
-                <Avatar className="w-16 h-16 relative flex flex-shrink-0 shadow" >
+                <Avatar className={`w-16 h-16 relative flex flex-shrink-0 ${user?.image_url ? 'shadow' : 'btn-bg' }`} >
                     {user?.image_url ?
                         <img src={user?.image_url} className="w-full h-full object-cover" alt="" />
                         : user?.username ? user?.username[0] : ''
