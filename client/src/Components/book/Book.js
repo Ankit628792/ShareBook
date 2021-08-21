@@ -27,7 +27,7 @@ function Book({ id, title, category, location, image, summary }) {
                     exit="out"
                     variants={pageZoom}
                     layoutId={id} className="imgBx rounded-sm flex items-center justify-center p-2 lg:mb-0 mb-3" onClick={onBookClick}>
-                    <img loading="lazy" src={`static/media/${image}`}
+                    <img loading="lazy" src={image}
                         alt="Book" className="w-full rounded-md h-full object-fill shadow-md hover:shadow-lg lg:object-cover lg:h-48 lg:w-48" />
                 </motion.div>
                 <div className="p-2">

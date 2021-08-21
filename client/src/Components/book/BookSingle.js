@@ -101,7 +101,7 @@ function BookSingle() {
           <div className="md:flex items-center -mx-10">
             <div className="h-2/4 w-3/4 sm:w-1/2 md:w-2/5 mx-auto sm:object-cover md:h-1/4 px-10 mb-10 md:mb-0 md:px-5">
               <div className="relative">
-                <img src={`static/media/${bookDetails?.image_url}`} className="w-full h-full relative z-10" alt="" />
+                <img src={bookDetails?.image_url} className="w-full h-full relative z-10" alt="" />
                 <div className="border-4 border-yellow-200 absolute top-10 bottom-10 left-10 right-10 z-0"></div>
               </div>
             </div>

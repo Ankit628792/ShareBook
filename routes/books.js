@@ -68,7 +68,7 @@ router.post('/addbook', uploadBook.single('image_url'), (req, res) => {
     try {
         // const bookId = new Date().getTime().toString();
         const bookId = `${req.file.filename.split('.')[0]}`
-        const image_url = `${req.file.filename}`;
+        const image_url = `https://mysharebook.herokuapp.com/static/media/${req.file.filename}`;
         console.log(image_url);
         const book = new Book({ userId, username, location, bookId, bookname, image_url, category, condition, description });
         book.save().then((data) => {
