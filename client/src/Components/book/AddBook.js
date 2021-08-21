@@ -78,10 +78,10 @@ function AddBook({ setisAddBook }) {
                     history.push('/mybook')
                     setisAddBook(false)
                 }
-                else{
-toastify('Unable to add book');
-setisLoading(false)
-}
+                else {
+                    toastify('Unable to add book');
+                    setisLoading(false)
+                }
             });
     };
 

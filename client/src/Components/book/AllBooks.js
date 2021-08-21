@@ -6,7 +6,6 @@ import axios from 'axios'
 function AllBooks() {
     const [userBooks, setuserBooks] = useState({})
     const [result, setResult] = useState('')
-console.log(userBooks)
     useEffect(() => {
         axios.get(`/api/books/allbooks`)
             .then((bookResponse) => {
@@ -43,11 +42,11 @@ console.log(userBooks)
                     </label>
                 </div>
                 <div className="all_book w-full max-w-full grid grid-cols-2 gap-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 px-3 lg:px-6 py-8 bg-gray-100 xl:px-10">
-                   
+
                     {userBooks && userBooks.length > 0 &&
                         userBooks.map((book, i) => (
                             (book.bookname.toLowerCase().includes(result) || book.location.toLowerCase().includes(result) || book.description.toLowerCase().includes(result)) &&
-                                <Book key={i} id={book.bookId} category={book.category} location={book.location} title={book.bookname} image={book.image_url} summary={book.description} />
+                            <Book key={i} id={book.bookId} category={book.category} location={book.location} title={book.bookname} image={book.image_url} summary={book.description} />
                         ))
 
                     }

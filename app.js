@@ -10,6 +10,29 @@ app.use(express.json({ limit: '10mb' }))
 app.use(cookieParser())
 
 require('./db/conn')
+// const fs = require('fs');
+console.log('path')
+var _getAllFilesFromFolder = function(dir) {
+
+    var filesystem = require("fs");
+    var results = [];
+
+    filesystem.readdirSync(dir).forEach(function(file) {
+
+        file = dir+'/'+file;
+        var stat = filesystem.statSync(file);
+        console.log(file)
+
+        if (stat && stat.isDirectory()) {
+            results = results.concat(_getAllFilesFromFolder(file))
+        } else results.push(file);
+
+    });
+
+    return results;
+
+};
+console.log(_getAllFilesFromFolder('./client'));
 
 const user = require('./routes/user')
 const books = require('./routes/books')
