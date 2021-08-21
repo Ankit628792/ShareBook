@@ -11,7 +11,7 @@ const Book = require('../model/userBook');
 
 // Store book image using multer
 const storageBook = multer.diskStorage({
-    destination: './client/build/books/',
+    destination: './client/build/static/media/',
     filename: (req, file, cb) => {
         return cb(null, `${Date.now()}${path.extname(file.originalname)}`)
     }
@@ -19,7 +19,7 @@ const storageBook = multer.diskStorage({
 const uploadBook = multer({
     storage: storageBook
 })
-router.use('/client/build/books', express.static('client/build/books'))
+router.use('/client/build/static/media', express.static('client/build/static/media'))
 // Store book image using multer end 
 
 
@@ -68,7 +68,7 @@ router.post('/addbook', uploadBook.single('image_url'), (req, res) => {
     try {
         // const bookId = new Date().getTime().toString();
         const bookId = `${req.file.filename.split('.')[0]}`
-        const image_url = `./books/${req.file.filename}`;
+        const image_url = `./static/media/${req.file.filename}`;
         console.log(image_url);
         const book = new Book({ userId, username, location, bookId, bookname, image_url, category, condition, description });
         book.save().then((data) => {
