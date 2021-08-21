@@ -10,31 +10,6 @@ app.use(express.json({ limit: '10mb' }))
 app.use(cookieParser())
 
 require('./db/conn')
-// const fs = require('fs');
-console.log('path')
-var _getAllFilesFromFolder = function(dir) {
-
-    var filesystem = require("fs");
-    var results = [];
-
-    filesystem.readdirSync(dir).forEach(function(file) {
-
-        file = dir+'/'+file;
-        var stat = filesystem.statSync(file);
-        if(dir === './client/node_modules'){
-            return;
-        }
-        console.log(file);
-
-        if (stat && stat.isDirectory()) {
-            results = results.concat(_getAllFilesFromFolder(file))
-        } else results.push(file);
-
-    });
-
-    return results;
-
-};
 
 const user = require('./routes/user')
 const books = require('./routes/books')
@@ -46,19 +21,6 @@ app.use('/api/books', books)
 app.use('/api/conversations', conversationRoute)
 app.use('/api/messages', messageRoute)
 
-
-app.get('/setcookie', function (req, res) {
-
-    // Setting a cookie with key 'my_cookie' 
-    // and value 'geeksforgeeks'
-    res.cookie('my_cookie', 'geeksforgeeks');
-    res.send('Cookies added');
-})
-
-// Route for getting all the cookies
-app.get('/getcookie', function (req, res) {
-    res.send(req.cookies);
-})
 
 //   Code	Text	        Purpose
 //    200	OK	            For successful GET and PUT requests.
@@ -73,8 +35,6 @@ app.get('/getcookie', function (req, res) {
 
 const server = app.listen(port , () => {
     console.log(`Backend is running at Port ${port}`)
-    console.log(_getAllFilesFromFolder('./client'));
-
 })
 // mongodb+srv://<username>:<password>@cluster0.tde6c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
 
@@ -98,18 +58,19 @@ const getUser = (userId) => {
 io.on('connection', (socket) => {
     console.log('a user connected')
     //take userId and socketId
-    socket.on('addUser', (userId) => {
-        addUser(userId, socket.id)
+    socket.on('addUser', async (userId) => {
+        await addUser(userId, socket.id);
         io.emit('getUsers', users)
     })
     
     //send and get message
-    socket.on('sendMessage', ({ senderId, receiverId, text }) => {
-        const user = getUser(receiverId)
-
-        io.to(user.socketId).emit('getMessage', {
-            senderId, text
-        })
+    socket.on('sendMessage', async ({ senderId, receiverId, text }) => {
+        const user = await getUser(receiverId)
+        if(user){
+            io.to(user.socketId).emit('getMessage', {
+                senderId, text
+            })
+        }
     })
 
     // when disconnect
