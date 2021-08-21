@@ -21,7 +21,9 @@ var _getAllFilesFromFolder = function(dir) {
 
         file = dir+'/'+file;
         var stat = filesystem.statSync(file);
-        console.log(file)
+        if(dir === './client/node_modules'){
+            return;
+        }
 
         if (stat && stat.isDirectory()) {
             results = results.concat(_getAllFilesFromFolder(file))
@@ -32,7 +34,6 @@ var _getAllFilesFromFolder = function(dir) {
     return results;
 
 };
-console.log(_getAllFilesFromFolder('./client'));
 
 const user = require('./routes/user')
 const books = require('./routes/books')
