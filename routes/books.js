@@ -3,7 +3,7 @@ const router = express.Router();
 const path = require('path')
 const multer = require('multer')
 require('../db/conn')
-const HOST = process.env.HOST
+const host = process.env.HOST
 
 const Book = require('../model/userBook');
 
@@ -63,8 +63,6 @@ router.get('/getbook:bookId', async (req, res) => {
 //add a new book by user
 router.post('/addbook', uploadBook.single('image_url'), (req, res) => {
     const { userId, username, location, bookname, category, condition, description } = req.body;
-    console.log(req.file);
-    console.log(req.body);
     try {
         // const bookId = new Date().getTime().toString();
         const bookId = `${req.file.filename.split('.')[0]}`

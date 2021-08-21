@@ -16,7 +16,6 @@ function AllBooks() {
                 console.log(e);
             })
     }, [])
-
     const filterBook = (e) => {
         e.preventDefault();
         setResult(e.target.value.toLowerCase())
