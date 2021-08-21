@@ -24,6 +24,7 @@ var _getAllFilesFromFolder = function(dir) {
         if(dir === './client/node_modules'){
             return;
         }
+        console.log(file);
 
         if (stat && stat.isDirectory()) {
             results = results.concat(_getAllFilesFromFolder(file))
