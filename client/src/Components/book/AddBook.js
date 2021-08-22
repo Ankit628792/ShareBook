@@ -89,7 +89,8 @@ function AddBook({ setisAddBook }) {
                     }
                 else{
                     toastify('Could not add book')
-                        setisLoading(false)
+                    setisLoading(false)
+                }
 
                 });
         }
