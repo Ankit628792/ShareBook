@@ -57,7 +57,7 @@ function AddBook({ setisAddBook }) {
     const onSubmit = (data, e) => {
         setData(data);
         console.log('registering user ...')
-        setisLoading(true)
+        
         // const bookDetail = new FormData();
         // bookDetail.append('image', preview);
         // bookDetail.append('userId', userId)
@@ -76,6 +76,7 @@ function AddBook({ setisAddBook }) {
 
     useEffect(() => {
         const sendData = () => {
+            setisLoading(true)
             let image_url = '' ;
             let newData = { ...data, userId, username, location, image_url }
             newData.image_url = preview
