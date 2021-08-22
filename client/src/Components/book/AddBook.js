@@ -54,6 +54,7 @@ function AddBook({ setisAddBook }) {
 
 
     const sendData = () => {
+        let image_url = '' ;
         let bookDetail = { ...data, username, location, image_url, userId }
         bookDetail.image_url = preview
         axios.post(`/api/books/addbook`, bookDetail)
@@ -75,8 +76,6 @@ function AddBook({ setisAddBook }) {
     const onSubmit = (data, e) => {
         setData(data);
         console.log('registering book ...')
-        setisLoading(true)
-        sendData()
         // const bookDetail = new FormData();
         // bookDetail.append('image_url', image);
         // bookDetail.append('userId', userId)
@@ -101,6 +100,11 @@ function AddBook({ setisAddBook }) {
         //         }
         //     });
     };
+    
+    useEffect(() => {
+        setisLoading(true)
+        sendData()
+    }, [data])
 
 
     return (
