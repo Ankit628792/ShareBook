@@ -53,23 +53,9 @@ function AddBook({ setisAddBook }) {
     }, [image])
 
 
-    // onSubmit handle event 
-    const onSubmit = (data, e) => {
-        setData(data);
-        console.log('registering book ...')
-        setisLoading(true)
-        console.log(preview)
-        console.log(image)
-        const bookDetail = new FormData();
-        bookDetail.append('image_url', image);
-        bookDetail.append('userId', userId)
-        bookDetail.append('username', username)
-        bookDetail.append('location', (location || `India`))
-        bookDetail.append('bookname', data.bookname)
-        bookDetail.append('category', data.category)
-        bookDetail.append('condition', data.condition)
-        bookDetail.append('description', data.description)
-
+    const sendData = () => {
+        let bookDetail = { ...data, username, location, image_url, userId }
+        bookDetail.image_url = preview
         axios.post(`/api/books/addbook`, bookDetail)
             .then((res) => {
                 if (res.status === 201) {
@@ -83,6 +69,37 @@ function AddBook({ setisAddBook }) {
                     setisLoading(false)
                 }
             });
+    }
+
+    // onSubmit handle event 
+    const onSubmit = (data, e) => {
+        setData(data);
+        console.log('registering book ...')
+        setisLoading(true)
+        sendData()
+        // const bookDetail = new FormData();
+        // bookDetail.append('image_url', image);
+        // bookDetail.append('userId', userId)
+        // bookDetail.append('username', username)
+        // bookDetail.append('location', (location || `India`))
+        // bookDetail.append('bookname', data.bookname)
+        // bookDetail.append('category', data.category)
+        // bookDetail.append('condition', data.condition)
+        // bookDetail.append('description', data.description)
+
+        // axios.post(`/api/books/addbook`, bookDetail)
+        //     .then((res) => {
+        //         if (res.status === 201) {
+        //             toastify('Book added successfully')
+        //             setisLoading(false)
+        //             history.push('/mybook')
+        //             setisAddBook(false)
+        //         }
+        //         else {
+        //             toastify('Unable to add book');
+        //             setisLoading(false)
+        //         }
+        //     });
     };
 
 

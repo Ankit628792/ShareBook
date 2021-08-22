@@ -61,15 +61,13 @@ router.get('/getbook:bookId', async (req, res) => {
 
 
 //add a new book by user
-router.post('/addbook', uploadBook.single('image_url'), (req, res) => {
-    const { userId, username, location, bookname, category, condition, description } = req.body;
-    console.log(req.file)
-    console.log(req.body)
+router.post('/addbook', (req, res) => {
+    const { userId, username, location, bookname, category, image_url, condition, description } = req.body;
     try {
-        // const bookId = new Date().getTime().toString();
-        const bookId = `${req.file.filename.split('.')[0]}`
-        const image_url = `../../books/images/${req.file.filename}`;
-        console.log(image_url);
+        const bookId = new Date().getTime().toString();
+        // const bookId = `${req.file.filename.split('.')[0]}`
+        // const image_url = `../../books/images/${req.file.filename}`;
+        // console.log(image_url);
         const book = new Book({ userId, username, location, bookId, bookname, image_url, category, condition, description });
         book.save().then((data) => {
             res.status(201).json({ message: "book registered successfully" });

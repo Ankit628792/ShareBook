@@ -61,7 +61,6 @@ function UserInfo() {
         e.preventDefault();
         const { name, value } = e.target
         setData({ ...data, [name]: value })
-        
     }
     const sendData = () => {
         let newData = { ...data, phone, username, location, image_url, about }
