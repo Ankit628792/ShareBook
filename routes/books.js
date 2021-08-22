@@ -63,6 +63,7 @@ router.get('/getbook:bookId', async (req, res) => {
 //add a new book by user
 router.post('/addbook', (req, res) => {
     const { userId, username, location, bookname, category, image_url, condition, description } = req.body;
+    console.log(req.body.bookname);
     try {
         const bookId = new Date().getTime().toString();
         // const bookId = `${req.file.filename.split('.')[0]}`
