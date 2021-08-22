@@ -95,7 +95,9 @@ function AddBook({ setisAddBook }) {
 
                 });
         }
+if(data){
         sendData()
+}
     }, [data])
 
     return (
