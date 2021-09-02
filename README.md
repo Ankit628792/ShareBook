@@ -1,6 +1,6 @@
 # ShareBook- MERN APP
 ### Live Demo: https://mysharebook.herokuapp.com/
-<img src="https://raw.githubusercontent.com/Ankit628792/ShareBook/master/ss/home.png" />
+<img src="/ss/home.png" />
 
 <br />
 <br />
