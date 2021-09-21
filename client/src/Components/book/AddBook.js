@@ -54,6 +54,7 @@ function AddBook({ setisAddBook }) {
 
 
     const sendData = () => {
+        let image_url = '';
         let bookDetail = { ...data, username, location, image_url, userId }
         bookDetail.image_url = preview
         axios.post(`/api/books/addbook`, bookDetail)
