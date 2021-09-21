@@ -75,11 +75,10 @@ function AddBook({ setisAddBook }) {
     // onSubmit handle event 
     const onSubmit = (data, e) => {
         setData(data);
-        console.log('registering book ...')
-        setisLoading(true)
-        sendData()
+        console.log('registering user ...')
+
         // const bookDetail = new FormData();
-        // bookDetail.append('image_url', image);
+        // bookDetail.append('image', preview);
         // bookDetail.append('userId', userId)
         // bookDetail.append('username', username)
         // bookDetail.append('location', (location || `India`))
@@ -87,22 +86,38 @@ function AddBook({ setisAddBook }) {
         // bookDetail.append('category', data.category)
         // bookDetail.append('condition', data.condition)
         // bookDetail.append('description', data.description)
+        // const image = {image: preview}
+        // console.log(image)
+        // data = {data, ...image}
+        // console.log(data)
 
-        // axios.post(`/api/books/addbook`, bookDetail)
-        //     .then((res) => {
-        //         if (res.status === 201) {
-        //             toastify('Book added successfully')
-        //             setisLoading(false)
-        //             history.push('/mybook')
-        //             setisAddBook(false)
-        //         }
-        //         else {
-        //             toastify('Unable to add book');
-        //             setisLoading(false)
-        //         }
-        //     });
     };
 
+    useEffect(() => {
+        const sendData = () => {
+            setisLoading(true)
+            let image_url = '';
+            let newData = { ...data, userId, username, location, image_url }
+            newData.image_url = preview
+            axios.post(`/api/books/addbook`, newData)
+                .then((res) => {
+                    if (res.status === 201) {
+                        toastify('Book added successfully')
+                        setisLoading(false)
+                        history.push('/mybook')
+                        setisAddBook(false)
+                    }
+                    else {
+                        toastify('Could not add book')
+                        setisLoading(false)
+                    }
+
+                });
+        }
+        if (data) {
+            sendData()
+        }
+    }, [data])
 
     return (
         <>
@@ -180,6 +195,8 @@ function AddBook({ setisAddBook }) {
                             <p className="text-sm text-red-400 text-left my-3">Maximum length 1000 characters</p>
                         </div>
                         <div className="flex items-center justify-end">
+                            {/* <button className="mb-2 md:mb-0 btn-bg px-5 py-2 text-base shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-green-500">Save</button>
+                            <button className="mb-2 md:mb-0 bg-white px-5 py-2 text-base shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100"> Cancel </button> */}
                             <motion.button
                                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
