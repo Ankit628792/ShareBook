@@ -48,7 +48,7 @@ function MyBooks() {
         return (
             <>
                 <div className="flex items-center justify-between px-8 md:px-20 mt-5">
-                    <h4 className="h-text font-medium text-3xl">Bookmarks</h4>
+                    <h4 className="h-text font-medium text-3xl">My Books</h4>
                     <motion.button
                         whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                         whileTap={{ scale: 0.95, transition: { duration: 0.1 } }} className="btn-bg my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
