@@ -4,11 +4,8 @@
 
 <br />
 <br />
-<!-- ABOUT THE PROJECT -->
-## About The Project
 
-[![ShareBook][product-screenshot]](https://github.com/Ankit628792/ShareBook/tree/master/ss)
-
+### About The Project
 ShareBook is an intiative that is started for the purpose to share the book people to people without any cost by the nearby people to you.
 We provide a large varities of book to share and get from others without any cost. This is a free plateform to meet your needs. Explore our services with a seemless and interactive experience.
 
