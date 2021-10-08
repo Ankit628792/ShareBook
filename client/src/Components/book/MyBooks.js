@@ -35,7 +35,7 @@ function MyBooks() {
         const [books, setbooks] = useState({})
 
         useEffect(() => {
-            fetch(`/api/books/getmybook:${userSession.userId}`)
+            fetch(`/api/books/getmybook:${userSession?.userId}`)
                 .then((response => response.json()))
                 .then((bookResponse) => {
                     setbooks(bookResponse)
