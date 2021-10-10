@@ -95,7 +95,7 @@ function AddBook({ setisAddBook }) {
 
     useEffect(() => {
         const sendData = () => {
-            setisLoading(true)
+            data?.length >1 && setisLoading(true)
             let image_url = '';
             let newData = { ...data, userId, username, location, image_url }
             newData.image_url = preview
@@ -194,11 +194,11 @@ function AddBook({ setisAddBook }) {
                             {/* <p className="text-sm text-gray-400 text-left my-3">You inserted 0 characters</p> */}
                             <p className="text-sm text-red-400 text-left my-3">Maximum length 1000 characters</p>
                         </div>
-                        <div className="mb-4 md:space-y-2 w-full">
+                        <div className="my-4 w-full">
                             <label className=" font-semibold text-gray-600">Agreement (Optional)</label>
                             <div className="flex flex-wrap items-stretch w-full mb-4 relative">
                                 <input type="number" min="1" className="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border h-10 border-grey-light rounded-lg px-3 relative focus:border-blue focus:shadow mt-2 focus:outline-none focus:border-gray-400"
-                                    placeholder="number months" {...register("agreement")} />
+                                    placeholder="number of months to return the book" {...register("agreement")} />
                             </div>
                         </div>
                         <div className="flex items-center justify-end">
