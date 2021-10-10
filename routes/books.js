@@ -63,11 +63,11 @@ router.get('/getbook:bookId', async (req, res) => {
 //add a new book by user
 router.post('/addbook', (req, res) => {
     console.log(req.body.bookname)
-    const { userId, username, location, bookname, image_url, category, condition, description } = req.body;
+    const { userId, username, location, bookname, image_url, category, condition, description, agreement } = req.body;
     try {
         const bookId = new Date().getTime().toString();
         // const bookId = `${req.file.filename.split('.')[0]}`
-        const book = new Book({ userId, username, location, bookId, bookname, image_url, category, condition, description });
+        const book = new Book({ userId, username, location, bookId, bookname, image_url, category, condition, description, agreement });
         book.save().then((data) => {
             res.status(201).json({ message: "book registered successfully" });
         })

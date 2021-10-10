@@ -31,6 +31,9 @@ const bookSchema = new mongoose.Schema({
     category: {
         type: String
     },
+    agreement: {
+        type: Number
+    },
     image_url: {
         type: String
     }

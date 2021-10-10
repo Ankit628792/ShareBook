@@ -122,6 +122,17 @@ function BookSingle() {
                     ))
                   }
                 </ul>
+
+                {bookDetails?.agreement && 
+                <>
+                <h2 className="capitalize font-bold my-3 flex">Agreement: </h2>
+                
+                <p className="font-medium p-text">
+                  <input type="checkbox" required className="w-5 h-5 mr-1" />
+                  <span>I accept the agreement to return the book in {bookDetails?.agreement} months to the owner without any delay.</span>
+                </p>
+                </>
+                }
               </div>
               <div>
                 
