@@ -95,7 +95,7 @@ function AddBook({ setisAddBook }) {
 
     useEffect(() => {
         const sendData = () => {
-            data?.length >1 && setisLoading(true)
+            data?.length > 5 && setisLoading(true)
             let image_url = '';
             let newData = { ...data, userId, username, location, image_url }
             newData.image_url = preview
@@ -114,7 +114,7 @@ function AddBook({ setisAddBook }) {
 
                 });
         }
-        if (data) {
+        if (data && data?.length >5) {
             sendData()
         }
     }, [data])
@@ -198,7 +198,7 @@ function AddBook({ setisAddBook }) {
                             <label className=" font-semibold text-gray-600">Agreement (Optional)</label>
                             <div className="flex flex-wrap items-stretch w-full mb-4 relative">
                                 <input type="number" min="1" className="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border h-10 border-grey-light rounded-lg px-3 relative focus:border-blue focus:shadow mt-2 focus:outline-none focus:border-gray-400"
-                                    placeholder="number of months to return the book" {...register("agreement")} />
+                                    placeholder="Number of months to return the book" {...register("agreement")} />
                             </div>
                         </div>
                         <div className="flex items-center justify-end">

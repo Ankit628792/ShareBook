@@ -127,8 +127,8 @@ function BookSingle() {
                 <>
                 <h2 className="capitalize font-bold my-3 flex">Agreement: </h2>
                 
-                <p className="font-medium p-text">
-                  <input type="checkbox" required className="w-5 h-5 mr-1" />
+                <p className="p-text">
+                  <input type="checkbox" required className="w-4 h-4 mr-1" />
                   <span>I acknowledge that I will take proper care of book that I am getting from owner. I further understand according the agreement of {bookDetails?.agreement} months, I will return this book proper condition. I understand I may be held financially responsible for lost or damaged of book. I understand that failure to return equipment will be considered theft and may lead to criminal prosecution.</span>
                 </p>
                 </>
