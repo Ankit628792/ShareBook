@@ -61,7 +61,7 @@ const toastify = (text) =>  toast(`${text}`, {
                     toastify(error)
                     break;
                 case 401:
-                    toastify(error)
+                    toastify("Unregistered User")
                     break;
                 case 422:
                     toastify(error)

@@ -50,7 +50,7 @@ const Signup = () => {
                         toastify(error)
                         break;
                     case 420:
-                        toastify(error)
+                        toastify("User already exist")
                         break;
                     case 421:
                         toastify(error)

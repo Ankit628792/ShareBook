@@ -12,7 +12,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function AddBook({ setisAddBook }) {
 
-    const userSession = useSelector((state) => state.userReducer.userSession);
+    const userSession = JSON.parse(localStorage.getItem("userSession"));
     const { userId, username, location } = userSession;
     const toastify = (text) => toast(`${text}`, {
         position: "top-center",
@@ -27,7 +27,6 @@ function AddBook({ setisAddBook }) {
     const history = useHistory();
     if (!location) {
         toastify('Please complete your profile before adding any book!')
-        history.push('/myaccount')
     }
 
     const { register, handleSubmit, formState: { errors } } = useForm({ reValidateMode: 'onChange' });
