@@ -95,7 +95,9 @@ function AddBook({ setisAddBook }) {
 
     useEffect(() => {
         const sendData = () => {
-            data?.length > 5 && setisLoading(true)
+            if(data.bookname){
+                setisLoading(true)
+            }
             let image_url = '';
             let newData = { ...data, userId, username, location, image_url }
             newData.image_url = preview
@@ -114,7 +116,7 @@ function AddBook({ setisAddBook }) {
 
                 });
         }
-        if (data && data?.length >5) {
+        if (data && data?.bookname) {
             sendData()
         }
     }, [data])
