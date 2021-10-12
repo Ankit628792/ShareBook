@@ -96,6 +96,7 @@ router.post('/signin', async (req, res) => {
 //in between page authentication
 router.get('/userAuthentication', Authenticate, (req, res) => {
     user = req.rootUser
+    console.log(user)
     const { cpassword, Tokens, ...other } = user._doc;
     res.status(200).send(other)
 })
