@@ -139,7 +139,7 @@ function AddBook({ setisAddBook }) {
                                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                                 className="bg-gray-900 mx-2 px-5 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
-                                type="button" onClick={() => { setisAddBook(false) }}>
+                                type="button" onClick={() => setisAddBook(false) }>
                                 Cancel
                             </motion.button>
 

@@ -52,7 +52,7 @@ function MyBooks() {
                     <motion.button
                         whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                         whileTap={{ scale: 0.95, transition: { duration: 0.1 } }} className="btn-bg my-3 py-3 px-7 font-bold tracking-wide text-white focus:shadow-outline focus:outline-none"
-                        onClick={() => { setisAddBook(true) }}
+                        onClick={() => setisAddBook(true) }
                     >Add Book</motion.button>
                 </div>
                 {books && books.length > 0 ? (
