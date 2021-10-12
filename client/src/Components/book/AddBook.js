@@ -24,10 +24,10 @@ function AddBook({ setisAddBook }) {
         progress: undefined,
     });
 
-    const history = useHistory();
-    if (!location) {
-        toastify('Please complete your profile before adding any book!')
-    }
+    // const history = useHistory();
+    // if (!location) {
+    //     toastify('Please complete your profile before adding any book!')
+    // }
 
     const { register, handleSubmit, formState: { errors } } = useForm({ reValidateMode: 'onChange' });
 
@@ -54,7 +54,7 @@ function AddBook({ setisAddBook }) {
 
     const sendData = () => {
         let image_url = '';
-        let bookDetail = { ...data, username, location, image_url, userId }
+        let bookDetail = { ...data, username, location: location || 'Delhi', image_url, userId }
         bookDetail.image_url = preview
         axios.post(`/api/books/addbook`, bookDetail)
             .then((res) => {
@@ -98,7 +98,7 @@ function AddBook({ setisAddBook }) {
                 setisLoading(true)
             }
             let image_url = '';
-            let newData = { ...data, userId, username, location, image_url }
+            let newData = { ...data, userId, username, location: location || 'Delhi', image_url }
             newData.image_url = preview
             axios.post(`/api/books/addbook`, newData)
                 .then((res) => {
