@@ -11,6 +11,8 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import shareBook_agreement from '../../assets/shareBook_agreement.pdf'
+
 
 function BookSingle() {
 
@@ -127,9 +129,9 @@ function BookSingle() {
                 <>
                 <h2 className="capitalize font-bold my-3 flex">Agreement: </h2>
                 
-                <p className="p-text">
+                <p className="p-text flex">
                   <input type="checkbox" required className="w-4 h-4 mr-1" />
-                  <span>I acknowledge that I will take proper care of book that I am getting from owner. I further understand according the agreement of {bookDetails?.agreement} months, I will return this book proper condition. I understand I may be held financially responsible for lost or damaged of book. I understand that failure to return equipment will be considered theft and may lead to criminal prosecution.</span>
+                  <span>I accept the agreement of {bookDetails?.agreement} months to return the book <a href={shareBook_agreement} className="text-blue-500 cursor-pointer" download>Download Agreement</a></span>
                 </p>
                 </>
                 }
