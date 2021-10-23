@@ -24,7 +24,7 @@ function AddBook({ setisAddBook }) {
         progress: undefined,
     });
 
-    // const history = useHistory();
+    const history = useHistory();
     // if (!location) {
     //     toastify('Please complete your profile before adding any book!')
     // }
