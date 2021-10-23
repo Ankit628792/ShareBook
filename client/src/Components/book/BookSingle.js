@@ -129,7 +129,7 @@ function BookSingle() {
                 <>
                 <h2 className="capitalize font-bold my-3 flex">Agreement: </h2>
                 
-                <p className="p-text flex">
+                <p className="p-text">
                   <input type="checkbox" required className="w-4 h-4 mr-1" />
                   <span>I accept the agreement of {bookDetails?.agreement} months to return the book <a href={shareBook_agreement} className="text-blue-500 cursor-pointer" download>Download Agreement</a></span>
                 </p>
