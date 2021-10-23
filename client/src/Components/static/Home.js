@@ -5,7 +5,6 @@ import appStore from "../../assets/app-store.svg";
 import googlePlay from "../../assets/google-play.svg";
 import headerImg from "../../assets/images/headerImg.png";
 import contact3 from "../../assets/images/contact3.jpg";
-import contact3 from "../../assets/images/contact3.jpg";
 
 function Home() {
   return (
