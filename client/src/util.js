@@ -25,14 +25,18 @@ const shuffleArray = (array) => {
 
 const Cipher = (text) => {
   let cText = '';
-  for (i in text) { cText += String.fromCharCode(text.charCodeAt(i) + 6) }
-  return cText ;
+  for (let i = 0; i < text.length; i++) {
+    cText += String.fromCharCode(text.charCodeAt(i) + 6)
+  }
+  return cText;
 }
 
 const DeCipher = (text) => {
   let dcText = '';
-  for (i in text) { dcText += String.fromCharCode(text.charCodeAt(i) - 6) }
-  return dcText ;
+  for (let i = 0; i < text.length; i++) {
+    dcText += String.fromCharCode(text.charCodeAt(i) - 6)
+  }
+  return dcText;
 }
 
 const pageTransition = {
