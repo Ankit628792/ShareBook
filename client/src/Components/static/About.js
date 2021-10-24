@@ -78,18 +78,15 @@ function About() {
                 Free Plateform
               </h6>
               <p className="text-sm p-text">
-                Sportacus andrew weatherall goose Refined gentlemen super mario
-                des lynam alpha trion zap rowsdower, omar sharif old.
+                No payment involvement. Use Freely and Share Freely. Our motive is to make system of sharing the book, so that the any person can read and learn from the book without even buying it.
               </p>
             </div>
             <div className="pb-4 mb-4 border-b">
               <h6 className="mb-2 font-semibold leading-5 h-text capitalize">
-                Available share Book Near By
+                Available Share Book Near By
               </h6>
               <p className="text-sm p-text">
-                Chase ball of string eat plants, meow, and throw up because I ate
-                plants going to catch the red dot today going to catch the red dot
-                today. I could pee on this if I had the energy.
+                Share and get the book with people nearby your area so they don't have to go so far in the search of book.
               </p>
             </div>
             <div>
@@ -97,9 +94,7 @@ function About() {
                 Meet with the new people
               </h6>
               <p className="text-sm p-text">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae doloremque laudantium.
+                Share the book and make new friends. You're not just sharing the book, it's your interest that is shared by you to others.
               </p>
             </div>
           </div>
@@ -156,9 +151,7 @@ function About() {
                 To Make a <span className="s-text">Positive Change</span> in the Livings.
               </h2>
               <p className="text-base p-text md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae. explicabo.
+                Every person have the birth right to read and learn for free. With this thought we want to initiate a change in the society, so that anybody can get the book for free.
               </p>
             </div>
             <div>
@@ -189,6 +182,7 @@ function About() {
         </div>
       </div>
 
+
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="grid gap-12 row-gap-8 lg:grid-cols-2">
           <div>
@@ -206,12 +200,9 @@ function About() {
                 Now <span className="s-text">Share it</span>.
               </h2>
               <p className="text-base p-text md:text-lg">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae. explicabo.
+                If you've already read the book and taking the space in your book shelf. Take it out from there and share it others so they can also read it.  
               </p>
             </div>
-            <div className="grid gap-8 row-gap-8 sm:grid-cols-2">
               <div>
                 <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-100">
                   <svg
@@ -229,40 +220,13 @@ function About() {
                   </svg>
                 </div>
                 <h6 className="mb-2 font-semibold leading-5 h-text">
-                  I'll be sure to note that in my log
+                  Use space in your book shelf Wisely
                 </h6>
                 <p className="text-sm p-text">
-                  Dingy I'm tellin' you rhubaahb Bangah Jo-Jeezly got in a gaum
-                  Powrtland stove up dooryahd
-                </p>
-              </div>
-              <div>
-                <div className="flex items-center justify-center w-12 h-12 mb-4 bg-indigo-100 rounded-full">
-                  <svg
-                    className="w-10 h-10"
-                    stroke="currentColor"
-                    viewBox="0 0 52 52"
-                  >
-                    <polygon
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                      points="29 13 14 29 25 29 23 39 38 23 27 23"
-                    />
-                  </svg>
-                </div>
-                <h6 className="mb-2 font-semibold h-text leading-5">
-                  Iterative approaches to corporate strategy
-                </h6>
-                <p className="text-sm p-text">
-                  A slice of heaven. O for awesome, this chocka full cuzzie is as
-                  rip-off as a cracker.
+                  Making a collection of book is nice thing but what about to share it to others who actuallly need those books? Replace the book in your book shelf with the other book, by sharing and getting the book.
                 </p>
               </div>
             </div>
-          </div>
-
         </div>
       </div>
 
@@ -286,7 +250,7 @@ function About() {
               Share Your <span className="s-text">Interest</span> With Others
             </h2>
             <p className="pr-5 mb-5 text-base p-text md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
+              Book are an integral part of our life directly and indirectly. You're not just sharing the book, it's your interest that have to taken to read the book.
             </p>
             <div className="flex items-center">
               <NavLink to="/allbooks">
@@ -301,7 +265,81 @@ function About() {
         </div>
       </div>
 
-      <Testimonials />
+
+      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <div className="grid gap-12 row-gap-8 lg:grid-cols-2">
+          <div>
+            <img loading="lazy"
+              className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
+              src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=869&q=80"
+              alt=""
+            />
+          </div>
+          <div className="flex flex-col justify-center">
+            <div className="max-w-xl mb-6">
+              <h2 className="max-w-lg mb-3 font-sans text-3xl font-bold tracking-tight h-text sm:text-4xl sm:leading-none">
+                Don't want to share for free?&nbsp;
+                <br className="hidden md:block" />
+                Share it based on&nbsp;<span className="s-text">Agreement</span>.
+              </h2>
+              <p className="text-base p-text md:text-lg">
+                If owner wants to share with an agreement, user have to accept the agreement and while sharing or getting the book, give a duly signed copy of agreement to the owner.
+              </p>
+            </div>
+            <div className="grid gap-8 row-gap-8 sm:grid-cols-2">
+              <div>
+                <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-100">
+                  <svg
+                    className="w-10 h-10"
+                    stroke="currentColor"
+                    viewBox="0 0 52 52"
+                  >
+                    <polygon
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                      points="29 13 14 29 25 29 23 39 38 23 27 23"
+                    />
+                  </svg>
+                </div>
+                <h6 className="mb-2 font-semibold h-text leading-5">
+                  Share with payment
+                </h6>
+                <p className="text-sm p-text">
+                  If you choose to share the book with the cost, raise an agreement and make the payment based on agreement
+                </p>
+              </div>
+              <div>
+                <div className="flex items-center justify-center w-12 h-12 mb-4 bg-indigo-100 rounded-full">
+                  <svg
+                    className="w-10 h-10"
+                    stroke="currentColor"
+                    viewBox="0 0 52 52"
+                  >
+                    <polygon
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                      points="29 13 14 29 25 29 23 39 38 23 27 23"
+                    />
+                  </svg>
+                </div>
+                <h6 className="mb-2 font-semibold leading-5 h-text">
+                  For a period of time
+                </h6>
+                <p className="text-sm p-text">
+                  Share for a period of time under the sharebook agreement to the user.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* <Testimonials /> */}
 
     </>
   )

@@ -105,6 +105,8 @@ const Chat = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         let encText = Cipher(newMessage);
+        console.log(newMessage)
+        console.log(encText)
         const message = {
             senderId: userSession.userId,
             text: encText,
