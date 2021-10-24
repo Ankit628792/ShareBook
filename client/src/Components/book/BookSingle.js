@@ -24,7 +24,7 @@ function BookSingle() {
   const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
 
   const { id } = useParams();
-  const toastify = (text) =>  toast(`${text}`, {
+  const toastify = (text) => toast(`${text}`, {
     position: "top-center",
     autoClose: 3000,
     hideProgressBar: false,
@@ -49,11 +49,11 @@ function BookSingle() {
     }
     getBook()
   }, [])
-  
+
   const [isBookmarked, setIsBookmarked] = useState(false);
-  
+
   const deleteBook = () => {
-    axios.delete(`/api/books/deleteBook/${bookDetails?.bookId}`).then((res) => res.status==200 && toastify('Book Removed Successfully !') && history.goBack()).catch(() => toastify('Please try after sometimes'))
+    axios.delete(`/api/books/deleteBook/${bookDetails?.bookId}`).then((res) => res.status == 200 && toastify('Book Removed Successfully !') && history.goBack()).catch(() => toastify('Please try after sometimes'))
   }
 
   const addToBookmarks = () => {
@@ -61,7 +61,7 @@ function BookSingle() {
     setIsBookmarked(true);
     dispatch(addToBookmark(bookDetails))
   };
-  
+
   const removeFromBookmarks = () => {
     toastify('Removed from Bookmark')
     setIsBookmarked(false)
@@ -81,10 +81,10 @@ function BookSingle() {
     const senderId = userSession.userId
     const receiverId = bookDetails.userId
     const bookname = bookDetails.bookname
-    const conv = {senderId, receiverId , bookname}
+    const conv = { senderId, receiverId, bookname }
     axios.post(`/api/conversations`, conv)
-    .then((res) => (res.status == 200 && history.push('/chats')))
-    .catch((e) => console.log(e))
+      .then((res) => (res.status == 200 && history.push('/chats')))
+      .catch((e) => console.log(e))
   }
   const checkAuth = () => {
     userSession ? createConv() : window.alert('Please Login First ...')
@@ -125,56 +125,56 @@ function BookSingle() {
                   }
                 </ul>
 
-                {bookDetails?.agreement && 
-                <>
-                <h2 className="capitalize font-bold my-3 flex">Agreement: </h2>
-                
-                <p className="p-text">
-                  <input type="checkbox" required className="w-4 h-4 mr-1" />
-                  <span>I accept the agreement of {bookDetails?.agreement} months to return the book <a href={shareBook_agreement} className="text-blue-500 cursor-pointer" download>Download Agreement</a></span>
-                </p>
-                </>
+                {bookDetails?.agreement &&
+                  <>
+                    <h2 className="capitalize font-bold my-3 flex">Agreement: </h2>
+
+                    <p className="p-text">
+                      <input type="checkbox" required className="w-4 h-4 mr-1" />
+                      <span>I accept the agreement of {bookDetails?.agreement} months to return the book <a href={shareBook_agreement} className="text-blue-500 cursor-pointer" download>Download Agreement</a></span>
+                    </p>
+                  </>
                 }
               </div>
               <div>
-                
-                  {userSession?.userId !== bookDetails?.userId ?
 
-                    <div className="flex text-sm flex-row items-center justify-evenly">
-                          <motion.button
-                            whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                            whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                            className="bg-gray-900 px-4 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
-                            type="button"
-                            onClick={checkAuth}
-                            >
-                            <ChatBubbleOutlineIcon className="mr-1" />Chat Now
-                          </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                        whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                        className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
-                        type="button" onClick={isBookmarked ? (removeFromBookmarks) : (addToBookmarks)}>
-                        <BookmarkRoundedIcon
-                          style={{
-                            fill: isBookmarked ? "#fff" : "transparent",
-                            stroke: "#fff",
-                            strokeWidth: 2,
-                          }}
-                          className="mr-1"
-                        />{isBookmarked ? `Bookmarked` : `Bookmark`}
-                      </motion.button>
-                    </div>
-                    :
+                {userSession?.userId !== bookDetails?.userId ?
+
+                  <div className="flex text-sm flex-row items-center justify-evenly">
                     <motion.button
-                        whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
-                        whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
-                        className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none bg-red-600 hover:bg-red-800"
-                        type="button"
-                        onClick={deleteBook}
-                        >
-                        <DeleteIcon className="mr-1" />Remove
-                      </motion.button>
+                      whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                      whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                      className="bg-gray-900 px-4 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
+                      type="button"
+                      onClick={checkAuth}
+                    >
+                      <ChatBubbleOutlineIcon className="mr-1" />Chat Now
+                    </motion.button>
+                    <motion.button
+                      whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                      whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                      className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none btn-bg"
+                      type="button" onClick={isBookmarked ? (removeFromBookmarks) : (addToBookmarks)}>
+                      <BookmarkRoundedIcon
+                        style={{
+                          fill: isBookmarked ? "#fff" : "transparent",
+                          stroke: "#fff",
+                          strokeWidth: 2,
+                        }}
+                        className="mr-1"
+                      />{isBookmarked ? `Bookmarked` : `Bookmark`}
+                    </motion.button>
+                  </div>
+                  :
+                  <motion.button
+                    whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
+                    whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+                    className="px-4 py-3 flex items-center mb-1 mr-1 text-white focus:outline-none bg-red-600 hover:bg-red-800"
+                    type="button"
+                    onClick={deleteBook}
+                  >
+                    <DeleteIcon className="mr-1" />Remove
+                  </motion.button>
                 }
               </div>
             </div>

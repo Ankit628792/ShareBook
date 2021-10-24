@@ -1,17 +1,17 @@
 import jwt from 'jsonwebtoken'
 
 const userSession = () => {
-    try {
-        if(typeof window !== 'undefined'){
-            const data = JSON.parse(window.localStorage.getItem('neuron-token'));
-            if(data){
-                const verifyToken = jwt.verify(data, 'zyxwvutsrqponmlkjihgfedcbaneuronclub');
-                return verifyToken;
-            }
-        }
-    } catch (error) {
-        return ;
+  try {
+    if (typeof window !== 'undefined') {
+      const data = JSON.parse(window.localStorage.getItem('token'));
+      if (data) {
+        const verifyToken = jwt.verify(data, 'secret_key');
+        return verifyToken;
+      }
     }
+  } catch (error) {
+    return;
+  }
 }
 
 const shuffleArray = (array) => {
@@ -22,6 +22,18 @@ const shuffleArray = (array) => {
   }
   return shuffled;
 };
+
+const Cipher = (text) => {
+  let cText = '';
+  for (i in text) { cText += String.fromCharCode(text.charCodeAt(i) + 6) }
+  return cText ;
+}
+
+const DeCipher = (text) => {
+  let dcText = '';
+  for (i in text) { dcText += String.fromCharCode(text.charCodeAt(i) - 6) }
+  return dcText ;
+}
 
 const pageTransition = {
   type: "tween",
@@ -100,6 +112,8 @@ export {
   pageTransition,
   pageZoom,
   pageSlide,
+  Cipher,
+  DeCipher,
   shuffleArray,
-  userSession
+  userSession,
 };

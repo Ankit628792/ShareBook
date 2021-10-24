@@ -13,6 +13,7 @@ import Message from './Message';
 import SendIcon from '@material-ui/icons/Send';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Cipher } from '../../util';
 
 
 const Chat = () => {
@@ -103,16 +104,17 @@ const Chat = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        let encText = Cipher(newMessage);
         const message = {
             senderId: userSession.userId,
-            text: newMessage,
+            text: encText,
             conversationId: currentChat._id
         }
         // const receiverId = await currentChat?.members.find(member => member !== userSession.userId)
         socket.current.emit('sendMessage', {
             senderId: userSession.userId,
             receiverId: receiverId,
-            text: newMessage
+            text: encText
         })
         try {
             const res = await axios.post('/api/messages', message)
