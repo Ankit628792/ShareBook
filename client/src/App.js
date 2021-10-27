@@ -26,6 +26,7 @@ import './assets/style.css'
 import { useDispatch } from 'react-redux';
 import { restoreBookmark, setUser } from './actions';
 import axios from 'axios'
+import DonatePage from './Views/DonatePage';
 
 function App() {
 
@@ -79,6 +80,10 @@ function App() {
 
             <Route exact path="/contactus">
               <ContactPage />
+            </Route>
+
+            <Route exact path="/donateus">
+              <DonatePage />
             </Route>
 
             <Route exact path="/bookmarks">
