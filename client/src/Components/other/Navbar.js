@@ -64,11 +64,15 @@ function Navbar() {
                         <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/allbooks">Books Shelf</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/about">About</NavLink></li>
                         <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/contactus">Contact</NavLink></li>
+                        <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/donateus">Donate Us</NavLink></li>
+
                         {
                             userSession ?
+
                                 <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/signout">Signout</NavLink></li>
                                 :
                                 <li onClick={handleCheckedSate}> <NavLink activeClassName="selectedNav" to="/signup">SignUp</NavLink></li>
+                                
                         }
 
                     </ul>
@@ -93,6 +97,8 @@ function Navbar() {
                                     <NavLink activeClassName="selectedNav" to="/about" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">About</NavLink>
 
                                     <NavLink activeClassName="selectedNav" to="/contactus" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">Contact</NavLink>
+
+                                    <NavLink activeClassName="selectedNav" to="/donateus" className="text-gray-900 px-4 py-2 rounded-md text-lg font-medium">Donate Us</NavLink>
                                 </div>
                             </div>
                         </div>
