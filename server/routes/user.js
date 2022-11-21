@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs')
 const path = require('path')
 const multer = require('multer')
 const nodemailer = require('nodemailer')
-const HOST = process.env.HOST
 
 const User = require('../model/userSchema');
 const Authenticate = require('../middleware/authenticate');
@@ -140,7 +139,6 @@ router.post('/feedback', async (req, res) => {
 
 //update user by id
 router.patch('/updateuser:_id', async (req, res) => {
-    // let image_url = `${HOST}/user/image/${req.file.filename}`;
     const { username, phone, location, about, image_url } = req.body
     try {
         let _id = req.params._id;

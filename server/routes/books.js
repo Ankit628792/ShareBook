@@ -3,7 +3,6 @@ const router = express.Router();
 const path = require('path')
 const multer = require('multer')
 require('../db/conn')
-const host = process.env.HOST
 
 const Book = require('../model/userBook');
 
