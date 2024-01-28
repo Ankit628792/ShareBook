@@ -68,9 +68,7 @@ router.post('/signin', async (req, res) => {
         const userLogin = await User.findOne({ email: email })
         if (userLogin) {
             const isMatch = await bcrypt.compare(password, userLogin.password)
-
             const token = await userLogin.generateAuthToken();
-
             res.cookie('jwtoken', token, {
                 expires: new Date(Date.now() + 1000 * 60 * 10 * 6 * 24 * 28),
                 httpOnly: true
@@ -158,7 +156,7 @@ router.get('/user', async (req, res) => {
     // const email = req.query.email;
     try {
         const user = await User.findOne({ userId: userId })
-            // : await User.findOne({ email: email });
+        // : await User.findOne({ email: email });
         const { password, cpassword, Tokens, ...other } = user._doc;
         res.status(200).send(other)
     } catch (error) {

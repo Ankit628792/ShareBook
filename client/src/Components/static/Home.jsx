@@ -5,7 +5,6 @@ import appStore from "../../assets/app-store.svg";
 import googlePlay from "../../assets/google-play.svg";
 import headerImg from "../../assets/images/headerImg.png";
 import contact3 from "../../assets/images/contact3.jpg";
-import ShareBook from "../../assets/ShareBook.apk";
 
 function Home() {
   return (
@@ -223,10 +222,10 @@ function Home() {
               <p className="p-text text-lg">We leverage the concept of mobile-first design. Through our work, we focus on designing an experience that works across different screen sizes.</p>
             </div>
             <div className="flex items-center space-x-3">
-              <a href={ShareBook} download className="w-32 transition duration-300 hover:shadow-lg">
+              <a href={'/sharebook.apk'} download className="w-32 transition duration-300 hover:shadow-lg">
                 <img loading="lazy" src={appStore} className="object-cover object-top w-full h-auto mx-auto" alt="" />
               </a>
-              <a href={ShareBook} download className="w-32 transition duration-300 hover:shadow-lg">
+              <a href={'/sharebook.apk'} download className="w-32 transition duration-300 hover:shadow-lg">
                 <img loading="lazy" src={googlePlay} className="object-cover object-top w-full h-auto mx-auto" alt="" />
               </a>
             </div>

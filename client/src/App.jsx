@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-
+import './App.css'
 import { Switch, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
 
@@ -20,9 +20,6 @@ import Signout from "./Components/form/Signout";
 import Footer from "./Components/other/Footer";
 import ScrollToTop from './Components/other/ScrollToTop'
 
-
-import './assets/style.css'
-
 import { useDispatch } from 'react-redux';
 import { restoreBookmark, setUser } from './actions';
 import axios from 'axios'
@@ -37,7 +34,7 @@ function App() {
   const getUser = async () => {
     try {
       const res = await axios.get(`/api/user/userAuthentication`);
-      if(res.data){
+      if (typeof res.data === 'object') {
         dispatch(setUser(res.data))
       }
       else if (res.status !== 200) {
@@ -57,7 +54,7 @@ function App() {
     if (localBookmarks) {
       dispatch(restoreBookmark(localBookmarks));
     }
-  },[]);
+  }, []);
 
   return (
     <>
@@ -119,19 +116,19 @@ function App() {
             </Route>
 
             <Route>
-                <ErrorPage />
+              <ErrorPage />
             </Route>
 
           </Switch>
         </AnimateSharedLayout>
       </AnimatePresence>
-        <ScrollToTop />
-        {
-          window.location.pathname !== '/chats'
-          &&
-          <Footer />
+      <ScrollToTop />
+      {
+        window.location.pathname !== '/chats'
+        &&
+        <Footer />
 
-        }
+      }
     </>
   );
 }

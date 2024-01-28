@@ -37,6 +37,7 @@ const nonUserLinks = [{
 function Navbar() {
 
     const userSession = useSelector((state) => state.userReducer.userSession)
+    console.log(userSession)
 
     const bookmarks = useSelector((state) => state.bookmarkReducer.bookmark)
 

@@ -3,12 +3,12 @@ const express = require('express');
 const app = express();
 const path = require("path")
 const cor = require('cors');
-app.use(cor())
 const socket = require('socket.io');
 const port = process.env.PORT || 5000
 const cookieParser = require('cookie-parser')
 app.use(express.json({ limit: '10mb' }))
 app.use(cookieParser())
+app.use(cor())
 
 require('./db/conn')
 
@@ -83,8 +83,8 @@ io.on('connection', (socket) => {
 
 
 if (process.env.NODE_ENV == 'production') {
-    app.use(express.static(path.join(__dirname, '../client/build')));
+    app.use(express.static(path.join(__dirname, '/client')));
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, '../client/build/index.html'));
+      res.sendFile(path.join(__dirname, '/client/index.html'));
     })
 }

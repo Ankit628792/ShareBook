@@ -1,15 +1,12 @@
-const tailwindcss = require('tailwindcss');
-module.exports = {
-    plugins: [
-        tailwindcss('./tailwind.js'),
-        require('autoprefixer')
-    ],
-    purge: {
-        enabled: true,
-        content: [
-            '*.html',
-            '*.js',
-            '*.jsx'
-        ]
-    }
-};
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+

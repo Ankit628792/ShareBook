@@ -1,17 +1,24 @@
-import jwt from 'jsonwebtoken'
+// import jwt from 'jsonwebtoken'
+import { jwtDecode } from "jwt-decode";
 
 const userSession = () => {
   try {
-    if (typeof window !== 'undefined') {
-      const data = JSON.parse(window.localStorage.getItem('token'));
-      if (data) {
-        const verifyToken = jwt.verify(data, 'secret_key');
-        return verifyToken;
-      }
-    }
+    let data = jwtDecode(window.localStorage.getItem('token') ||'')
+    console.log(data)
   } catch (error) {
     return;
   }
+  // try {
+  //   if (typeof window !== 'undefined') {
+  //     const data = JSON.parse(window.localStorage.getItem('token'));
+  //     if (data) {
+  //       const verifyToken = jwt.verify(data, 'secret_key');
+  //       return verifyToken;
+  //     }
+  //   }
+  // } catch (error) {
+  //   return;
+  // }
 }
 
 const shuffleArray = (array) => {

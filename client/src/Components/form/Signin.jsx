@@ -16,15 +16,15 @@ const Signin = () => {
     }
     const dispatch = useDispatch()
 
-const toastify = (text) =>  toast(`${text}`, {
-    position: "top-center",
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: false,
-    draggable: true,
-    progress: undefined,
-  });
+    const toastify = (text) => toast(`${text}`, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+    });
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
@@ -43,34 +43,38 @@ const toastify = (text) =>  toast(`${text}`, {
     }
     const [isLoading, setisLoading] = useState(false)
     // onSubmit handle event 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         setData(data);
         setisLoading(true)
-        const res = postData(data, `/api/user/signin`)
-        res.then((res) => {
-            const { status, error } = res;
+        try {
+            const res = postData(data, `/api/user/signin`)
+            res.then((res) => {
+                const { status, error } = res;
+                setisLoading(false)
+                switch (status) {
+                    case 200:
+                        reset()
+                        toastify('Signed in Successful 🥳')
+                        getUser()
+                        history.push('/')
+                        break;
+                    case 400:
+                        toastify(error)
+                        break;
+                    case 401:
+                        toastify("Unregistered User")
+                        break;
+                    case 422:
+                        toastify(error)
+                        break;
+                    default:
+                        toastify('Internal Server Error')
+                        break;
+                }
+            })
+        } catch (error) {
             setisLoading(false)
-            switch (status) {
-                case 200:
-                    reset()
-                    toastify('Signed in Successfull 🥳')
-                    getUser()
-                    history.push('/')
-                    break;
-                case 400:
-                    toastify(error)
-                    break;
-                case 401:
-                    toastify("Unregistered User")
-                    break;
-                case 422:
-                    toastify(error)
-                    break;
-                default:
-                    toastify('Internal Server Error')
-                    break;
-            }
-        })
+        }
     };
 
 

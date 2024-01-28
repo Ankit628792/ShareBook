@@ -1,27 +1,31 @@
-*{
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
-.modal{
+.modal {
   width: 100%;
   z-index: 99;
   min-height: 100vh;
   position: absolute;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.btn-bg {
+  background: linear-gradient(45deg, #1380F9 40%, #1EA5FC);
+  box-shadow: 0 0.5rem 1rem #1ea5fc45;
+  border-radius: 40px;
+}
+
+@layer components {
+  * {
+    @apply transition-all
+  }
+
+  .button {
+    @apply border-2 font-bold tracking-widest border-blue-500 text-blue-500 bg-white hover:bg-blue-500 hover:text-white px-6 py-2
+  }
 }
