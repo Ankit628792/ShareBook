@@ -5,7 +5,6 @@ import { useForm } from 'react-hook-form';
 import { postData } from '../../requests/requestData';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import emailjs from 'emailjs-com';
 
 function Feedback() {
 	const { register, handleSubmit, formState: { errors }, reset } = useForm({ reValidateMode: 'onChange' });
@@ -19,31 +18,16 @@ function Feedback() {
 		setIsSending(true);
 		console.log('sending feedback ...')
 		const res = postData(data, `/api/user/feedback`);
-		emailjs.send('service_sv9wgnh', 'template_f1ugzsm', data, 'user_MakiHHTPMRIhEyg9GFelr')
-			.then((response) => {
-				setIsSending(false)
-				toast('Message Sent Successfully 🤗🥳🎉', {
-					position: "top-center",
-					autoClose: 3000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: false,
-					draggable: true,
-					progress: undefined,
-				});
-				reset()
-			}, (err) => {
-				setIsSending(false);
-				toast('Failed To Send Message 🥺😥🤕', {
-					position: "top-center",
-					autoClose: 3000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: false,
-					draggable: true,
-					progress: undefined,
-				});
-			});
+		setIsSending(false);
+		toast('Message Sent Successfully 🤗🥳🎉', {
+			position: "top-center",
+			autoClose: 3000,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: false,
+			draggable: true,
+			progress: undefined,
+		});
 	};
 	return (
 		<section>
@@ -108,9 +92,9 @@ function Feedback() {
 														whileTap={{ scale: 0.95, transition: { duration: 0.1 } }} id="feedbackBtn"
 														className="bg-yellow-500 tracking-widest text-white text-center mx-auto active:bg-yellow-400 text-lg uppercase px-7 py-3 rounded-full shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
 														type="submit" style={{ transition: `all 0.15s ease 0s` }}>
-															{
-																isSending ? 'Sending...' : 'Send' 
-															}
+														{
+															isSending ? 'Sending...' : 'Send'
+														}
 													</motion.button>
 												</div>
 											</form>
