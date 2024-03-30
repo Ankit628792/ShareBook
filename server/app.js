@@ -34,7 +34,7 @@ app.use('/api/messages', messageRoute)
 
 
 
-const server = app.listen(port , () => {
+const server = app.listen(port, () => {
     console.log(`Backend is running at Port ${port}`)
 })
 // mongodb+srv://<username>:<password>@cluster0.tde6c.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
@@ -45,10 +45,10 @@ let users = []
 const addUser = (userId, socketId) => {
     !users.some((user) => user.userId === userId) &&
         users.push({ userId, socketId })
-    }
+}
 
-    const removeUser = (socketId) => {
-        users = users.filter((user) => user.socketId !== socketId)
+const removeUser = (socketId) => {
+    users = users.filter((user) => user.socketId !== socketId)
 }
 
 const getUser = (userId) => {
@@ -63,11 +63,11 @@ io.on('connection', (socket) => {
         await addUser(userId, socket.id);
         io.emit('getUsers', users)
     })
-    
+
     //send and get message
     socket.on('sendMessage', async ({ senderId, receiverId, text }) => {
         const user = await getUser(receiverId)
-        if(user){
+        if (user) {
             io.to(user.socketId).emit('getMessage', {
                 senderId, text
             })
@@ -83,8 +83,8 @@ io.on('connection', (socket) => {
 
 
 if (process.env.NODE_ENV == 'production') {
-    app.use(express.static(path.join(__dirname, '../client/dist')));
+    app.use(express.static(path.join(__dirname, '../client/build')));
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+        res.sendFile(path.join(__dirname, '../client/build/index.html'));
     })
 }

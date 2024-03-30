@@ -3,7 +3,7 @@ import { jwtDecode } from "jwt-decode";
 
 const userSession = () => {
   try {
-    let data = jwtDecode(window.localStorage.getItem('token') ||'')
+    let data = jwtDecode(window.localStorage.getItem('token') || '')
     console.log(data)
   } catch (error) {
     return;
@@ -116,6 +116,21 @@ const errorAnim = {
   },
 };
 
+
+const uploadImage = async (image) => {
+  let data = new FormData();
+  data.append("file", image)
+  data.append("upload_preset", `${process.env.preset}`)
+  data.append("cloud_name", `${process.env.cloud_name}`)
+  data.append("folder", 'sharebook')
+  const resp = await fetch(`https://api.cloudinary.com/v1_1/${process.env.cloud_name}/image/upload`, {
+    method: "post",
+    body: data
+  })
+  let res = await resp.json();
+  return res.secure_url
+}
+
 export {
   errorAnim,
   container,
@@ -127,4 +142,5 @@ export {
   DeCipher,
   shuffleArray,
   userSession,
+  uploadImage
 };

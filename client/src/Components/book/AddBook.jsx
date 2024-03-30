@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { pageTransition, pageZoom } from "../../util";
+import { pageTransition, pageZoom, uploadImage } from "../../util";
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -52,68 +52,36 @@ function AddBook({ setisAddBook }) {
     }, [image])
 
 
-    const sendData = () => {
-        let image_url = '';
-        let bookDetail = { ...data, username, location: location || 'Delhi', image_url, userId }
-        bookDetail.image_url = preview
-        axios.post(`/api/books/addbook`, bookDetail)
-            .then((res) => {
-                if (res.status === 201) {
-                    toastify('Book added successfully')
-                    setisLoading(false)
-                    history.push('/mybook')
-                    setisAddBook(false)
-                }
-                else {
-                    toastify('Unable to add book');
-                    setisLoading(false)
-                }
-            });
-    }
-
     // onSubmit handle event 
     const onSubmit = (data, e) => {
         setData(data);
         console.log('registering user ...')
-
-        // const bookDetail = new FormData();
-        // bookDetail.append('image', preview);
-        // bookDetail.append('userId', userId)
-        // bookDetail.append('username', username)
-        // bookDetail.append('location', (location || `India`))
-        // bookDetail.append('bookname', data.bookname)
-        // bookDetail.append('category', data.category)
-        // bookDetail.append('condition', data.condition)
-        // bookDetail.append('description', data.description)
-        // const image = {image: preview}
-        // console.log(image)
-        // data = {data, ...image}
-        // console.log(data)
-
     };
 
     useEffect(() => {
         const sendData = () => {
-            if(data.bookname){
+            if (data.bookname) {
                 setisLoading(true)
             }
             let image_url = '';
             let newData = { ...data, userId, username, location: location || 'Delhi', image_url }
-            newData.image_url = preview
-            axios.post(`/api/books/addbook`, newData)
-                .then((res) => {
-                    if (res.status === 201) {
-                        toastify('Book added successfully')
-                        setisLoading(false)
-                        history.push('/mybook')
-                        setisAddBook(false)
-                    }
-                    else {
-                        toastify('Could not add book')
-                        setisLoading(false)
-                    }
+            uploadImage(image).then((image_url) => {
+                newData.image_url = image_url
+                axios.post(`/api/books/addbook`, newData)
+                    .then((res) => {
+                        if (res.status === 201) {
+                            toastify('Book added successfully')
+                            setisLoading(false)
+                            history.push('/mybook')
+                            setisAddBook(false)
+                        }
+                        else {
+                            toastify('Could not add book')
+                            setisLoading(false)
+                        }
 
-                });
+                    });
+            })
         }
         if (data && data?.bookname) {
             sendData()
@@ -138,7 +106,7 @@ function AddBook({ setisAddBook }) {
                                 whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
                                 whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
                                 className="bg-gray-900 mx-2 px-5 py-3 flex items-center mb-1 shadow-xl text-white rounded-full focus:outline-none hover:bg-gray-800"
-                                type="button" onClick={() => setisAddBook(false) }>
+                                type="button" onClick={() => setisAddBook(false)}>
                                 Cancel
                             </motion.button>
 
@@ -215,7 +183,7 @@ function AddBook({ setisAddBook }) {
                         </div>
                     </form>
                 </div>
-                <ToastContainer style={{display: 'none'}} />
+                <ToastContainer style={{ display: 'none' }} />
             </motion.div>
 
         </>
